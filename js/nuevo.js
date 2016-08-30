@@ -462,3 +462,35 @@ function obtenerOpcionFechas(name){
 	}
 	
 }
+
+/*==========================================================================
+NUEVA FUNCION PARA CALENDARIO
+============================================================================*/
+
+function calendario(div){
+	$(div).eCalendar({url: 'loadCalendar'});
+	
+	var parametros ={
+		"idMiembro" : getIDActual(),
+	}
+	$.ajax({
+		data: parametros,
+		url: "php/mostrarEventos.php",
+		type: "post",	
+		
+		success: function(response){		//Recibo de vuelta el nombre, descripcion y hora del evento, ademas del club o grupo donde se hace ese evento. :)
+			alert(response);
+			/*if(response){
+				var datos=response.value.split("/"); 
+				nombreE : datos[0], descripE : datos[1], fechaE : datos[2], perteneceE : datos[3],
+				/*var fechita=fechaE.value.split("-");
+				anio : fechita[0], mes : fechita[1], dia : fechita[2], hora : fechita[3],
+				$(div).eCalendar({
+					events: [
+						{title: perteneceE" - "nombreE, description: descripE, datetime: new Date(anio, mes, dia, hora)}
+					]
+				});
+			}*/
+		}
+	});	
+}

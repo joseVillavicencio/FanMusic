@@ -9,9 +9,11 @@
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">	
 	<link href="css/responsive.css" rel="stylesheet">
+	<link href="css/jquery.e-calendar.css" rel="stylesheet"> <!--NUEVO-->
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script src="js/nuevo.js" type="text/javascript"></script>
+	<script src="js/jquery.e-calendar.js" type="text/javascript"></script><!--NUEVO-->
 		
 		<script>
 			function cargarClub(div, desde){
@@ -192,12 +194,16 @@
 				</div>		
 				<center><h2>Calendario de FanMusic</h2></center>
 				<div class="col-md-12 col-md-offset-2 col-sm-12">
-					<div id="calendario" class="col-md-6 col-sm-6" ><iframe src="https://calendar.google.com/calendar/embed?src=a0aqpp5472g13a7921k5rk6t44%40group.calendar.google.com&ctz=America/Santiago" style="border: 0" width="500" height="500" frameborder="0" scrolling="no"></iframe></div>
+					<div id="calendar">
+						<script type="text/javascript">
+							calendario("#calendar");
+						</script>
+					</div>
 					<div id="e" class="col-md-4 col-sm-4" style="text-align:center;">
-							<script type="text/javascript" >
-								botonesEvento("#e"); //JOSE MVOER ESTA WEA PARA LA DERECHA
-							</script>
-						</div>
+						<script type="text/javascript" >
+							botonesEvento("#e"); //JOSE MVOER ESTA WEA PARA LA DERECHA
+						</script>
+					</div>
 				</div><br>
 					
 				<div class="col-sm-12 col-md-12">					
@@ -206,7 +212,6 @@
 						<script type="text/javascript">
 							asistenciaEvento("#asistenciaEventos");
 						</script>
-						
 					</div>
 				</div>
 			</div>			
