@@ -1,0 +1,62 @@
+header{
+ text-align:right;
+ background:rgba(255,255,255,0.6);
+}
+body{
+background: url('fondo/contact-bg.jpg') fixed center no-repeat; 
+}
+
+footer{
+margin-top:3%;
+color:white;
+text-align:center;
+}
+#gestion{
+border: 2px;
+border-radius: 15px;
+background:rgba(255,255,255,0.5);
+ float: center;
+}
+#grupo{
+background:rgba(255,255,255,0.5);
+border: 2px;
+border-radius: 15px;
+float: center;
+}
+#panel{
+	margin-left:5%;
+	margin-right:5%;
+	margin-top:5%;
+}
+#izquierda{
+color: black;
+width:auto;
+height:100%;
+position:relative;
+float:left;
+text-align:center;
+
+}   
+#derecha{
+color: black;
+width:auto;
+height:100%;
+position:relative;
+float:right;
+text-align:center;
+
+} 
+ h1{
+    font-family: cursive;
+	color:black;
+
+}
+h3{
+   font-family: Times New Roman;
+}
+#saludo{
+text-align:center;
+float:center;
+color: black;
+}
+ 
