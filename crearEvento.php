@@ -9,7 +9,7 @@
 		<link href="css/main.css" rel="stylesheet">
 		<link href="css/animate.css" rel="stylesheet">	
 		<link href="css/responsive.css" rel="stylesheet">
-		<link href="css/bootstrap.css" rel="stylesheet">
+		<!--<link href="css/bootstrap.css" rel="stylesheet">-->
 		<link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css">	<!--Para el datetimepicker-->	
 		<script src="js/jquery.js" type="text/javascript"></script>
 		<script src="js/bootstrap.js" type="text/javascript"></script>
