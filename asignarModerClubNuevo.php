@@ -12,8 +12,8 @@
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<!-- Esta parte es de nuestro codigo- -->
 	<script src="js/funcionesClub.js" type="text/javascript"></script>
-	<link href="css/jquery.dialog.css" rel="stylesheet" type="text/css"><!--NECESARIA PARA EL DIALOG/IMAGEN-->
-	<script src="js/jquery.dialog.js" type="text/javascript"></script><!--NECESARIA PARA EL DIALOG/IMAGEN-->	
+	<link href="css/jquery.dialog.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery.dialog.js" type="text/javascript"></script>	
 	
 </head>
 <body>

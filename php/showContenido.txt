@@ -1,0 +1,31 @@
+<?php
+	function mostrarContenido(string $content){
+		$cadena_origen=$content;
+		$cadena_resultante= preg_replace("/((http|https|www)[^\s]+)/", '<a href="$1">$0</a>', $cadena_origen);
+		$cadena_resultante= preg_replace("/href=\"www/", 'href="http://www', $cadena_resultante);
+		preg_match_all("#(?<=v=|v\/|vi=|vi\/|youtu.be\/)[a-zA-Z0-9_-]{11}#", $content, $matches);
+		
+		var_dump($matches[0]);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+?>
