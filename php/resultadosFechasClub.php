@@ -30,16 +30,13 @@
 											$cantUno=$fila3[3] ;
 											$cantDos=$fila3[4] ;
 											$cantTres=$fila3[5] ;
-											$horarioFinal=$fila3[6];
-											if($horarioFinal==null){ // para que no se pueda precionar el boton confirmar 2 veces
+											
 											echo '<tr> <td>'.$nombreClub.'<br><br></td>'; //Salto de fila con <TR>
 											echo '<td>'.$nombreEvento.':<br> '.$descripEvento.'</td><br>';
-											echo '<td> '.$fechaUno.'</td>';
-											echo '<td> '.$fechaDos.' </td>' ;
-											echo '<td> '.$fechaTres.'</td>' ;
-											echo '<td> <button type="button" id="botonConfirmar" class="btn btn-primary btn-xs" onclick="fechaFinal('."'".$idEvento."'".','."'".$fechaUno."'".','."'".$fechaDos."'".','."'".$fechaTres."'".','."'".$cantUno."'".','."'".$cantDos."'".','."'".$cantTres."'".');" >Confirmar Fecha</button></td>';
-											echo '<td> <button type="button" id="botonConfirmar" class="btn btn-primary btn-xs" onclick="ventanaPopEventos();" >Ver asistencia</button></td></tr>';
-											}
+											echo '<td> '.$fechaUno.' : '.$cantUno.' Personas </td>' ;
+											echo '<td> '.$fechaDos.' : '.$cantDos.' Personas </td>' ;
+											echo '<td> '.$fechaTres.' : '.$cantTres.' Personas </td></tr>' ;
+											echo '<td> <button type="button" id="botonConfirmar" class="btn btn-info btn-xs" onclick="fechaFinal('."'".$idEvento."'".','."'".$fechaUno."'".','."'".$fechaDos."'".','."'".$fechaTres."'".','."'".$cantUno."'".','."'".$cantDos."'".','."'".$cantTres."'".');" >Confirmar Fecha</button></td>';
 										}
 									}
 								}
