@@ -298,7 +298,7 @@ function fechaFinal(idEv,fUno,fDos,fTres,cUno,cDos,cTres){
 		
 		success: function(response){
 			alert(response);
-			$(div).append(response);	
+			location.href='miseventosEXITONUEVO.php';
 		}
 	});
 }
@@ -348,12 +348,142 @@ function informarAsistencia(id, nombreEvento,name){
 		success: function(response){	
 			alert(response);
 			if(response=="Listo!"){
-				location.href='FanMusic/miseventos.php';
+				location.href='FanMusic/miseventosEXITONUEVO.php';
 			}
 		}
 	});
 }
 
+function resultadosClub(div){
+	var parametros = {
+		"idM" :  getIDActual()
+	}
+	$.ajax({
+		data: parametros,
+		url: "php/resultadosFechasClub.php",
+		type: "POST",	//Defino la forma en que llegarán los parámetros al php
+		
+		success: function(response){
+			//alert(response);
+			$(div).append(response);
+			datosGrafico();
+		}
+	});
+}
+function resultadosGrupo(div){
+	var parametros = {
+		"idM" :  getIDActual()
+	}
+	$.ajax({
+		data: parametros,
+		url: "php/resultadosFechasGrupo.php",
+		type: "POST",	//Defino la forma en que llegarán los parámetros al php
+		
+		success: function(response){
+			$(div).append(response);
+			datosGraficoGrupo();
+		}
+	});
+}
+
+function actualizar(div,dir){
+	$(div).load(dir);
+}
+function ventanaPopEventos(){
+	window.open('/FanMusic/ventanaPopEventos.php',"Eventos","width=420,height=340,toolbar=no");
+}
+function datosGraficoGrupo(){
+	
+	var parametros = {
+		"idM" :  getIDActual()
+	}
+	$.ajax({
+		data: parametros,
+		url:	"php/CantidadFechasGrupo.php",
+		type:	"POST",
+		dataType: "JSON",
+		cache:	false,
+		
+		success:	function(response){
+			
+			if(response.status=="success"){
+				var resp = (response.message).split(";");
+				localStorage.setItem("cant1",resp[0]);
+				localStorage.setItem("cant2",resp[1]);
+				localStorage.setItem("cant3",resp[2]);
+				var time = resp[3].split(" ");
+				var opc ="Fecha: "+time[0]+"<br>Hora: "+time[1]+"<br>";
+				localStorage.setItem("fecha1",opc);
+				var time2 = resp[4].split(" ");
+				var opc2 ="Fecha: "+time2[0]+"<br>Hora: "+time2[1]+"<br>";
+				localStorage.setItem("fecha2",opc2);
+				var time3 = resp[5].split(" ");
+				var opc3 ="Fecha: "+time3[0]+"<br>Hora: "+time3[1]+"<br>";
+				localStorage.setItem("fecha3",opc3);
+			}else{
+				if(response.status=="error"){
+					alert(response.message);
+				}
+			}	
+		}
+	});
+}
+function datosGrafico(){
+	
+	var parametros = {
+		"idM" :  getIDActual()
+	}
+	$.ajax({
+		data: parametros,
+		url:	"php/CantidadFechas.php",
+		type:	"POST",
+		dataType: "JSON",
+		cache:	false,
+		
+		success:	function(response){
+			
+			if(response.status=="success"){
+				var resp = (response.message).split(";");
+				localStorage.setItem("cant1",resp[0]);
+				localStorage.setItem("cant2",resp[1]);
+				localStorage.setItem("cant3",resp[2]);
+				var time = resp[3].split(" ");
+				var opc ="Fecha: "+time[0]+"<br>Hora: "+time[1]+"<br>";
+				localStorage.setItem("fecha1",opc);
+				
+				var time2 = resp[4].split(" ");
+				var opc2 ="Fecha: "+time2[0]+"<br>Hora: "+time2[1]+"<br>";
+				localStorage.setItem("fecha2",opc2);
+				var time3 = resp[5].split(" ");
+				var opc3 ="Fecha: "+time3[0]+"<br>Hora: "+time3[1]+"<br>";
+				localStorage.setItem("fecha3",opc3);
+			}else{
+				if(response.status=="error"){
+					alert(response.message);
+				}
+			}	
+		}
+	});
+}
+
+function contarFechaUno(){
+	return localStorage.getItem("cant1");
+}
+function contarFechaDos(){
+	return localStorage.getItem("cant2");
+}
+function contarFechaTres(){
+	return localStorage.getItem("cant3");
+}
+function FechaTres(){
+	return localStorage.getItem("fecha3");
+}
+function FechaDos(){
+	return localStorage.getItem("fecha2");
+}
+function FechaUno(){
+	return localStorage.getItem("fecha1");
+}
 function mostrarResultados(div){
 	var parametros = {
 		'id' :  getIDActual(),//Nombre que llego desde el formulario	
@@ -375,39 +505,4 @@ function mostrarResultados(div){
 			}
 		}
 	});
-}
-
-function resultadosClub(div){
-	var parametros = {
-		"idM" :  getIDActual()
-	}
-	$.ajax({
-		data: parametros,
-		url: "php/resultadosFechasClub.php",
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
-		
-		success: function(response){
-			//alert(response);
-			$(div).append(response);
-		}
-	});
-}
-function resultadosGrupo(div){
-	var parametros = {
-		"idM" :  getIDActual()
-	}
-	$.ajax({
-		data: parametros,
-		url: "php/resultadosFechasGrupo.php",
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
-		
-		success: function(response){
-			//alert(response);
-			$(div).append(response);
-		}
-	});
-}
-
-function actualizar(div,dir){
-	$(div).load(dir);
 }
