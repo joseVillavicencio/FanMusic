@@ -17,6 +17,8 @@
 		<script type="text/javascript" src="js/coundown-timer.js"></script>
 		<script type="text/javascript" src="js/jquery.scrollTo.js"></script>
 		<script type="text/javascript" src="js/jquery.nav.js"></script>
+		<script src="js/jquery.goup.min.js" type="text/javascript"></script><!--NUEVO-->
+		
 		<script type="text/javascript">
 		
 			$(document).ready(function(){
@@ -25,6 +27,11 @@
 					actualizar("#derecha","listPuGru.php");
 				}
 				setInterval(actualizando,45000);
+			});
+		</script>
+		<script>
+			jQuery(document).ready(function(){
+				jQuery.goup();
 			});
 		</script>
 	</head>
