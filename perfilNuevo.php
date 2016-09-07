@@ -68,10 +68,22 @@
 					</div>
 				</div>
 				<br>
-				<div id="comentarios" class="row">
-					<script type="text/javascript">
-						mostrarComentarios("#comentarios");
-					</script>
+				<div class="row">
+					<div id="anecdota" class="col-lg-4 col-sm-4" >
+						<script type="text/javascript">
+							anecdota("#anecdota");
+						</script>
+					</div>
+					<div id="listasAnecdota" class="col-lg-4 col-sm-4" >
+						<script type="text/javascript">
+							mostrarAnecdota("#listasAnecdota");
+						</script>
+					</div>
+					<div id="comentarios"  class="col-lg-4 col-sm-4">
+						<script type="text/javascript">
+							mostrarComentarios("#comentarios");
+						</script>
+					</div>
 				</div>
 			</div>	
 		</div>	
