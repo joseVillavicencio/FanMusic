@@ -9,11 +9,11 @@
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">	
 	<link href="css/responsive.css" rel="stylesheet">
-	<link href="css/jquery.e-calendar.css" rel="stylesheet"> <!--NUEVO-->
-	<script type="text/javascript" src="js/jquery.js"></script>
+	<link href="css/jquery.e-calendar.css" rel="stylesheet">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script src="js/nuevo.js" type="text/javascript"></script>
-	<script src="js/jquery.e-calendar.js" type="text/javascript"></script><!--NUEVO-->
+	<script src="js/jquery.e-calendar.js" type="text/javascript"></script>
+	<script src="js/jquery.goup.min.js" type="text/javascript"></script><!--NUEVO-->
 		
 		<script>
 			function cargarClub(div, desde){
@@ -32,6 +32,11 @@
 					interval:5000
 					});
 				setInterval(actualizando,45000);
+			});
+		</script>
+		<script>
+			jQuery(document).ready(function(){
+				jQuery.goup();
 			});
 		</script>
 </head>
