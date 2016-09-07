@@ -395,3 +395,79 @@ function eliminarCuenta(){
    	 }
     });
 }
+//*----------seccion nueva--------------------- *
+function anecdota(div){
+	var parametros={
+		"apodo":getApoActual(),
+		 "id":getIDActual(),
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/esFan.php",
+		type:"POST",
+		success:	function(response){
+	
+			if(response==1){
+				$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"></div><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span> <input type="text" class="form-control" id="contenidoNuevo" aria-describedby="basic-addon5"></div></div><div class="panel panel-footer"><button class="btn btn-info" onclick="publicarAnecdota();">Compartir</button></div></div>');
+			}
+		}
+	});
+}
+
+function publicarAnecdota(){
+	var titulo = document.getElementById("tituloNuevo").value;
+	var contenido=  document.getElementById("contenidoNuevo").value;
+	var parametros={
+		 "id":getIDActual(),
+		"titulo" : titulo,
+		"contenido" :contenido,
+	}
+	if((titulo!="")&&(contenido!="")){
+		$.ajax({
+			data:parametros,
+			url:"php/publicarAnecdota.php",
+			type:"POST",
+			success:	function(response){
+				if(response==1){
+					location.href='/FanMusic/perfilNuevo.php';
+				}
+			}
+		});
+	}else{
+		alert("Debe completar el título y contenido de su anécdota");
+	}
+}
+function mostrarAnecdota(div){
+	var parametros={
+		 "id":getIDActual(),
+		 
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/mostrarAnecdotaPerfil.php",
+		type:"POST",
+		success:	function(response){
+			alert(response);
+			$(div).append(response);
+		}
+	});
+	
+}
+function eliminarAnecdota(idi){
+	var parametros={
+		 "id":idi,
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/eliminarAnecdota.php",
+		type:"POST",
+		success:	function(response){
+			if(response==1){
+				location.href='/FanMusic/perfilNuevo.php';
+			}else{
+				alert ("No se ha podido eliminar la anécdota");
+			}
+		}
+	});
+	
+}

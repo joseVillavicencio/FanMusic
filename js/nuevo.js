@@ -340,43 +340,7 @@ function mostrarLideresCorreo(div){
 		}
 	});
 }
-function mostrarResultados(div){
-	var parametros = {
-		'id' :  getIDActual(),//Nombre que llego desde el formulario	
-		"nombreG" :  ""
-	}
-	$.ajax({
-		data: parametros,
-		url: "queUsuario.php",
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
-		
-		success: function(response){
-			//alert(response);
-			if(response==1){ //Es un Administrador	
-				resultadosClub(div);
-			}else{
-				if(response==2){ //Es un Moderador
-					resultadosGrupo(div);
-				}
-			}
-		}
-	});
-}
-function resultadosClub(div){
-	var parametros = {
-		"idM" :  getIDActual()
-	}
-	$.ajax({
-		data: parametros,
-		url: "php/resultadosFechasClub.php",
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
-		
-		success: function(response){
-			//alert(response);
-			$(div).append(response);
-		}
-	});
-}
+
 function crearClub(div,dov){
 	var parametros={
 	'id':getIDActual(),
@@ -463,6 +427,7 @@ function obtenerOpcionFechas(name){
 	
 }
 
+<<<<<<< HEAD
 /*==========================================================================
 NUEVA FUNCION PARA CALENDARIO
 ============================================================================*/
@@ -512,3 +477,7 @@ function calendario(div){
 		}
 	});	
 }
+=======
+/*---------------- ESTO ES PARA EL GRAFICO --------------*/
+
+>>>>>>> dania
