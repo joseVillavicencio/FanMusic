@@ -344,7 +344,7 @@ function GestionClub(div){
 					$(div).append('<a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'solicitarPublicacionClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Solicitar Publicacion</a>');
 				} 
 			}
-			
+			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-success"  role="button" align="right">Ver Anecdotas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroLetras.php'+"'"+')" class="btn btn-success"  role="button" align="right">Ver Letras</a>');
 		}
 	});
 }
@@ -787,4 +787,24 @@ function eliminarPC(idi){
 }
 function publImagNueva(div){
 	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><label>Agregue un Titulo : </label><input type="text" id="titulo" name="titulo" > <br><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file" /></div></div></div><button type="submit" class="btn btn-success"> Adjuntar Foto </button></form>');		
+}
+
+/*===================================================================
+NUEVA FUNCION PARA LA COSA DE LAS ANECDOTAS
+===================================================================*/
+
+function muroDelClub(div){ 
+	var parametros={
+		'idM': getIDActual(),
+		'nombreC': localStorage.getItem("nombreC")
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/muroAnecdotasClub.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			$(div).append(response);
+		}
+	});
 }
