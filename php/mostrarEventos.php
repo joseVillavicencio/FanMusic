@@ -9,6 +9,7 @@
 		$sql="call mostrarEventos('".$id."');";
 		if($result = $conexion->query($sql)){
 			if($result->num_rows >0){
+				$arraylist="";
 				while($fila=mysqli_fetch_row($result)){ 
 					$nombreE=$fila[0] ;
 					$descripE=$fila[1];
@@ -23,7 +24,7 @@
 							while($fila2=mysqli_fetch_row($result2)){ 
 								$nombreClub=$fila2[0] ;
 							}
-							echo $nombreE."/".$descripE."/".$fecha_f."/".$nombreClub;
+							$arraylist=$arraylist."".$nombreE."/".$descripE."/".$fecha_f."/".$nombreClub."@");
 						}
 					}
 					
@@ -34,13 +35,13 @@
 							while($fila2=mysqli_fetch_row($result2)){ 
 								$nombreGrupo=$fila2[0] ;
 							}
-							echo $nombreE."/".$descripE."/".$fecha_f."/".$nombreGrupo;
+							$arraylist=$arraylist."".$nombreE."/".$descripE."/".$fecha_f."/".$nombreGrupo."@");
 						}
 					}
-						
 				}
+				echo json_encode(array("status"=>"success","message"=>$arraylist));
 			}else{
-				//No hay eventos en los que esté participando actualmente
+				echo json_encode(array("status"=>"error","message"=>"No hay eventos en los que esté participando actualmente"));
 			}
 		}
 		mysqli_close($conexion);

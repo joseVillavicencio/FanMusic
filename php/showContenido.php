@@ -2,9 +2,11 @@
 	function mostrarContenido(string $content){
 		preg_match_all("#(?<=v=|v\/|vi=|vi\/|youtu.be\/)[a-zA-Z0-9_-]{11}#", $content, $matches);
 		
-		foreach($matches as $values){
-			echo '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/'.$values[0].'" frameborder="0" allowfullscreen></iframe>';
-			echo '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/'.$values[1].'" frameborder="0" allowfullscreen></iframe>';
+		if($matches[0]!=null){
+			foreach($matches[0] as $values){
+			
+				echo '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/'.$values.'"  allowfullscreen></iframe></div>';
+			}
 		}
 			
 	
