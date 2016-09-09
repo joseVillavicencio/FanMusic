@@ -822,7 +822,7 @@ function verLetras(div){
 		type: "post",
 		cache:	false,
 		success: function(response){			
-			
+			alert(response);
 			$(div).append(response); 
 		}
 	});
@@ -837,7 +837,7 @@ function verContenidoLetras(div){
 		type: "post",
 		cache:	false,
 		success: function(response){			
-			alert(response);
+			//alert(response);
 			$(div).append(response); 
 		}
 	});
@@ -876,4 +876,29 @@ function publicarLetra(div){
 	}else{
 		alert("Debe ingresar los campos necesarios para añadir una Letra");
 	}
+}
+function activarEdicionLetra(cont){
+	$("#text"+cont).prop('disabled',false);
+	//$("#botonEditar").prop('value','Guardar');
+	//$("#botonEditar").attr('value', 'Save');
+	#botonEditar").html('Save');
+	//$( "#botonEditar" ).button( "option", "label", "new text" );
+	//document.botonEditar.botonEditar.value='acabas de hacer click en el boton';
+	//$("botonEditar").html('[-]');
+}
+function editarLetra(div,cont){
+	$("#text"+cont).prop('disabled',false);
+	var parametros={
+		'nombreC': localStorage.getItem("nombreC")
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/editarLetras.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			alert(response);
+			$(div).append(response); 
+		}
+	});
 }
