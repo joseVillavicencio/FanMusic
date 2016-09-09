@@ -12,6 +12,7 @@
 		<script src="js/funcionesGrupo.js" type="text/javascript"></script>
 		<meta charset="utf-8"/>
 		<script src="js/bootstrap.js" type="text/javascript"></script>
+		<script src="js/jquery.goup.min.js" type="text/javascript"></script><!--NUEVO-->
 	
 	<script>
 		function cargar(div, desde){
@@ -24,6 +25,11 @@
 				actualizar("#publicaciones","php/grupListPub.php");
 			}
 			setInterval(actualizando,45000);
+		});
+	</script>
+	<script>
+		jQuery(document).ready(function(){
+			jQuery.goup();
 		});
 	</script>
 </head>

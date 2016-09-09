@@ -1,5 +1,6 @@
 <?php
 	include('funcionesI.php');
+	include('showContenido.php');
 	
 	/*----------------------------------------------------------------------*/
 	//Datos obtenidos 
@@ -22,25 +23,26 @@
 					$contenido=$fila[3] ;
 					$fecha=$fila[4] ;
 					$conexion2=conectar();
+					echo '<div class="panel panel-default"><div class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$fecha.'</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 					$sql4 = " call puedePublicarAdmi('".$nombre."','".$idM."');";
 					if($result3 = $conexion2->query($sql4)){
 						if($result3->num_rows >0){
 							while($fila3 = mysqli_fetch_row($result3)){
 								$id_p=$fila3[0] ;
 							}
-							echo '<div class="panel panel-default"><div class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$fecha.'</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-danger btn-xs" onclick="eliminarPC('."'".$id."'".');">Eliminar</button></div><div class="panel-body" style="text-align:center;"><h4>'.$subtitulo.'</h4><hr/><h5>'.$contenido.'</h5>';
-							
-						}else{
-							echo '<div class="panel panel-default"><div class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$fecha.'</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div class="panel-body" style="text-align:center;"><h4>'.$subtitulo.'</h4><hr/><h5>'.$contenido.'</h5>';
+							echo '<button type="button" class="btn btn-danger btn-xs" onclick="eliminarPC('."'".$id."'".');">Eliminar</button>';
 						}
 					}
+					echo '</div><div class="panel-body" style="text-align:center;"><h4>'.$subtitulo.'</h4><hr/><h5>';
+					mostrarContenido($contenido);
+					echo '</h5>';
 					$conexion=conectar();
 					$sql5='CALL verImagsPubli("'.$id.'");';
 					if($resu =$conexion->query($sql5)){
 						if($resu->num_rows>0){
 							while($rows2=$resu->fetch_array()){
 								$imag=$rows2[0];
-								echo '<br><img src="'.$imag.'" class="img-responsive img-rounded">';
+								echo '<br><img align="center" src="'.$imag.'" class="img-responsive img-rounded">';
 							}
 						}
 					}

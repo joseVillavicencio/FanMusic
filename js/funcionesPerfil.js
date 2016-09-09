@@ -482,3 +482,34 @@ function eliminarAnecdota(idi){
 	});
 	
 }
+/* PARA MOSTRAR LA SECCION DE ANECDOTAS SEPARADA DE LOS COMENTARIOS */
+function secciones(div){
+	var parametros={
+		'id':getIDActual(),
+		
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/esFan.php",
+		type: "post",
+		success: function(response){			
+			if(response=="1"){ //JOSE EL SEGUNDO BOTON ES TUYO, AHI DEBES PONER EL CODIGO DE LOS COVERS
+				$(div).append('<a onclick="cargarPerfil('+"'"+'#opcionesPerfil'+"'"+','+"'"+'seccionAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Anécdotas</a><a onclick="cargarPerfil('+"'"+'#opcionesPerfil'+"'"+','+"'"+'muroLetras.php'+"'"+')" class="btn btn-success"  role="button" align="right">Covers</a>');
+			}
+		}
+	});
+}
+function listarClubs(div){
+	var parametros={
+		'id':getIDActual(),
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/datosComboBox.php",
+		type:"POST",
+		success:	function(response){
+			$(div).append(response);
+		}
+	});
+	
+}

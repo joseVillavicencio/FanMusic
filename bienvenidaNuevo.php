@@ -9,16 +9,21 @@
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">	
 	<link href="css/responsive.css" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery.js"></script>
+
+	<link href="css/jquery.e-calendar.css" rel="stylesheet">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script src="js/nuevo.js" type="text/javascript"></script>
+	<script src="js/jquery.e-calendar.js" type="text/javascript"></script>
+	<script src="js/jquery.goup.min.js" type="text/javascript"></script><!--NUEVO-->
+
 		
-		<script>
+		<script type="text/javascript">
 			function cargarClub(div, desde){
 				$(div).load(desde);
 			}
 		</script>
 		<script type="text/javascript">
+			
 			carrusel1("#numero");
 			carrusel2("#imags");
 			$(document).ready(function(){
@@ -29,7 +34,12 @@
 				$('.main-slider').carousel({
 					interval:5000
 					});
-				setInterval(actualizando,45000);
+				
+			});
+		</script>
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+				jQuery.goup();
 			});
 		</script>
 </head>
@@ -191,22 +201,25 @@
 					<img class="img-responsive" src="images/watch.png" alt="">
 				</div>		
 				<center><h2>Calendario de FanMusic</h2></center>
-				<div class="col-md-12 col-md-offset-2 col-sm-12">
-					<div id="calendario" class="col-md-6 col-sm-6" ><iframe src="https://calendar.google.com/calendar/embed?src=a0aqpp5472g13a7921k5rk6t44%40group.calendar.google.com&ctz=America/Santiago" style="border: 0" width="500" height="500" frameborder="0" scrolling="no"></iframe></div>
-					<div id="e" class="col-md-4 col-sm-4" style="text-align:center;">
-							<script type="text/javascript" >
-								botonesEvento("#e"); //JOSE MVOER ESTA WEA PARA LA DERECHA
-							</script>
-						</div>
+				<div class="col-md-10 col-md-offset-2 col-sm-12">
+					<div id="calendar" class="col-md-8">
+						<script type="text/javascript">
+							calendario("#calendar");
+						</script>
+					</div>
+					<div id="e" class="col-md-4 col-sm-12" style="text-align:center;">
+						<script type="text/javascript" >
+							botonesEvento("#e"); //JOSE MVOER ESTA WEA PARA LA DERECHA
+						</script>
+					</div>
 				</div><br>
 					
 				<div class="col-sm-12 col-md-12">					
 					<h2>Tienes los siguientes eventos :</h2>
-					<div id="asistenciaEventos">
+					<div id="asistenciaEventos" style="text-align:center">
 						<script type="text/javascript">
 							asistenciaEvento("#asistenciaEventos");
 						</script>
-						
 					</div>
 				</div>
 			</div>			
