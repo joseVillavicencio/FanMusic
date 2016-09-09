@@ -12,6 +12,7 @@
 		die ("Error de conexion");
 	}else{
 		mysqli_set_charset($conexion,"utf-8");
+		$sql2 = " call obtenerAnecdotasClub('".$nombre."');"; // pregunta por si es visible=1
 		$sql2 = " call obtenerAnecdotasClub('".$nombre."');";
 		if($result = $conexion->query($sql2)){
 			if($result->num_rows >0){

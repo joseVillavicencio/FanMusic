@@ -341,10 +341,15 @@ function GestionClub(div){
 				if(response=="2"){// es moder
 					$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'bloquearMiembroClub.php'+"'"+')" class="btn btn-danger"  role="button" align="right">Bloquear Miembros</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'gestionarPublicacionesClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a><a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a>');
 				}else{
-					$(div).append('<a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'solicitarPublicacionClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Solicitar Publicacion</a>');
+					$(div).append('<a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'solicitarPublicacionClub.php'+"'"+')" class="btn btn-warning"  role="button" align="right">Solicitar Publicacion</a>');
 				} 
 			}
+
+			/*Falta considerar que los covers tambien iran dentro de la seccion anecdotas*/
+			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Ver Anecdotas</a><a href='+"'"+'seccionLetras.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Letras</a>');
+
 			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-success"  role="button" align="right">Ver Anecdotas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroLetras.php'+"'"+')" class="btn btn-success"  role="button" align="right">Ver Letras</a>');
+
 		}
 	});
 }
@@ -804,7 +809,81 @@ function muroDelClub(div){
 		type: "post",
 		cache:	false,
 		success: function(response){			
+
+			$(div).append(response); 
+		}
+	});
+}
+/*===================================================================
+NUEVA FUNCION PARA LA COSA DE LAS LETRAS
+============================================*/
+function verLetras(div){ 
+	var parametros={
+		'nombreC': localStorage.getItem("nombreC")
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/obtenerLetras.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			
+			$(div).append(response); 
+		}
+	});
+}
+function verContenidoLetras(div){ 
+	var parametros={
+		'nombreC': localStorage.getItem("nombreC")
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/obtenerContenidoLetras.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			alert(response);
+			$(div).append(response); 
+		}
+	});
+}
+function publicarLetra(div){ 
+	var tit=document.getElementById("tituloNuevo").value;
+	var idioma=document.getElementById("idioma").value;
+	var cont=document.getElementById("contenidoNuevo").value;
+	if((tit!="")&&(idioma!="")&&(cont!="")){
+		var parametros={
+			'nombreC': localStorage.getItem("nombreC"),
+			'tit': tit,
+			'idioma': idioma,
+			'cont': cont,
+		}
+		$.ajax({
+			data:parametros,
+			url: "php/publicarLetra.php",
+			type: "post",
+			cache:	false,
+			success: function(response){			
+				alert(response);
+				if(response=="1"){
+						location.href='/FanMusic/seccionLetras.php';
+				}else{
+					if(response=='2'){
+						alert("La letra de la canción ya existe");
+						location.href='/FanMusic/seccionLetras.php';
+					}else{
+						alert("No se ha podido crear la Letra");
+						location.href='/FanMusic/seccionLetras.php';
+					}
+				}
+			}
+		});
+	}else{
+		alert("Debe ingresar los campos necesarios para añadir una Letra");
+	}
+
 			$(div).append(response);
 		}
 	});
+
 }

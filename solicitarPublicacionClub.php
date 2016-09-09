@@ -20,7 +20,7 @@
 				<div class="panel-body" align="center">Título : <input type="text"  id="tit" name="tit"><br><br>
 					Subtitulo : <input type="text"  id="sub" name="sub"><br><br>
 					Contenido: <input type="text"  id="cont" name="cont"><br><br>
-					<button  type="button" onclick="solicitarPClub();" class="btn btn-success"  >Solicitar</button><br>
+					<button  type="button" onclick="solicitarPClub();" class="btn btn-warning"  >Solicitar</button><br>
 				</div>
 			</div>
 			
