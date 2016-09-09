@@ -344,8 +344,12 @@ function GestionClub(div){
 					$(div).append('<a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'solicitarPublicacionClub.php'+"'"+')" class="btn btn-warning"  role="button" align="right">Solicitar Publicacion</a>');
 				} 
 			}
+
 			/*Falta considerar que los covers tambien iran dentro de la seccion anecdotas*/
 			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Ver Anecdotas</a><a href='+"'"+'seccionLetras.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Letras</a>');
+
+			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-success"  role="button" align="right">Ver Anecdotas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroLetras.php'+"'"+')" class="btn btn-success"  role="button" align="right">Ver Letras</a>');
+
 		}
 	});
 }
@@ -805,6 +809,7 @@ function muroDelClub(div){
 		type: "post",
 		cache:	false,
 		success: function(response){			
+
 			$(div).append(response); 
 		}
 	});
@@ -876,4 +881,9 @@ function publicarLetra(div){
 	}else{
 		alert("Debe ingresar los campos necesarios para añadir una Letra");
 	}
+
+			$(div).append(response);
+		}
+	});
+
 }
