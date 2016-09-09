@@ -881,7 +881,7 @@ function activarEdicionLetra(cont){
 	$("#text"+cont).prop('disabled',false);
 	//$("#botonEditar").prop('value','Guardar');
 	//$("#botonEditar").attr('value', 'Save');
-	#botonEditar").html('Save');
+	//#botonEditar").html('Save');
 	//$( "#botonEditar" ).button( "option", "label", "new text" );
 	//document.botonEditar.botonEditar.value='acabas de hacer click en el boton';
 	//$("botonEditar").html('[-]');

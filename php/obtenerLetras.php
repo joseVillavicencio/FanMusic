@@ -36,7 +36,7 @@
 								  </div>
 								  <div class="modal-footer">
 									<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-									<button type="button" id="botonEditar" name="botonEditar"  onclick="activarEdicionLetra('.$cont.');" class="btn btn-primary">Editar</button>
+									<button type="button" id="botonEditar" name="botonEditar"  onclick="activarEdicionLetra('.$cont.'); this.value='."'".'Guardar'."'".';" class="btn btn-primary">Editar</button>
 								  </div>
 								</div>
 							  </div>
