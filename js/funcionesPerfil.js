@@ -408,19 +408,30 @@ function anecdota(div){
 		success:	function(response){
 	
 			if(response==1){
-				$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"></div><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span> <input type="text" class="form-control" id="contenidoNuevo" aria-describedby="basic-addon5"></div></div><div class="panel panel-footer"><button class="btn btn-info" onclick="publicarAnecdota();">Compartir</button></div></div>');
+				$.ajax({
+					data:parametros,
+					url:"php/datosComboBox.php",
+					type:"POST",
+					success:	function(response){
+							$(div).append(response);
+					}
+				});
+				
+			
 			}
 		}
 	});
 }
 
 function publicarAnecdota(){
+	var compartir = ($("#nombreC option:selected").text());
 	var titulo = document.getElementById("tituloNuevo").value;
 	var contenido=  document.getElementById("contenidoNuevo").value;
 	var parametros={
 		 "id":getIDActual(),
 		"titulo" : titulo,
 		"contenido" :contenido,
+		"compartir": compartir,
 	}
 	if((titulo!="")&&(contenido!="")){
 		$.ajax({
@@ -428,6 +439,7 @@ function publicarAnecdota(){
 			url:"php/publicarAnecdota.php",
 			type:"POST",
 			success:	function(response){
+				alert(response);
 				if(response==1){
 					location.href='/FanMusic/perfilNuevo.php';
 				}
@@ -447,7 +459,6 @@ function mostrarAnecdota(div){
 		url:"php/mostrarAnecdotaPerfil.php",
 		type:"POST",
 		success:	function(response){
-			alert(response);
 			$(div).append(response);
 		}
 	});
@@ -467,6 +478,37 @@ function eliminarAnecdota(idi){
 			}else{
 				alert ("No se ha podido eliminar la anécdota");
 			}
+		}
+	});
+	
+}
+/* PARA MOSTRAR LA SECCION DE ANECDOTAS SEPARADA DE LOS COMENTARIOS */
+function secciones(div){
+	var parametros={
+		'id':getIDActual(),
+		
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/esFan.php",
+		type: "post",
+		success: function(response){			
+			if(response=="1"){ //JOSE EL SEGUNDO BOTON ES TUYO, AHI DEBES PONER EL CODIGO DE LOS COVERS
+				$(div).append('<a onclick="cargarPerfil('+"'"+'#opcionesPerfil'+"'"+','+"'"+'seccionAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Anécdotas</a><a onclick="cargarPerfil('+"'"+'#opcionesPerfil'+"'"+','+"'"+'muroLetras.php'+"'"+')" class="btn btn-success"  role="button" align="right">Covers</a>');
+			}
+		}
+	});
+}
+function listarClubs(div){
+	var parametros={
+		'id':getIDActual(),
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/datosComboBox.php",
+		type:"POST",
+		success:	function(response){
+			$(div).append(response);
 		}
 	});
 	

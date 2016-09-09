@@ -21,6 +21,11 @@
 				location.href= '/FanMusic/indexNuevo.php';
 			}
 	</script>
+	<script>
+		function cargarPerfil(div, desde){
+			$(div).load(desde);
+		}
+	</script>
 	<header id="header" role="banner">		
 		<div class="main-nav">
 			<div class="container">
@@ -47,7 +52,7 @@
 				<div class="miembro">
 					<img class="img-responsive" src="images/miembro.png" alt="">
 				</div>	
-				<a href="editar_perfilNuevo.php" class="btn btn-info btn-md" role="button" align="right">Editar Perfil</a>
+				<a href="editar_perfilNuevo.php" class="btn btn-primary btn-md" role="button" align="right">Editar Perfil</a>
 				<br>
 				<div id="foto">
 					<script>
@@ -68,10 +73,20 @@
 					</div>
 				</div>
 				<br>
-				<div id="comentarios" class="row">
-					<script type="text/javascript">
-						mostrarComentarios("#comentarios");
-					</script>
+				<div class="row">
+					<div id="anecdota" align="center" class="col-lg-4 col-sm-4" >
+						<script type="text/javascript">
+							secciones("#anecdota");
+						</script>
+					</div>
+					
+					<div id="comentarios"  class="col-lg-4 col-sm-4">
+						<script type="text/javascript">
+							mostrarComentarios("#comentarios");
+						</script>
+					</div>
+					<div id="opcionesPerfil" class="col-lg-4 col-sm-4">
+					</div> 
 				</div>
 			</div>	
 		</div>	
