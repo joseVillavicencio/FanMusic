@@ -90,6 +90,7 @@
 						<th>Eliminar</th>
 						<th>Adjuntar</th>
 						<th>Imágenes</th>
+					</tr>
 					</thead>
 					<tbody id="tablaFC">
 						<script type="text/javascript">

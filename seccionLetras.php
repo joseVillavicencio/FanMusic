@@ -14,8 +14,8 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">	
-	<link href="css/responsive.css" rel="stylesheet">
-	<script src="js/bootstrap.js" type="text/javascript"></script>-->
+	<link href="css/responsive.css" rel="stylesheet">-->
+	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		function letras(){
 
@@ -118,21 +118,21 @@
 			
 		</div>
 		<div class="row" >
-			<div id="listas" class="col-xs-12 col-md-8" >		
+			<div id="listas" class="col-xs-6 col-md-4" >		
 				<table class="table">
-					<h2>Letras Del Club</h2><br>
-					<div id="L2" class="col-xs-6 col-md-4">
+				  <h2>Letras Del Club</h2><br>
+				  <thead>
+						<tr>
+							<th>Título</th>
+							<th>Idioma</th>
+							<th>Ver letra</th>
+						</tr>
+				  </thead>
+					<tbody id="cuerpotabla" >
 						<script type="text/javascript">
-							verLetras("#L2");
+							verLetras("#cuerpotabla");
 						</script>
-					</div>
-					
-					<!--<div id="L" class="col-xs-6" style="display: none;" title="Letra">
-						<script type="text/javascript">
-							verContenidoLetras("#L");
-						</script>
-					</div>
-					<div> <a onclick="letras();" style="cursor: pointer; text-decoration: underline;">Ver Letra</a></div>-->
+					</tbody>
 				</table>
 			</div>
 		</div>
