@@ -445,11 +445,6 @@ function calendario(div){
 		type: "post",
 		dataType:"JSON",
 
-		
-		
-		success: function(response){		//Recibo de vuelta el nombre, descripcion y hora del evento, ademas del club o grupo donde se hace ese evento. :)
-			alert(response);
-
 		success: function(response){		//Recibo de vuelta el nombre, descripcion y hora del evento, ademas del club o grupo donde se hace ese evento. :)
 
 			if(response.status="success"){
@@ -466,7 +461,7 @@ function calendario(div){
 						//events: [
 						//	{title: perteneceE+" - "+nombreE, description: descripE, datetime: new Date(anio, mes, dia, hora)}
 						//]
-				}
+				
 
 					var fechita=datos[2].split("-");
 					var anio =fechita[0], mes = fechita[1], dia = fechita[2], hora = fechita[3];
