@@ -73,19 +73,19 @@
 					</div>
 				</div>
 				<br>
-				<div class="row">
-					<div id="anecdota" align="center" class="col-lg-4 col-sm-4" >
+				<div id="anecdota" align="center" class="row">
 						<script type="text/javascript">
 							secciones("#anecdota");
 						</script>
-					</div>
-					
-					<div id="comentarios"  class="col-lg-4 col-sm-4">
+				</div>
+				<hr>
+				<div class="row">
+					<div id="comentarios"  class="col-lg-5 col-sm-5">
 						<script type="text/javascript">
 							mostrarComentarios("#comentarios");
 						</script>
 					</div>
-					<div id="opcionesPerfil" class="col-lg-4 col-sm-4">
+					<div id="opcionesPerfil" class="col-lg-7 col-sm-7">
 					</div> 
 				</div>
 			</div>	

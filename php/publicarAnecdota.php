@@ -4,7 +4,10 @@
 	//Datos obtenidos 
 	$id=$_POST["id"];
 	$titulo=$_POST["titulo"];
-	$contenido=$_POST["contenido"];
+	$club=$_POST["nombreClub"];
+	$cd=$_POST["album"];
+	$lang=$_POST["idioma"];
+	$link=$_POST["video"];
 	$compartir=$_POST["compartir"];
 	$conexion = conectar();
 	mysqli_set_charset($conexion,"utf-8");
