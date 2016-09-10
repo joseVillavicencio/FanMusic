@@ -65,9 +65,6 @@
    	<section id="perfilClub">
 		<div class="container">
 			<div class="row">
-				<div class="watch">
-					<!--<img class="img-responsive" src="images/watch.png" alt="">-->
-				</div>				
 				<div id="portada perfil" align="center">
 					<div id="botonEditar">
 							<script type="text/javascript">
@@ -119,7 +116,7 @@
 							mostrarPC("#publicaciones");
 						</script>
 					</div>
-					<div class="col-lg-4 col-sm-4">
+					<div class="col-lg-4 col-sm-5">
 						<div id="publicar" >
 							<script type="text/javascript">
 								publicarClub("#publicar");

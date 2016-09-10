@@ -60,7 +60,7 @@
 							}
 						}
 					}
-					echo '<input id="'.$id.'" type="text"><button type="button" class="btn btn-primary btn-xs" onclick="comentarP('.$id.');">Comentar</button></div></div><br><br>';
+					echo '<input id="'.$id.'" type="text">&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-xs" onclick="comentarP('.$id.');">Comentar</button></div></div><br><br>';
 				}
 			}
 		}

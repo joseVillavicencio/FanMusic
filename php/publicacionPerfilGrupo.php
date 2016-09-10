@@ -64,7 +64,7 @@
 							}
 						}
 					}
-					echo '<input  id="'.$id.'" type="text"><button type="button" class="btn btn-info btn-xs" onclick="comentarP('.$id.');">Comentar</button></div></div>';
+					echo '<input  id="'.$id.'" type="text">&nbsp;&nbsp;<button type="button" class="btn btn-info btn-xs" onclick="comentarP('.$id.');">Comentar</button></div></div>';
 				}
 			}
 		}
