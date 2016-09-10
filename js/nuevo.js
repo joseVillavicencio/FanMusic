@@ -445,52 +445,25 @@ function calendario(div){
 		type: "post",
 		dataType:"JSON",
 
-		
-		
-		success: function(response){		//Recibo de vuelta el nombre, descripcion y hora del evento, ademas del club o grupo donde se hace ese evento. :)
-			alert(response);
-
-		success: function(response){		//Recibo de vuelta el nombre, descripcion y hora del evento, ademas del club o grupo donde se hace ese evento. :)
-
+		success: function(response){
+			alert(response.status);//Recibo de vuelta el nombre, descripcion y hora del evento, ademas del club o grupo donde se hace ese evento. :)
 			if(response.status="success"){
 				var respuesta=response.message.toString();
 				var casilla=(respuesta).split("@");
 				for(var i=0;i<casilla.length;i++){
 					var datos=casilla[i].split("/"); 
 					var nombreE=datos[0],descripE=datos[1],fechaE=datos[2],perteneceE=datos[3];
-
-					alert("nombre:"+nombreE+" descripción:"+descripE+" fecha:"+fechaE+" pertenece:"+perteneceE );
-					//var fechita=datos[2].split("-");
-					//var anio =fechita[0], mes = fechita[1], dia = fechita[2], hora = fechita[3];
-					//$(div).eCalendar({
-						//events: [
-						//	{title: perteneceE+" - "+nombreE, description: descripE, datetime: new Date(anio, mes, dia, hora)}
-						//]
-				}
-
 					var fechita=datos[2].split("-");
 					var anio =fechita[0], mes = fechita[1], dia = fechita[2], hora = fechita[3];
 					$(div).eCalendar({
 						events: [
 							{title: perteneceE+" - "+nombreE, description: descripE, datetime: new Date(anio, mes, dia, hora)}
-						]});
-						
-				}
+						]
+					});
+				}		
 			}else{
-			alert("no hay");
-
+				alert("no hay");
 			}
-			/*if(response){
-				var datos=response.value.split("/"); 
-				nombreE : datos[0], descripE : datos[1], fechaE : datos[2], perteneceE : datos[3],
-				/*var fechita=fechaE.value.split("-");
-				anio : fechita[0], mes : fechita[1], dia : fechita[2], hora : fechita[3],
-				$(div).eCalendar({
-					events: [
-						{title: perteneceE" - "nombreE, description: descripE, datetime: new Date(anio, mes, dia, hora)}
-					]
-				});
-			}*/
 		}
 	});	
 }

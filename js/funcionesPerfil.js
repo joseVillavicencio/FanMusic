@@ -494,7 +494,7 @@ function secciones(div){
 		type: "post",
 		success: function(response){			
 			if(response=="1"){ //JOSE EL SEGUNDO BOTON ES TUYO, AHI DEBES PONER EL CODIGO DE LOS COVERS
-				$(div).append('<a onclick="cargarPerfil('+"'"+'#opcionesPerfil'+"'"+','+"'"+'seccionAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Anécdotas</a><a onclick="cargarPerfil('+"'"+'#opcionesPerfil'+"'"+','+"'"+'muroLetras.php'+"'"+')" class="btn btn-success"  role="button" align="right">Covers</a>');
+				$(div).append('<a onclick="cargarPerfil('+"'"+'#opcionesPerfil'+"'"+','+"'"+'seccionAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Anécdotas</a><a onclick="cargarPerfil('+"'"+'#opcionesPerfil'+"'"+','+"'"+'secCoverM.php'+"'"+')" class="btn btn-success"  role="button" align="right">Covers</a>');
 			}
 		}
 	});
@@ -512,4 +512,80 @@ function listarClubs(div){
 		}
 	});
 	
+}
+
+//==========================COVERS======================
+
+function publicarCover(){
+	var club = ($("#artista option:selected").val());
+	var titulo = document.getElementById("tituloNuevo").value;
+	var album=  document.getElementById("albumNuevo").value;
+	var idioma= ($("#lang option:selected").text());
+	var link=  document.getElementById("link").value;
+	var compartir=0;
+	if(document.getElementById("compartir").checked){
+		compartir=1;
+	}
+	
+	var parametros={
+		"id":getIDActual(),
+		"nombreClub": club,
+		"titulo" : titulo,
+		"album" :album,
+		"idioma":idioma,
+		"video":link,
+		"compartir": compartir,
+	}
+	if((titulo!="")&&(album!="")&&(link!="")){
+		$.ajax({
+			data:parametros,
+			url:"php/publicarCover.php",
+			type:"POST",
+			success:	function(response){
+				if(response==1){
+					location.href='/FanMusic/perfilNuevo.php';
+				}else{
+					if(response==2){
+						alert("Error al reconocer la URL del video");
+					}
+					if(response==3){
+						alert("Error al encontrar el Artista");
+					}
+					if(response==0){
+						alert("Este video ya se encuentra dentro de nuestra base de datos");
+					}
+				}
+			}
+		});
+	}else{
+		alert("Existen campos sin completar");
+	}
+}
+
+function listarArtis(div){
+	var parametros={
+		'id':getIDActual(),
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/datosComboBox2.php",
+		type:"POST",
+		success:	function(response){
+			$(div).append(response);
+		}
+	});
+}
+function mostrarCovers(div){
+	var parametros={
+		'id':getIDActual(),
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/mostrarCoverU.php",
+		type:"POST",
+		success:	function(response){
+			alert(response);
+			$(div).append(response);
+		}
+	});
 }
