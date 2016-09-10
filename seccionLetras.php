@@ -118,14 +118,16 @@
 			
 		</div>
 		<div class="row" >
-			<div id="listas" class="col-xs-6 col-md-4" >		
+			<div id="listas" class="col-xs-8 col-md-8" >		
 				<table class="table">
 				  <h2>Letras Del Club</h2><br>
 				  <thead>
 						<tr>
 							<th>Título</th>
 							<th>Idioma</th>
-							<th>Ver letra</th>
+							<th>Opciones</th>
+							<th></th>
+							<th></th>
 						</tr>
 				  </thead>
 					<tbody id="cuerpotabla" >

@@ -21,7 +21,6 @@
 			if($result1 =$conexion->query($existe)){
 				if($result1->num_rows >0){
 					echo "2";
-					echo "ya existe";
 				}else{
 					$conexion=conectar();
 					$sql2 = "call  crearLetra('".$idClub."','".$titulo."','".$cont."','".$cont."','".$idioma."');";

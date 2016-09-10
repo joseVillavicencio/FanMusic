@@ -347,9 +347,6 @@ function GestionClub(div){
 
 			/*Falta considerar que los covers tambien iran dentro de la seccion anecdotas*/
 			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Ver Anecdotas</a><a href='+"'"+'seccionLetras.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Letras</a>');
-
-			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-success"  role="button" align="right">Ver Anecdotas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroLetras.php'+"'"+')" class="btn btn-success"  role="button" align="right">Ver Letras</a>');
-
 		}
 	});
 }
@@ -819,7 +816,8 @@ NUEVA FUNCION PARA LA COSA DE LAS LETRAS
 ============================================*/
 function verLetras(div){ 
 	var parametros={
-		'nombreC': localStorage.getItem("nombreC")
+		'nombreC': localStorage.getItem("nombreC"),
+		'idM': getIDActual()
 	}
 	$.ajax({
 		data:parametros,
@@ -883,35 +881,66 @@ function publicarLetra(div){
 	}
 
 }
-function activarEdicionLetra(cont){
+function guardarCambioLetra(cont,idi){
 	$("#text"+cont).prop('disabled',false);
-	//$("#botonEditar").prop('value','Guardar');
-	//$("#botonEditar").attr('value', 'Save');
-	//#botonEditar").html('Save');
-	//$( "#botonEditar" ).button( "option", "label", "new text" );
-	//document.botonEditar.botonEditar.value='acabas de hacer click en el boton';
-	//$("botonEditar").html('[-]');
+	var nom="text"+cont;
+	var aer=document.getElementById(nom).value;
+	if((aer!="")){
+		var parametros={
+			'text': aer,
+			'id':idi
+		}
+		$.ajax({
+			data:parametros,
+			url: "php/editarLetras.php",
+			type: "post",
+			cache:	false,
+			success: function(response){			
+				alert(response);
+				location.href='/FanMusic/seccionLetras.php';
+			}
+		});
+	}else{
+		alert("Ingrese algun cambio");
+	}	
 }
-function editarLetra(div,cont){
-	$("#text"+cont).prop('disabled',false);
+function eliminarLetra(idi){ 
 	var parametros={
-		'nombreC': localStorage.getItem("nombreC")
+		'id':idi
 	}
 	$.ajax({
 		data:parametros,
-		url: "php/editarLetras.php",
+		url: "php/eliminarLetra.php",
 		type: "post",
 		cache:	false,
 		success: function(response){			
-			alert(response);
-			$(div).append(response); 
+			if(response==1){
+				alert("Se ha eliminado la letra de su canción");
+				location.href='/FanMusic/seccionLetras.php';
+			}else{
+				alert("No se ha podido eliminar la letra");
+				location.href='/FanMusic/seccionLetras.php';
+			}
 		}
 	});
-
-
-			$(div).append(response);
+}
+function restaurarOriginalLetra(idi){ 
+	var parametros={
+		'id':idi
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/restaurarLetra.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			if(response==1){
+				alert("Se ha restaurado la letra original de su canción");
+				location.href='/FanMusic/seccionLetras.php';
+			}else{
+				alert("No se ha podido restaurar la letra");
+				location.href='/FanMusic/seccionLetras.php';
+			}
 		}
 	});
-
-
 }
