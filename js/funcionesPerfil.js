@@ -253,6 +253,26 @@ function actualizarVariables(ap,gu){
 	localStorage.setItem("apodo",ap);
 }
 
+function revisarApodo(){
+	var parametros={
+		"apodo" : document.getElementById("APODO").value,
+	}
+	$.ajax({
+		data: parametros,
+		url: "php/validarApodo.php",
+		type: "post",	//Defino la forma en que llegarán los parámetros al php
+		
+		success: function(response){			
+			if(response==1){
+				veriCambioContra();
+			}else{
+				alert("Este apodo ya esta siendo usado por otro usuario, favor de ingresar otro.")
+			}
+		}
+	});
+	
+}
+
 function veriCambioContra(){
 	var nueva=document.getElementById("PASSnue").value;
 	if(nueva!=""){

@@ -64,6 +64,9 @@
 							<div class="input-group">
 									<span class="input-group-addon" id="basic-addon3">Apodo: </span>
 									<input type="text" class="form-control" id="APODO" aria-describedby="basic-addon3">
+									<script type="text/javascript">
+										$('#APODO').tooltip({'trigger':'focus', 'title': 'El apodo debe ser escrito solo en minúsculas'});
+									</script>
 							</div>
 							<br>
 							<div class="input-group">
@@ -92,7 +95,7 @@
 							</div>
 							<br>
 							<br>
-							<button type="button" onclick="veriCambioContra();" class="btn btn-primary">Guardar Cambios</button>
+							<button type="button" onclick="revisarApodo();" class="btn btn-primary">Guardar Cambios</button>
 						</div>
 					</div>
 				</div>

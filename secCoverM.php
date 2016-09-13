@@ -88,10 +88,13 @@
 						<button class="btn btn-primary" onclick="publicarCover();">Guardar</button>
 					</div>
 				</div>
+				<br>
+				<div id="listasCover">
+					<script type="text/javascript">
+						mostrarCovers("#listasCover");
+					</script>
+				</div>
 			</div>
-			<div id="listasCover">
-				<script type="text/javascript">
-					mostrarCovers("#listasCover");
-				</script>
-			</div>
+			
+			
 

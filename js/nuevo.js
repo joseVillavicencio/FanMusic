@@ -437,7 +437,7 @@ function calendario(div){
 	$(div).eCalendar({});
 	
 	var parametros ={
-		"idMiembro" : getIDActual(),
+		"idMiembro" : getIDActual()
 	}
 	$.ajax({
 		data: parametros,
@@ -445,7 +445,7 @@ function calendario(div){
 		type: "post",
 		dataType:"JSON",
 		success: function(response){
-			alert(response.status);//Recibo de vuelta el nombre, descripcion y hora del evento, ademas del club o grupo donde se hace ese evento. :)
+			$(div).append(response);//Recibo de vuelta el nombre, descripcion y hora del evento, ademas del club o grupo donde se hace ese evento. :)
 
 			if(response.status="success"){
 				var respuesta=response.message.toString();

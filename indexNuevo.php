@@ -37,7 +37,7 @@
 		                    <span class="icon-bar"></span>
 		                    <span class="icon-bar"></span>
 		                </button>
-		                <a class="navbar-brand" href="index.html">
+		                <a class="navbar-brand">
 		                	<img class="img-responsive" src="images/logo2.png" alt="logo">
 		                </a>                    
 		            </div>
@@ -81,7 +81,7 @@
 								<span class="input-group-addon" id="basic-addon3">Nombre:</span>
 								<input type="text" class="form-control" id="nomSign" placeholder="Nombre" aria-describedby="basic-addon3">
 								<script type="text/javascript">
-										$('#nomSign').tooltip({'trigger':'focus', 'title': 'El nombre debe contener solo una Mayúscula'});
+										$('#nomSign').tooltip({'trigger':'focus', 'title': 'El nombre debe ser escrito con la inicial en Mayúscula'});
 									</script>
 							</div>
 							<br>
@@ -89,7 +89,7 @@
 								<span class="input-group-addon" id="basic-addon3">Apellido:</span>
 								<input type="text" class="form-control" id="apeSign" placeholder="Apellido" aria-describedby="basic-addon3">
 								<script type="text/javascript">
-										$('#apeSign').tooltip({'trigger':'focus', 'title': 'El apellido debe contener solo una Mayúscula'});
+										$('#apeSign').tooltip({'trigger':'focus', 'title': 'El apellido debe ser escrito con la inicial en Mayúscula'});
 									</script>
 							</div>
 							<br>
