@@ -28,7 +28,7 @@
 					$contenido=$fila[3] ;
 					$fecha=$fila[4] ;
 					$conexion2=conectar();
-					echo '<div class="panel panel-default"><div class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$fecha.'</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+					echo '<div class="panel panel-default" style="text-align:center;"><div class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$fecha.'</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 					$sql4 = " call esAdmin2('".$idM."','".$nombre."');";
 					if($result3 = $conexion2->query($sql4)){
 						if($result3->num_rows >0){
@@ -47,7 +47,7 @@
 						if($resu->num_rows>0){
 							while($rows2=$resu->fetch_array()){
 								$imag=$rows2[0];
-								echo '<br><img align="center" src="'.$imag.'" class="img-responsive img-rounded">';
+								echo '<br><center><img align="center" src="'.$imag.'" class="img-responsive img-rounded"></center>';
 							}
 						}
 					}

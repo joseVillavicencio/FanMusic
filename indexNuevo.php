@@ -81,7 +81,7 @@
 								<span class="input-group-addon" id="basic-addon3">Nombre:</span>
 								<input type="text" class="form-control" id="nomSign" placeholder="Nombre" aria-describedby="basic-addon3">
 								<script type="text/javascript">
-										$('#nomSign').tooltip({'trigger':'focus', 'title': 'El nombre debe contener solo una mayúscula'});
+										$('#nomSign').tooltip({'trigger':'focus', 'title': 'El nombre debe contener solo una Mayúscula'});
 									</script>
 							</div>
 							<br>
@@ -89,7 +89,7 @@
 								<span class="input-group-addon" id="basic-addon3">Apellido:</span>
 								<input type="text" class="form-control" id="apeSign" placeholder="Apellido" aria-describedby="basic-addon3">
 								<script type="text/javascript">
-										$('#apeSign').tooltip({'trigger':'focus', 'title': 'El apellido debe contener solo una mayúscula'});
+										$('#apeSign').tooltip({'trigger':'focus', 'title': 'El apellido debe contener solo una Mayúscula'});
 									</script>
 							</div>
 							<br>
@@ -102,8 +102,8 @@
 								<span class="input-group-addon" id="basic-addon3">Apodo:</span>
 								<input type="text" class="form-control" id="apodSign" placeholder="Todos te conocerán por ... " aria-describedby="basic-addon3">
 								<script type="text/javascript">
-										$('#apodSign').tooltip({'trigger':'focus', 'title': 'El apodo debe ser escrito solo con letras Minúsculas'});
-									</script>
+										$('#apodSign').tooltip({'trigger':'focus', 'title': 'El apodo debe ser escrito solo con letras minúsculas'});
+								</script>
 							</div>
 							<br>
 							<div class="input-group">
@@ -114,7 +114,7 @@
 								</script>
 							</div>
 							<br>
-							<input type="submit"  onclick="registrar();" class="btn btn-primary"  value="Enviar" /><br>
+							<input type="submit"  onclick="revisarApodo();" class="btn btn-primary"  value="Enviar" /><br>
 						</div>
 					</div>
 				</div>
