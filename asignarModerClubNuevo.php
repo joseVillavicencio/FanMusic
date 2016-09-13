@@ -20,10 +20,19 @@
 	<section id="perfilClub">
 		<div id="designar" class="panel panel-default" align="center">
 			<div class="panel-heading">Asignar Moderador</div>
-			<div class="panel-body">Ingrese el correo del Moderador : <input type="text" id="mailMod"><br>
-			<br><br><button type="button" onclick="asignarModerador();" class="btn btn-primary">Asignar</button><br></div>
+			<div class="panel-body">
+				<div class="input-group">
+						<span class="input-group-addon" id="basic-addon3">Correo</span> 
+						<input type="text" class="form-control" id="mailMod" aria-describedby="basic-addon3">
+						<script type="text/javascript">
+							$('#mailMod').tooltip({'trigger':'focus', 'title': 'Ingrese el correo del moderador que desea asignar.'});
+						</script>
+				</div><br>
+				<button type="button" onclick="asignarModerador();" class="btn btn-primary">Asignar</button><br>
+			</div>	
 		</div>
-	</section><!--/#explore-->
+	</section>
+	
 </body>
 	<script type="text/javascript" src="js/smoothscroll.js"></script>
     <script type="text/javascript" src="js/jquery.parallax.js"></script>

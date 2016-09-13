@@ -790,3 +790,24 @@ function publicar(){
 function publImagNueva(div){
 	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><label>Agregue un Titulo : </label><input type="text" id="titulo" name="titulo" > <br><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file" /></div></div></div><button type="submit" class="btn btn-success"> Adjuntar Foto </button></form>');		
 }
+function apoyarGrupo(idi){ 
+	var parametros={
+		'idP':idi,
+		'idM': getIDActual(),
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/darApoyo.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			if(response==1){
+				location.href='\p_gruposNuevo.php?pag='+localStorage.getItem("nombreG");
+			}else{
+				if(response==0){
+					location.href='\p_gruposNuevo.php?pag='+localStorage.getItem("nombreG");
+				}
+			}
+		}
+	});
+}

@@ -35,8 +35,19 @@
 							while($fila3 = mysqli_fetch_row($result3)){
 								$id_p=$fila3[0] ;
 							}
-							echo '<button type="button" class="btn btn-danger btn-xs" onclick="eliminarPG('."'".$id."'".');">Eliminar</button>';	
+							echo '<button type="button" class="btn btn-danger btn-xs" onclick="eliminarPG('."'".$id."'".');"><span class="glyphicon glyphicon-remove"></span></button>';
 						}
+					}
+					$conexion=conectar();
+					$sql4 = 'CALL obtenerApoyo("'.$id.'");';
+					if($result4 =$conexion->query($sql4)){
+						if($result4->num_rows>0){
+							while($row4=$result4->fetch_array()){
+								$cant=$row4[0];
+							}
+							echo '<button  type="button" class="btn btn-warning btn-xs" onclick="apoyarGrupo('.$id.');"><span class="glyphicon glyphicon-star">'.$cant.'</span></button><br>';	
+						}
+						
 					}
 					echo '</div><div class="panel-body" style="text-align:center;"><h4>'.$subtitulo.'</h4><hr/><h5>';
 					mostrarContenido($contenido);

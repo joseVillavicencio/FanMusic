@@ -662,6 +662,7 @@ function mostrarPC(div){
 			type:	"POST",
 			cache:	false,
 			success:	function(response){
+				//alert(response);
 				$(div).append(response);
 			}
 		});
@@ -946,6 +947,7 @@ function restaurarOriginalLetra(idi){
 		}
 	});
 }
+
 function mostrarCovers(div){
 	var parametros={
 		'nombreC': localStorage.getItem("nombreC")
@@ -956,6 +958,32 @@ function mostrarCovers(div){
 		type:"POST",
 		success:	function(response){
 			$(div).append(response);
+		}
+	});
+}
+
+/*============================================
+NUEVA FUNCION PARA LA COSA DEL LIKE
+============================================*/
+function apoyar(idi){ 
+	var parametros={
+		'idP':idi,
+		'idM': getIDActual(),
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/darApoyo.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			if(response==1){
+				location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+			}else{
+				if(response==0){
+					location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+				}
+			}
+
 		}
 	});
 }
