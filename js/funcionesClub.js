@@ -346,7 +346,7 @@ function GestionClub(div){
 			}
 
 			/*Falta considerar que los covers tambien iran dentro de la seccion anecdotas*/
-			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Ver Anecdotas</a><a href='+"'"+'seccionLetras.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Letras</a>');
+			$(div).append('<a href='+"'"+'muroAnecdotas.php'+"'"+' class="btn btn-primary"  role="button" align="right">Ver Aportes</a><a href='+"'"+'seccionLetras.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Letras</a>');
 		}
 	});
 }
@@ -947,6 +947,21 @@ function restaurarOriginalLetra(idi){
 		}
 	});
 }
+
+function mostrarCovers(div){
+	var parametros={
+		'nombreC': localStorage.getItem("nombreC")
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/mostrarCoverC.php",
+		type:"POST",
+		success:	function(response){
+			$(div).append(response);
+		}
+	});
+}
+
 /*============================================
 NUEVA FUNCION PARA LA COSA DEL LIKE
 ============================================*/
@@ -968,6 +983,7 @@ function apoyar(idi){
 					location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 				}
 			}
+
 		}
 	});
 }

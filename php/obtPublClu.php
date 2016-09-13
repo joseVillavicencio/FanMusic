@@ -17,7 +17,7 @@
 					$contenido=$row["contenido"];
 					$id=$row["id_Publicacion"];
 					
-					echo '<div class="panel panel-default" style="color:black;"><div style="color:black;" class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$nombre.'---'.$fecha.'</sup></div><div class="panel-body"><h4>'.$subtitulo.'</h4><hr/><h5>';
+					echo '<div class="panel panel-default" style="color:black;text-align:center;"><div style="color:black;" class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$nombre.'---'.$fecha.'</sup></div><div class="panel-body"><h4>'.$subtitulo.'</h4><hr/><h5>';
 					mostrarContenido($contenido);
 					echo '</h5>';
 					$conexion=conectar();
@@ -26,7 +26,7 @@
 						if($resu->num_rows>0){
 							while($rows2=$resu->fetch_array()){
 								$imag=$rows2[0];
-								echo '<br><img align="center" src="'.$imag.'" class="img-responsive img-rounded">';
+								echo '<br><center><img align="center" src="'.$imag.'" class="img-responsive img-rounded"></center>';
 							}
 						}
 					}

@@ -253,6 +253,26 @@ function actualizarVariables(ap,gu){
 	localStorage.setItem("apodo",ap);
 }
 
+function revisarApodo(){
+	var parametros={
+		"apodo" : document.getElementById("APODO").value,
+	}
+	$.ajax({
+		data: parametros,
+		url: "php/validarApodo.php",
+		type: "post",	//Defino la forma en que llegarán los parámetros al php
+		
+		success: function(response){			
+			if(response==1){
+				veriCambioContra();
+			}else{
+				alert("Este apodo ya esta siendo usado por otro usuario, favor de ingresar otro.")
+			}
+		}
+	});
+	
+}
+
 function veriCambioContra(){
 	var nueva=document.getElementById("PASSnue").value;
 	if(nueva!=""){
@@ -584,8 +604,57 @@ function mostrarCovers(div){
 		url:"php/mostrarCoverU.php",
 		type:"POST",
 		success:	function(response){
-			alert(response);
 			$(div).append(response);
+		}
+	});
+}
+
+function eliminarCover(video){
+	var parametros={
+		"id_video":video
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/elimiCover.php",
+		type:"POST",
+		success:	function(response){
+			alert(response);
+			if(response==1){
+				alert("Tu Cover ha sido eliminado");
+				location.href='/FanMusic/perfilNuevo.php';
+			}
+		}
+	});
+}
+function compartirCover(video){
+	var parametros={
+		"id_video":video
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/compCover.php",
+		type:"POST",
+		success:	function(response){
+			if(response==1){
+				alert("Desde ahora tu cover será visible en el Club");
+				location.href='/FanMusic/perfilNuevo.php';
+			}
+		}
+	});
+}
+function dejarCompCover(video){
+	var parametros={
+		"id_video":video
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/noCompCover.php",
+		type:"POST",
+		success:	function(response){
+			if(response==1){
+				alert("Desde ahora tu cover ya no será visible en el Club");
+				location.href='/FanMusic/perfilNuevo.php';
+			}
 		}
 	});
 }

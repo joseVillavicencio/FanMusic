@@ -93,21 +93,21 @@
 		</div>
 	
 		<div class="row">
-			<div  class="col-xs-5 col-md-4 > <!--class="col-lg-4 col-sm-4"-->
+			<div  class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 > <!--class="col-lg-4 col-sm-4"-->
 				<div class="panel panel-default" style="text-align:center;">
 					<div class="panel panel-heading">
 						<img src="img/musica.png" width='100' height='100' class="img-circle">
 						<h1>Añade letras a tu FanClub</h1>
-						<div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span>
-							<input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3">
-						</div>
 					</div>
 					<div class="panel panel-body"><div class="input-group"></div>
+						<div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span>
+							<input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3">
+						</div><br>
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon3">Idioma</span> 
 							<input type="text" class="form-control" id="idioma" aria-describedby="basic-addon5">
 						</div><br>
-						<!--<div id="div_language" class="col-lg-4" style="color:black;">
+						<div id="div_language" style="color:black;">
 							<select id="lang" onchange="updateCountry()"></select>
 						</div>
 							<script>
@@ -158,7 +158,8 @@
 							  var list = langs[lang.selectedIndex];
 							 
 							}
-						</script>-->
+						</script>
+						<br>
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon3">Contenido</span> 
 						</div><br>
@@ -167,7 +168,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="listas" class="col-xs-7 col-md-7" >		
+			<div id="listas" class="col-lg-6 col-lg-offset-1 col-md-7" >		
 				<table class="table">
 				  <h2>Letras Del Club</h2><br>
 				  <thead>

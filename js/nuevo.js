@@ -90,7 +90,7 @@ function logOut(){
 function tablaGrupos(div){
 	var parametros = {
 		"id" :  getIDActual(),
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/listagrupo.php",
@@ -108,7 +108,7 @@ function crearGrupo(div){
 	var parametros={
 		'id':getIDActual(),
 		'nombreG':""
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "queUsuario.php",
@@ -133,7 +133,7 @@ function crearGrupo2(){
 			'ci': document.getElementById("ci").value,
 			'id':getIDActual(), 
 			'descripcion':getDescripcion(),
-		}
+		};
 		$.ajax({
 			data: parametros,
 			url: "php/crear.php",
@@ -156,14 +156,13 @@ function crearGrupo2(){
 function buscar(div){
 	var parametros ={
 		"palabraBusqueda" : localStorage.getItem("aBuscar")
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/buscar.php",
 		type: "post",	//Defino la forma en que llegarán los parámetros al php
 		
-		success: function(response){			
-			//alert(response);	//Response rescata EL PRIMER ECHO que encuentre en el php
+		success: function(response){				//Response rescata EL PRIMER ECHO que encuentre en el php
 			$(div).append(response);
 			localStorage.setItem("aBuscar","");
 		}
@@ -176,7 +175,7 @@ function buscare(div){
 function tablaClubs(div){
 	var parametros = {
 		"id" :  getIDActual()
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/listarClub.php",
@@ -206,7 +205,7 @@ function carrusel1(div){
 	});
 }
 function listPublClu(div){
-	var parametros={"idUser":getIDActual()}
+	var parametros={"idUser":getIDActual()};
 	$.ajax({
 		data: parametros,
 		url:	"php/obtPublClu.php",
@@ -218,7 +217,7 @@ function listPublClu(div){
 	});
 }
 function listPublGru(div){
-	var parametros={"idUser":getIDActual()}
+	var parametros={"idUser":getIDActual()};
 	$.ajax({
 		data: parametros,
 		url:	"php/obtPublGru.php",
@@ -235,7 +234,7 @@ function actualizar(div,dir){
 function asistenciaEvento(div){
 	var parametros = {
 		'idM' :  getIDActual()//Nombre que llego desde el formulario	
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/asistenciaEvento.php",
@@ -257,7 +256,7 @@ function informarAsistencia(id, nombreEvento,name){
 		"id" :  id,//Nombre que llego desde el formulario	
 		"nombreEvento" : nombreEvento,
 		"fechaEscogida": seleccion,
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/informarAsistenciaEvento.php",
@@ -277,7 +276,7 @@ function botonesEvento(div){
 	var parametros = {
 		"id" :  getIDActual(),//Nombre que llego desde el formulario	
 		"nombreG" :  ""
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "queUsuario.php", 
@@ -293,7 +292,7 @@ function botonesEvento(div){
 function tablaEventos(div){
 	var parametros = {
 		"id" :  getIDActual()//Nombre que llego desde el formulario	
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/listaevent.php",
@@ -308,7 +307,7 @@ function crearEventos(div){
 	var parametros = {
 		"id" :  getIDActual(),//Nombre que llego desde el formulario
 		"nombreG" :  ""
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "queUsuario.php", //Falta Hacer ijij
@@ -325,10 +324,8 @@ function editarEventos(div){ //POR EL MOMENTO, AL PARECER NADIE ESTÁ LLAMANDO A
 	$(div).append('<div id="hacerEdicion"> <a href="https://calendar.google.com/calendar/render?pli=1" class="btn btn-info btn-md" role="button" align="right">Agregar Evento al Calendario</a></div><br>');
 }
 function mostrarLideresCorreo(div){
-	
 	var parametros = {
-		
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/mostrarLideresCorreo.php",
@@ -345,7 +342,7 @@ function crearClub(div,dov){
 	var parametros={
 	'id':getIDActual(),
 	"nombreG":""
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "queUsuario.php",
@@ -370,13 +367,12 @@ function clubCrear(){
 			'region':document.getElementById("region").value,
 			'ciudad':document.getElementById("ciudad").value,
 			'alias':document.getElementById("alias").value,
-		}
+		};
 		$.ajax({
 			data: parametros,
 			url: "php/crearClub.php",
 			type: "POST",	
 			success: function(response){
-				alert(response);
 				location.href='/FanMusic/bienvenidaNuevo.php';
 			}
 		});
@@ -385,7 +381,7 @@ function clubCrear(){
 function eliminarC(idi){
 	var parametros = {
 		"id" : idi
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/eliminarClub.php",
@@ -402,7 +398,7 @@ function eliminarC(idi){
 function eliminarG(idG){ 
 	var parametros = {
 		"idG":idG,
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/eliminar.php",
@@ -433,31 +429,34 @@ NUEVA FUNCION PARA CALENDARIO
 ============================================================================*/
 
 function calendario(div){
-	
 	$(div).eCalendar({});
 	
 	var parametros ={
-		"idMiembro" : getIDActual(),
-	}
+		"idMiembro" : getIDActual()
+	};
+	alert("entre");
 	$.ajax({
 		data: parametros,
 		url: "php/mostrarEventos.php",
-		type: "post",
+		type: "POST",
 		dataType:"JSON",
+		cache:	false,
 		success: function(response){
-			alert(response.status);//Recibo de vuelta el nombre, descripcion y hora del evento, ademas del club o grupo donde se hace ese evento. :)
-
-			if(response.status="success"){
+			if(response.status=="success"){
 				var respuesta=response.message.toString();
 				var casilla=(respuesta).split("@");
 				for(var i=0;i<casilla.length;i++){
 					var datos=casilla[i].split("/"); 
 					var nombreE=datos[0],descripE=datos[1],fechaE=datos[2],perteneceE=datos[3];
 					var fechita=datos[2].split("-");
-					var anio =fechita[0], mes = fechita[1], dia = fechita[2], hora = fechita[3];
+					var anio =fechita[0], mes = fechita[1], dia = fechita[2];
+					var dihora= dia.split(" ");
+					var dias=dihora[0], hora=dihora[1];
+					var horario = hora.split(":");
+					
 					$(div).eCalendar({
 						events: [
-							{title: perteneceE+" - "+nombreE, description: descripE, datetime: new Date(anio, mes, dia, hora)}
+							{title: perteneceE+" - "+nombreE, description: descripE, datetime: new Date(anio, mes, dias, horario[0])}
 						]
 					});
 				}		
@@ -467,7 +466,6 @@ function calendario(div){
 		}
 	});	
 }
-
 /*---------------- ESTO ES PARA EL GRAFICO --------------*/
 
 
