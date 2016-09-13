@@ -415,7 +415,6 @@ function tablaFinanzasClub(div){
 		type: "POST",	
 		
 		success: function(response){			
-			alert(response);
 			$(div).append(response);	
 		}
 	});
@@ -731,7 +730,7 @@ function publicarClub(div){
 			cache:	false,
 			success:	function(response){
 				if(response=="1" || response=="2"){
-					$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span> <input type="text" class="form-control" id="contenidoNuevo" aria-describedby="basic-addon5"></div></div><div class="panel panel-footer"><button class="btn btn-info" onclick="publicarClub2();">A&#xF1;adir</button></div></div>');
+					$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" cols="30" id="contenidoNuevo"></textarea></div></div><div><button class="btn btn-primary" onclick="publicarClub2();">A&#xF1;adir</button></div></div>');
 				}
 			}
 		});
@@ -825,7 +824,6 @@ function verLetras(div){
 		type: "post",
 		cache:	false,
 		success: function(response){			
-			alert(response);
 			$(div).append(response); 
 		}
 	});
@@ -862,7 +860,6 @@ function publicarLetra(div){
 			type: "post",
 			cache:	false,
 			success: function(response){			
-				alert(response);
 				if(response=="1"){
 						location.href='/FanMusic/seccionLetras.php';
 				}else{
@@ -896,8 +893,13 @@ function guardarCambioLetra(cont,idi){
 			type: "post",
 			cache:	false,
 			success: function(response){			
-				alert(response);
-				location.href='/FanMusic/seccionLetras.php';
+				if(response==1){
+					alert("La letra ha sido editada");
+					location.href='/FanMusic/seccionLetras.php';
+				}else{
+					alert("No se pudo editar la letra");
+					location.href='/FanMusic/seccionLetras.php';
+				}
 			}
 		});
 	}else{

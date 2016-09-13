@@ -112,7 +112,7 @@
 							mostrarP("#publicaciones");
 						</script>
 					</div>
-					<div class="col-lg-4 col-sm-4">
+					<div class="col-lg-4 col-sm-5">
 						<div id="nuevo">
 							<script type="text/javascript">
 									nuevaPubli("#nuevo");

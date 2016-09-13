@@ -4,7 +4,7 @@
 	$contenido_nuevo= $_POST['text'];
 	$id= $_POST['id'];
 	$conexion=conectar();
-	echo $contenido_nuevo;
+	
 	if($conexion->connect_errno ) {
 		die ("Error de conexion") ;
 	}else{
@@ -23,13 +23,13 @@
 						$sql3 = "CALL  editarLetra('".$id."','".$contenido_nuevo."');";	
 						if($result3 = $conexion->query($sql3)){
 							if($result3){
-								echo "siii";
+								echo 1;
 							}
 						}
 					//}
 				//}	
 			}else{
-				echo "El club no contiene letras";
+				echo 0;
 			}
 		}
 		mysqli_close($conexion);
