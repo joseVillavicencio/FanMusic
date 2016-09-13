@@ -80,7 +80,7 @@
 				</div>
 				<hr>
 				<div class="row">
-					<div id="comentarios"  class="col-lg-5 col-sm-5">
+					<div id="comentarios"  class="col-lg-4 col-lg-offset-1 col-sm-4 col-sm-offset-1">
 						<script type="text/javascript">
 							mostrarComentarios("#comentarios");
 						</script>

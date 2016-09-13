@@ -584,8 +584,57 @@ function mostrarCovers(div){
 		url:"php/mostrarCoverU.php",
 		type:"POST",
 		success:	function(response){
-			alert(response);
 			$(div).append(response);
+		}
+	});
+}
+
+function eliminarCover(video){
+	var parametros={
+		"id_video":video
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/elimiCover.php",
+		type:"POST",
+		success:	function(response){
+			alert(response);
+			if(response==1){
+				alert("Tu Cover ha sido eliminado");
+				location.href='/FanMusic/perfilNuevo.php';
+			}
+		}
+	});
+}
+function compartirCover(video){
+	var parametros={
+		"id_video":video
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/compCover.php",
+		type:"POST",
+		success:	function(response){
+			if(response==1){
+				alert("Desde ahora tu cover será visible en el Club");
+				location.href='/FanMusic/perfilNuevo.php';
+			}
+		}
+	});
+}
+function dejarCompCover(video){
+	var parametros={
+		"id_video":video
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/noCompCover.php",
+		type:"POST",
+		success:	function(response){
+			if(response==1){
+				alert("Desde ahora tu cover ya no será visible en el Club");
+				location.href='/FanMusic/perfilNuevo.php';
+			}
 		}
 	});
 }

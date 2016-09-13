@@ -19,7 +19,7 @@
 						if($resu->num_rows>0){
 							while($rows2=$resu->fetch_array()){
 								$imag=$rows2[0];
-								echo '<br><img align="center" src="'.$imag.'" class="img-responsive img-rounded">';
+								echo '<br><center><img align="center" src="'.$imag.'" class="img-responsive img-rounded"></center>';
 							}
 						}
 					}
