@@ -336,17 +336,17 @@ function GestionClub(div){
 		type: "post",
 		success: function(response){			
 			if(response=="1"){ // es Admin 
-				$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'asignarModerClubNuevo.php'+"'"+')"  class="btn btn-primary" role="button" align="right">Asignar Moderador</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'cederAdministracion.php'+"'"+')"  class="btn btn-warning" role="button" align="right">Ceder Administracion</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'bloquearMiembroClub.php'+"'"+');" class="btn btn-danger"  role="button" align="right">Bloquear Miembros</a><a href='+"'"+'gestionarFinanzasClubNuevo.php'+"'"+'  class="btn btn-info" role="button" align="right">Gestionar Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'gestionarPublicacionesClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a>');
+				$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'asignarModerClubNuevo.php'+"'"+')"  class="btn btn-primary" role="button" align="right">Asignar Moderador</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'cederAdministracion.php'+"'"+')"  class="btn btn-warning" role="button" align="right">Ceder Administracion</a><a href='+"'"+'bloquearMiembroClub.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Miembro</a><a href='+"'"+'gestionarFinanzasClubNuevo.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'gestionarPublicacionesClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a>');
 			}else{
 				if(response=="2"){// es moder
-					$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'bloquearMiembroClub.php'+"'"+')" class="btn btn-danger"  role="button" align="right">Bloquear Miembros</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'gestionarPublicacionesClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a><a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a>');
+					$(div).append('<a href='+"'"+'bloquearMiembroClub.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Miembro</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'gestionarPublicacionesClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a><a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a>');
 				}else{
-					$(div).append('<a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'solicitarPublicacionClub.php'+"'"+')" class="btn btn-warning"  role="button" align="right">Solicitar Publicacion</a>');
+					$(div).append('<a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'solicitarPublicacionClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Solicitar Publicacion</a>');
 				} 
 			}
 
 			/*Falta considerar que los covers tambien iran dentro de la seccion anecdotas*/
-			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Ver Anecdotas</a><a href='+"'"+'seccionLetras.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Letras</a>');
+			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Ver Anecdotas</a><a href='+"'"+'seccionLetras.php'+"'"+'  class="btn btn-warning" role="button" align="right">Ver Letras</a>');
 		}
 	});
 }
@@ -970,4 +970,45 @@ function apoyar(idi){
 			}
 		}
 	});
+}
+/*============================================
+NUEVA FUNCION PARA DESBLOQUEAR
+============================================*/
+function tablaBloqueados(div){ 
+	var parametros={
+		'nombreC': localStorage.getItem("nombreC")
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/mostrarBloqueados.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			$(div).append(response); 
+		}
+	});
+}
+function desbloquearM(idi){
+	var parametros={
+		'idi': idi,
+		'nombreC': localStorage.getItem("nombreC")
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/desbloqueaMC.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			if(response==1){
+				alert("El miembro ha sido bloqueado");
+				location.href='/FanMusic/bloquearMiembroClub.php';
+			}else{
+				alert("No se ha podido desbloquear el miembro");
+				location.href='/FanMusic/bloquearMiembroClub.php';
+			}
+		}
+	});
+}
+function volver(){ 
+		location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 }

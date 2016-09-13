@@ -11,7 +11,7 @@
 	<!-- Esta parte es de nuestro codigo- -->
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script src="js/funcionesGrupo.js" type="text/javascript"></script>
-		
+		<!--
 		<script>	
 			function actualizarS(div,dir){
 					$(div).load(dir,"pag="+getNombreActual());
@@ -23,6 +23,14 @@
 				setInterval(actualizando,45000);
 			});
 				
+		</script>-->
+		<script>
+			$(document).ready(function(){
+				function actualizarS(){ 
+					actualizar("#publicaciones","php/sincronizarPublicaciones.php");
+				}
+				setInterval(actualizarS,45000);
+			});
 		</script>
 	</head>
 	<body>
@@ -38,9 +46,6 @@
 						</script>
 					</div>
 				</div>
-			</div>
-			<div id="sincr"align="left"  >
-					<button onclick='actualizarS("#panel","php/sincronizarSolicitudes.php");'  type="button"  class="btn btn-primary">Actualizar Solicitudes</button>
 			</div>
 		</section>
 	</body>

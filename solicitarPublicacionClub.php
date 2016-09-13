@@ -30,7 +30,7 @@
 						<span class="input-group-addon" id="basic-addon3">Contenido</span> 
 					</div><br>
 					<textarea rows="5" cols="30" id="cont"></textarea><br>
-					<button  type="button" onclick="solicitarPClub();" class="btn btn-warning"  >Solicitar</button><br>
+					<button  type="button" onclick="solicitarPClub();" class="btn btn-success"  >Solicitar</button><br>
 				</div>
 				</div>
 			</div>
