@@ -24,7 +24,7 @@
 								while($fila2=mysqli_fetch_row($result2)){ 
 									$nombreClub=$fila2[0] ;
 								}
-								$arraylist=$arraylist."".$nombreE."/".$descripE."/".$fecha_f."/".$nombreClub."@");
+								$arraylist=$arraylist."".$nombreE."/".$descripE."/".$fecha_f."/".$nombreClub."@";
 							}
 						}
 					}else{
@@ -35,7 +35,7 @@
 								while($fila2=mysqli_fetch_row($result2)){ 
 									$nombreGrupo=$fila2[0] ;
 								}
-								$arraylist=$arraylist."".$nombreE."/".$descripE."/".$fecha_f."/".$nombreGrupo."@");
+								$arraylist=$arraylist."".$nombreE."/".$descripE."/".$fecha_f."/".$nombreGrupo."@";
 							}
 						}
 					}

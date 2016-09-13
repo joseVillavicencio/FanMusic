@@ -80,120 +80,7 @@
 	        </div>
         </div>                    
     </header>
-
-    <section id="home">	 <!--Jose ESTA ES LA SECCION DONDE TIENE QUE IR EL CARRUSEL-->
-		<div id="main-slider" class="carousel slide" data-ride="carousel" data-interval="5000" pause="null">
-			<ol class="carousel-indicators" id="numero">
-			</ol>
-			<div class="carousel-inner" id="imags">
-			</div>
-		</div>
-
-	</section>
-		
-	<section id="contact">
-		<div class="contact-section">
-			<div class="ear-piece">
-				<img class="img-responsive" src="images/ear-piece.png" alt="">
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-4" align="center" id="botonCrearClub">
-							<script type="text/javascript">
-								crearClub("#botonCrearClub","#derecha");
-							</script>
-					</div>
-					<div class="col-sm-9 col-sm-offset-4">
-							<h2 class="heading">Mis Clubs</h2>
-						<table class="table" >
-							<thead>
-								<tr>
-									<th>Logo </th>
-									<th>Nombre Club</th>
-									<th>Descripción</th>
-									<th>Opción</th>
-								</tr>
-							 </thead>
-							<tbody id="cuerpotabla2">
-								<script type="text/javascript">
-									tablaClubs("#cuerpotabla2");
-								</script>
-							</tbody>
-						</table>
-					</div>
-					<div id="derecha" class="col-lg-4 col-sm-offset-4 col-sm-8" style = "text-align:center;   ">					
-				</div>
-				</div>
-			</div>
-		</div>		
-	</section>
-	<section id="event">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-9">
-					<div class="row">
-						<div class="col-sm-6"><center><h2 class="heading">Mis Grupos</h2></center></div>
-						<div class="col-sm-4"  id="botonCrear">
-							<script type="text/javascript">
-								crearGrupo("#botonCrear");
-							</script>
-						</div>
-					</div>
-					<div class="carousel-inner">
-						<div class="item active">
-							<div class="row">
-								<div class="col-sm-12">
-									<div class="single-event">
-										<table class="table" >
-										  <thead>
-												<tr>
-													<th>Logo</th>
-													<th>Nombre Grupo</th>
-													<th>Descripción</th>
-													<th>Opción</th>
-												</tr>
-										  </thead>
-											<tbody id="cuerpotabla">
-												<script type="text/javascript">
-													tablaGrupos("#cuerpotabla");
-												</script>
-											</tbody>
-										</table>
-										
-									</div>
-								</div>
-							</div>
-							<div id="ponerBoton" class="col-sm-6">
-							</div>
-						</div>
-					</div>
-					
-				</div>
-				
-				<div class="guitar">
-					<img class="img-responsive" src="images/guitar.png" alt="guitar">
-				</div>
-			</div>			
-		</div>
-	</section><!--/#event--> 
-	
-	<section id="about">
-		<div class="guitar2">				
-			<img class="img-responsive" src="images/guitar2.jpg" alt="guitar">
-		</div>
-				
-		<div class="row">
-			<div id="busqueda" align="center" class="col-lg-6 col-sm-6">
-				<h2>Ingresa algo para comenzar la búsqueda</h2>
-				<input style="color:black;" type="text"  id="buscando" name="buscando"><button  type="button" onclick='buscare("#respuesta");'  class="btn btn-info" >Buscar</button><br>
-			</div>
-			<div id="respuesta" align="center" class="col-lg-6 col-sm-6">
-			
-			</div>
-		</div>
-	</section>
-	
-	<section id="explore">
+<section id="explore">
 		<div class="container">
 			<div class="row">
 				<div class="watch">
@@ -224,8 +111,7 @@
 			</div>			
 		</div>
 	</section>
-	
-</body>
+	</body>
     <footer id="footer">
         <div class="container">
             <div class="text-center">
