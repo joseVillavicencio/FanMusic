@@ -93,7 +93,7 @@
 		</div>
 	
 		<div class="row">
-			<div  class="col-xs-5 .col-md-4 > <!--class="col-lg-4 col-sm-4"-->
+			<div  class="col-xs-5 col-md-4 > <!--class="col-lg-4 col-sm-4"-->
 				<div class="panel panel-default" style="text-align:center;">
 					<div class="panel panel-heading">
 						<img src="img/musica.png" width='100' height='100' class="img-circle">
@@ -107,25 +107,76 @@
 							<span class="input-group-addon" id="basic-addon3">Idioma</span> 
 							<input type="text" class="form-control" id="idioma" aria-describedby="basic-addon5">
 						</div><br>
+						<!--<div id="div_language" class="col-lg-4" style="color:black;">
+							<select id="lang" onchange="updateCountry()"></select>
+						</div>
+							<script>
+							var langs =
+							[['Afrikaans'],
+							 ['Bahasa Indonesia'],
+							 ['Bahasa Melayu'],
+							 ['Català'],
+							 ['Čeština'],
+							 ['Deutsch'],
+							 ['English'],
+							 ['Español'],
+							 ['Euskara'],
+							 ['Français'],
+							 ['Galego'],
+							 ['Hrvatski'],
+							 ['IsiZulu'],
+							 ['Íslenska'],
+							 ['Italiano'],
+							 ['Magyar'],
+							 ['Nederlands'],
+							 ['Norsk bokmål'],
+							 ['Polski'],
+							 ['Português'],
+							 ['Română'],
+							 ['Slovenčina'],
+							 ['Suomi'],
+							 ['Svenska'],
+							 ['Türkçe'],
+							 ['български'],
+							 ['Pусский'],
+							 ['Српски'],
+							 ['한국어'],
+							 ['中文'],
+							 ['日本語'],
+							 ['Lingua latīna']];
+
+							for (var i = 0; i < langs.length; i++) {
+							  lang.options[i] = new Option(langs[i][0], i);
+							}
+							lang.selectedIndex = 6;
+							updateCountry();
+							
+							
+
+							function updateCountry() {
+							  
+							  var list = langs[lang.selectedIndex];
+							 
+							}
+						</script>-->
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon3">Contenido</span> 
-							<input type="text" class="form-control" id="contenidoNuevo" aria-describedby="basic-addon5"><br>
 						</div><br>
-						<div class="panel panel-footer"><button class="btn btn-primary" onclick="publicarLetra();">Añadir Letra</button></div>
+						<textarea rows="10" cols="50" id="contenidoNuevo" ></textarea>
+						<div ><button class="btn btn-primary" onclick="publicarLetra();">Añadir</button></div>
 					</div>
 				</div>
 			</div>
-			
-		</div>
-		<div class="row" >
-			<div id="listas" class="col-xs-6 col-md-4" >		
+			<div id="listas" class="col-xs-7 col-md-7" >		
 				<table class="table">
 				  <h2>Letras Del Club</h2><br>
 				  <thead>
 						<tr>
 							<th>Título</th>
 							<th>Idioma</th>
-							<th>Ver letra</th>
+							<th>Opciones</th>
+							<th></th>
+							<th></th>
 						</tr>
 				  </thead>
 					<tbody id="cuerpotabla" >

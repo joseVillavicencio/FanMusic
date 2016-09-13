@@ -45,11 +45,11 @@
 									if($result3->num_rows >0){
 										while($fila3=mysqli_fetch_row($result3)){ 
 											$direccion=$fila3[0];
-											echo'<li role="presentation"><a role="menuitem" tabindex="-1" onclick="imagenFinanza('."'".$direccion."'".');">Imágen '.$cont.'</a></li></td>';
+											echo'<li role="presentation"><a role="menuitem" tabindex="-1" onclick="imagenFinanza('."'".$direccion."'".');">Imágen '.$cont.'</a></li>';
 											$cont=$cont+1;
 										}
 									}
-								echo '</ul></div></td></tr>';		
+								echo '</ul></div></div></td></tr>';		
 								}else{
 									echo 0;
 								}

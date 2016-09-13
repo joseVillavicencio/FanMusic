@@ -347,9 +347,6 @@ function GestionClub(div){
 
 			/*Falta considerar que los covers tambien iran dentro de la seccion anecdotas*/
 			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-primary"  role="button" align="right">Ver Anecdotas</a><a href='+"'"+'seccionLetras.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Letras</a>');
-
-			$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroAnecdotas.php'+"'"+')" class="btn btn-success"  role="button" align="right">Ver Anecdotas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'muroLetras.php'+"'"+')" class="btn btn-success"  role="button" align="right">Ver Letras</a>');
-
 		}
 	});
 }
@@ -418,7 +415,6 @@ function tablaFinanzasClub(div){
 		type: "POST",	
 		
 		success: function(response){			
-			alert(response);
 			$(div).append(response);	
 		}
 	});
@@ -734,7 +730,7 @@ function publicarClub(div){
 			cache:	false,
 			success:	function(response){
 				if(response=="1" || response=="2"){
-					$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span> <input type="text" class="form-control" id="contenidoNuevo" aria-describedby="basic-addon5"></div></div><div class="panel panel-footer"><button class="btn btn-info" onclick="publicarClub2();">A&#xF1;adir</button></div></div>');
+					$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" cols="30" id="contenidoNuevo"></textarea></div></div><div><button class="btn btn-primary" onclick="publicarClub2();">A&#xF1;adir</button></div></div>');
 				}
 			}
 		});
@@ -819,7 +815,8 @@ NUEVA FUNCION PARA LA COSA DE LAS LETRAS
 ============================================*/
 function verLetras(div){ 
 	var parametros={
-		'nombreC': localStorage.getItem("nombreC")
+		'nombreC': localStorage.getItem("nombreC"),
+		'idM': getIDActual()
 	}
 	$.ajax({
 		data:parametros,
@@ -827,7 +824,6 @@ function verLetras(div){
 		type: "post",
 		cache:	false,
 		success: function(response){			
-			alert(response);
 			$(div).append(response); 
 		}
 	});
@@ -864,7 +860,6 @@ function publicarLetra(div){
 			type: "post",
 			cache:	false,
 			success: function(response){			
-				alert(response);
 				if(response=="1"){
 						location.href='/FanMusic/seccionLetras.php';
 				}else{
@@ -883,35 +878,71 @@ function publicarLetra(div){
 	}
 
 }
-function activarEdicionLetra(cont){
+function guardarCambioLetra(cont,idi){
 	$("#text"+cont).prop('disabled',false);
-	//$("#botonEditar").prop('value','Guardar');
-	//$("#botonEditar").attr('value', 'Save');
-	//#botonEditar").html('Save');
-	//$( "#botonEditar" ).button( "option", "label", "new text" );
-	//document.botonEditar.botonEditar.value='acabas de hacer click en el boton';
-	//$("botonEditar").html('[-]');
+	var nom="text"+cont;
+	var aer=document.getElementById(nom).value;
+	if((aer!="")){
+		var parametros={
+			'text': aer,
+			'id':idi
+		}
+		$.ajax({
+			data:parametros,
+			url: "php/editarLetras.php",
+			type: "post",
+			cache:	false,
+			success: function(response){			
+				if(response==1){
+					alert("La letra ha sido editada");
+					location.href='/FanMusic/seccionLetras.php';
+				}else{
+					alert("No se pudo editar la letra");
+					location.href='/FanMusic/seccionLetras.php';
+				}
+			}
+		});
+	}else{
+		alert("Ingrese algun cambio");
+	}	
 }
-function editarLetra(div,cont){
-	$("#text"+cont).prop('disabled',false);
+function eliminarLetra(idi){ 
 	var parametros={
-		'nombreC': localStorage.getItem("nombreC")
+		'id':idi
 	}
 	$.ajax({
 		data:parametros,
-		url: "php/editarLetras.php",
+		url: "php/eliminarLetra.php",
 		type: "post",
 		cache:	false,
 		success: function(response){			
-			alert(response);
-			$(div).append(response); 
+			if(response==1){
+				alert("Se ha eliminado la letra de su canción");
+				location.href='/FanMusic/seccionLetras.php';
+			}else{
+				alert("No se ha podido eliminar la letra");
+				location.href='/FanMusic/seccionLetras.php';
+			}
 		}
 	});
-
-
-			$(div).append(response);
+}
+function restaurarOriginalLetra(idi){ 
+	var parametros={
+		'id':idi
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/restaurarLetra.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			if(response==1){
+				alert("Se ha restaurado la letra original de su canción");
+				location.href='/FanMusic/seccionLetras.php';
+			}else{
+				alert("No se ha podido restaurar la letra");
+				location.href='/FanMusic/seccionLetras.php';
+			}
 		}
 	});
-
-
 }

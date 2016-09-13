@@ -46,7 +46,7 @@
 									$cont=$cont+1;
 								}
 							}
-							echo '</ul></div></div></tr>';		
+							echo '</ul></div></div></td></tr>';		
 						}else{
 							echo 0;
 						}

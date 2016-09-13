@@ -19,8 +19,14 @@
 	<body>
 		<div id="bloquear" class="panel panel-default" align="center">
 			<div class="panel-heading">Bloquear Miembro</div>
-			<div class="panel-body">Ingrese Correo del Miembro : <input type="text" id="correoMC">
-				<br><br>
+			<div class="panel-body">
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon3">Correo</span> 
+					<input type="text" class="form-control" id="correoMC" aria-describedby="basic-addon3">
+					<script type="text/javascript">
+						$('#correoMC').tooltip({'trigger':'focus', 'title': 'Ingrese el correo del miembro que desea bloquear.'});
+					</script>
+				</div><br>
 				<button type="button" onclick="bloquearMiembroClub();" class="btn btn-danger"  >Bloquear</button><br>
 			</div>
 		</div>

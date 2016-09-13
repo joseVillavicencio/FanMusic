@@ -14,6 +14,7 @@
 	<script src="js/funcionesClub.js" type="text/javascript"></script>
 	<link href="css/jquery.dialog.css" rel="stylesheet" type="text/css"><!--NECESARIA PARA EL DIALOG/IMAGEN-->
 	<script src="js/jquery.dialog.js" type="text/javascript"></script><!--NECESARIA PARA EL DIALOG/IMAGEN-->	
+			
 	<script>
 		$(document).ready(function(){
 				function actualizando(){ 
