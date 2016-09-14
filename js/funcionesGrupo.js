@@ -688,7 +688,7 @@ function cargarCambiosPerfilGrupo(){
 	}
 }
 function subirFotoPerfilGrupo(div){
-	$(div).append('<form enctype="multipart/form-data" action="php/fotoPGrupo.php" method="POST"><div class= "form-group"><div class="input-group"><div><input type="hidden" id="nombre_grupo" name="nombre_grupo" value="'+getNombreActual()+'"><input name="uploadedfile" id="uploadedfile" type="file" /></div></div></div><button type="submit"  class="btn btn-primary"> Actualizar Foto </button></form>');			
+	$(div).append('<form enctype="multipart/form-data" action="php/fotoPGrupo.php" method="POST"><div class= "form-group"><div class="input-group"><div><input type="hidden" id="nombre_grupo" name="nombre_grupo" value="'+getNombreActual()+'"><input name="uploadedfile" id="uploadedfile" type="file" /></div></div></div><button type="submit"  class="btn btn-success"> Actualizar Foto </button></form>');			
 }
 function dejarSeguir(div){ 
 	var parametros={
@@ -737,7 +737,7 @@ function nuevaPubli(div){ //Esta funcion se muestra distinto a la que tiene Dani
 		
 		success: function(response){ //Sólo si trata de un administrador o moderador mostrará la ventana para una nueva publicación
 			if(response==1 || response ==2){
-				$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" cols="30" id="contenidoNuevo"></textarea></div></div><div><button class="btn btn-primary" onclick="publicar();">A&#xF1;adir</button></div></div>');
+				$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" cols="30" id="contenidoNuevo"></textarea></div><button class="btn btn-primary" onclick="publicar();">A&#xF1;adir</button></div></div>');
 			}
 		}
 	});

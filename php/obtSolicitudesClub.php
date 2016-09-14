@@ -29,8 +29,8 @@
 							$contenido=$fila[3] ;
 							$fecha=$fila[4] ;
 							echo '<div align="center" class="panel panel-default"><div class="panel-heading"><h1>'.$titulo.'</h1><hr/><h4>'.$subtitulo.'</h4><sup>'.$fecha.'</sup></div><div class="panel-body"><h5>'.$contenido.'</h5></div><div class="panel-footer">';
-							echo '&nbsp;&nbsp;<input id="'.$id.'" type="hidden"><button type="button" class="btn btn-primary btn-xs" onclick="aceptarPC('.$id.');">Aceptar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-							echo '<input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="rechazarPC('.$id.');">Rechazar</button></div></div>';
+							echo '&nbsp;<input id="'.$id.'" type="hidden"><button type="button" class="btn btn-primary btn-xs" onclick="aceptarPC('.$id.');"><span class="glyphicon glyphicon-ok"></span></button>&nbsp;&nbsp;&nbsp;';
+							echo '<input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="rechazarPC('.$id.');"><span class="glyphicon glyphicon-remove"></span></button></div></div>';
 						}
 					}
 				}
