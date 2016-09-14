@@ -70,9 +70,11 @@
 						<script type="text/javascript">
 							desc_g("#desc_g"); 
 						</script>
+					</div><br>
+					<div id="vol" >
+						<button type="button" onclick="volver();" class="btn btn-primary" >Volver</button><br>
 					</div>
-					<br>	
-					<br><br>
+					<br>
 				</div>
 				
 			</div>

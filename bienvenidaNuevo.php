@@ -121,7 +121,7 @@
 			</div>
 		</div>		
 	</section>
-	<section id="event">
+	<section id="event"><br>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-9">
@@ -200,7 +200,7 @@
 							calendario("#calendar");
 						</script>
 					</div>
-					<div id="e" class="col-md-4 col-sm-12" style="text-align:center;">
+					<div id="e" class="col-md-4 col-sm-11" style="text-align:center;">
 						<script type="text/javascript" >
 							botonesEvento("#e"); //JOSE MVOER ESTA WEA PARA LA DERECHA
 						</script>

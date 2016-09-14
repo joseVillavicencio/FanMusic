@@ -60,6 +60,9 @@
 						presentacion("#rescatarNombreG"); <!-- Muestro el nombre del grupo-->
 					</script>
 				</div>
+				<div id="vol" >
+					<button type="button" onclick="volver();" class="btn btn-primary" >Volver</button><br>
+				</div>
 				<br>
 				<div id="datos" >
 					<div class="panel-heading">
@@ -87,7 +90,7 @@
 						</div>
 						<br>
 						<hr>
-						<button type="button" onclick="cargarCambiosPerfilGrupo();" class="btn btn-primary">Editar Información</button>
+						<button type="button" onclick="cargarCambiosPerfilGrupo();" class="btn btn-success">Editar Información</button>
 					</div>
 				</div>
 			</div>

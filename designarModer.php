@@ -25,7 +25,7 @@
 							$('#n2').tooltip({'trigger':'focus', 'title': 'Ingrese el correo del miembro que desea asignar como moderador.'});
 						</script>
 				</div><br>
-				<button type="button" onclick="designarModerador();" class="btn btn-success">Designar</button><br>
+				<button type="button" onclick="designarModerador();" class="btn btn-primary">Designar</button><br>
 			</div>	
 		</div>
 	</body>

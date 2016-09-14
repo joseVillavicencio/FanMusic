@@ -31,8 +31,6 @@
 							if($result4->num_rows >0){
 								echo '<div><td><input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="eliminarFClub('.$id.');">Eliminar</button></td></div>';
 								echo '<div><td><input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-info btn-xs" onclick="subirFotoFinanza('.$id.');">Adjuntar Foto</button></td></div>';
-								
-								
 							}
 						}
 						echo '<td><div class="dropdown">';
@@ -51,12 +49,12 @@
 									}
 								echo '</ul></div></div></td></tr>';		
 								}else{
-									echo 0;
+									echo "El Club no posee finanzas.";
 								}
 						
 					}
 				}else{
-					echo 0;;
+					echo "El Club no posee finanzas.";
 				}
 			}
 		}else{
