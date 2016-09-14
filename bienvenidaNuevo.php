@@ -3,19 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/jquery.js" type="text/javascript"></script>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">	
 	<link href="css/responsive.css" rel="stylesheet">
-
 	<link href="css/jquery.e-calendar.css" rel="stylesheet">
+	<script src="js/jquery.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script src="js/nuevo.js" type="text/javascript"></script>
 	<script src="js/jquery.e-calendar.js" type="text/javascript"></script>
 	<script src="js/jquery.goup.min.js" type="text/javascript"></script><!--NUEVO-->
-
+	<script src="js/nuevo.js" type="text/javascript"></script>
 		
 		<script type="text/javascript">
 			function cargarClub(div, desde){
@@ -36,6 +34,7 @@
 					});
 				
 			});
+			
 		</script>
 		<script type="text/javascript">
 			jQuery(document).ready(function(){
@@ -52,15 +51,9 @@
 	</script>
 	<header id="header" role="banner">		
 		<div class="main-nav">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">	        		
 		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                    <span class="sr-only">Toggle navigation</span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
 		                <a class="navbar-brand" href="indexNuevo.php">
 		                	<img class="img-responsive" src="images/logo2.png" alt="logo">
 		                </a>                    
@@ -202,7 +195,7 @@
 				</div>		
 				<center><h2>Calendario de FanMusic</h2></center>
 				<div class="col-md-10 col-md-offset-2 col-sm-12">
-					<div id="calendar" class="col-md-8">
+					<div id="calendar" class="col-md-8" style="color:black;">
 						<script type="text/javascript">
 							calendario("#calendar");
 						</script>

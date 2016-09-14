@@ -689,7 +689,26 @@ function unirseGrupo(idC,idG){
 	});
 }
 //=================================================================================
-
+function revisarApodo(){
+	var parametros={
+		"apodo":getApodSign(),
+	}
+	$.ajax({
+		data: parametros,
+		url: "php/validarApodo.php",
+		type: "post",	//Defino la forma en que llegarán los parámetros al php
+		
+		success: function(response){			
+			if(response==1){
+				registrar();
+			}else{
+				alert("Este apodo ya esta siendo usado por otro usuario, favor de ingresar otro.")
+			}
+		}
+	});
+	
+}
+//=================================================================================
 function actualizar(div,dir){
 	$(div).load(dir);
 }

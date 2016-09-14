@@ -10,7 +10,7 @@
 		if($result = $conexion->query($sql)){
 			if($result->num_rows >0){
 				while($row = $result->fetch_array()){
-					echo '<div class="panel panel-default" style="color:black;"><div style="color:black;" class="panel-heading"><h1>'.$row["titulo"].'</h1><sup>'.$row["nombre_Grupo"].'---'.$row["fecha"].'</sup></div><div style="color:black;" class="panel-body"><h4>'.$row["subtitulo"].'</h4><hr/><h5>';
+					echo '<div class="panel panel-default" style="color:black;text-align:center;"><div style="color:black;" class="panel-heading"><h1>'.$row["titulo"].'</h1><sup>'.$row["nombre_Grupo"].'---'.$row["fecha"].'</sup></div><div style="color:black;" class="panel-body"><h4>'.$row["subtitulo"].'</h4><hr/><h5>';
 					mostrarContenido($row["contenido"]);
 					echo '</h5>';
 					$conexion=conectar();
@@ -19,7 +19,7 @@
 						if($resu->num_rows>0){
 							while($rows2=$resu->fetch_array()){
 								$imag=$rows2[0];
-								echo '<br><img align="center" src="'.$imag.'" class="img-responsive img-rounded">';
+								echo '<br><center><img align="center" src="'.$imag.'" class="img-responsive img-rounded"></center>';
 							}
 						}
 					}

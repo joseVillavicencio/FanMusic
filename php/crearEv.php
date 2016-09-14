@@ -4,10 +4,10 @@
 	La coincidencia con las "invitaciones" las hacemos en PAÍS-REGIÓN-CIUDAD*/
 	$id=$_POST["idUser"];
 	$nombreE=$_POST["nombreE"];
-	$paE=$_POST["paE"]; //pais del evento 
 	$desE=$_POST["desE"]; 
-	$regE=$_POST["regE"]; //region del evento
-	$ciE=$_POST["ciE"]; //ciudad del evento
+	$paE=$_POST["paisN"]; //pais del evento 
+	$regE=$_POST["regionN"]; //region del evento
+	$ciE=$_POST["ciudadN"]; //ciudad del evento
 	$motivoE=$_POST["motivoE"];
 	$fecha1=$_POST["anio1"]."-".$_POST["mes1"]."-".$_POST["dia1"].":00"; //Concatenación para las fechas
 	$fecha2=$_POST["anio2"]."-".$_POST["mes2"]."-".$_POST["dia2"].":00";
