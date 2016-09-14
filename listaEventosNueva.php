@@ -71,9 +71,9 @@
 					</div>	
 				</div><br>
 				<div id="evento2" style = "text-align:center ; " class="col-lg-6 col-sm-12">
-					<script type="text/javascript">
-						crearEventos("#evento2");
-					</script>
+							<script type="text/javascript">
+								crearEventos("#evento2");
+							</script>
 				</div>
 				<div id="evento3" style = " text-align:center;  " class="col-lg-6 col-sm-12">
 					<script type="text/javascript">

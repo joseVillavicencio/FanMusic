@@ -15,8 +15,6 @@
 		<script src="js/bootstrap.js" type="text/javascript"></script>
 		<script src="js/funcionesEvento.js" type="text/javascript"></script>
 		<script src="js/jquery.datetimepicker.full.min.js" type="text/javascript"></script>		<!--Para el datetimepicker-->
-		<script src="js/location.js" type="text/javascript"></script> <!--Funcion nueva para seleccionar lugar-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   <!--Funcion nueva para seleccionar lugar-->
 		<meta charset="utf-8"/>
 	</head>
 	<body>
@@ -49,22 +47,22 @@
 									</script>
 						</div>
 						<br>
-						<div class="input-group" style="color:black;"> <!--PROBLEMAS CON LA ALINEACIÓN DEL PICKER-->
-							<span class="input-group-addon" id="basic-addon3">País:</span>
-							<select name="country" class="countries" id="countryId"><option value=""></option></select>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon3">País:</span>
+								<input type="text" class="form-control" id="paE" aria-describedby="basic-addon3">
 						</div>
 						<br>
-						<div class="input-group" style="color:black;">
-							<span class="input-group-addon" id="basic-addon3">Región:</span>
-							<select name="state" class="states" id="stateId" ><option value=""></option></select>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon3">Región:</span>
+								<input type="text" class="form-control" id="regE" aria-describedby="basic-addon3">
 						</div>
 						<br>
-						<div class="input-group" style="color:black;">
-							<span class="input-group-addon" id="basic-addon3">Ciudad:</span>
-							<select name="city" class="cities" id="cityId" ><option value=""></option></select>
+						<div class="input-group">
+								<span class="input-group-addon" id="basic-addon3">Ciudad:</span>
+								<input type="text" class="form-control" id="ciE" aria-describedby="basic-addon3">
 						</div>
 						<br>
-						<div class="row" style="color:black;">
+						<div class="row">
 							<div class="col-lg-9 col-sm-7">
 								<p><big>A continuación, ingrese tres propuestas de fechas, indicando la hora para realizar su  evento: </big></p>
 								<br>
