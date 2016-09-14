@@ -81,7 +81,7 @@ function soloNumeros(valor){
 	return cont;
 }
 
-function validarTexto(valor,lon,str){
+function validarTexto(valor,lon,str){ //FUNCION QUE PROBABLEMENTE SEA ELIMINADA
 	var tam=valor.length;
 	if(tam<lon){
 		if(tiene_num(valor)==0){
@@ -243,23 +243,27 @@ function obtenerOpcionLugar(name){
 }
 function crearEvento2(){
 	var seleccion=obtenerOpcionLugar("invitar");
-	var pais=document.getElementById("paE").value;
-	var region=document.getElementById("regE").value;
-	var ciudad= document.getElementById("ciE").value;
+	var idioma= ($("#lang option:selected").text());
+	var pais=($("#countryId option:selected").text());
+	var region=($("#stateId option:selected").text());
+	var ciudad= ($("#cityId option:selected").text());;
+	if(ciudad == "Seleccione Ciudad"){
+		ciudad =($("#stateId option:selected").text());
+	}
 	var	fechas = document.getElementsByName("fecha");
 	var fec1=fechas[0].value.split("/"); //datos de la fecha 1
 	var fec2=fechas[1].value.split("/"); //datos de la fecha 2
 	var fec3=fechas[2].value.split("/"); //datos de la fecha 3
-	if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
-
+	//if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
+	//COMO SE UTILIZA EL PICKER, YA NO ES NECESARIO UTILIZAR ESTA VALIDACION
 		var parametros = {
 			"idUser":getIDActual(),
 			"nombreE": document.getElementById("nombreE").value,
 			"motivoE": document.getElementById("motivoE").value,
-			"paE": document.getElementById("paE").value,
 			"desE": document.getElementById("desE").value,
-			"regE": document.getElementById("regE").value,
-			"ciE": document.getElementById("ciE").value,
+			"paisN": pais,
+			"regionN": region,
+			"ciudadN": ciudad,
 			"anio1" : fec1[0], "mes1" : fec1[1], "dia1" : fec1[2], 
 			"anio2" : fec2[0], "mes2" : fec2[1], "dia2" : fec2[2], 
 			"anio3" : fec3[0], "mes3" : fec3[1], "dia3" : fec3[2], 
@@ -275,7 +279,7 @@ function crearEvento2(){
 				location.href='/FanMusic/listaEventosNueva.php';
 			}
 		});
-	}
+	//}
 }
 
 //=============================================================
