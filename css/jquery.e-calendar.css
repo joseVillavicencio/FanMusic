@@ -10,8 +10,8 @@
 }
 .calendar {
     cursor: default;
-    width: 600px;
-    height: 270px;
+    width: 800px;
+    height: 600px;
 }
 
 .calendar-sm .c-pad-top {
@@ -130,6 +130,8 @@
     color: white;
 }
 
+
+
 .c-event-body {
     background-color: #EFF4F9;
     height: 88.1%;
@@ -145,16 +147,12 @@
     font-weight: bold;
 }
 
-.c-event-item > div {
-    text-overflow: ellipsis;
-    width: inherit;
-    overflow: hidden;
-    white-space: nowrap;
-}
+
 
 .c-event-item {
     padding-left: 10px;
-    margin-bottom: 10px;
+    margin-bottom:10px;
+
 }
 
 .c-event-over {

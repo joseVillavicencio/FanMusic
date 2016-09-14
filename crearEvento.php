@@ -16,7 +16,7 @@
 		<script src="js/funcionesEvento.js" type="text/javascript"></script>
 		<script src="js/jquery.datetimepicker.full.min.js" type="text/javascript"></script>		<!--Para el datetimepicker-->
 		<script src="js/location.js" type="text/javascript"></script> <!--Funcion nueva para seleccionar lugar-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   <!--Funcion nueva para seleccionar lugar-->
+		 <!--Funcion nueva para seleccionar lugar-->
 		<meta charset="utf-8"/>
 	</head>
 	<body>
