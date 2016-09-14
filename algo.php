@@ -88,7 +88,7 @@
 				</div>		
 				<center><h2>Calendario de FanMusic</h2></center>
 				<div class="col-md-10 col-md-offset-2 col-sm-12">
-					<div id="calendar" class="col-md-8">
+					<div id="calendar" class="col-md-8" style="color:black;">
 						<script type="text/javascript">
 							calendario("#calendar");
 						</script>

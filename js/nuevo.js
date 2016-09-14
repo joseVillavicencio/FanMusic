@@ -447,16 +447,16 @@ function calendario(div){
 				var casilla=(respuesta).split("@");
 				for(var i=0;i<casilla.length;i++){
 					var datos=casilla[i].split("/"); 
-					var nombreE=datos[0],descripE=datos[1],fechaE=datos[2],perteneceE=datos[3];
+					var nombreE=datos[0],descripE=datos[1],perteneceE=datos[3];
 					var fechita=datos[2].split("-");
-					var anio =fechita[0], mes = fechita[1], dia = fechita[2];
-					var dihora= dia.split(" ");
+					var anio =fechita[0], mes = fechita[1];
+					var dihora= fechita[2].split(" ");
 					var dias=dihora[0], hora=dihora[1];
 					var horario = hora.split(":");
 					
 					$(div).eCalendar({
 						events: [
-							{title: perteneceE+" - "+nombreE, description: descripE, datetime: new Date(anio, mes, dias, horario[0])}
+							{title: nombreE, description: descripE, datetime: new Date(anio, mes, dias, horario[0])}
 						]
 					});
 				}		

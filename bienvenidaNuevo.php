@@ -51,15 +51,9 @@
 	</script>
 	<header id="header" role="banner">		
 		<div class="main-nav">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">	        		
 		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                    <span class="sr-only">Toggle navigation</span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
 		                <a class="navbar-brand" href="indexNuevo.php">
 		                	<img class="img-responsive" src="images/logo2.png" alt="logo">
 		                </a>                    
@@ -201,7 +195,7 @@
 				</div>		
 				<center><h2>Calendario de FanMusic</h2></center>
 				<div class="col-md-10 col-md-offset-2 col-sm-12">
-					<div id="calendar" class="col-md-8">
+					<div id="calendar" class="col-md-8" style="color:black;">
 						<script type="text/javascript">
 							calendario("#calendar");
 						</script>
