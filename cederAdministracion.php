@@ -16,7 +16,7 @@
 		<script src="js/jquery.dialog.js" type="text/javascript"></script><!--NECESARIA PARA EL DIALOG/IMAGEN-->	
 	</head>
 	
-	<section id="perfilClub">
+	<section id="A">
 		<div id="designar" class="panel panel-default" align="center">
 			<div class="panel-heading">Asignar Nuevo Administrador</div>
 			<div class="panel-body">

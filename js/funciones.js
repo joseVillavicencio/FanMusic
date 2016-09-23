@@ -396,7 +396,7 @@ function comentar(idPublic){
 				cache:	false,
 				success:	function(response){
 							if(response=="success"){
-								location.href="/FanMusic/bienvenidaNuevo.php";
+								location.href="/FanMusic/bienvenida.php";
 							}else {
 								alert("Favor de intentarlo mas tarde, existen problemas de conexión al servidor");
 							}
@@ -711,4 +711,26 @@ function revisarApodo(){
 //=================================================================================
 function actualizar(div,dir){
 	$(div).load(dir);
+}
+
+
+//=================================================================================Este deberia ir en los js donde se realicen cambios
+function confirmarProceso(){
+	var pass = prompt("Ingrese su contraseña para comfirmar la operación");
+	if(pass!=null){
+		var parametros={
+			"id":getIDActual(),
+			"pass":pass
+			};
+		$.ajax({
+			data:parametros,
+			url:"php/validarContraseña.php",
+			type:"POST",
+			success: function(response){
+				return response;
+			}
+		});
+	}else{
+		alert("No se podrá llevar a cabo la petición");
+	}
 }

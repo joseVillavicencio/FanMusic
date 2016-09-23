@@ -72,7 +72,9 @@
 							desc_Club("#desc_g"); 
 						</script>
 					</div>	
-				
+					<div id="vol" >
+						<button type="button" onclick="volver();" class="btn btn-primary" >Volver</button><br>
+					</div>
 				</div>
 				
 			</div>

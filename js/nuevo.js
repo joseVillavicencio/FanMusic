@@ -274,17 +274,17 @@ function informarAsistencia(id, nombreEvento,name){
 }
 function botonesEvento(div){
 	var parametros = {
-		"id" :  getIDActual(),//Nombre que llego desde el formulario	
+		"id" :  getIDActual(),	
 		"nombreG" :  ""
 	};
 	$.ajax({
 		data: parametros,
 		url: "queUsuario.php", 
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
+		type: "POST",	
 		
 		success: function(response){			
 			if(response==2 || response==1){ // va a mostrar para el moderador del grupo o el admi
-				$(div).append('<div id="panelE" class="panel panel-default" style="margin-right:5%;margin-left:5%;"><div class="panel-heading" >Eventos </div><div class="panel-body" ><a href='+"'"+'listaEventosNueva.php'+"'"+'  class="btn btn-primary" role="button" align="right">Gestionar Eventos </a><br><br><a href='+"'"+'miseventosEXITONUEVO.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver resultados</a></div></div></div>');
+				$(div).append('<a href='+"'"+'listaEventosNueva.php'+"'"+'  class="btn btn-primary" role="button" align="right">Gestionar Eventos </a><br><br><a href='+"'"+'miseventosEXITONUEVO.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver resultados</a>');
 			}	
 		}
 	});

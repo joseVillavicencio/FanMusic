@@ -17,7 +17,7 @@
 	
 </head>
 <body>
-	<section id="perfilClub">
+	<section id="p">
 		<div id="designar" class="panel panel-default" align="center">
 			<div class="panel-heading">Asignar Moderador</div>
 			<div class="panel-body">
