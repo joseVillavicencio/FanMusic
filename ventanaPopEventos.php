@@ -21,7 +21,7 @@
 			if(notLogged()){
 				location.href= '/FanMusic/indexNuevo.php';
 			}
-			$(document).ready(function(){
+			
 		</script>
 		
 		

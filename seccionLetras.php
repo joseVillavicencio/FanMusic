@@ -80,7 +80,7 @@
 						<script type="text/javascript">
 							desc_Club("#desc_g"); 
 						</script>
-					</div>
+					</div><br>
 					<div id="vol" >
 						<button type="button" onclick="volver();" class="btn btn-primary" >Volver</button><br>
 					</div>
@@ -101,11 +101,9 @@
 					<div class="panel panel-body"><div class="input-group"></div>
 						<div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span>
 							<input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3">
-						</div><br>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon3">Idioma</span> 
-							<input type="text" class="form-control" id="idioma" aria-describedby="basic-addon5">
-						</div><br>
+						</div>
+						<center><h3>Ingrese el idioma</h3></center>
+						
 						<div id="div_language" style="color:black;">
 							<select id="lang" onchange="updateCountry()"></select>
 						</div>
@@ -150,8 +148,6 @@
 							lang.selectedIndex = 6;
 							updateCountry();
 							
-							
-
 							function updateCountry() {
 							  
 							  var list = langs[lang.selectedIndex];

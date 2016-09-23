@@ -434,7 +434,7 @@ function calendario(div){
 	var parametros ={
 		"idMiembro" : getIDActual()
 	};
-	alert("entre");
+	
 	$.ajax({
 		data: parametros,
 		url: "php/mostrarEventos.php",
