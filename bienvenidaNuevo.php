@@ -60,8 +60,8 @@
 		            </div>
 		            <div class="collapse navbar-collapse">
 		                <ul class="nav navbar-nav navbar-right">                 
-							<li><a  href="bienvenida.php" >Bienvenida</a></li>
-							<li class="scroll active"><a href="#contact">Clubs</a></li>
+							<li><a  href="bienvenida.php" >Novedades</a></li>
+							<li class="scroll "><a href="#contact">Clubs</a></li>
 		                    <li class="scroll"><a href="#event">Grupos</a></li>                         
 		                    <li class="scroll"><a href="#explore">Eventos</a></li>
 		                    <li class="scroll"><a href="#about">Búsqueda</a></li>

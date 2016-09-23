@@ -12,7 +12,7 @@
 	$tipocorrect = true;
 	$nombreFinal= $idF."_".$titulo;
 	
-	echo $nombreFinal;
+
 	if($tipo!="jpeg"){
 		if($tipo!="jpg"){
 			if($tipo!="gif"){

@@ -490,13 +490,13 @@ function FechaUno(){
 }
 function mostrarResultados(div){
 	var parametros = {
-		'id' :  getIDActual(),//Nombre que llego desde el formulario	
+		'id' :  getIDActual(),
 		"nombreG" :  ""
 	}
 	$.ajax({
 		data: parametros,
 		url: "queUsuario.php",
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
+		type: "POST",	
 		
 		success: function(response){
 			//alert(response);

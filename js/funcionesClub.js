@@ -515,7 +515,7 @@ function editarPerfilClub(div){
 	});
 }
 function subirFotoPerfilClub(div){
-	$(div).append('<form enctype="multipart/form-data" action="php/editarFotoPClub.php" method="POST"><div class= "form-group"><div class="input-group"><div><input type="hidden" id="nombre_grupo" name="nombreC" value="'+getNombreC()+'"><input name="uploadedfile" id="uploadedfile" type="file" /></div></div></div><button type="submit"  class="btn btn-primary"> Actualizar Foto </button></form>');			
+	$(div).append('<form enctype="multipart/form-data" action="php/editarFotoPClub.php" method="POST"><div class= "form-group"><div class="input-group"><div><input type="hidden" id="nombre_grupo" name="nombreC" value="'+getNombreC()+'"><input name="uploadedfile" id="uploadedfile" type="file" /></div></div></div><button type="submit"  class="btn btn-success"> Actualizar Foto </button></form>');			
 }
 
 // ---------------------------------------------Finanzas
@@ -735,9 +735,22 @@ function publicarClub(div){
 			cache:	false,
 			success:	function(response){
 				if(response=="1" || response=="2"){
-					$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" cols="30" id="contenidoNuevo"></textarea><div><button class="btn btn-primary" onclick="publicarClub2();">A&#xF1;adir</button></div></div>');
+					//$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" cols="30" id="contenidoNuevo"></textarea><div><button class="btn btn-primary" onclick="publicarClub2();">A&#xF1;adir</button></div></div>');
+					var parametros={
+						"id":getIDActual(),
+						"nombreC": localStorage.getItem("nombreC")
+					}
+					$.ajax({
+						data: parametros,
+						url:	"publicarC.php",
+						type:	"POST",
+						cache:	false,
+						success:	function(response){
+							$(div).append(response);
+							}
+						}
+					)}
 				}
-			}
 		});
 	}
 }
@@ -765,8 +778,8 @@ function publicarClub2(){
 						alert("Su publicación no se ha podido crear, favor intentar más tarde");
 					}else{
 						localStorage.setItem("nuevaPubli",response);
-						window.open('/FanMusic/imagPopPublicacion.php',"Upload","width=400,height=320,toolbar=no");//abre el PopUp para agregar imagenes a las publicaciones
-						location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+						window.open('/FanMusic/imagPopPublicacionClub.php',"Upload","width=400,height=320,toolbar=no");//abre el PopUp para agregar imagenes a las publicaciones
+						location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+''; // no actualiza
 					}
 				}
 			}
@@ -792,7 +805,7 @@ function eliminarPC(idi){
 	});
 }
 function publImagNueva(div){
-	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><label>Agregue un Titulo : </label><input type="text" id="titulo" name="titulo" > <br><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file" /></div></div></div><button type="submit" class="btn btn-success"> Adjuntar Foto </button></form>');		
+	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file"><br></div><button type="submit" class="btn btn-success"> Adjuntar Foto</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></div></form>');		
 }
 
 /*===================================================================
@@ -850,7 +863,7 @@ function verContenidoLetras(div){
 }
 function publicarLetra(div){ 
 	var tit=document.getElementById("tituloNuevo").value;
-	var idioma=document.getElementById("idioma").value;
+	var idioma= ($("#lang option:selected").text());
 	var cont=document.getElementById("contenidoNuevo").value;
 	if((tit!="")&&(idioma!="")&&(cont!="")){
 		var parametros={

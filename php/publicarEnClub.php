@@ -35,6 +35,7 @@
 							while($rows = $result4->fetch_array()){
 								echo $rows[0];
 							}
+							
 						}
 					}else{
 						echo 0;

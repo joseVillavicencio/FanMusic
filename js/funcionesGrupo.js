@@ -565,7 +565,7 @@ function subirFotoFinanza(id){ //Para llamar al POP
 	window.open('/FanMusic/ventanaPopFinanzaG.php',"finanza","width=420,height=340,toolbar=no");
 }
 function finanzaNueva(div){
-	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoFinanzaGrupo.php" method="POST"><div class= "form-group"><div class="input-group"><label>Agregue un Titulo : </label><input type="text" id="titulo" name="titulo" > <br><br><input type="hidden" id="idF" name="idF" value="'+getIdFina()+'"><div><input name="uploadedfile" id="uploadedfile" type="file" /></div></div></div><button  type="submit" class="btn btn-success"> Adjuntar Foto </button></form>');		
+	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoFinanzaGrupo.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+getIdFina()+'" ><div><input name="uploadedfile" id="uploadedfile" type="file"></div><br><button type="submit" class="btn btn-success"> Adjuntar</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></form></div>');	
 }
 function imagenFinanza(cont){
 	localStorage.setItem("cont",cont);
@@ -779,7 +779,7 @@ function publicar(){
 					}else{
 						localStorage.setItem("nuevaPubli",response);
 						window.open('imagPopPublicacion.php',"Upload","width=400,height=320,toolbar=no");//abre el PopUp para agregar imagenes a las publicaciones
-						//location.href='\p_gruposNuevo.php?pag='+localStorage.getItem("nombreG");
+						location.href='\p_gruposNuevo.php?pag='+localStorage.getItem("nombreG");// no actualiza
 					}
 				}
 			}
@@ -788,7 +788,8 @@ function publicar(){
 }
 
 function publImagNueva(div){
-	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><label>Agregue un Titulo : </label><input type="text" id="titulo" name="titulo" > <br><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file" /></div></div></div><button type="submit" class="btn btn-success"> Adjuntar Foto </button></form>');		
+		
+	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file"><br></div><button type="submit" class="btn btn-success"> Adjuntar Foto</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></div></form>');
 }
 function apoyarGrupo(idi){ 
 	var parametros={
