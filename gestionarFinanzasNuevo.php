@@ -134,13 +134,12 @@
 			</div>
 			
 		</div>
-	</section><!--/#explore-->
+	</section>
 	 <footer id="footer">
         <div class="container">
             <div class="text-center">
                 <p> Sitio desarrollado por Dania Delgado - Tania Pizarro - Jose Villavicencio &copy;2016<br>
-				<!--Designed by <a target="_blank" href="http://shapebootstrap.net/">ShapeBootstrap</a></p>  EN ALGUN MOMENTO PUEDE SERVIR-->              
-            </div>
+		    </div>
         </div>
     </footer>
     <script type="text/javascript" src="js/smoothscroll.js"></script>

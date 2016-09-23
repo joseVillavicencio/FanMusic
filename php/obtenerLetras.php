@@ -45,7 +45,7 @@
 							</div>&nbsp&nbsp&nbsp';
 							/*Esta parte es para editar  */
 							echo '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModalB'.$cont.'">
-							Editar letra</button>';
+							<span class="glyphicon glyphicon-pencil"></span></button>';
 							echo '<div class="modal fade" id="myModalB'.$cont.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 							  <div class="modal-dialog" role="document">
 								<div class="modal-content">
@@ -70,7 +70,7 @@
 								if($result3->num_rows >0){
 									/*Esta parte solo para eliminar*/
 									echo '<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModalC'.$cont.'">
-									Eliminar</button>';
+									<span class="glyphicon glyphicon-remove"></span></button>';
 									echo '<div class="modal fade" id="myModalC'.$cont.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 									  <div class="modal-dialog" role="document">
 										<div class="modal-content">

@@ -60,11 +60,10 @@
 							obtenerNombreClub("#rescatarNombreC"); 
 						</script>
 					</div> 
-					<br>
+					<div id="vol" >
+						<button type="button" onclick="volver();" class="btn btn-primary" >Volver</button><br>
+					</div>
 					<div id="datos" >
-						<div class="panel-heading">
-							<h3>Datos Club</h3>
-						</div>
 						<div class="panel-body">
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon3">Descripción: </span>
@@ -87,7 +86,7 @@
 							</div>
 							<br>
 							<hr>
-							<button type="button" onclick="cargarCambiosPerfilClub();" class="btn btn-primary">Editar Información</button>
+							<button type="button" onclick="cargarCambiosPerfilClub();" class="btn btn-success">Editar Información</button>
 						</div>
 					</div>
 				</div>
