@@ -15,14 +15,23 @@
 		<script src="js/bootstrap.js" type="text/javascript"></script>
 		<script src="js/funcionesEvento.js" type="text/javascript"></script>
 		<script src="js/jquery.datetimepicker.full.min.js" type="text/javascript"></script>		<!--Para el datetimepicker-->
-		<script src="js/location.js" type="text/javascript"></script> <!--Funcion nueva para seleccionar lugar-->
+		<!--Funcion nueva para seleccionar lugar-->
 		 <!--Funcion nueva para seleccionar lugar-->
 		<meta charset="utf-8"/>
 	</head>
 	<body>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				cargar_paises();
+				$("#pais").change(function(){dependencia_estado();});
+				$("#region").change(function(){dependencia_ciudad();});
+				$("#region").attr("disabled",true);
+				$("#ciudad").attr("disabled",true);
+			});
+		</script>
 		<section id="explore">
 			<div id="derecha">
-				<div id="crear" class="panel panel-default">
+				<div id="crear" class="panel panel-default" style="">
 					<div class="panel-heading">Crear Evento</div>
 					<div class="panel-body">
 						<div class="input-group">
@@ -49,20 +58,20 @@
 									</script>
 						</div>
 						<br>
-						<div class="input-group" style="color:black;"> <!--PROBLEMAS CON LA ALINEACIÓN DEL PICKER-->
-							<span class="input-group-addon" id="basic-addon3">País:</span>
-							<select name="country" class="countries" id="countryId"><option value=""></option></select>
-						</div>
-						<br>
-						<div class="input-group" style="color:black;">
-							<span class="input-group-addon" id="basic-addon3">Región:</span>
-							<select name="state" class="states" id="stateId" ><option value=""></option></select>
-						</div>
-						<br>
-						<div class="input-group" style="color:black;">
-							<span class="input-group-addon" id="basic-addon3">Ciudad:</span>
-							<select name="city" class="cities" id="cityId" ><option value=""></option></select>
-						</div>
+						<div class="input-group ">
+								<span class="input-group-addon" id="basic-addon3">País:</span>
+								<select id="pais" name="pais" style="color:black;"><option value="0">Selecciona País</option></select>
+							</div>
+							<br>
+							<div class="input-group ">
+								<span class="input-group-addon" id="basic-addon3">Región:</span>
+								<select id="region" name="region"style="color:black;"><option value="0">Selecciona Región</option></select>
+							</div>
+							<br>
+							<div class="input-group ">
+								<span class="input-group-addon" id="basic-addon3">Ciudad:</span>
+								<select id="ciudad" name="ciudad"style="color:black;"><option value="0">Selecciona Ciudad</option></select>
+							</div>
 						<br>
 						<div class="row" style="color:black;">
 							<div class="col-lg-9 col-sm-7">

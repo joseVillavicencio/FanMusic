@@ -24,6 +24,13 @@
 		if(logged()){
 			location.href= '/FanMusic/bienvenidaNuevo.php';
 		}
+		$(document).ready(function(){
+	cargar_paises();
+	$("#pais").change(function(){dependencia_estado();});
+	$("#region").change(function(){dependencia_ciudad();});
+	$("#region").attr("disabled",true);
+	$("#ciudad").attr("disabled",true);
+});
 	</script>
 	<header id="header" role="banner">		
 		<div class="main-nav">
@@ -37,7 +44,7 @@
 		                    <span class="icon-bar"></span>
 		                    <span class="icon-bar"></span>
 		                </button>
-		                <a class="navbar-brand" href="index.html">
+		                <a class="navbar-brand" href="indexNuevo.php">
 		                	<img class="img-responsive" src="images/logo2.png" alt="logo">
 		                </a>                    
 		            </div>
@@ -90,17 +97,17 @@
 							<br>
 							<div class="input-group ">
 								<span class="input-group-addon" id="basic-addon3">País:</span>
-								<input type="text" class="form-control" id="pais" placeholder="¿De dondé eres?" aria-describedby="basic-addon3">
+								<select id="pais" name="pais" style="color:black;"><option value="0">Selecciona País</option></select>
 							</div>
 							<br>
 							<div class="input-group ">
 								<span class="input-group-addon" id="basic-addon3">Región:</span>
-								<input type="text" class="form-control" id="region" placeholder="¿De dondé eres?" aria-describedby="basic-addon3">
+								<select id="region" name="region"style="color:black;"><option value="0">Selecciona Región</option></select>
 							</div>
 							<br>
 							<div class="input-group ">
 								<span class="input-group-addon" id="basic-addon3">Ciudad:</span>
-								<input type="text" class="form-control" id="ciudad" placeholder="¿De dondé eres?" aria-describedby="basic-addon3">
+								<select id="ciudad" name="ciudad"style="color:black;"><option value="0">Selecciona Ciudad</option></select>
 							</div>
 						</div>
 					</div>

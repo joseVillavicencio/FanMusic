@@ -244,11 +244,11 @@ function obtenerOpcionLugar(name){
 function crearEvento2(){
 	var seleccion=obtenerOpcionLugar("invitar");
 	var idioma= ($("#lang option:selected").text());
-	var pais=($("#countryId option:selected").text());
-	var region=($("#stateId option:selected").text());
-	var ciudad= ($("#cityId option:selected").text());;
+	var pais=($("#pais option:selected").text());
+	var region=($("#region option:selected").text());
+	var ciudad= ($("#ciudad option:selected").text());;
 	if(ciudad == "Seleccione Ciudad"){
-		ciudad =($("#stateId option:selected").text());
+		ciudad =($("#region option:selected").text());
 	}
 	var	fechas = document.getElementsByName("fecha");
 	var fec1=fechas[0].value.split("/"); //datos de la fecha 1
@@ -509,4 +509,58 @@ function mostrarResultados(div){
 			}
 		}
 	});
+}
+//=======================================================================================
+//paises
+//====================================+
+function cargar_paises()
+{
+	$.get("php/cargar-paises.php", function(resultado){
+		if(resultado == false)
+		{
+			alert("Error");
+		}
+		else
+		{
+			$('#pais').append(resultado);			
+		}
+	});	
+}
+function dependencia_estado()
+{
+	var code = $("#pais").val();
+	$.get("php/dependencia-estado.php", { code: code },
+		function(resultado)
+		{
+			if(resultado == false)
+			{
+				alert("Error");
+			}
+			else
+			{
+				$("#region").attr("disabled",false);
+				document.getElementById("region").options.length=1;
+				$('#region').append(resultado);			
+			}
+		}
+
+	);
+}
+
+function dependencia_ciudad()
+{
+	var code = $("#region").val();
+	$.get("php/dependencia-ciudades.php?", { code: code }, function(resultado){
+		if(resultado == false)
+		{
+			alert("Error");
+		}
+		else
+		{
+			$("#ciudad").attr("disabled",false);
+			document.getElementById("ciudad").options.length=1;
+			$('#ciudad').append(resultado);			
+		}
+	});	
+	
 }

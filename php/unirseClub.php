@@ -14,9 +14,17 @@
 				echo "Ya eres miembro";
 			}else{
 				$conexion = conectar();
-				$sql2 = "call agregarMiembroClub('".$idClub."','".$idMiembro."')";//Consulta por los club
-				if($result2 = $conexion->query($sql2)){
-					echo "Ahora eres miembro del club";
+				$sql3="call estaBloqueadoEnClub('".$idMiembro."','".$idClub."');";//Consulta por los club
+				if($result3 = $conexion->query($sql3)){
+					if($result3->num_rows >0){
+						echo "No tienes acceso a este Club";
+					}else{
+						$conexion = conectar();
+						$sql2 = "call agregarMiembroClub('".$idClub."','".$idMiembro."')";//Consulta por los club
+						if($result2 = $conexion->query($sql2)){
+							echo "Ahora eres miembro del club";
+						}
+					}
 				}
 			}
 		}		
