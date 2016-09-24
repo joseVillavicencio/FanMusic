@@ -121,31 +121,7 @@ FUNCIONES Bienvenida Club
 function grupSaludo(div){
 	$(div).append("<h1><center>Bienvenido a tus grupos "+getApoActual()+"<center></h1>");
 }
-function clubCrear(){ 
-	var pais=document.getElementById("pais").value;
-	var region=document.getElementById("region").value;
-	var ciudad= document.getElementById("ciudad").value;
-	if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
-		var parametros={
-			'id':getIDActual(),
-			'nombre':document.getElementById("nombreC").value,
-			'descripcion':document.getElementById("descripcion").value,
-			'pais':document.getElementById("pais").value,
-			'region':document.getElementById("region").value,
-			'ciudad':document.getElementById("ciudad").value,
-			'alias':document.getElementById("alias").value,
-		}
-		$.ajax({
-			data: parametros,
-			url: "php/crearClub.php",
-			type: "POST",	
-			success: function(response){
-				alert(response);
-				location.href='/FanMusic/bienvenidaNuevo.php';
-			}
-		});
-	}
-}
+
 
 function clubSaludo(div){
 	$(div).append("<h1><center>Estos son tus Clubs "+getApoActual()+"<center></h1>");
@@ -1044,4 +1020,58 @@ function desbloquearM(idi){
 }
 function volver(){ 
 		location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+}
+//=======================================================================================
+//paises
+//====================================+
+function cargar_paises()
+{
+	$.get("php/cargar-paises.php", function(resultado){
+		if(resultado == false)
+		{
+			alert("Error");
+		}
+		else
+		{
+			$('#pais').append(resultado);			
+		}
+	});	
+}
+function dependencia_estado()
+{
+	var code = $("#pais").val();
+	$.get("php/dependencia-estado.php", { code: code },
+		function(resultado)
+		{
+			if(resultado == false)
+			{
+				alert("Error");
+			}
+			else
+			{
+				$("#region").attr("disabled",false);
+				document.getElementById("region").options.length=1;
+				$('#region').append(resultado);			
+			}
+		}
+
+	);
+}
+
+function dependencia_ciudad()
+{
+	var code = $("#region").val();
+	$.get("php/dependencia-ciudades.php?", { code: code }, function(resultado){
+		if(resultado == false)
+		{
+			alert("Error");
+		}
+		else
+		{
+			$("#ciudad").attr("disabled",false);
+			document.getElementById("ciudad").options.length=1;
+			$('#ciudad').append(resultado);			
+		}
+	});	
+	
 }
