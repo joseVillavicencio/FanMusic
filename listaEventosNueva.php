@@ -70,17 +70,13 @@
 						</table>
 					</div>	
 				</div><br>
-				<div id="evento2" style = "text-align:center ; " class="col-lg-6 col-sm-12">
+				<div id="evento2" style = "text-align:center ; " class="col-lg-10 col-sm-12">
 					<script type="text/javascript">
 						crearEventos("#evento2");
 					</script>
 				</div>
-				<div id="evento3" style = " text-align:center;  " class="col-lg-6 col-sm-12">
-					<script type="text/javascript">
-						editarEventos("#evento3");
-					</script>
-				</div>
-				<div id="evento4">
+				
+				<div id="evento4"  style = " text-align:center;"  class="col-lg-8 col-sm-12">
 					<script type="text/javascript">
 						mostrarLideresCorreo("#evento4");
 					</script>
