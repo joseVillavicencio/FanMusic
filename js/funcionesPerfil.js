@@ -459,7 +459,7 @@ function publicarAnecdota(){
 			url:"php/publicarAnecdota.php",
 			type:"POST",
 			success:	function(response){
-				alert(response);
+				
 				if(response==1){
 					location.href='/FanMusic/perfilNuevo.php';
 				}
