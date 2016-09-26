@@ -76,13 +76,13 @@
 				</div>	
 			</div>
 			<hr>
-			<div class="row" style=" text-align:center;" >
-				<div id="muroClub" class="col-lg-5 col-lg-offset-1 col-sm-8 col-sm-offset-2">
+			<div class="row" >
+				<div id="muroClub" class="col-lg-5 col-lg-offset-1 col-sm-8 " style="text-align:center;">
 					<script type="text/javascript">
 						muroDelClub("#muroClub");
 					</script>
 				</div>
-				<div id="listasCover" class="col-lg-5 col-sm-8 col-sm-offset-2">
+				<div id="listasCover" class="col-lg-5 col-sm-8 " style="text-align:center;">
 					<script type="text/javascript">
 						mostrarCovers("#listasCover");
 					</script>

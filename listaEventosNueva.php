@@ -9,8 +9,11 @@
 	<link href="css/animate.css" rel="stylesheet">	
 	<link href="css/responsive.css" rel="stylesheet">
 	<!-- Esta parte es de nuestro codigo- -->
-		<script type="text/javascript" src="js/jquery.js"></script>
+		<link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css">	<!--Para el datetimepicker-->	
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/bootstrap.js" type="text/javascript"></script>
 		<script src="js/funcionesEvento.js" type="text/javascript"></script>
+		<script src="js/jquery.datetimepicker.full.min.js" type="text/javascript"></script>		<!--Para el datetimepicker-->
 		
 		
 </head>
@@ -70,7 +73,8 @@
 						</table>
 					</div>	
 				</div><br>
-				<div id="evento2" style = "text-align:center ; " class="col-lg-10 col-sm-12">
+				
+				<div id="evento2" style = "text-align:center ; " class="col-lg-6 col-lg-offset-3 col-sm-12">
 					<script type="text/javascript">
 						crearEventos("#evento2");
 					</script>

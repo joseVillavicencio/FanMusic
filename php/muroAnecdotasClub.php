@@ -21,7 +21,7 @@
 					$contenido=$fila[1] ;
 					$autor=$fila[2] ;
 					
-					echo '<div class="panel panel-default"><div class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$autor.'</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div class="panel-body" style="text-align:center;"><h5>'.$contenido.'</h5>';
+					echo '<div class="panel panel-default"><div class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$autor.'</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div class="panel-body" style="text-align:center;"><h5>'.$contenido.'</h5></div></div>';
 				}
 			}
 		}
