@@ -1,7 +1,7 @@
 
 			<div id="listasAnecdota2" class="col-lg-8 col-lg-offset-2"> <!--class="col-lg-4 col-sm-4"-->
 				<div class="panel panel-default" style="text-align:center;">
-					<div class="panel panel-heading"><h3>Compartenos tus nuevos Covers!!</h3></div>
+					<div class="panel panel-heading"><h3>Compártenos tus nuevos Covers!!</h3></div>
 					<div class="panel panel-body"><div class="input-group"></div>
 						<div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span>
 							<input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3">
@@ -24,6 +24,7 @@
 						</div><br>
 						<div class="row">
 							<div id="div_language" class="col-lg-4" style="color:black;">
+								<p>Selecciona el idioma</p>
 								<select id="lang" onchange="updateCountry()"></select>
 							</div>
 								<script>
@@ -75,7 +76,8 @@
 								 
 								}
 							</script>
-							<div id="pegar" class="col-lg-4">
+							<div id="pegar" style="color:black;" class="col-lg-4">
+								<p>Selecciona tu artista</p>
 								<script type="text/javascript">
 									listarArtis("#pegar");
 								</script>
@@ -97,4 +99,3 @@
 			</div>
 			
 			
-

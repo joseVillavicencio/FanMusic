@@ -14,7 +14,7 @@
 					$apodoM=$fila[1] ;
 					$correoM=$fila[2] ;
 					$conexion=conectar();
-						echo '<div class="alert alert-warning"><strong>Administrador:  </strong>'.$nombreClub.'&nbsp;&nbsp;<em>'.$apodoM.'</em>&nbsp;&nbsp;'.$correoM.'</div>' ;
+						echo '<br><div class="alert alert-warning"><strong>Administrador:  </strong>'.$nombreClub.'&nbsp;&nbsp;<em>'.$apodoM.'</em>&nbsp;&nbsp;'.$correoM.'</div>' ;
 				}
 			}
 			echo "</div>";
@@ -26,7 +26,7 @@
 					while($fila2=mysqli_fetch_row($result2)){
 						$correoM=$fila2[0] ;
 						$apodoM=$fila2[1] ;
-						echo '<div class="alert alert-info"><strong>Moderador Club:  </strong>'.$nombreClub.'&nbsp;&nbsp;<em>'.$apodoM.'</em>&nbsp;&nbsp;'.$correoM.'</div>' ;
+						echo '<br><div class="alert alert-info"><strong>Moderador Club:  </strong>'.$nombreClub.'&nbsp;&nbsp;<em>'.$apodoM.'</em>&nbsp;&nbsp;'.$correoM.'</div>' ;
 					}		
 				}
 				echo "</div>";
