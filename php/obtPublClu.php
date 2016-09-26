@@ -17,7 +17,7 @@
 					$contenido=$row["contenido"];
 					$id=$row["id_Publicacion"];
 					
-					echo '<div class="panel panel-default" style="color:black;text-align:center;"><div style="color:black;" class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$nombre.'---'.$fecha.'</sup>';
+					echo '<div class="panel panel-default" style="color:black;text-align:center;"><div style="color:black;" class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$nombre.'<br>'.$fecha.'</sup>';
 					$conexion=conectar();
 					$sql4 = 'CALL obtenerApoyo("'.$id.'");';
 					if($result4 =$conexion->query($sql4)){
@@ -25,7 +25,7 @@
 							while($row4=$result4->fetch_array()){
 								$cant=$row4[0];
 							}
-							echo '<button  type="button" class="btn btn-warning btn-xs" onclick="apoyar('.$id.');"><span class="glyphicon glyphicon-star">'.$cant.'</span></button><br>';	
+							echo '&nbsp;&nbsp;<button  type="button" class="btn btn-warning btn-xs" onclick="apoyar('.$id.');"><span class="glyphicon glyphicon-star">'.$cant.'</span></button><br>';	
 						}
 						
 					}
@@ -51,11 +51,11 @@
 								$conten=$row2[0];
 								$aut=$row2[1];
 								$fec=$row2[2];
-								echo '<h6>'.$conten.'</h6><sup>'.$aut.'---'.$fec.'</sup><br>';
+								echo '<h6>'.$conten.'</h6><sup>'.$aut.'&nbsp;&nbsp;'.$fec.'</sup><br>';
 							}
 						}
 					}
-					echo '<input  id="'.$id.'" type="text"><tr><button type="button" class="btn btn-info btn-xs" onclick="comentar('.$id.');">Comentar</button></div></div>';
+					echo '<input  id="'.$id.'" type="text"><tr>&nbsp;&nbsp;<button type="button" class="btn btn-info btn-xs" onclick="comentar('.$id.');">Comentar</button></div></div>';
 				}
 			}
 		}

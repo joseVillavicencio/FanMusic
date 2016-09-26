@@ -1,7 +1,7 @@
 
 			<div id="listasAnecdota2" class="col-lg-8 col-lg-offset-2"> <!--class="col-lg-4 col-sm-4"-->
 				<div class="panel panel-default" style="text-align:center;">
-					<div class="panel panel-heading"><h3>Cuentanos Tus Anécdotas!!</h3></div>
+					<div class="panel panel-heading"><h3>Cuéntanos Tus Anécdotas!!</h3></div>
 					<div class="panel panel-body"><div class="input-group"></div>
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span>
@@ -24,7 +24,7 @@
 							</script>
 						</div>
 						<hr>
-						<button class="btn btn-primary" onclick="publicarAnecdota();">Compartir</button>
+						<button class="btn btn-primary" onclick="publicarAnecdota();">Guardar</button>
 					</div>
 				</div>
 			</div>

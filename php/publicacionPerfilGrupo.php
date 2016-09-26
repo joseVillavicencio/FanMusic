@@ -71,7 +71,7 @@
 								$conten=$row2[0];
 								$aut=$row2[1];
 								$fec=$row2[2];
-								echo '<h6>'.$conten.'</h6><sup>'.$aut.'---'.$fec.'</sup><br>';
+								echo '<h6>'.$conten.'</h6><sup>'.$aut.'&nbsp;&nbsp;'.$fec.'</sup><br>';
 							}
 						}
 					}
