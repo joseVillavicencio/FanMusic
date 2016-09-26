@@ -27,9 +27,10 @@
 						<button class="btn btn-primary" onclick="publicarAnecdota();">Guardar</button>
 					</div>
 				</div>
-			</div>
-			<div id="listasAnecdota" >
+				<div id="listasAnecdota" >
 				<script type="text/javascript">
 					mostrarAnecdota("#listasAnecdota");
 				</script>
 			</div>
+			</div>
+			
