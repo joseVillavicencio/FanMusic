@@ -14,9 +14,18 @@
 		<link href="css/responsive.css" rel="stylesheet">
 	</head>
 	<body>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				cargar_paises();
+				$("#pais").change(function(){dependencia_estado();});
+				$("#region").change(function(){dependencia_ciudad();});
+				$("#region").attr("disabled",true);
+				$("#ciudad").attr("disabled",true);
+			});
+		</script>
 		<section>
-			<div id="derecha" style="margin-left:5%;margin-right:5%">
-				<div id="crear" class="panel panel-default">
+			<div id="derecha" style="margin-left:5%;margin-right:5%; text-align:center;">
+				<div id="crear" class="panel panel-default" style="">
 					<div class="panel-heading">Crear Grupo</div>
 							<div class="panel-body">
 								<!-- Falta subir la foto, pero nose si lo hace jose o yo ....-->
@@ -33,22 +42,22 @@
 									<input type="text" class="form-control" id="al" aria-describedby="basic-addon3">
 									<script type="text/javascript">
 										$('#al').tooltip({'trigger':'focus', 'title': '¿Qué Artista en especifico seguirán? (No debe superar los 20 caracteres)'});
-								</script>
+									</script>
 								</div>
 								<br>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon3">País: </span>
-									<input type="text" class="form-control" id="pa" aria-describedby="basic-addon3">
+								<div class="input-group ">
+									<span class="input-group-addon" id="basic-addon3">País:</span>
+									<select id="pais" name="pais" style="color:black;"><option value="0">Selecciona País</option></select>
 								</div>
 								<br>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon3">Región: </span>
-									<input type="text" class="form-control" id="reg" aria-describedby="basic-addon3">
+								<div class="input-group ">
+									<span class="input-group-addon" id="basic-addon3">Región:</span>
+									<select id="region" name="region"style="color:black;"><option value="0">Selecciona Región</option></select>
 								</div>
 								<br>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon3">Ciudad/Comuna: </span>
-									<input type="text" class="form-control" id="ci" aria-describedby="basic-addon3">
+								<div class="input-group ">
+									<span class="input-group-addon" id="basic-addon3">Ciudad:</span>
+									<select id="ciudad" name="ciudad"style="color:black;"><option value="0">Selecciona Ciudad</option></select>
 								</div>
 								<br>
 								<div class="input-group">

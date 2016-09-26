@@ -19,9 +19,17 @@
 				if($result2 = $conexion->query($sql2)){
 					if($result2->num_rows >0){
 						$conexion = conectar();
-						$sql3 = "call agregarMiembroGrupo('".$idGrupo."','".$idMiembro."')"; //Agrego en el grupo
-						if($result3 = $conexion->query($sql3)){
-							echo "Ahora eres miembro del Grupo";
+						$sql4="call estaBloqueadoEnGrupo('".$idMiembro."','".$idGrupo."');";//Consulta por los club
+						if($result4 = $conexion->query($sql4)){
+							if($result4->num_rows >0){
+								echo "No tienes acceso a este Grupo";
+							}else{
+								$conexion = conectar();
+								$sql3 = "call agregarMiembroGrupo('".$idGrupo."','".$idMiembro."')"; //Agrego en el grupo
+								if($result3 = $conexion->query($sql3)){
+									echo "Ahora eres miembro del Grupo";
+								}
+							}
 						}
 					}else{
 						echo "Para unirte al grupo debes formar parte del club";

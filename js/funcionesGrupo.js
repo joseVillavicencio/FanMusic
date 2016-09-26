@@ -184,39 +184,7 @@ function crearGrupo(div){
 		}
 	});
 }
-function crearGrupo2(){ 
-	var pais=document.getElementById("pa").value;
-	var region=document.getElementById("reg").value;
-	var ciudad= document.getElementById("ci").value;
-	if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
-		var parametros={
-			'nombre':getNombre(),
-			'al': document.getElementById("al").value,
-			'pa': document.getElementById("pa").value,
-			'reg': document.getElementById("reg").value,
-			'ci': document.getElementById("ci").value,
-			'id':getIDActual(), 
-			'descripcion':getDescripcion(),
-		}
-		$.ajax({
-			data: parametros,
-			url: "php/crear.php",
-			type: "POST",	
-			success: function(response){			
-				if(response=="success"){
-					location.href='bienvenidaNuevo.php';
-				}else{
-					if(response=="error 1"){
-						alert("El grupo ya existe");
-						location.href='bienvenidaNuevo.php';
-					}else{
-						alert("No se ha podido crear el grupo");
-					}
-				}
-			}
-		});
-	}
-}
+
 function tablaGrupos(div){
 	var parametros = {
 		"id" :  getIDActual(),
@@ -814,4 +782,59 @@ function apoyarGrupo(idi){
 }
 function volver(){ 
 	location.href='\p_gruposNuevo.php?pag='+localStorage.getItem("nombreG");
+}
+
+//=======================================================================================
+//paises
+//====================================+
+function cargar_paises()
+{
+	$.get("php/cargar-paises.php", function(resultado){
+		if(resultado == false)
+		{
+			alert("Error");
+		}
+		else
+		{
+			$('#pais').append(resultado);			
+		}
+	});	
+}
+function dependencia_estado()
+{
+	var code = $("#pais").val();
+	$.get("php/dependencia-estado.php", { code: code },
+		function(resultado)
+		{
+			if(resultado == false)
+			{
+				alert("Error");
+			}
+			else
+			{
+				$("#region").attr("disabled",false);
+				document.getElementById("region").options.length=1;
+				$('#region').append(resultado);			
+			}
+		}
+
+	);
+}
+
+function dependencia_ciudad()
+{
+	var code = $("#region").val();
+	$.get("php/dependencia-ciudades.php?", { code: code }, function(resultado){
+		if(resultado == false)
+		{
+			alert("Error");
+		}
+		else
+		{
+			$("#ciudad").attr("disabled",false);
+			document.getElementById("ciudad").options.length=1;
+			$('#ciudad').append(resultado);			
+		}
+	});	
+	
 }

@@ -121,16 +121,16 @@ function crearGrupo(div){
 	});
 }
 function crearGrupo2(){ 
-	var pais=document.getElementById("pa").value;
-	var region=document.getElementById("reg").value;
-	var ciudad= document.getElementById("ci").value;
+	var pais=($("#pais option:selected").text());
+	var region=($("#region option:selected").text());
+	var ciudad= ($("#ciudad option:selected").text());
 	if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
 		var parametros={
 			'nombre':getNombre(),
 			'al': document.getElementById("al").value,
-			'pa': document.getElementById("pa").value,
-			'reg': document.getElementById("reg").value,
-			'ci': document.getElementById("ci").value,
+			'pa': pais,
+			'reg': region,
+			'ci': ciudad,
 			'id':getIDActual(), 
 			'descripcion':getDescripcion(),
 		};
@@ -355,17 +355,18 @@ function crearClub(div,dov){
 	});
 }
 function clubCrear(){ 
-	var pais=document.getElementById("pais").value;
-	var region=document.getElementById("region").value;
-	var ciudad= document.getElementById("ciudad").value;
+	var pais   =($("#pais option:selected").text());
+	var region =($("#region option:selected").text());
+	var ciudad =($("#ciudad option:selected").text());
+	alert(region);
 	if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
 		var parametros={
 			'id':getIDActual(),
 			'nombre':document.getElementById("nombreC").value,
 			'descripcion':document.getElementById("descripcion").value,
-			'pais':document.getElementById("pais").value,
-			'region':document.getElementById("region").value,
-			'ciudad':document.getElementById("ciudad").value,
+			'pais':pais,
+			'region':region,
+			'ciudad':ciudad,
 			'alias':document.getElementById("alias").value,
 		};
 		$.ajax({
@@ -405,7 +406,6 @@ function eliminarG(idG){
 		type: "POST",	
 		success: function(response){			
 			if(response=="success"){
-				alert("El grupo ha sido Eliminado");
 				location.href='bienvenidaNuevo.php';
 			}else{
 				alert("No se ha podido eliminar el Grupo");

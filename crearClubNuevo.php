@@ -19,20 +19,22 @@
 		<link href="css/responsive.css" rel="stylesheet">
 	</head>
 	<body>
-		<script>
+		<script type="text/javascript">
 			function cargarClub(div, desde){
 				$(div).load(desde);
 			}
-		</script>
-		<script type="text/javascript">
-			if(notLogged()){
-				location.href= '/FanMusic/index.php';
-				}
+			$(document).ready(function(){
+				cargar_paises();
+				$("#pais").change(function(){dependencia_estado();});
+				$("#region").change(function(){dependencia_ciudad();});
+				$("#region").attr("disabled",true);
+				$("#ciudad").attr("disabled",true);
+			});
 		</script>
 		
 		<section>
 			<div id="espacio">
-				<div id="crear" class="panel panel-default">
+				<div id="crear" class="panel panel-default" style="text-align:center;">
 					<div class="panel-heading">Crear Club</div>
 						<div class="panel-body">
 							<div class="input-group">
@@ -51,19 +53,19 @@
 								</script>
 							</div>
 							<br>
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">País: </span>
-								<input type="text" class="form-control" id="pais" aria-describedby="basic-addon3">
+							<div class="input-group ">
+								<span class="input-group-addon" id="basic-addon3">País:</span>
+								<select id="pais" name="pais" style="color:black;"><option value="0">Selecciona País</option></select>
 							</div>
 							<br>
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">Región: </span>
-								<input type="text" class="form-control" id="region" aria-describedby="basic-addon3">
+							<div class="input-group ">
+								<span class="input-group-addon" id="basic-addon3">Región:</span>
+								<select id="region" name="region"style="color:black;"><option value="0">Selecciona Región</option></select>
 							</div>
 							<br>
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">Ciudad: </span>
-								<input type="text" class="form-control" id="ciudad" aria-describedby="basic-addon3">
+							<div class="input-group ">
+								<span class="input-group-addon" id="basic-addon3">Ciudad:</span>
+								<select id="ciudad" name="ciudad"style="color:black;"><option value="0">Selecciona Ciudad</option></select>
 							</div>
 							<br>
 							<div class="input-group">

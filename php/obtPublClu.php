@@ -17,7 +17,19 @@
 					$contenido=$row["contenido"];
 					$id=$row["id_Publicacion"];
 					
-					echo '<div class="panel panel-default" style="color:black;text-align:center;"><div style="color:black;" class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$nombre.'---'.$fecha.'</sup></div><div class="panel-body"><h4>'.$subtitulo.'</h4><hr/><h5>';
+					echo '<div class="panel panel-default" style="color:black;text-align:center;"><div style="color:black;" class="panel-heading"><h1>'.$titulo.'</h1><sup>'.$nombre.'---'.$fecha.'</sup>';
+					$conexion=conectar();
+					$sql4 = 'CALL obtenerApoyo("'.$id.'");';
+					if($result4 =$conexion->query($sql4)){
+						if($result4->num_rows>0){
+							while($row4=$result4->fetch_array()){
+								$cant=$row4[0];
+							}
+							echo '<button  type="button" class="btn btn-warning btn-xs" onclick="apoyar('.$id.');"><span class="glyphicon glyphicon-star">'.$cant.'</span></button><br>';	
+						}
+						
+					}
+					echo '</div><div class="panel-body"><h4>'.$subtitulo.'</h4><hr/><h5>';
 					mostrarContenido($contenido);
 					echo '</h5>';
 					$conexion=conectar();
