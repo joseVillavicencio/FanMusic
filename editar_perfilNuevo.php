@@ -61,6 +61,7 @@
 				<div class="col-lg-6 col-sm-12">
 					<div id="presentacion" class="panel panel-info" style="margin-left:5%;margin-right:5%;">
 						<div class="panel-heading">
+							<h3>¿Qué deseas editar?</h3>
 							<div class="input-group">
 									<span class="input-group-addon" id="basic-addon3">Apodo: </span>
 									<input type="text" class="form-control" id="APODO" aria-describedby="basic-addon3">
@@ -101,7 +102,7 @@
 				</div>
 				<div class="panel panel-default col-lg-6 col-sm-12">
 					<div id="redes sociales" style="margin-left:5%;margin-right:5%; tex-align:center; color:black;" >
-						<div class="alert alert-warning" role="alert">Recuerda escribir toda la dirección :) </div><br>
+						<h3> Editar Redes Sociales</h3><br>
 						<div id="twitter2">
 							<script type="text/javascript">
 								cambiarTwitter("#twitter2"); 
