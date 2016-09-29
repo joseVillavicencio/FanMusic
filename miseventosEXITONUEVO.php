@@ -12,7 +12,6 @@
 		<link href="css/animate.css" rel="stylesheet">	
 		<link href="css/responsive.css" rel="stylesheet">
 		<!-- Esta parte es de nuestro codigo- -->
-		
 		<script src="Highcharts-4.1.5/js/highcharts.js"></script>
 		<link href="css/jquery.dialog.css" rel="stylesheet" type="text/css"><!--NECESARIA PARA EL DIALOG/IMAGEN-->
 	<script src="js/jquery.dialog.js" type="text/javascript"></script><!--NECESARIA PARA EL DIALOG/IMAGEN-->	
@@ -82,14 +81,5 @@
 				</div>
 			</div>
 		</footer>
-		
-
-	
-
-		<script type="text/javascript" src="js/smoothscroll.js"></script>
-		<script type="text/javascript" src="js/jquery.parallax.js"></script>
-	
-		
-		
 	</body>  
 </html>
