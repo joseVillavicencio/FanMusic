@@ -503,8 +503,8 @@ function subirFotoFinanza(id){
 	window.open('/FanMusic/ventanaPopFinanza.php',"finanza","width=420,height=340,toolbar=no");
 }
 function finanzaNueva(div){
-		$(div).append('<form enctype="multipart/form-data" action="php/subirFotoFinanzaClub.php" method="POST"><div class= "form-group"><div class="input-group"><label>Agregue un Titulo : </label><input type="text" id="titulo" name="titulo" > <br><br><input type="hidden" id="idF" name="idF" value="'+getIdFina()+'"><div><input name="uploadedfile" id="uploadedfile" type="file" /></div></div></div><button type="submit" class="btn btn-success"> Adjuntar Foto </button></form>');		
-}
+		$(div).append('<form enctype="multipart/form-data" action="php/subirFotoFinanzaClub.php"  method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo2" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+getIdFina()+'" ><div><input name="uploadedfile" id="uploadedfile" type="file"></div><br><button type="submit" class="btn btn-success"> Adjuntar</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></div></form>');	
+}																								
 //--------------------------------------------------------------
 function obtenerNombreClub(div){
 	$(div).append('<div class="panel-heading">'+localStorage.getItem("nombreC")+'</div>');
@@ -1009,7 +1009,7 @@ function desbloquearM(idi){
 		cache:	false,
 		success: function(response){			
 			if(response==1){
-				alert("El miembro ha sido bloqueado");
+				alert("El miembro ha sido desbloqueado");
 				location.href='/FanMusic/bloquearMiembroClub.php';
 			}else{
 				alert("No se ha podido desbloquear el miembro");

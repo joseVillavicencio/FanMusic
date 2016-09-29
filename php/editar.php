@@ -18,7 +18,7 @@
 			$registroquery3 = "call esMiembroGrupo($id_g,$id_m);";
 			if($registro3 =$conexion->query($registroquery3)){
 				if($registro3->num_rows >0){
-					echo "estaaca";
+					
 					$conexion2=conectar();
 					$consulta2= "call actInfoGrupo('".$nombre."','".$desc."');";
 					if($registro4 =$conexion2->query($consulta2)){
