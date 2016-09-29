@@ -127,38 +127,45 @@ function getTMActual(){
 FUNCIONES PARA LAS REDES SOCIALES
 --------------------------------------------------------------------------*/
 function cambiarTwitter(div){
-	$(div).append('<img src="img/help/twitter.png" alt="Twitter"/>&nbsp;Twitter:&nbsp;&nbsp;&nbsp;&nbsp;   <input id="TWITTER" type="text" name="twitter" value="'+getTWActual()+'"> <button type="button" onclick="actTwitter(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTwitter(1);" class="btn btn-danger">Eliminar</button><br><br>');			
+	$(div).append('<img src="img/help/twitter.png" alt="Twitter"/>&nbsp;Twitter:&nbsp;&nbsp;&nbsp;&nbsp;   <input id="TWITTER" type="text" name="twitter" value="'+getTWActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTwitter(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTwitter(1);" class="btn btn-danger">Eliminar</button><br><br>');			
 		
 }
 
 function actTwitter(opcion){ 
+	var tw=document.getElementById("TWITTER").value;
 	var parametros = {
 		"idUser": getIDActual(),
-		"TWITTER" : document.getElementById("TWITTER").value,
+		"TWITTER": tw,
 		"flag": opcion,
 	}
 	$.ajax({
 		data: parametros,
 		url: "php/cambiarTwitter.php",
 		type: "post",	
-		
 		success: function(response){	
 			if(response==1){
+				localStorage.setItem("ctaTW",tw);
 				location.href='/FanMusic/perfilNuevo.php';
 			}else{
-				alert("Hubo un problema con tu petición");
+				if(response==-1){
+					localStorage.setItem("ctaTW","");
+					location.href='/FanMusic/perfilNuevo.php';
+				}else{
+						alert("Hubo un problema con tu petición");
+					}
 			}
-		}
+		}		
 	});
 }
 function cambiarFacebook(div){
-	$(div).append('<img src="img/help/facebook.png" alt="Facebook"/>&nbsp;Facebook:&nbsp;<input id="FACEBOOK" type="text" name="facebook" value="'+getFBActual()+'"> <button type="button" onclick="actFacebook(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actFacebook(1);" class="btn btn-danger">Eliminar</button><br><br>');			
+	$(div).append('<img src="img/help/facebook.png" alt="Facebook"/>&nbsp;Facebook:&nbsp;&nbsp;<input id="FACEBOOK" type="text" name="facebook" value="'+getFBActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actFacebook(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actFacebook(1);" class="btn btn-danger">Eliminar</button><br><br>');			
 }
 
 function actFacebook(opcion){
+	var f=document.getElementById("FACEBOOK").value;
 	var parametros = {
 		"idUser": getIDActual(),
-		"FACEBOOK" : document.getElementById("FACEBOOK").value,
+		"FACEBOOK" : f,
 		"flag": opcion,
 	}
 	$.ajax({
@@ -168,22 +175,29 @@ function actFacebook(opcion){
 		
 		success: function(response){	
 			if(response==1){
+				localStorage.setItem("ctaFB",f);
 				location.href='/FanMusic/perfilNuevo.php';
 			}else{
-				alert("Hubo un problema con tu petición");
+				if(response==-1){
+					localStorage.setItem("ctaFB","");
+					location.href='/FanMusic/perfilNuevo.php';
+				}else{
+					alert("Hubo un problema con tu petición");
+				}
 			}
 		}
 	});
 }
 
 function cambiarYoutube(div){
-	$(div).append('<img src="img/help/youtube.png" alt="Youtube"/>&nbsp;Youtube:&nbsp;&nbsp;&nbsp;   <input id="Youtube" type="text" name="youtube" value="'+getYTActual()+'"> <button type="button" onclick="actYoutube(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actYoutube(1);" class="btn btn-danger">Eliminar</button><br><br>');			
+	$(div).append('<img src="img/help/youtube.png" alt="Youtube"/>&nbsp;Youtube:&nbsp;&nbsp;&nbsp;<input id="YOUTUBE" type="text" name="youtube" value="'+getYTActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actYoutube(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actYoutube(1);" class="btn btn-danger">Eliminar</button><br><br>');			
 }
 
 function actYoutube(opcion){ 
+	var y=document.getElementById("YOUTUBE").value;
 	var parametros = {
 		"idUser": getIDActual(),
-		"YOUTUBE" : document.getElementById("YOUTUBE").value,
+		"YOUTUBE" : y,
 		"flag": opcion,
 	}
 	$.ajax({
@@ -193,21 +207,28 @@ function actYoutube(opcion){
 		
 		success: function(response){	
 			if(response==1){
+				localStorage.setItem("ctaYT",y);
 				location.href='/FanMusic/perfilNuevo.php';
 			}else{
-				alert("Hubo un problema con tu petición");
+				if(response==-1){
+					localStorage.setItem("ctaYT","");
+					location.href='/FanMusic/perfilNuevo.php';
+				}else{
+					alert("Hubo un problema con tu petición");
+				}
 			}
 		}
 	});
 }
 
 function cambiarTumblr(div){
-	$(div).append('<img src="img/help/tumblr.png" alt="Tumblr"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tumblr:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <input id="Tumblr" type="text" name="tumblr" value="'+getTMActual()+'"> <button type="button" onclick="actTumblr(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTumblr(1);" class="btn btn-danger">Eliminar</button><br><br>');			
+	$(div).append('<img src="img/help/tumblr.png" alt="Tumblr"/>&nbsp;&nbsp;&nbsp;Tumblr:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <input id="TUMBLR" type="text" name="tumblr" value="'+getTMActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTumblr(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTumblr(1);" class="btn btn-danger">Eliminar</button><br><br>');			
 }
 function actTumblr(opcion){
+	var t=document.getElementById("TUMBLR").value;
 	var parametros = {
 		"idUser": getIDActual(),
-		"TUMBLR" : document.getElementById("TUMBLR").value,
+		"TUMBLR" : t,
 		"flag": opcion,
 	}
 	$.ajax({
@@ -217,21 +238,29 @@ function actTumblr(opcion){
 		
 		success: function(response){			
 			if(response==1){
+				localStorage.setItem("ctaTM",t);
 				location.href='/FanMusic/perfilNuevo.php';
 			}else{
-				alert("Hubo un problema con tu petición");
+				if(response==-1){
+					localStorage.setItem("ctaTM","");
+					location.href='/FanMusic/perfilNuevo.php';
+				}else{
+					alert("Hubo un problema con tu petición");
+				}
 			}
 		}
 	});
 }
 
 function cambiarInstagram(div){
-	$(div).append('<img src="img/help/instagram.png" alt="Instagram"/>&nbsp&nbsp;&nbsp;;Instagram:<input id="Instagram" type="text" name="instagram" value="'+getIGActual()+'"> <button type="button" onclick="actInstagram(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actInstagram(1);" class="btn btn-danger">Eliminar</button><br><br>');			
+	
+	$(div).append('<img src="img/help/instagram.png" alt="Instagram"/>&nbsp&nbsp;&nbsp;Instagram:&nbsp;&nbsp;<input id="INSTAGRAM" type="text" name="instagram" value="'+getIGActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actInstagram(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actInstagram(1);" class="btn btn-danger">Eliminar</button><br><br>');			
 }
 function actInstagram(opcion){ 
+	var i=document.getElementById("INSTAGRAM").value;
 	var parametros = {
 		"idUser": getIDActual(),
-		"INSTAGRAM" : document.getElementById("INSTAGRAM").value,
+		"INSTAGRAM" : i ,
 		"flag": opcion,
 	}
 	$.ajax({
@@ -241,9 +270,15 @@ function actInstagram(opcion){
 		
 		success: function(response){			
 			if(response==1){
+				localStorage.setItem("ctaIG",i);
 				location.href='/FanMusic/perfilNuevo.php';
 			}else{
-				alert("Hubo un problema con tu petición");
+				if(response==-1){
+					localStorage.setItem("ctaIG","");
+					location.href='/FanMusic/perfilNuevo.php';
+				}else{
+					alert("Hubo un problema con tu petición");
+				}
 			}
 		}
 	});
@@ -459,9 +494,10 @@ function publicarAnecdota(){
 			url:"php/publicarAnecdota.php",
 			type:"POST",
 			success:	function(response){
-				
 				if(response==1){
 					location.href='/FanMusic/perfilNuevo.php';
+				}else{
+					alert("No se ha podido eliminar su anécdota");
 				}
 			}
 		});
@@ -654,6 +690,8 @@ function dejarCompCover(video){
 			if(response==1){
 				alert("Desde ahora tu cover ya no será visible en el Club");
 				location.href='/FanMusic/perfilNuevo.php';
+			}else{
+				alert("No se ha podido dejar de compartir");
 			}
 		}
 	});

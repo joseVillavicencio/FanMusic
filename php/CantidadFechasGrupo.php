@@ -6,6 +6,7 @@
 	if($conexion->connect_errno ) {
 		die ("Error de conexion") ;
 	}else{
+		echo "entro al php";
 		$sql = "call  obtenerNombreGrupoMod('".$id."');";	
 		if($result = $conexion->query($sql)){
 			if($result->num_rows >0){

@@ -10,7 +10,7 @@
 	if($conexion->connect_errno ) {
 		die ("Error de conexion");
 	}else{
-		if($tumblr){
+		if($tumblr!=NULL){
 			if($opcion == 0){//Actualizar
 				$sql2 =  "call actualizarTumblr('".$tumblr."','".$id_User."');"; 
 				if($result2 = $conexion->query($sql2)){
@@ -18,13 +18,11 @@
 				}else{
 					echo false;
 				}
-			}
-		}else{
-			if($opcion == 1){ //Eliminar
+			}else{
 				$conexion=conectar();
 				$sql3 =  "call eliminarTumblr('".$id_User."');"; 
 				if($result3 = $conexion->query($sql3)){
-					echo true;
+					echo -1;
 				}else{
 					echo false;
 				}

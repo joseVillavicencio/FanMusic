@@ -20,10 +20,10 @@
 			$video=$matches[0][0];
 	
 			$sql='call veriUnicoCover('."'".$video."'".');';
-			if($result = $conexion->query($sql)){
+			/*if($result = $conexion->query($sql)){
 				if($result->num_rows >0){
 					echo 0;
-				}else{
+				}else{*/
 					$conexion = conectar();
 					$sql3="CALL nombreClub('".$club."');";
 					if($result2 = $conexion->query($sql3)){
@@ -42,8 +42,8 @@
 							echo 3;
 						}
 					}
-				}
-			}
+				//}
+			//}
 		}else{
 			echo 2;
 		}

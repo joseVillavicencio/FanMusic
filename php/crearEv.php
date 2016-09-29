@@ -81,12 +81,12 @@
 																		$ag_c2 = "call agregarParticipantes('".$id_part."','".$id_e."');";
 																		if($resp_ag_c2=$conexion->query($ag_c2)){
 																			if($resp_ag_c2){ //existe (TRUE al crear)
-																				//echo "El evento ".$nombreE." en ".$regE." se ha creado exitosamente";
+																				
 																			}
 																		}
 																	}
 																}
-																echo "El evento ".$nombreE." en ".$regE." se ha creado exitosamente";
+																
 															}else{
 																echo "No existen participantes que residan en ".$regE;
 															}
@@ -110,7 +110,7 @@
 																			}
 																		}
 																	}
-																	echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
+																	
 																}else{
 																	echo "No existen participantes que residan en ".$ciE;
 																}
@@ -129,7 +129,7 @@
 																			}
 																		}
 																	}
-																	echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
+																	
 																}else{
 																	echo "No existen participantes para este evento";
 																}
@@ -197,7 +197,7 @@
 																			}
 																		}
 																	}
-																	echo "El evento ".$nombreE." en ".$paE." se ha creado exitosamente";
+																	
 																}else{
 																	echo "No existen participantes que residan en ".$paE;
 																}
@@ -220,7 +220,7 @@
 																				}
 																			}
 																		}
-																		echo "El evento ".$nombreE." en ".$regE." se ha creado exitosamente";
+																	
 																	}else{
 																		echo "No existen participantes que residan en ".$regE;
 																	}
@@ -243,7 +243,7 @@
 																					}
 																				}
 																			}
-																			echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
+																			
 																		}else{
 																			echo "No existen participantes que residan en ".$ciE;
 																		}
@@ -262,7 +262,7 @@
 																					}
 																				}
 																			}
-																			echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
+																			
 																		}else{
 																			echo "No existen participantes para este evento";
 																		}

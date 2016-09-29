@@ -120,9 +120,6 @@ function presentacion(div){
 	$(div).append('<div id="calendario" style="margin-left:3%;margin-right:3%;" ><iframe src="https://calendar.google.com/calendar/embed?src=a0aqpp5472g13a7921k5rk6t44%40group.calendar.google.com&ctz=America/Santiago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></div>');
 } 
 
-function editarEventos(div){ //POR EL MOMENTO, AL PARECER NADIE ESTÁ LLAMANDO A ESTA FUNCIÓN
-	$(div).append('<div id="hacerEdicion"> <a href="https://calendar.google.com/calendar/render?pli=1" class="btn btn-info btn-md" role="button" align="right">Agregar Evento al Calendario</a></div>');
-}
 
 function mostrarLideresCorreo(div){
 	
@@ -374,21 +371,7 @@ function resultadosClub(div){
 		}
 	});
 }
-function resultadosGrupo(div){
-	var parametros = {
-		"idM" :  getIDActual()
-	}
-	$.ajax({
-		data: parametros,
-		url: "php/resultadosFechasGrupo.php",
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
-		
-		success: function(response){
-			$(div).append(response);
-			datosGraficoGrupo();
-		}
-	});
-}
+
 
 function actualizar(div,dir){
 	$(div).load(dir);
@@ -397,7 +380,7 @@ function ventanaPopEventos(){
 	window.open('/FanMusic/ventanaPopEventos.php',"Eventos","width=420,height=340,toolbar=no");
 }
 function datosGraficoGrupo(){
-	
+	alert("entro");
 	var parametros = {
 		"idM" :  getIDActual()
 	}
@@ -409,7 +392,7 @@ function datosGraficoGrupo(){
 		cache:	false,
 		
 		success:	function(response){
-			
+			alert(response.status);
 			if(response.status=="success"){
 				var resp = (response.message).split(";");
 				localStorage.setItem("cant1",resp[0]);
@@ -499,7 +482,6 @@ function mostrarResultados(div){
 		type: "POST",	
 		
 		success: function(response){
-			//alert(response);
 			if(response==1){ //Es un Administrador	
 				resultadosClub(div);
 			}else{
@@ -507,6 +489,23 @@ function mostrarResultados(div){
 					resultadosGrupo(div);
 				}
 			}
+		}
+	});
+}
+function resultadosGrupo(div){
+	
+	var parametros = {
+		"idM" :  getIDActual()
+	}
+	$.ajax({
+		data: parametros,
+		url: "php/resultadosFechasGrupo.php",
+		type: "POST",	//Defino la forma en que llegarán los parámetros al php
+		
+		success: function(response){
+			alert(response);
+			$(div).append(response);
+			datosGraficoGrupo();
 		}
 	});
 }
