@@ -4,7 +4,7 @@
 	include('funcionesI.php');
 	$conexion = conectar();
 	$idF=$_POST["idF"]; 
-	$titulo=$_POST["titulo"]; 
+	$titulo=$_POST['titulo2']; 
 	$target_path= "C:/xampp/htdocs/FanMusic/img/finanzas";
 	$target_path2="img/finanzas/";
 		
@@ -16,7 +16,7 @@
 		if($tipo!="jpg"){
 			if($tipo!="gif"){
 				//header('Location: inicio.php?id=2&op=3'); si hay error devuelve a otra pagina
-				echo "Ha Ocurrido un problema, la imagen seleccionada no es del formato soportado por el sistema, favor intentar con JPEG, JPG y GIF.<br><button onclick='location.href=".'"'."//localhost/FanMusic/imagPopPublicacion.php".'"'."'>Volver</button>";
+				echo "Ha Ocurrido un problema, la imagen seleccionada no es del formato soportado por el sistema, favor intentar con JPEG, JPG y GIF.<br><button onclick='location.href=".'"'."//localhost/FanMusic/ventanaPopFinanza.php".'"'."'>Volver</button>";
 				$tipocorrect=false;
 			}
 		}

@@ -19,11 +19,11 @@
 		if($matches[0]!=null){
 			$video=$matches[0][0];
 	
-			$sql='call veriUnicoCover('."'".$video."'".');';
-			/*if($result = $conexion->query($sql)){
+			$sql='call veriUnicoCover("'.$link.'");';
+			if($result = $conexion->query($sql)){
 				if($result->num_rows >0){
 					echo 0;
-				}else{*/
+				}else{
 					$conexion = conectar();
 					$sql3="CALL nombreClub('".$club."');";
 					if($result2 = $conexion->query($sql3)){
@@ -32,7 +32,7 @@
 								$id_Club= $row2[0];
 							}
 							$conexion=conectar();
-							$sql2="CALL agregarCover('".$id."','".$id_Club."','".$video."','".$titulo."','".$cd."','".$lang."','".$compartir."');";
+							$sql2="CALL agregarCover('".$id."','".$id_Club."','".$link."','".$titulo."','".$cd."','".$lang."','".$compartir."');";
 							if($result3 = $conexion->query($sql2)){
 								if($result3){
 									echo 1;
@@ -42,8 +42,8 @@
 							echo 3;
 						}
 					}
-				//}
-			//}
+				}
+			}
 		}else{
 			echo 2;
 		}
