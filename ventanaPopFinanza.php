@@ -11,7 +11,7 @@
 	<body>
 		<div class="panel panel-success">
 			<div class="panel panel-heading">
-				<h3>Agregar fotos</h3>
+				<h3>¿Deseas adjuntar imágenes?</h3>
 			</div>
 			<div class="panel panel-body">
 			<div id="adjuntarFotofinanza" >

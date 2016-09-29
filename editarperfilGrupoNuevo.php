@@ -71,24 +71,10 @@
 					<div class="panel-body">
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon3">Descripción: </span>
-							<input type="text" class="form-control" id="descripcion" aria-describedby="basic-addon3">
+							
 						</div>
 						<br>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon3">País: </span>
-							<input type="text" class="form-control" id="pais" aria-describedby="basic-addon3">
-						</div>
-						<br>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon3">Región: </span>
-							<input type="text" class="form-control" id="region" aria-describedby="basic-addon3">
-						</div>
-						<br>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon3">Ciudad: </span>
-							<input type="text" class="form-control" id="ciudad" aria-describedby="basic-addon3">
-						</div>
-						<br>
+						<textarea rows="5" cols="40" id="descripcion"></textarea>
 						<hr>
 						<button type="button" onclick="cargarCambiosPerfilGrupo();" class="btn btn-success">Editar Información</button>
 					</div>

@@ -24,7 +24,7 @@
 				}
 			}
 		}else{
-			echo "aqui se mete";
+			
 			$sql3='call nombreClub('."'".$compartir."'".');'; 
 			if($result3 = $conexion->query($sql3)){
 				if($result3->num_rows >0){

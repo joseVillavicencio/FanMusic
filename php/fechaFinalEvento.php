@@ -29,7 +29,7 @@
 	}else{
 		$sql = "call  ponerFechaFinal('".$idEvento."','".$fechaFinal."');";	
 		if($result = $conexion->query($sql)){
-			echo "La fecha fue modificada a ".$fechaFinal.". Recuerda cambiar la fecha en el calendario de Gmail ";
+			echo "La fecha final del evento es: ".$fechaFinal.".";
 		}else{ 
 			echo "No se pudo guardar la fecha";
 		}

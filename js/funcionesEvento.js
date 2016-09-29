@@ -116,9 +116,7 @@ function saludo(div){
 	$(div).append("<h1><center>Bienvenido a tus eventos "+getApoActual()+"<center></h1>");
 }
 
-function presentacion(div){
-	$(div).append('<div id="calendario" style="margin-left:3%;margin-right:3%;" ><iframe src="https://calendar.google.com/calendar/embed?src=a0aqpp5472g13a7921k5rk6t44%40group.calendar.google.com&ctz=America/Santiago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></div>');
-} 
+
 
 
 function mostrarLideresCorreo(div){
@@ -248,11 +246,9 @@ function crearEvento2(){
 		ciudad =($("#region option:selected").text());
 	}
 	var	fechas = document.getElementsByName("fecha");
-	var fec1=fechas[0].value.split("/"); //datos de la fecha 1
-	var fec2=fechas[1].value.split("/"); //datos de la fecha 2
-	var fec3=fechas[2].value.split("/"); //datos de la fecha 3
-	//if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
-	//COMO SE UTILIZA EL PICKER, YA NO ES NECESARIO UTILIZAR ESTA VALIDACION
+	var fec1=fechas[0].value.split("/"); 
+	var fec2=fechas[1].value.split("/"); 
+	var fec3=fechas[2].value.split("/"); 
 		var parametros = {
 			"idUser":getIDActual(),
 			"nombreE": document.getElementById("nombreE").value,
@@ -347,7 +343,7 @@ function informarAsistencia(id, nombreEvento,name){
 		type: "POST",	//Defino la forma en que llegarán los parámetros al php
 		
 		success: function(response){	
-			alert(response);
+			
 			if(response=="Listo!"){
 				location.href='FanMusic/miseventosEXITONUEVO.php';
 			}
@@ -380,7 +376,7 @@ function ventanaPopEventos(){
 	window.open('/FanMusic/ventanaPopEventos.php',"Eventos","width=420,height=340,toolbar=no");
 }
 function datosGraficoGrupo(){
-	alert("entro");
+	
 	var parametros = {
 		"idM" :  getIDActual()
 	}
@@ -392,7 +388,7 @@ function datosGraficoGrupo(){
 		cache:	false,
 		
 		success:	function(response){
-			alert(response.status);
+			
 			if(response.status=="success"){
 				var resp = (response.message).split(";");
 				localStorage.setItem("cant1",resp[0]);
@@ -503,7 +499,7 @@ function resultadosGrupo(div){
 		type: "POST",	//Defino la forma en que llegarán los parámetros al php
 		
 		success: function(response){
-			alert(response);
+			
 			$(div).append(response);
 			datosGraficoGrupo();
 		}
