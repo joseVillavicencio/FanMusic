@@ -320,11 +320,6 @@ function GestionClub(div){
 					$(div).append('<a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'solicitarPublicacionClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Solicitar Publicacion</a>');
 				} 
 			}
-
-			/*Falta considerar que los covers tambien iran dentro de la seccion anecdotas*/
-
-		
-
 			$(div).append('<a href='+"'"+'muroAnecdotas.php'+"'"+' class="btn btn-primary"  role="button" align="right">Ver Aportes</a><a href='+"'"+'seccionLetras.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Letras</a>');
 
 		}
@@ -510,47 +505,51 @@ function obtenerNombreClub(div){
 	$(div).append('<div class="panel-heading">'+localStorage.getItem("nombreC")+'</div>');
 }
 
-
-
 function cargarCambiosPerfilClub(){
-	var flag=0;
-	var pais=document.getElementById("pais").value;
-	var region=document.getElementById("region").value;
-	var ciudad= document.getElementById("ciudad").value;
-	if(pais!=""){
-		if(validarTexto(pais,20,"Pais")!=1){
-			flag=1;
-		}
-	}
-	if(region!=""){
-		if(validarTexto(region,20,"Region")!=1){
-			flag=1;
-		}
-	}
-	if(ciudad!=""){
-		if(validarTexto(ciudad,20,"Ciudad")!=1){
-			flag=1;
-		}
-	}
-	if(flag==0){
+	var des= document.getElementById("descripcion").value;
 		var parametros={
 			"id_m":getIDActual(),
-			"nombreC": localStorage.getItem("nombreC"),
-			"descripcion": document.getElementById("descripcion").value,
-			"pais": document.getElementById("pais").value,
-			"region" : document.getElementById("region").value,
-			"ciudad": document.getElementById("ciudad").value
+			"descripcion": des,
+			"nombreC":  localStorage.getItem("nombreC")
 		}
-		$.ajax({
-			data: parametros,
-			url:	"php/editarPClub.php",
-			type:	"POST",
-			cache:	false,
-			success:	function(response){
-				location.href='/FanMusic/bienvenidaNuevo.php';
-			}
-		});
-	}
+		if(des!=""){
+			$.ajax({
+				data: parametros,
+				url:	"php/editarPClub.php",
+				type:	"POST",
+				cache:	false,
+				success:	function(response){
+					if(response==1){
+						location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+					}else{
+						if(response==2){
+							alert("El miembro que desea designar no pertenece a la lista de miembros del club");
+							location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+						}else{
+							if(response==3){
+								alert("El miembro que desea designar se encuentra bloqueado");
+								location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+							}else{
+								if(response==4){
+									alert("El miembro que desea designar ya tiene un cargo de administrador");
+									location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+								}else{
+									if(response==5){
+										alert("El miembro que desea designar ya tiene un cargo de moderador");
+										location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+									}else{
+										alert("No se ha podido designar moderador");
+										location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+									}
+								}
+							}
+						}
+					}
+				}
+			});
+		}else{
+			alert("Debe completar el campo descripción");
+		}
 }
 /* --------------------------------------------------------
 					PUBLICACIONES

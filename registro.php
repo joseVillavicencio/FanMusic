@@ -95,27 +95,28 @@
 								</script>
 							</div>
 							<br>
-							<div class="input-group ">
-								<span class="input-group-addon" id="basic-addon3">País:</span>
+							<div class="input-group " style="color:black;">
+								<center><h3>Ingrese su país</h3></center>
 								<select id="pais" name="pais" style="color:black;"><option value="0">Selecciona País</option></select>
 							</div>
 							<br>
-							<div class="input-group ">
-								<span class="input-group-addon" id="basic-addon3">Región:</span>
+							<div class="input-group " style="color:black;">
+								<center><h3>Ingrese su región</h3></center>
 								<select id="region" name="region"style="color:black;"><option value="0">Selecciona Región</option></select>
 							</div>
 							<br>
-							<div class="input-group ">
-								<span class="input-group-addon" id="basic-addon3">Ciudad:</span>
+							<div class="input-group " style="color:black;">
+								<center><h3>Ingrese su ciudad</h3></center>
 								<select id="ciudad" name="ciudad"style="color:black;"><option value="0">Selecciona Ciudad</option></select>
 							</div>
+													
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-6 col-sm-12">
 					<div id="redes" class="panel panel-default">				
 						<div class="panel-heading">
-							<h2 class="panel-title">Redes Sociales</h2>
+							<h2 class="panel-title">Completa tus Redes Sociales[Opcional]</h2>
 						</div>
 						<div class="panel-body" style="text-align:center;">
 							<div class="input-group">

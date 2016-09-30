@@ -116,9 +116,6 @@ function saludo(div){
 	$(div).append("<h1><center>Bienvenido a tus eventos "+getApoActual()+"<center></h1>");
 }
 
-
-
-
 function mostrarLideresCorreo(div){
 	
 	var parametros = {

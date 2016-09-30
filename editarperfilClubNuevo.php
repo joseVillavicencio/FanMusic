@@ -66,12 +66,10 @@
 					<div id="datos" >
 						<div class="panel-body">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">Descripción: </span>
-								
+								<span class="input-group-addon" id="basic-addon3">Descripción</span> 
+								<input type="text" class="form-control" id="descripcion" aria-describedby="basic-addon3">
 							</div>
-							<textarea rows="5" cols="40" id="descripcion"></textarea>
 							<br>
-							<hr>
 							<button type="button" onclick="cargarCambiosPerfilClub();" class="btn btn-success">Editar Información</button>
 						</div>
 					</div>

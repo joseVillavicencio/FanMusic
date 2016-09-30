@@ -483,7 +483,7 @@ function enviarRegistro(div){
 		tumb=getTumblr();
 	}
 
-	if((validarEmail(getMailSign2())==1)&&(validarPass(getPassSign2())==1)&&(soloNumeros(getAge())==0)&&(validarTexto(getPais(),20,"País")==1)&&(validarTexto(getRegion(),20,"Región")==1)&&(validarTexto(getCiudad(),20,"Ciudad")==1)){
+	if((validarEmail(getMailSign2())==1)&&(validarPass(getPassSign2())==1)&&(soloNumeros(getAge())==0)){
 		if(localStorage.getItem("correoSign")==getMailSign2()){
 			if(localStorage.getItem("contraSign")==getPassSign2()){
 				if(getCiudad() != "Selecciona Ciudad"){

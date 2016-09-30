@@ -124,34 +124,34 @@ function crearGrupo2(){
 	var pais=($("#pais option:selected").text());
 	var region=($("#region option:selected").text());
 	var ciudad= ($("#ciudad option:selected").text());
-	if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
-		var parametros={
-			'nombre':getNombre(),
-			'al': document.getElementById("al").value,
-			'pa': pais,
-			'reg': region,
-			'ci': ciudad,
-			'id':getIDActual(), 
-			'descripcion':getDescripcion(),
-		};
-		$.ajax({
-			data: parametros,
-			url: "php/crear.php",
-			type: "POST",	
-			success: function(response){			
-				if(response=="success"){
+
+	var parametros={
+		'nombre':getNombre(),
+		'al': document.getElementById("al").value,
+		'pa': pais,
+		'reg': region,
+		'ci': ciudad,
+		'id':getIDActual(), 
+		'descripcion':getDescripcion(),
+	};
+	$.ajax({
+		data: parametros,
+		url: "php/crear.php",
+		type: "POST",	
+		success: function(response){			
+			if(response=="success"){
+				location.href='bienvenidaNuevo.php';
+			}else{
+				if(response=="error 1"){
+					alert("El grupo ya existe");
 					location.href='bienvenidaNuevo.php';
 				}else{
-					if(response=="error 1"){
-						alert("El grupo ya existe");
-						location.href='bienvenidaNuevo.php';
-					}else{
-						alert("No se ha podido crear el grupo");
-					}
+					alert("No se ha podido crear el grupo");
 				}
 			}
-		});
-	}
+		}
+	});
+	
 }
 function buscar(div){
 	var parametros ={
@@ -358,26 +358,25 @@ function clubCrear(){
 	var pais   =($("#pais option:selected").text());
 	var region =($("#region option:selected").text());
 	var ciudad =($("#ciudad option:selected").text());
-	alert(region);
-	if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
-		var parametros={
-			'id':getIDActual(),
-			'nombre':document.getElementById("nombreC").value,
-			'descripcion':document.getElementById("descripcion").value,
-			'pais':pais,
-			'region':region,
-			'ciudad':ciudad,
-			'alias':document.getElementById("alias").value,
-		};
-		$.ajax({
-			data: parametros,
-			url: "php/crearClub.php",
-			type: "POST",	
-			success: function(response){
-				location.href='/FanMusic/bienvenidaNuevo.php';
-			}
-		});
-	}
+	
+	var parametros={
+		'id':getIDActual(),
+		'nombre':document.getElementById("nombreC").value,
+		'descripcion':document.getElementById("descripcion").value,
+		'pais':pais,
+		'region':region,
+		'ciudad':ciudad,
+		'alias':document.getElementById("alias").value,
+	};
+	$.ajax({
+		data: parametros,
+		url: "php/crearClub.php",
+		type: "POST",	
+		success: function(response){
+			location.href='/FanMusic/bienvenidaNuevo.php';
+		}
+	});
+	
 }
 function eliminarC(idi){
 	var parametros = {

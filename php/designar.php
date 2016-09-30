@@ -31,7 +31,7 @@
 									$sql4 = "call  esModerador('".$id_m."');"; // Revisamos que no sea moderador de algo mas
 									if($registro4 =$conexion->query($sql4)){
 										if($registro4->num_rows >0){
-											echo 0;//echo "Ya es moderador de otro grupo";
+											echo 5;//echo "Ya es moderador de otro grupo";
 											$flag=1;
 										}
 									}
@@ -39,7 +39,7 @@
 									$sql4 = "call  esAdmin('".$id_m."');"; // Revisamos que no sea admin de algo mas
 									if($registro4 =$conexion->query($sql4)){
 										if($registro4->num_rows >0){
-											echo 0; //echo "Este usuario ya posee un cargo";
+											echo 4; //echo "Este usuario ya posee un cargo";
 											$flag=1;
 										}
 									}
@@ -49,15 +49,15 @@
 										if($result5 = $conexion->query($sql5)){
 											echo 1;//echo "ASSDDDD"; //Agregamos al nuevo moderador del club exitosamente ;)
 										}else{
-											echo "0"; 
+											echo 0; 
 										}
 									}
 								}else{
-									echo 0; //Se encuentra en la lista de bloqueados.
+									echo 3; //Se encuentra en la lista de bloqueados.
 								}
 							}
 						}else{
-							echo 0;//echo "El usuario no es miembro del grupo"; //echo "0";
+							echo 2;//echo "El usuario no es miembro del grupo"; //echo "0";
 						}
 					}
 				}
