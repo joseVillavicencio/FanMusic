@@ -240,8 +240,28 @@ function designarModerador(){
 					alert("Se ha designado correctamente");
 					location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
 				}else{
-					alert("No se ha podido designar");
-					location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+					if(response==2){
+						alert("El miembro que desea designar no pertenece a la lista de miembros del grupo");
+						location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+					}else{
+						if(response==3){
+							alert("El miembro que desea designar se encuentra bloqueado");
+							location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+						}else{
+							if(response==4){
+								alert("El miembro que desea designar ya tiene un cargo de administrador");
+								location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+							}else{
+								if(response==5){
+									alert("El miembro que desea designar ya tiene un cargo de moderador");
+									location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+								}else{
+									alert("No se ha podido designar moderador");
+									location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+								}
+							}
+						}
+					}
 				}
 			}
 		});
@@ -295,7 +315,7 @@ function opcionesGestion(div){
 				$(div).append('<a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'designarModer.php'+"'"+')"  class="btn btn-primary" role="button" align="right">Designar Moderador</a><a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'bloquearM.php'+"'"+');" class="btn btn-danger"  role="button" align="right">Bloquear Miembros</a><a  onclick ="cargar('+"'"+'#opciones'+"'"+','+"'"+'verFinanzasGrupo.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a>');
 			}else{
 				if(response==2){// es moder
-					$(div).append('<a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'bloquearM.php'+"'"+')" class="btn btn-danger"  role="button" align="right">Bloquear Miembros</a><a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'gestionarPublic.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a><a href='+"'"+'editarperfilGrupoNuevo.php'+"'"+'  class="btn btn-primary" role="button" align="right">Editar Perfil </a><a href='+"'"+'gestionarFinanzasNuevo.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Finanzas </a>');
+					$(div).append('<a href='+"'"+'bloquearM.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Mimebro</a><a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'gestionarPublic.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a><a href='+"'"+'editarperfilGrupoNuevo.php'+"'"+'  class="btn btn-primary" role="button" align="right">Editar Perfil </a><a href='+"'"+'gestionarFinanzasNuevo.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Finanzas </a>');
 				}else{
 					$(div).append('<a  onclick ="cargar('+"'"+'#opciones'+"'"+','+"'"+'verFinanzasGrupo.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'solicitarPublic.php'+"'"+')" class="btn btn-success"  role="button" align="right">Solicitar Publicación</a>');
 				}
@@ -612,34 +632,12 @@ function fotoPerfilGrupo(div){
 	}
 }
 function cargarCambiosPerfilGrupo(){
-	var flag=0;
-	var pais=document.getElementById("pais").value;
-	var region=document.getElementById("region").value;
-	var ciudad= document.getElementById("ciudad").value;
-	if(pais!=""){
-		if(validarTexto(pais,20,"Pais")!=1){
-			flag=1;
-		}
+	var des=document.getElementById("descripcion").value;
+	var parametros={
+		"nombreG": localStorage.getItem("nombreG"),
+		"descripcion": des
 	}
-	if(region!=""){
-		if(validarTexto(region,20,"Region")!=1){
-			flag=1;
-		}
-	}
-	if(ciudad!=""){
-		if(validarTexto(ciudad,20,"Ciudad")!=1){
-			flag=1;
-		}
-	}
-	if(flag==0){
-		var parametros={
-			"nombreG": localStorage.getItem("nombreG"),
-			"descripcion": document.getElementById("descripcion").value,
-			"pais": document.getElementById("pais").value,
-			"region" : document.getElementById("region").value,
-			"ciudad": document.getElementById("ciudad").value
-		}
-		
+	if(des!=""){
 		$.ajax({
 			data: parametros,
 			url:	"php/cambiarPerfilGrupo.php",
@@ -653,6 +651,8 @@ function cargarCambiosPerfilGrupo(){
 				}
 			}
 		});
+	}else{
+		alert("Debe completar el campo descripción");
 	}
 }
 function subirFotoPerfilGrupo(div){
@@ -837,4 +837,39 @@ function dependencia_ciudad()
 		}
 	});	
 	
+}
+function tablaBloqueadosGrupo(div){ 
+	var parametros={
+		"nombreG":localStorage.getItem("nombreG"),
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/mostrarBloqueadosGrupo.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			$(div).append(response); 
+		}
+	});
+}
+function desbloquearMG(idi){
+	var parametros={
+		'idi': idi,
+		'nombreG': localStorage.getItem("nombreG")
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/desbloqueaMG.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			if(response==1){
+				alert("El miembro ha sido desbloqueado");
+				location.href='/FanMusic/bloquearM.php';
+			}else{
+				alert("No se ha podido desbloquear el miembro");
+				location.href='/FanMusic/bloquearM.php';
+			}
+		}
+	});
 }
