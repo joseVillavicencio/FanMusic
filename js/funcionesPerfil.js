@@ -582,7 +582,7 @@ function publicarCover(){
 	if(document.getElementById("compartir").checked){
 		compartir=1;
 	}
-	alert("entre");
+	
 	var parametros={
 		"id":getIDActual(),
 		"nombreClub": club,
@@ -594,13 +594,13 @@ function publicarCover(){
 	}
 	
 	if((titulo!="")&&(album!="")&&(link!="")){
-		alert("aqui");
+		
 		$.ajax({
 			data:parametros,
 			url:"php/publicarCover.php",
 			type:"POST",
 			success:	function(response){
-				alert(response);
+				
 				if(response==1){
 					location.href='/FanMusic/perfilNuevo.php';
 				}else{
