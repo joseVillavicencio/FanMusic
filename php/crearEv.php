@@ -58,14 +58,14 @@
 																	$ag_c1 = "call agregarParticipantes('".$id_part."','".$id_e."');";
 																	if($resp_ag_c1=$conexion->query($ag_c1)){
 																		if($resp_ag_c1){ //existe (TRUE al crear)
-																			//echo "El evento ".$nombreE." en ".$paE." se ha creado exitosamente";
+																			1;
 																		}
 																	}
 																}
 															}
-															echo "El evento ".$nombreE." en ".$paE." se ha creado exitosamente";
+															
 														}else{
-															echo "No existen participantes que residan en ".$paE;
+															echo 2;
 														}
 													}
 												}else{
@@ -81,14 +81,14 @@
 																		$ag_c2 = "call agregarParticipantes('".$id_part."','".$id_e."');";
 																		if($resp_ag_c2=$conexion->query($ag_c2)){
 																			if($resp_ag_c2){ //existe (TRUE al crear)
-																				
+																				1;
 																			}
 																		}
 																	}
 																}
 																
 															}else{
-																echo "No existen participantes que residan en ".$regE;
+																echo 3;
 															}
 														}
 														
@@ -105,14 +105,14 @@
 																			$ag_c3 = "call agregarParticipantes('".$id_part."','".$id_e."');";
 																			if($resp_ag_c3=$conexion->query($ag_c3)){
 																				if($resp_ag_c3){ //existe (TRUE al crear)
-																					//echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
+																					1;//echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
 																				}
 																			}
 																		}
 																	}
 																	
 																}else{
-																	echo "No existen participantes que residan en ".$ciE;
+																	echo 4;
 																}
 															}
 														}else{
@@ -125,13 +125,13 @@
 																		$ag_c4 = "call agregarParticipantes('".$id_part_grupo."','".$id_e."');";
 																		if($resp_ag_c4=$conexion->query($ag_c4)){
 																			if($resp_ag_c4){ //existe (TRUE al crear)
-																				//echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
+																				1;//echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
 																			}
 																		}
 																	}
 																	
 																}else{
-																	echo "No existen participantes para este evento";
+																	echo 5;
 																}
 															}	
 														}
@@ -140,13 +140,13 @@
 											}
 										}	
 									}else{
-										echo "No fue posible crear el evento, revisa los campos";
+										echo 0;
 									}
 								}
 							}
 						}
 					}else{
-						echo "No fue posible crear el evento, revisa los campos";
+						echo 0;
 					}	
 				}
 			}else{
@@ -192,14 +192,14 @@
 																			$ag_g1 = "call agregarParticipantes('".$id_part_grupo."','".$id_e."');";
 																			if($resp_ag_g1=$conexion->query($ag_g1)){
 																				if($resp_ag_g1){//existe (TRUE al crear)
-																					//echo "El evento ".$nombreE." en ".$paE." se ha creado exitosamente";
+																					1;//echo "El evento ".$nombreE." en ".$paE." se ha creado exitosamente";
 																				}
 																			}
 																		}
 																	}
 																	
 																}else{
-																	echo "No existen participantes que residan en ".$paE;
+																	echo 2;
 																}
 															}
 														}else{
@@ -215,14 +215,14 @@
 																				$ag_g1 = "call agregarParticipantes('".$id_part_grupo."','".$id_e."');";
 																				if($resp_ag_g1=$conexion->query($ag_g1)){
 																					if($resp_ag_g1){//existe (TRUE al crear)
-																						//echo "El evento ".$nombreE." en ".$regE." se ha creado exitosamente";
+																						1;//echo "El evento ".$nombreE." en ".$regE." se ha creado exitosamente";
 																					}
 																				}
 																			}
 																		}
 																	
 																	}else{
-																		echo "No existen participantes que residan en ".$regE;
+																		echo 3;
 																	}
 																}
 															}else{	
@@ -238,14 +238,14 @@
 																					$ag_g1 = "call agregarParticipantes('".$id_part_grupo."','".$id_e."');";
 																					if($resp_ag_g1=$conexion->query($ag_g1)){
 																						if($resp_ag_g1){//existe (TRUE al crear)
-																							//echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
+																							1;//echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
 																						}
 																					}
 																				}
 																			}
 																			
 																		}else{
-																			echo "No existen participantes que residan en ".$ciE;
+																			echo 4;
 																		}
 																	}
 																}else{
@@ -258,13 +258,13 @@
 																				$ag_g4 = "call agregarParticipantes('".$id_part_grupo."','".$id_e."');";
 																				if($resp_ag_g4=$conexion->query($ag_g4)){
 																					if($resp_ag_g4){//existe (TRUE al crear)
-																						//echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
+																						1;//echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
 																					}
 																				}
 																			}
 																			
 																		}else{
-																			echo "No existen participantes para este evento";
+																			echo 5;
 																		}
 																	}
 																}
@@ -273,14 +273,14 @@
 													}
 												}
 											}else{
-												echo "No fue posible crear el evento, revisa los campos";
+												echo 0;
 											}
 										}
 									}
 								}
 							}
 						}else{
-							echo "No fue posible crear el evento, revisa los campos";
+							echo 0;
 						}	
 					}
 				}

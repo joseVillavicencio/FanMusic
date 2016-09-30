@@ -265,8 +265,33 @@ function crearEvento2(){
 			type: "POST",	//Defino la forma en que llegarán los parámetros al php
 			
 			success: function(response){
-				alert(response);
-				location.href='/FanMusic/listaEventosNueva.php';
+				
+				if(response==1){
+					location.href='/FanMusic/listaEventosNueva.php';
+				}else{
+					if(response==2){
+						alert("No existen participantes que residan en el país seleccionado");
+						location.href='/FanMusic/listaEventosNueva.php';
+					}else{
+						if(response==3){
+							alert("No existen participantes que residan en la region seleccionada");
+							location.href='/FanMusic/listaEventosNueva.php';
+						}else{
+							if(response==4){
+								alert("No existen participantes que residan en la ciudad seleccionada");
+								location.href='/FanMusic/listaEventosNueva.php';
+							}else{
+								if(response==5){
+									alert("No existen participantes para invitar a su evento");
+									location.href='/FanMusic/listaEventosNueva.php';
+								}else{
+									alert("No fue posible crear su evento");
+									location.href='/FanMusic/listaEventosNueva.php';
+								}
+							}
+						}
+					}
+				}
 			}
 		});
 	//}

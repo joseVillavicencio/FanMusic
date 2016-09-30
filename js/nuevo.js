@@ -263,11 +263,15 @@ function informarAsistencia(id, nombreEvento,name){
 		type: "POST",	//Defino la forma en que llegarán los parámetros al php
 		
 		success: function(response){	
-			
+			alert(response);
 			if(response==1){
 				location.href='bienvenidaNuevo.php';
 			}else{
-				alert("No se ha podidido guardar su respuesta");
+				if(response==2){
+					alert("Usted ya ha votado");
+				}else{
+					alert("No se ha podidido guardar su respuesta");
+				}
 			}
 		}
 	});
