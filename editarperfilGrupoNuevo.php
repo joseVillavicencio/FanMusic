@@ -65,17 +65,12 @@
 				</div>
 				<br>
 				<div id="datos" >
-					<div class="panel-heading">
-						<h3>Datos Grupo</h3>
-					</div>
+					
 					<div class="panel-body">
 						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon3">Descripción: </span>
-							
-						</div>
-						<br>
-						<textarea rows="5" cols="40" id="descripcion"></textarea>
-						<hr>
+							<span class="input-group-addon" id="basic-addon3">Descripción</span> 
+							<input type="text" class="form-control" id="descripcion" aria-describedby="basic-addon3">
+						</div><br>
 						<button type="button" onclick="cargarCambiosPerfilGrupo();" class="btn btn-success">Editar Información</button>
 					</div>
 				</div>

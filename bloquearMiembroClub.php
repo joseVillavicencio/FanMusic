@@ -14,7 +14,6 @@
 		<script src="js/funcionesClub.js" type="text/javascript"></script>
 		<link href="css/jquery.dialog.css" rel="stylesheet" type="text/css"><!--NECESARIA PARA EL DIALOG/IMAGEN-->
 		<script src="js/jquery.dialog.js" type="text/javascript"></script><!--NECESARIA PARA EL DIALOG/IMAGEN-->	
-		
 	</head>
 	
 <body>
@@ -26,8 +25,7 @@
 	<header id="header" role="banner">		
 		<div class="main-nav">
 			<div class="container">
-				   
-		        <div class="row">	        		
+				<div class="row">	        		
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 		                    <span class="sr-only">Toggle navigation</span>
@@ -114,10 +112,4 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="js/smoothscroll.js"></script>
-    <script type="text/javascript" src="js/jquery.parallax.js"></script>
-    <script type="text/javascript" src="js/coundown-timer.js"></script>
-    <script type="text/javascript" src="js/jquery.scrollTo.js"></script>
-    <script type="text/javascript" src="js/jquery.nav.js"></script>
-</html>
 </html>
