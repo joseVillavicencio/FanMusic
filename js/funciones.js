@@ -518,8 +518,8 @@ function enviarRegistro(div){
 								var id=resp[0];
 								enviarMailSign(resp[1],resp[2],resp[3]);
 								alert("Se ha Creado Correctamente");
-								$(div).append('<form enctype="multipart/form-data" action="php/foto.php" method="POST"><div class= "form-group"><label class="fg-label">Foto de Perfil</label><div class="input-group"><div><input type="hidden" id="idUser" name="idUser" value="'+id+'"><input name="uploadedfile" id="uploadedfile" type="file"/></div></div></div><button class="btn btn-primary" class="btn bgm-blue"> Subir Foto </button></form>');
-								
+								//$(div).append('<form enctype="multipart/form-data" action="php/foto.php" method="POST"><div class= "form-group"><label class="fg-label">Foto de Perfil</label><div class="input-group"><div><input type="hidden" id="idUser" name="idUser" value="'+id+'"><input name="uploadedfile" id="uploadedfile" type="file"/></div></div></div><button class="btn btn-primary" class="btn bgm-blue"> Subir Foto </button></form>');
+								location.href="indexNuevo.php";
 							}else{
 								alert(response.message);
 							}

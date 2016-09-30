@@ -95,19 +95,18 @@
 								</script>
 							</div>
 							<br>
-							<div class="input-group " style="color:black;">
-								<center><h3>Ingrese su país</h3></center>
-								<select id="pais" name="pais" style="color:black;"><option value="0">Selecciona País</option></select>
-							</div>
-							<br>
-							<div class="input-group " style="color:black;">
-								<center><h3>Ingrese su región</h3></center>
-								<select id="region" name="region"style="color:black;"><option value="0">Selecciona Región</option></select>
-							</div>
-							<br>
-							<div class="input-group " style="color:black;">
-								<center><h3>Ingrese su ciudad</h3></center>
-								<select id="ciudad" name="ciudad"style="color:black;"><option value="0">Selecciona Ciudad</option></select>
+							<div class="row">
+								<div class="col-lg-4" style="color:black;">
+									<select id="pais" name="pais" style="color:black;"><option value="0">Selecciona País</option></select>
+								</div>
+								
+								<div class="col-lg-4" style="color:black;">
+									<select id="region" name="region"style="color:black;"><option value="0">Selecciona Región</option></select>
+								</div>
+								
+								<div class="col-lg-4" style="color:black;">
+									<select id="ciudad" name="ciudad"style="color:black;"><option value="0">Selecciona Ciudad</option></select>
+								</div>
 							</div>
 													
 						</div>
@@ -151,9 +150,9 @@
 				<div class="col-lg-12 col-sm-12" style="text-align:center;">
 					<br><br>
 					<input type="submit"  onclick="enviarRegistro('#foto');" class="btn btn-success"  value="Continuar" id="botonContinuar" /><br><br>
-					<script type="text/javascript">
+					<!--<script type="text/javascript">
 						$('#botonContinuar').tooltip({'trigger':'focus', 'title': 'Al presionar se podra ingresar tu Foto de Perfil'});
-					</script>
+					</script>-->
 					<br>
 				</div>
 			</div>
