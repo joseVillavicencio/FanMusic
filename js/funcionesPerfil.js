@@ -582,7 +582,7 @@ function publicarCover(){
 	if(document.getElementById("compartir").checked){
 		compartir=1;
 	}
-	
+
 	var parametros={
 		"id":getIDActual(),
 		"nombreClub": club,
@@ -594,15 +594,15 @@ function publicarCover(){
 	}
 	
 	if((titulo!="")&&(album!="")&&(link!="")){
-		
+
 		$.ajax({
 			data:parametros,
 			url:"php/publicarCover.php",
 			type:"POST",
 			success:	function(response){
-				
+
 				if(response==1){
-					location.href='/FanMusic/perfilNuevo.php';
+					location.href='perfilNuevo.php';
 				}else{
 					if(response==2){
 						alert("Error al reconocer la URL del video");
