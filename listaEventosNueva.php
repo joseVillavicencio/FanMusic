@@ -50,7 +50,7 @@
 				<div class="watch">
 					<img class="img-responsive" src="images/watch.png" alt="">
 				</div>				
-				<div class="col-md-4 col-md-offset-4 col-sm-11">
+				<div class="col-md-4 col-md-offset-3 col-sm-12">
 					<h2>Eventos</h2>
 					<div id="evento">		
 						<table class="table" >
