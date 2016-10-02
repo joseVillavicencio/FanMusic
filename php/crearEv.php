@@ -16,7 +16,7 @@
 	
 	//Consultas
 	$conexion=conectar();
-	if($fecha1!=NULL ){
+	if($invitar!=NULL){
 		$consulta = 'CALL esAdmin("'.$id.'");' ;
 		if($registro3 =$conexion->query($consulta)){
 			if($registro3->num_rows>0){
@@ -58,12 +58,12 @@
 																	$ag_c1 = "call agregarParticipantes('".$id_part."','".$id_e."');";
 																	if($resp_ag_c1=$conexion->query($ag_c1)){
 																		if($resp_ag_c1){ //existe (TRUE al crear)
-																			1;
+																			
 																		}
 																	}
 																}
 															}
-															
+															echo 1;
 														}else{
 															echo 2;
 														}
@@ -81,12 +81,12 @@
 																		$ag_c2 = "call agregarParticipantes('".$id_part."','".$id_e."');";
 																		if($resp_ag_c2=$conexion->query($ag_c2)){
 																			if($resp_ag_c2){ //existe (TRUE al crear)
-																				1;
+																				
 																			}
 																		}
 																	}
 																}
-																
+																echo 1;
 															}else{
 																echo 3;
 															}
@@ -105,12 +105,12 @@
 																			$ag_c3 = "call agregarParticipantes('".$id_part."','".$id_e."');";
 																			if($resp_ag_c3=$conexion->query($ag_c3)){
 																				if($resp_ag_c3){ //existe (TRUE al crear)
-																					1;//echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
+																					//echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
 																				}
 																			}
 																		}
 																	}
-																	
+																	echo 1;
 																}else{
 																	echo 4;
 																}
@@ -125,11 +125,13 @@
 																		$ag_c4 = "call agregarParticipantes('".$id_part_grupo."','".$id_e."');";
 																		if($resp_ag_c4=$conexion->query($ag_c4)){
 																			if($resp_ag_c4){ //existe (TRUE al crear)
-																				1;//echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
+																				//echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
+																			}else{
+																				echo 0;
 																			}
 																		}
 																	}
-																	
+																	echo 1;
 																}else{
 																	echo 5;
 																}
@@ -192,12 +194,12 @@
 																			$ag_g1 = "call agregarParticipantes('".$id_part_grupo."','".$id_e."');";
 																			if($resp_ag_g1=$conexion->query($ag_g1)){
 																				if($resp_ag_g1){//existe (TRUE al crear)
-																					1;//echo "El evento ".$nombreE." en ".$paE." se ha creado exitosamente";
+																					//echo "El evento ".$nombreE." en ".$paE." se ha creado exitosamente";
 																				}
 																			}
 																		}
 																	}
-																	
+																	echo 1;
 																}else{
 																	echo 2;
 																}
@@ -215,12 +217,12 @@
 																				$ag_g1 = "call agregarParticipantes('".$id_part_grupo."','".$id_e."');";
 																				if($resp_ag_g1=$conexion->query($ag_g1)){
 																					if($resp_ag_g1){//existe (TRUE al crear)
-																						1;//echo "El evento ".$nombreE." en ".$regE." se ha creado exitosamente";
+																						//echo "El evento ".$nombreE." en ".$regE." se ha creado exitosamente";
 																					}
 																				}
 																			}
 																		}
-																	
+																		echo 1;
 																	}else{
 																		echo 3;
 																	}
@@ -238,12 +240,12 @@
 																					$ag_g1 = "call agregarParticipantes('".$id_part_grupo."','".$id_e."');";
 																					if($resp_ag_g1=$conexion->query($ag_g1)){
 																						if($resp_ag_g1){//existe (TRUE al crear)
-																							1;//echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
+																							//echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
 																						}
 																					}
 																				}
 																			}
-																			
+																			echo 1;
 																		}else{
 																			echo 4;
 																		}
@@ -258,11 +260,11 @@
 																				$ag_g4 = "call agregarParticipantes('".$id_part_grupo."','".$id_e."');";
 																				if($resp_ag_g4=$conexion->query($ag_g4)){
 																					if($resp_ag_g4){//existe (TRUE al crear)
-																						1;//echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
+																						//echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
 																					}
 																				}
 																			}
-																			
+																			echo 1;
 																		}else{
 																			echo 5;
 																		}
@@ -286,6 +288,9 @@
 				}
 			}
 		}
-		mysqli_close($conexion);
+		
+	}else{
+		echo 0;
 	}
+	mysqli_close($conexion);
 ?>

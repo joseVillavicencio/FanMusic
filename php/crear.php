@@ -9,7 +9,7 @@
 	$ci=$_POST["ci"];
 	$id_M=$_POST["id"];
 	$desc=$_POST["descripcion"];
-
+	
 	//Consultas
 	$conexion=conectar();
 	mysqli_set_charset($conexion,"utf-8");
@@ -26,7 +26,7 @@
 						$id_c=$fila1[0] ;
 					}
 					$conexion=conectar();
-					$crear= "call crearGrupo($id_c,'".$desc."','".$nombre."','".$al."','".$pa."','".$reg."','".$ci."');";
+					$crear= "call crearGrupo('".$id_c."','".$desc."','".$nombre."','".$al."','".$pa."','".$reg."','".$ci."');";
 					if($registro2 =$conexion->query($crear)){
 						if($registro2){
 							$conexion=conectar();
@@ -43,6 +43,8 @@
 											echo "success";
 										}
 									}
+								}else{
+									echo "error 2 ";
 								}
 							}
 						}else{
