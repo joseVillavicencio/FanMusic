@@ -27,24 +27,40 @@
 							$sql11= "call esAdmin('".$idAdminNuevo."');"; //Me aseguro que no sea administrador de otro club
 							if($result11 =$conexion->query($sql11)){
 								if($result11->num_rows >0){
-									echo "Este usuario ya es administrador de otro club"; //echo "0"; ????
+									echo 4;//"Este usuario ya es administrador de otro club"; //echo "0"; ????
 								}else{
 									$conexion=conectar();
-									$sql2= "call actualizarAdmin('".$idAdminNuevo."','".$idClub."');"; //Me aseguro que no sea administrador de otro club
-									if($result11 =$conexion->query($sql2)){
-										echo "1";
-									}else{
-										echo "No se pudo cambiar el administrador"; //echo "0"; ????
+									$sql5= "call estaBloqueadoEnClub('".$idAdminNuevo."','".$idClub."');"; //Me aseguro que no este bloq
+									if($result5 =$conexion->query($sql5)){
+										if($result5->num_rows >0){
+											echo 3;
+										}else{
+											$conexion=conectar();
+											$sql4= "call esModerador('".$idAdminNuevo."');"; //Me aseguro que no sea moder
+											if($result4 =$conexion->query($sql4)){
+												if($result4->num_rows >0){
+													echo 5;
+												}else{
+													$conexion=conectar();
+													$sql2= "call actualizarAdmin('".$idAdminNuevo."','".$idClub."');"; //Me aseguro que no sea administrador de otro club
+													if($result11 =$conexion->query($sql2)){
+														echo 1;
+													}else{
+														echo 0;//"No se pudo cambiar el administrador"; 
+													}
+												}
+											}
+										}
 									}
 								}
 							}
 						}
 					}else{
-						echo "Este usuario no es miembro del club"; //echo "0"; ????
+						echo 2;//"Este usuario no es miembro del club"; 
 					}
 				}
 			}else{
-				echo "0";
+				echo 0;
 			}
 		}
 		mysqli_close($conexion);

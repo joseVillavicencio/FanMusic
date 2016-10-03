@@ -201,7 +201,14 @@ function crearEventos(div){
 		
 		success: function(response){	
 			if(response==1 || response ==2){
-				$(div).append('<a  onclick ="actualizar('+"'"+'#evento2'+"'"+','+"'"+'crearEvento.php'+"'"+')"   class="btn btn-primary" role="button" align="right">Crear Eventos</a>');
+				$.ajax({
+					data: parametros,
+					url: "crearEvento.php", //Falta Hacer ijij
+					type: "POST",	//Defino la forma en que llegarán los parámetros al php
+					success: function(response){	
+						$(div).append(response);
+					}
+				});
 			}
 		}
 	});
@@ -239,6 +246,10 @@ function crearEvento2(){
 	var pais=($("#pais option:selected").text());
 	var region=($("#region option:selected").text());
 	var ciudad= ($("#ciudad option:selected").text());;
+	var nombre=document.getElementById("nombreE").value;
+	var motivo=document.getElementById("motivoE").value;
+	var des=document.getElementById("desE").value;
+	
 	if(ciudad == "Seleccione Ciudad"){
 		ciudad =($("#region option:selected").text());
 	}
@@ -246,55 +257,58 @@ function crearEvento2(){
 	var fec1=fechas[0].value.split("/"); 
 	var fec2=fechas[1].value.split("/"); 
 	var fec3=fechas[2].value.split("/"); 
-		var parametros = {
-			"idUser":getIDActual(),
-			"nombreE": document.getElementById("nombreE").value,
-			"motivoE": document.getElementById("motivoE").value,
-			"desE": document.getElementById("desE").value,
-			"paisN": pais,
-			"regionN": region,
-			"ciudadN": ciudad,
-			"anio1" : fec1[0], "mes1" : fec1[1], "dia1" : fec1[2], 
-			"anio2" : fec2[0], "mes2" : fec2[1], "dia2" : fec2[2], 
-			"anio3" : fec3[0], "mes3" : fec3[1], "dia3" : fec3[2], 
-			"invitar": seleccion,
-		}
-		$.ajax({
-			data: parametros,
-			url: "php/crearEv.php", //Falta Hacer ijij
-			type: "POST",	//Defino la forma en que llegarán los parámetros al php
-			
-			success: function(response){
+		if((pais!="Selecciona País")&&(region!="Selecciona Región")&&(ciudad!="Selecciona Ciudad")&&(nombre!="")&&(motivo!="")&&(des!="")&&(fec1!="")){
+			var parametros = {
+				"idUser":getIDActual(),
+				"nombreE": nombre,
+				"motivoE": motivo,
+				"desE": des,
+				"paisN": pais,
+				"regionN": region,
+				"ciudadN": ciudad,
+				"anio1" : fec1[0], "mes1" : fec1[1], "dia1" : fec1[2], 
+				"anio2" : fec2[0], "mes2" : fec2[1], "dia2" : fec2[2], 
+				"anio3" : fec3[0], "mes3" : fec3[1], "dia3" : fec3[2], 
+				"invitar": seleccion,
+			}
+			$.ajax({
+				data: parametros,
+				url: "php/crearEv.php", //Falta Hacer ijij
+				type: "POST",	//Defino la forma en que llegarán los parámetros al php
 				
-				if(response==1){
-					location.href='/FanMusic/listaEventosNueva.php';
-				}else{
-					if(response==2){
-						alert("No existen participantes que residan en el país seleccionado");
+				success: function(response){
+					
+					if(response==1){
 						location.href='/FanMusic/listaEventosNueva.php';
 					}else{
-						if(response==3){
-							alert("No existen participantes que residan en la region seleccionada");
+						if(response==2){
+							alert("No existen participantes que residan en el país seleccionado");
 							location.href='/FanMusic/listaEventosNueva.php';
 						}else{
-							if(response==4){
-								alert("No existen participantes que residan en la ciudad seleccionada");
+							if(response==3){
+								alert("No existen participantes que residan en la region seleccionada");
 								location.href='/FanMusic/listaEventosNueva.php';
 							}else{
-								if(response==5){
-									alert("No existen participantes para invitar a su evento");
+								if(response==4){
+									alert("No existen participantes que residan en la ciudad seleccionada");
 									location.href='/FanMusic/listaEventosNueva.php';
 								}else{
-									alert("No fue posible crear su evento");
-									location.href='/FanMusic/listaEventosNueva.php';
+									if(response==5){
+										alert("No existen participantes para invitar a su evento");
+										location.href='/FanMusic/listaEventosNueva.php';
+									}else{
+										alert("No fue posible crear su evento");
+										location.href='/FanMusic/listaEventosNueva.php';
+									}
 								}
 							}
 						}
 					}
 				}
-			}
-		});
-	//}
+			});
+		}else{
+			alert("Debe responder todos los campos");
+		}
 }
 
 //=============================================================

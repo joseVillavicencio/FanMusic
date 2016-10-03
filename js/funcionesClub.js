@@ -221,25 +221,50 @@ function desc_Club(div){
 }
 
 function confirmarCederClub(){ 
-	var parametros={
-		'id':getIDActual(),
-		'nombreC': localStorage.getItem("nombreC"),
-		"mailAdmi" : document.getElementById("mailAdmi").value,
-		
-	}
-	$.ajax({
-		data:parametros,
-		url: "php/cederAdmin.php", 
-		type: "post",
-		success: function(response){			
+	var m=document.getElementById("mailAdmi").value;
+	if(m!=""){
+		var parametros={
+			'id':getIDActual(),
+			'nombreC': localStorage.getItem("nombreC"),
+			"mailAdmi" : m
 			
-			if(response==1){
-				location.href='/FanMusic/bienvenidaNuevo.php';
-			}else{
-				alert("No se puede ceder la administración del Club");
-			}
 		}
-	});
+		$.ajax({
+			data:parametros,
+			url: "php/cederAdmin.php", 
+			type: "post",
+			success: function(response){			
+				if(response==1){
+					location.href='/FanMusic/bienvenidaNuevo.php';
+				}else{
+					if(response==2){
+						alert("El usuario no es miembro del club");
+						location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+					}else{
+						if(response==3){
+							alert("El miembro que desea asignar está bloqueado");
+							location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+						}else{
+							if(response==4){
+								alert("El miembro que desea asignar ya tiene un cargo de administrador");
+								location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+							}else{
+								if(response==5){
+									alert("El miembro que desea asignar ya tiene un cargo de moderador");
+									location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+								}else{
+									alert("No se pudo asignar moderador");
+									location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+								}
+							}
+						}
+					}
+				}
+			}
+		});
+	}else{
+		alert("Debe ingresar todos los campos");
+	}
 }
 function dejarSeguirClub(div){ 
 	var parametros={
@@ -327,23 +352,50 @@ function GestionClub(div){
 }
 
 function asignarModerador(){ 
-	var parametros = {
-		'nombreC': localStorage.getItem("nombreC"),
-		"mailMod" : document.getElementById("mailMod").value, //Nombre que llego desde el formulario
-	}
-	$.ajax({
-		data: parametros,
-		url: "php/asignarModClub.php",
-		type: "POST",	
-		success: function(response){			
-			if(response==1){
-				alert("Se asignó correctamente moderador");
-				location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
-			}else{
-				alert("No se pudo asignar moderador");
-			}
+	var m= document.getElementById("mailMod").value;
+	if(m!=""){
+		var parametros = {
+			'nombreC': localStorage.getItem("nombreC"),
+			"mailMod" :m
 		}
-	});
+		$.ajax({
+			data: parametros,
+			url: "php/asignarModClub.php",
+			type: "POST",	
+			success: function(response){			
+				if(response==1){
+					alert("Se asignó correctamente moderador");
+					location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+				}else{
+					if(response==2){
+						alert("El usuario no es miembro del club");
+						location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+					}else{
+						if(response==3){
+							alert("El miembro que desea asignar está bloqueado");
+							location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+						}else{
+							if(response==4){
+								alert("El miembro que desea asignar ya tiene un cargo de administrador");
+								location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+							}else{
+								if(response==5){
+									alert("El miembro que desea asignar ya tiene un cargo de moderador");
+									location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+								}else{
+									alert("No se pudo asignar moderador");
+									location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+								}
+							}
+						}
+					}
+					
+				}
+			}
+		});
+	}else{
+		alert("Debe completar los campos");
+	}
 }
 function bloquearMiembroClub(){
 	var parametros = {
