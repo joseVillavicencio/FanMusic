@@ -286,10 +286,29 @@ function bloquearMiembro(){
 					alert("Se ha bloqueado correctamente");
 					location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
 				}else{
-					alert("No es posible bloquear a este usuario");
-					location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+					if(response==2){
+						alert("No se puede bloquear al administrador");
+						location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+					}else{
+						if(response==3){
+							alert("El miembro a bloquear no pertenece al grupo");
+							location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+						}else{
+							if(response==4){
+								alert("El miembro a bloquear ya se encuentra bloqueado");
+								location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+							}else{
+								if(response==5){
+									alert("No es posible bloquear moderadores");
+									location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+								}else{
+									alert("No es posible bloquear a este usuario");
+									location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+								}
+							}
+						}
+					}
 				} 
-				
 			}
 		});
 	}else{
@@ -312,7 +331,7 @@ function opcionesGestion(div){
 		type: "post",
 		success: function(response){
 			if(response==1){ // es Admin
-				$(div).append('<a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'designarModer.php'+"'"+')"  class="btn btn-primary" role="button" align="right">Designar Moderador</a><a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'bloquearM.php'+"'"+');" class="btn btn-danger"  role="button" align="right">Bloquear Miembros</a><a  onclick ="cargar('+"'"+'#opciones'+"'"+','+"'"+'verFinanzasGrupo.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a>');
+				$(div).append('<a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'designarModer.php'+"'"+')"  class="btn btn-primary" role="button" align="right">Designar Moderador</a><a href='+"'"+'bloquearM.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Mimebro</a><a  onclick ="cargar('+"'"+'#opciones'+"'"+','+"'"+'verFinanzasGrupo.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a>');
 			}else{
 				if(response==2){// es moder
 					$(div).append('<a href='+"'"+'bloquearM.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Mimebro</a><a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'gestionarPublic.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a><a href='+"'"+'editarperfilGrupoNuevo.php'+"'"+'  class="btn btn-primary" role="button" align="right">Editar Perfil </a><a href='+"'"+'gestionarFinanzasNuevo.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Finanzas </a>');
@@ -353,6 +372,8 @@ function solic(){
 				
 			}
 		});
+	}else{
+		alert("Debe completar todos los campos");
 	}
 }
 function listSolicitudes(div){
@@ -540,7 +561,7 @@ function eliminarF(idF){
 			type:	"POST",
 			cache:	false,
 			success:	function(response){
-				location.href='/FanMusic/gestionaFinanzasNuevo.php';
+				location.href='/FanMusic/gestionarFinanzasNuevo.php';
 			}
 		});
 	}
@@ -752,6 +773,8 @@ function publicar(){
 				}
 			}
 		});
+	}else{
+		alert("Debe completar los campos ");
 	}
 }
 

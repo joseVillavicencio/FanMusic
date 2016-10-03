@@ -115,43 +115,61 @@ function crearGrupo(div){
 		type: "POST",	
 		success: function(response){			
 			if(response==1){
-				$(div).append('<a  onclick ="actualizar('+"'"+'#ponerBoton'+"'"+','+"'"+'crearGrupito.php'+"'"+');"   class="btn btn-info" role="button" align="right">Crear un Nuevo Grupo</a>');
+				var parametros={
+					'id':getIDActual(),
+					'nombreG':""
+				};
+				$.ajax({
+					data: parametros,
+					url: "crearGrupito.php",
+					type: "POST",	
+					success: function(response){	
+						$(div).append(response);
+					}
+				});
 			}
 		}
 	});
 }
+
 function crearGrupo2(){ 
 	var pais=($("#pais option:selected").text());
 	var region=($("#region option:selected").text());
 	var ciudad= ($("#ciudad option:selected").text());
-
-	var parametros={
-		'nombre':getNombre(),
-		'al': document.getElementById("al").value,
-		'pa': pais,
-		'reg': region,
-		'ci': ciudad,
-		'id':getIDActual(), 
-		'descripcion':getDescripcion(),
-	};
-	$.ajax({
-		data: parametros,
-		url: "php/crear.php",
-		type: "POST",	
-		success: function(response){			
-			if(response=="success"){
-				location.href='bienvenidaNuevo.php';
-			}else{
-				if(response=="error 1"){
-					alert("El grupo ya existe");
+	var d=document.getElementById("descripcion").value;
+	var nombreG=document.getElementById("nombreG").value;
+	var al=document.getElementById("al").value;
+	if((d!="")&&(nombreG!="")&&(al!="")&&(pais!="Selecciona País")&&(region!="Selecciona Región")&&(ciudad!="Selecciona Ciudad")){
+		var parametros={
+			'nombre':nombreG,
+			'al': al,
+			'pa': pais,
+			'reg': region,
+			'ci': ciudad,
+			'id':getIDActual(), 
+			'descripcion':d
+		};
+		$.ajax({
+			data: parametros,
+			url: "php/crear.php",
+			type: "POST",	
+			success: function(response){			
+			
+				if(response=="success"){
 					location.href='bienvenidaNuevo.php';
 				}else{
-					alert("No se ha podido crear el grupo");
+					if(response=="error 1"){
+						alert("El grupo ya existe");
+						location.href='bienvenidaNuevo.php';
+					}else{
+						alert("No se ha podido crear el grupo");
+					}
 				}
 			}
-		}
-	});
-	
+		});
+	}else{
+		alert("Debe completar todos los campos");
+	}
 }
 function buscar(div){
 	var parametros ={
@@ -324,9 +342,7 @@ function crearEventos(div){
 		}
 	});
 }
-function editarEventos(div){ //POR EL MOMENTO, AL PARECER NADIE ESTÁ LLAMANDO A ESTA FUNCIÓN
-	$(div).append('<div id="hacerEdicion"> <a href="https://calendar.google.com/calendar/render?pli=1" class="btn btn-info btn-md" role="button" align="right">Agregar Evento al Calendario</a></div><br>');
-}
+
 function mostrarLideresCorreo(div){
 	var parametros = {
 	};
@@ -353,7 +369,14 @@ function crearClub(div,dov){
 		type: "POST",	
 		success: function(response){
 			if(response=="0"){// es decir si no es admin o moderador, porque solo puede ser admi de 1 club 
-				$(div).append('<a  onclick ="actualizar('+"'"+dov+"'"+','+"'"+'crearClubNuevo.php'+"'"+')"   class="btn btn-primary" role="button" align="right">Crear un Nuevo Club</a>');
+				$.ajax({
+					data: parametros,
+					url: "crearClubNuevo.php",
+					type: "POST",	
+					success: function(response){
+						$(div).append(response);
+					}
+				});
 			}
 		}
 	});
@@ -362,25 +385,30 @@ function clubCrear(){
 	var pais   =($("#pais option:selected").text());
 	var region =($("#region option:selected").text());
 	var ciudad =($("#ciudad option:selected").text());
-	
-	var parametros={
-		'id':getIDActual(),
-		'nombre':document.getElementById("nombreC").value,
-		'descripcion':document.getElementById("descripcion").value,
-		'pais':pais,
-		'region':region,
-		'ciudad':ciudad,
-		'alias':document.getElementById("alias").value,
-	};
-	$.ajax({
-		data: parametros,
-		url: "php/crearClub.php",
-		type: "POST",	
-		success: function(response){
-			location.href='/FanMusic/bienvenidaNuevo.php';
-		}
-	});
-	
+	var d=document.getElementById("descripcion").value;
+	var nombreC=document.getElementById("nombreC").value;
+	var al=document.getElementById("alias").value;
+	if((d!="")&&(nombreC!="")&&(al!="")&&(pais!="Selecciona País")&&(region!="Selecciona Región")&&(ciudad!="Selecciona Ciudad")){
+		var parametros={
+			'id':getIDActual(),
+			'nombre':nombreC,
+			'descripcion':d,
+			'pais':pais,
+			'region':region,
+			'ciudad':ciudad,
+			'alias':al,
+		};
+		$.ajax({
+			data: parametros,
+			url: "php/crearClub.php",
+			type: "POST",	
+			success: function(response){
+				location.href='/FanMusic/bienvenidaNuevo.php';
+			}
+		});
+	}else{
+		alert("Debe completar todos los campos");
+	}
 }
 function eliminarC(idi){
 	var parametros = {
@@ -467,6 +495,5 @@ function calendario(div){
 		}
 	});	
 }
-/*---------------- ESTO ES PARA EL GRAFICO --------------*/
 
 

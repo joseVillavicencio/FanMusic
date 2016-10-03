@@ -26,8 +26,7 @@
 			carrusel2("#imags");
 			$(document).ready(function(){
 				function actualizando(){ 
-					/*actualizar("#izquierda","listPuClu.php");
-					actualizar("#derecha","listPuGru.php");*/
+					
 				}
 				$('.main-slider').carousel({
 					interval:5000
@@ -74,8 +73,8 @@
 	        </div>
         </div>                    
     </header>
-
-    <section id="home">	 <!--Jose ESTA ES LA SECCION DONDE TIENE QUE IR EL CARRUSEL-->
+	
+    <section id="home">	 
 		<div id="main-slider" class="carousel slide" data-ride="carousel" data-interval="5000" pause="null">
 			<ol class="carousel-indicators" id="numero">
 			</ol>
@@ -142,7 +141,7 @@
 										  <thead>
 												<tr>
 													<th>Logo</th>
-													<th>Nombre Grupo</th>
+													<th>Club-Grupo</th>
 													<th>Descripción</th>
 													<th>Opción</th>
 												</tr>
@@ -227,9 +226,4 @@
 		     </div>
         </div>
     </footer>
-   	<script type="text/javascript" src="js/smoothscroll.js"></script>
-    <script type="text/javascript" src="js/jquery.parallax.js"></script>
-    <script type="text/javascript" src="js/coundown-timer.js"></script>
-    <!--<script type="text/javascript" src="js/jquery.scrollTo.js"></script>-->
-    <script type="text/javascript" src="js/jquery.nav.js"></script>
-</html>
+ </html>
