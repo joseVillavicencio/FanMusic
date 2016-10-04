@@ -98,11 +98,13 @@
 			<hr>
 			<div class="row" >
 				<div id="muroClub" class="col-lg-5 col-lg-offset-1 col-sm-8 " style="text-align:center;">
+					<h1>Anécdotas</h1>
 					<script type="text/javascript">
 						muroDelClub("#muroClub");
 					</script>
 				</div>
 				<div id="listasCover" class="col-lg-5 col-sm-8 " style="text-align:center;">
+					<h1>Covers</h3>
 					<script type="text/javascript">
 						mostrarCovers("#listasCover");
 					</script>

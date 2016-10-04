@@ -32,6 +32,8 @@
 							echo '&nbsp;<input id="'.$id.'" type="hidden"><button type="button" class="btn btn-primary btn-xs" onclick="aceptarPC('.$id.');"><span class="glyphicon glyphicon-ok"></span></button>&nbsp;&nbsp;&nbsp;';
 							echo '<input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="rechazarPC('.$id.');"><span class="glyphicon glyphicon-remove"></span></button></div></div>';
 						}
+					}else{
+						echo "El club no posee solicitudes.";
 					}
 				}
 			}
