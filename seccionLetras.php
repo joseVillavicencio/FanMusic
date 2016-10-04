@@ -178,7 +178,7 @@
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon3">Contenido</span> 
 						</div><br>
-						<textarea rows="10" cols="50" id="contenidoNuevo" ></textarea>
+						<textarea rows="10" id="contenidoNuevo" style="width:100%; resize: none;"></textarea>
 						<div ><button class="btn btn-primary" onclick="publicarLetra();">Añadir</button></div>
 					</div>
 				</div>
