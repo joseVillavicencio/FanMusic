@@ -25,8 +25,7 @@
 							$idioma=$fila[3];	
 							/*Esta parte solo muestra */
 							echo '<tr><td>'.$titulo.'</td><td>'.$idioma.'</td>';
-							echo '<td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal'.$cont.'">
-							Ver letra</button>';
+							echo '<td><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal'.$cont.'">Ver letra</button>';
 							echo '<div class="modal fade" id="myModal'.$cont.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 							  <div class="modal-dialog" role="document">
 								<div class="modal-content">
@@ -35,7 +34,7 @@
 									<h4 class="modal-title" id="myModalLabel">Letra</h4>
 								  </div>
 								  <div class="modal-body">
-									<textarea rows="10" cols="70" id="textMostrar'.$cont.'" disabled >'.$versionUno.'</textarea>
+									<textarea rows="10" style="width:100%; resize: none;" id="textMostrar'.$cont.'" disabled >'.$versionUno.'</textarea>
 								  </div>
 								  <div class="modal-footer">
 									<button type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Cerrar</button>
@@ -54,7 +53,7 @@
 									<h4 class="modal-title" id="myModalLabel">Letra</h4>
 								  </div>
 								  <div class="modal-body">
-									<textarea rows="10" cols="70" id="text'.$cont.'"  >'.$versionUno.'</textarea>
+									<textarea rows="10" style="width:100%; resize: none;" id="text'.$cont.'"  >'.$versionUno.'</textarea>
 								  </div>
 								  <div class="modal-footer">
 									<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
@@ -79,7 +78,7 @@
 											<h4 class="modal-title" id="myModalLabel">Letra</h4>
 										  </div>
 										  <div class="modal-body">
-											<textarea rows="10" cols="70" id="text'.$cont.'" disabled  >'.$versionUno.'</textarea>
+											<textarea rows="10" style="width:100%; resize: none;" id="text'.$cont.'" disabled  >'.$versionUno.'</textarea>
 										  </div>
 										  <div class="modal-footer">
 											<p>¿Estás seguro de querer eliminar esta letra?</p>
@@ -105,7 +104,7 @@
 													<h4 class="modal-title" id="myModalLabel">Letra</h4>
 												  </div>
 												  <div class="modal-body">
-													<textarea rows="10" cols="70" id="text'.$cont.'" disabled  >'.$versionUno.'</textarea>
+													<textarea rows="10" style="width:100%; resize: none;" id="text'.$cont.'" disabled  >'.$versionUno.'</textarea>
 												  </div>
 												  <div class="modal-footer">
 													<p>¿Estás seguro de querer eliminar esta letra?</p>

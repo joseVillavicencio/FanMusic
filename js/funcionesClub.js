@@ -873,7 +873,7 @@ function verLetras(div){
 		}
 	});
 }
-function verContenidoLetras(div){ 
+/*function verContenidoLetras(div){ 
 	var parametros={
 		'nombreC': localStorage.getItem("nombreC")
 	}
@@ -887,7 +887,7 @@ function verContenidoLetras(div){
 			$(div).append(response); 
 		}
 	});
-}
+}*/
 function publicarLetra(div){ 
 	var tit=document.getElementById("tituloNuevo").value;
 	var idioma= ($("#lang option:selected").text());

@@ -12,7 +12,7 @@
 								$('#tituloNuevo').tooltip({'trigger':'focus', 'title': 'Ingrese un título adecuado para tu anécdota'});
 							</script>
 						</div><br>
-						<div  style="color:black;"> <textarea rows="5" cols="50" id="contenidoNuevo" ></textarea></div>
+						<div  style="color:black;"> <textarea rows="5" style="width:100%; resize: none;" id="contenidoNuevo" ></textarea></div>
 						<div class="input-group" align="center">
 							
 							<script type="text/javascript">
