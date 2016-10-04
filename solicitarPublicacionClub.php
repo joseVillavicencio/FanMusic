@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
+		<title>FanMusic</title>
 		<meta charset="utf-8">
 		<!-- Esta parte es de nuestro codigo- -->
 		<script type="text/javascript" src="js/jquery.js"></script>
