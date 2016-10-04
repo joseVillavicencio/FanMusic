@@ -1,8 +1,14 @@
 <! DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>FanMusic</title>
-		<link href="css/bootstrap.css" rel="stylesheet">
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery.js" type="text/javascript"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/mainFanApp.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">	
+	<link href="css/responsive.css" rel="stylesheet">
 		<script src="js/jquery.js" type="text/javascript"></script>
 		<script src="js/bootstrap.js" type="text/javascript"></script>
 		<script src="js/funciones.js" type="text/javascript"></script>
@@ -14,20 +20,28 @@
 				location.href= '/FanMusic/bienvenida.php';
 			}
 		</script>
-		<header>
-			<nav class="navbar navbar-inverse">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<a class="navbar-brand" >FanMusic</a>
-					</div>
-					<ul class="nav navbar-nav">
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<a class="navbar-brand" >¡Porque juntos haremos grandes cosas!</a>
-					</ul>
-				</div> 
-			</nav>
-		</header>
+		<header id="header" role="navigation">		
+		<div class="main-nav">
+			<div class="container-fluid">
+				<div class="row">
+						<div class="navbar-header" style="background-color: #1B7B98;">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<span class="sr-only">Desplegar navegación</span>
+							</button>
+							<a class="navbar-brand">
+								<img class="img-responsive" style="top:-50;margin-top:0px;" src="images/logo2.png" alt="logo">
+							</a> 
+						</div>
+						<div class="collapse navbar-collapse navbar-ex1-collapse" style="background-color: #1B7B98;">
+							<ul class="nav navbar-nav"></ul>
+							<ul class="nav navbar-nav navbar-right">                 
+								<center><h1>¡Juntos haremos grandes cosas!</h1></center>
+							</ul>
+						</div>
+				</div>
+			</div>
+		</div>
+	</header>
 		<div id="cuerpo" name="cuerpo" class="container" style="text-align:center;" >
 			<div class="row">
 				<div class="col-lg-3 col-sm-2"></div>
