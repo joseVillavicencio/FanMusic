@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
+		<title>FanMusic</title>
 		<meta charset="utf-8">
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script src="js/funcionesGrupo.js" type="text/javascript"></script>
