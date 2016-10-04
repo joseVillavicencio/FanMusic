@@ -439,11 +439,7 @@ function datosGraficoGrupo(){
 				var time3 = resp[5].split(" ");
 				var opc3 ="Fecha: "+time3[0]+"<br>Hora: "+time3[1]+"<br>";
 				localStorage.setItem("fecha3",opc3);
-			}else{
-				if(response.status=="error"){
-					alert(response.message);
-				}
-			}	
+			}
 		}
 	});
 }
@@ -476,11 +472,7 @@ function datosGrafico(){
 				var time3 = resp[5].split(" ");
 				var opc3 ="Fecha: "+time3[0]+"<br>Hora: "+time3[1]+"<br>";
 				localStorage.setItem("fecha3",opc3);
-			}else{
-				if(response.status=="error"){
-					alert(response.message);
-				}
-			}	
+			}
 		}
 	});
 }
