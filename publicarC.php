@@ -17,7 +17,7 @@
 			<span class="input-group-addon" id="basic-addon3">Contenido</span>
 		</div><br>
 		<div>
-			<textarea rows="5" cols="30" id="contenidoNuevo"></textarea>
+			<textarea rows="5" style="width:100%; resize: none;" id="contenidoNuevo"></textarea>
 		<div>
 		<button class="btn btn-primary" onclick="publicarClub2();">A&#xF1;adir</button>
 	</div>

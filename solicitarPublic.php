@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		 <meta charset="utf-8">
+		<title>FanMusic</title>
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +31,7 @@
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon3">Contenido</span> 
 					</div><br>
-					<textarea rows="5" cols="30" id="cont"></textarea><br>
+					<textarea rows="5" style="width:100%; resize: none;" id="cont"></textarea><br>
 					<button  type="button" onclick="solic();" class="btn btn-success"  >Solicitar</button><br>
 				</div>
 			</div>

@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>FanMusic</title>
    <meta charset="utf-8">
 	<script type="text/javascript" src="js/jquery.js"></script>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +29,6 @@
 	</style>
 </head>
 <body>
-	
 	<script type="text/javascript">
 			if(notLogged()){ 
 				location.href= '/FanMusic/index.php';
