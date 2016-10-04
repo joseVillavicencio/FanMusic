@@ -9,11 +9,6 @@
 	<link href="css/mainFanApp.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">	
 	<link href="css/responsive.css" rel="stylesheet">
-	<script type="text/javascript" src="js/smoothscroll.js"></script>
-    <script type="text/javascript" src="js/jquery.parallax.js"></script>
-    <script type="text/javascript" src="js/coundown-timer.js"></script>
-    <script type="text/javascript" src="js/jquery.scrollTo.js"></script>
-    <script type="text/javascript" src="js/jquery.nav.js"></script>
 	<!-- Esta parte es de nuestro codigo- -->
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<script src="js/funciones.js" type="text/javascript"></script>
@@ -25,26 +20,28 @@
 			location.href= '/FanMusic/bienvenidaNuevo.php';
 		}
 	</script>
-	<header id="header" role="banner">		
+	<header id="header" role="navigation">		
 		<div class="main-nav">
-			<div class="container">
-				   
-		        <div class="row">	        		
-		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                    <span class="sr-only">Toggle navigation</span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
-		                <a class="navbar-brand">
-		                	<img class="img-responsive" src="images/logo2.png" alt="logo">
-		                </a>                    
-		            </div>
-		        </div>
-	        </div>
-        </div>                    
-    </header>
+			<div class="container-fluid">
+				<div class="row">
+						<div class="navbar-header" style="background-color: #1B7B98;">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<span class="sr-only">Desplegar navegación</span>
+							</button>
+							<a class="navbar-brand">
+								<img class="img-responsive" style="top:-50;margin-top:0px;" src="images/logo2.png" alt="logo">
+							</a> 
+						</div>
+						<div class="collapse navbar-collapse navbar-ex1-collapse" style="background-color: #1B7B98;">
+							<ul class="nav navbar-nav"></ul>
+							<ul class="nav navbar-nav navbar-right">                 
+								<center><h1>¡Juntos haremos grandes cosas!</h1></center>
+							</ul>
+						</div>
+				</div>
+			</div>
+		</div>
+	</header>
    	<section id="registro">
 		<div id="cuerpo" name="cuerpo" class="container" style="text-align:center;" >
 			<div class="row">

@@ -260,7 +260,7 @@ function asistenciaEvento(div){
 		
 		success: function(response){
 			if(response==0){
-				
+				$(div).append("Actualmente no tienes eventos pendientes");
 			}else{
 				$(div).append(response);	
 			}

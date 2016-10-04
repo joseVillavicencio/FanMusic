@@ -331,10 +331,10 @@ function opcionesGestion(div){
 		type: "post",
 		success: function(response){
 			if(response==1){ // es Admin
-				$(div).append('<a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'designarModer.php'+"'"+')"  class="btn btn-primary" role="button" align="right">Designar Moderador</a><a href='+"'"+'bloquearM.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Mimebro</a><a  onclick ="cargar('+"'"+'#opciones'+"'"+','+"'"+'verFinanzasGrupo.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a>');
+				$(div).append('<a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'designarModer.php'+"'"+')"  class="btn btn-primary" role="button" align="right">Designar Moderador</a><a href='+"'"+'bloquearM.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Miembro</a><a  onclick ="cargar('+"'"+'#opciones'+"'"+','+"'"+'verFinanzasGrupo.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a>');
 			}else{
 				if(response==2){// es moder
-					$(div).append('<a href='+"'"+'bloquearM.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Mimebro</a><a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'gestionarPublic.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a><a href='+"'"+'editarperfilGrupoNuevo.php'+"'"+'  class="btn btn-primary" role="button" align="right">Editar Perfil </a><a href='+"'"+'gestionarFinanzasNuevo.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Finanzas </a>');
+					$(div).append('<a href='+"'"+'bloquearM.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Miembro</a><a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'gestionarPublic.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a><a href='+"'"+'editarperfilGrupoNuevo.php'+"'"+'  class="btn btn-primary" role="button" align="right">Editar Perfil </a><a href='+"'"+'gestionarFinanzasNuevo.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Finanzas </a>');
 				}else{
 					$(div).append('<a  onclick ="cargar('+"'"+'#opciones'+"'"+','+"'"+'verFinanzasGrupo.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargar('+"'"+'#opciones'+"'"+','+"'"+'solicitarPublic.php'+"'"+')" class="btn btn-success"  role="button" align="right">Solicitar Publicación</a>');
 				}
@@ -726,7 +726,7 @@ function nuevaPubli(div){ //Esta funcion se muestra distinto a la que tiene Dani
 		
 		success: function(response){ //Sólo si trata de un administrador o moderador mostrará la ventana para una nueva publicación
 			if(response==1 || response ==2){
-				$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" cols="30" id="contenidoNuevo"></textarea></div><button class="btn btn-primary" onclick="publicar();">A&#xF1;adir</button></div></div>');
+				$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><h1>Publicar Noticia</h1></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" cols="30" id="contenidoNuevo"></textarea></div><button class="btn btn-primary" onclick="publicar();">A&#xF1;adir</button></div></div>');
 			}
 		}
 	});
