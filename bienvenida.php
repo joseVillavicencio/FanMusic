@@ -10,12 +10,9 @@
 		<link href="css/mainFanApp.css" rel="stylesheet">
 		<link href="css/animate.css" rel="stylesheet">	
 		<link href="css/responsive.css" rel="stylesheet">
-		<script src="js/funciones.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/smoothscroll.js"></script>
-		<script type="text/javascript" src="js/jquery.parallax.js"></script>
-		<script type="text/javascript" src="js/coundown-timer.js"></script>
-		<script type="text/javascript" src="js/jquery.scrollTo.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script src="js/funciones.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/jquery.nav.js"></script>
 		<script src="js/jquery.goup.min.js" type="text/javascript"></script><!--NUEVO-->
 		
@@ -41,27 +38,36 @@
 				location.href= '/FanApp/indexNuevo.php';
 				}
 		</script>
-		<header id="header" role="banner">		
-			<div class="main-nav">
-				<div class="container">
-					   
-					<div class="row">	        		
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
+		<header id="header" role="navigation">		
+		<div class="main-nav">
+			<div class="container-fluid">
+				<div class="row">
+					
+						<div class="navbar-header" style="background-color: #1B7B98;">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<span class="sr-only">Desplegar navegación</span>
 							</button>
 							<a class="navbar-brand" href="indexNuevo.php">
 								<img class="img-responsive" src="images/logo2.png" alt="logo">
-							</a>                    
+							</a> 
 						</div>
-						
-					</div>
+						<div class="collapse navbar-collapse navbar-ex1-collapse" style="background-color: #1B7B98;">
+							<ul class="nav navbar-nav"></ul>
+							<ul class="nav navbar-nav navbar-right">                 
+								<li><a  href="bienvenida.php" >Novedades</a></li>
+								<li class="scroll "><a href="bienvenidaNuevo.php#contact">Clubs</a></li>
+								<li class="scroll"><a href="bienvenidaNuevo.php#event">Grupos</a></li>                         
+								<li class="scroll"><a href="bienvenidaNuevo.php#explore">Eventos</a></li>
+								<li class="scroll"><a href="bienvenidaNuevo.php#about">Búsqueda</a></li>
+								<li><a href='perfilNuevo.php'><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
+								<li><a href="indexNuevo.php" onclick="logOut();"><span class="glyphicon glyphicon-log-out"></span></a></li>								
+							</ul>
+						</div>
+					
 				</div>
-			</div>                    
-		</header>
+			</div>
+		</div>
+	</header>
 		<section id="bien">
 			<div class="container" id="panel">
 				<div class="row">

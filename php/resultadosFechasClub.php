@@ -2,6 +2,9 @@
 	include('funcionesI.php');
 	$id= $_POST['idM'];
 	$conexion=conectar();
+	$contar1=0;
+	$contar2=0;
+	$contar3=0;
 	mysqli_set_charset($conexion,"utf8");
 	if($conexion->connect_errno ) {
 		die ("Error de conexion") ;
@@ -31,15 +34,60 @@
 											$cantDos=$fila3[4] ;
 											$cantTres=$fila3[5] ;
 											$horarioFinal=$fila3[6];
-											if($horarioFinal==null){ // para que no se pueda precionar el boton confirmar 2 veces
-											echo '<tr> <td>'.$nombreClub.'<br><br></td>'; //Salto de fila con <TR>
-											echo '<td>'.$nombreEvento.':<br> '.$descripEvento.'</td><br>';
-											echo '<td> '.$fechaUno.'</td>';
-											echo '<td> '.$fechaDos.' </td>' ;
-											echo '<td> '.$fechaTres.'</td>' ;
-											echo '<td> <button type="button" id="botonConfirmar" class="btn btn-primary btn-xs" onclick="fechaFinal('."'".$idEvento."'".','."'".$fechaUno."'".','."'".$fechaDos."'".','."'".$fechaTres."'".','."'".$cantUno."'".','."'".$cantDos."'".','."'".$cantTres."'".');" >Confirmar Fecha</button></td>';
-											echo '<td> <button type="button" id="botonConfirmar" class="btn btn-primary btn-xs" onclick="ventanaPopEventos();" >Ver asistencia</button></td></tr>';
+											$id_h=$fila3[7];
 											
+											$conexion=conectar();
+											$sql4 = "call  contarInvitados('".$idEvento."');"; 	
+											if($result4 = $conexion->query($sql4)){
+												if($result4->num_rows >0){
+													while($fila4=mysqli_fetch_row($result4)){
+														$contar=$fila4[0];
+													}
+												}
+											}
+											$conexion=conectar();											
+											$sql5 = "call  contarFechaUno('".$id_h."');"; 	
+											if($result5 = $conexion->query($sql5)){
+												if($result5){
+													while($fila5=mysqli_fetch_row($result5)){
+														$contar1=$fila5[0];
+														
+													}
+												}
+											}
+											$conexion=conectar();											
+											$sql6 = "call  contarFechaDos('".$id_h."');"; 	
+											if($result6 = $conexion->query($sql6)){
+												if($result6){
+													while($fila6=mysqli_fetch_row($result6)){
+														$contar2=$fila6[0];
+														
+													}
+												}
+											}
+											$conexion=conectar();											
+											$sql7 = "call  contarFechaTres('".$id_h."');"; 	
+											if($result7 = $conexion->query($sql7)){
+												if($result7){
+													while($fila7=mysqli_fetch_row($result7)){
+														$contar3=$fila7[0];
+														
+													}
+												}
+											}
+											$contarT=$contar1+$contar2+$contar3;
+											if($horarioFinal==null){ // para que no se pueda precionar el boton confirmar 2 veces
+												echo '<tr> <td>'.$nombreClub.'<br><br></td>'; //Salto de fila con <TR>
+												echo '<td>'.$nombreEvento.':<br> '.$descripEvento.'</td><br>';
+												echo '<td> '.$fechaUno.'</td>';
+												echo '<td> '.$fechaDos.' </td>' ;
+												echo '<td> '.$fechaTres.'</td>' ;
+												echo '<td> '.$contar.'</td>' ;
+												echo '<td> '.$contarT.'</td>' ;
+												echo '<td> <button type="button" id="botonConfirmar" class="btn btn-primary btn-xs" onclick="fechaFinal('."'".$idEvento."'".','."'".$fechaUno."'".','."'".$fechaDos."'".','."'".$fechaTres."'".','."'".$cantUno."'".','."'".$cantDos."'".','."'".$cantTres."'".');" >Confirmar Fecha</button></td>';
+												if($contarT>0){
+													echo '<td> <button type="button" id="botonConfirmar" class="btn btn-primary btn-xs" onclick="ventanaPopEventos();" >Ver asistencia</button></td></tr>';
+												}
 											}
 										}
 									}

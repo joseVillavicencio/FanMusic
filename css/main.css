@@ -9,7 +9,7 @@
 body {
   font-family: 'Dosis', sans-serif;
   font-size: 17px;
-  color: #fff
+  color: #fff;
 }
 
 
@@ -25,12 +25,13 @@ a {
   -moz-transition: 300ms;
   -o-transition: 300ms;
   transition: 300ms;
+  
 }
 
 a:focus, 
 a:hover {
   text-decoration: none;
-  outline: none
+  outline: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,11 +41,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-  font-size: 36px
+  font-size: 36px;
 }
 
 .navbar-toggle {
-  margin-top: 12px
+  margin-top: 12px;
 }
 
 .navbar-toggle .icon-bar {
@@ -75,8 +76,9 @@ h2 {
 }
 
 .main-nav 
-.container {
-  width: 100%
+.container-fluid {
+  width: 100%;
+  opacity: .9;
 }
 
 .social-icons a {
@@ -86,38 +88,40 @@ h2 {
 }
 
 .social-icons .fa-facebook:hover {
-  color: #3B5997
+  color: #3B5997;
 }
 
 .social-icons .fa-twitter:hover {
-  color:#29C5F6
+  color:#29C5F6;
 }
 
 .social-icons .fa-google-plus:hover {
-  color:#D13D2F
+  color:#D13D2F;
 }
 
 .social-icons .fa-youtube:hover{
-  color: #ec5538
+  color: #ec5538;
 }
 
 .navbar-brand {
   background-color: #1B7B98;
-  height: 90px;
-  margin-bottom: 20px;
-  position: relative;
+  height: 60px; 
+  position:relative;
   width: 297px;
+  opacity: .8;
 }
 
 .navbar-brand img {
   position: absolute;
   top: -35px;
+  margin-top: 5px;
+	margin-left: 5px;
 }
 
 .navbar-right {
   background-color: #1B7B98;
   padding:0 95px 0 0;
-  opacity: .9
+  opacity: .9;
 }
 
 .navbar-right li a {
@@ -133,7 +137,7 @@ h2 {
 .navbar-right li a:focus,  
 .navbar-right .active a {
   background-color: #fff;
-  color: #16728f
+  color: #16728f;
 }
 
 
@@ -178,6 +182,7 @@ h2 {
 **************************/
 
 #home {
+
   position: relative;
   overflow: hidden;
 }

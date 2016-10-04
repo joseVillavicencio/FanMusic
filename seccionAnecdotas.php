@@ -1,5 +1,5 @@
 
-			<div id="listasAnecdota2" class="col-lg-8 col-lg-offset-2"> <!--class="col-lg-4 col-sm-4"-->
+			<div id="listasAnecdota2" class="col-lg-10 col-lg-offset-1"> <!--class="col-lg-4 col-sm-4"-->
 				<div class="panel panel-default" style="text-align:center;">
 					
 					<div class="panel panel-heading"><h3>Cuéntanos Tus Anécdotas!!</h3><img src="img/anecdota.png" width='100' height='100' class="img-circle"></div>
