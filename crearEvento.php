@@ -60,19 +60,27 @@
 									<div class="input-group">
 										<span class="input-group-addon" id="basic-addon3">Opción 1:</span>
 										<input id="datetimepicker" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
-										<script>jQuery('#datetimepicker').datetimepicker({minDate:'-1970/01/02'});</script>
+										<script>
+										jQuery.datetimepicker.setLocale('es');
+										jQuery('#datetimepicker').datetimepicker({minDate:0,minTime:0});
+										</script>
 									</div>
 									<br>
 									<div class="input-group">
 										<span class="input-group-addon" id="basic-addon3">Opción 2:</span>
 										<input id="datetimepicker1" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
-										<script>jQuery('#datetimepicker1').datetimepicker({minDate:'-1970/01/02'});</script>
+										<script>
+										jQuery.datetimepicker.setLocale('es');
+										jQuery('#datetimepicker1').datetimepicker({minDate:0,minTime:0});
+										</script>
 									</div>
 									<br>
 									<div class="input-group">
 										<span class="input-group-addon" id="basic-addon3">Opción 3:</span>
 										<input id="datetimepicker2" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
-										<script>jQuery('#datetimepicker2').datetimepicker({minDate:'-1970/01/02'});</script>
+										<script>jQuery.datetimepicker.setLocale('es');
+										jQuery('#datetimepicker2').datetimepicker({minDate:0,minTime:0});
+										</script>
 									</div>
 									<br>
 								</div>
