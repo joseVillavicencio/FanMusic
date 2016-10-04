@@ -14,7 +14,7 @@
 		<link href="css/responsive.css" rel="stylesheet">
 	</head>
 	<body>
-		<div id="solicitar" class="col-lg-12 col-sm-3">		
+		<div id="solicitar" class="col-lg-12 col-sm-12">		
 			<div id="solicitarP" class="panel panel-default">
 				<div class="panel-heading" align="center" >Solicitar</div>
 				<div class="panel-body" align="center">

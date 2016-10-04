@@ -8,22 +8,10 @@
 		<link href="css/mainFanApp.css" rel="stylesheet">
 		<link href="css/animate.css" rel="stylesheet">	
 		<link href="css/responsive.css" rel="stylesheet">
-	<!-- Esta parte es de nuestro codigo- -->
+	
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script src="js/funcionesGrupo.js" type="text/javascript"></script>
-		<!--
-		<script>	
-			function actualizarS(div,dir){
-					$(div).load(dir,"pag="+getNombreActual());
-				}
-			$(document).ready(function(){
-				function actualizando(){ 
-					actualizarS("#publicaciones","php/sincronizarPublicaciones.php");
-				}
-				setInterval(actualizando,45000);
-			});
-				
-		</script>-->
+		
 		<script>
 			$(document).ready(function(){
 				function actualizarS(){ 

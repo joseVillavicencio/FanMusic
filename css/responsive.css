@@ -135,7 +135,7 @@
   }
 
   .navbar-brand {
-    width: inherit;
+    width: 230px;
   }
 
   .fixed-menu .navbar-right li a {
@@ -143,7 +143,6 @@
   }
 
   #home {
-    margin-top: 10%;
   }
 
   #main-slider .carousel-caption {
@@ -294,7 +293,7 @@
   /* Home */
 
   #home {
-    margin-top: 18%;
+    
   }
 
   .fixed-menu .container {
@@ -302,7 +301,7 @@
   }
 
   .navbar-brand {
-    width: inherit;
+    width: 200px;
   }
 
 
