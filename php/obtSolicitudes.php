@@ -24,6 +24,8 @@
 							echo '<input  id="'.$row["id_Publicacion"].'" type="hidden"><button type="button" class="btn btn-success btn-xs" onclick="aceptarP('.$row["id_Publicacion"].');"><span class="glyphicon glyphicon-ok"></span></button>&ensp;';
 							echo '<input  id="'.$row["id_Publicacion"].'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="rechazarP('.$row["id_Publicacion"].');"><span class="glyphicon glyphicon-remove"></span></button></div></div>';
 						}
+					}else{
+						echo "El grupo no posee solicitudes.";
 					}
 				}
 			}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>FanMusic</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/mainFanApp.css" rel="stylesheet">
 	<script src="js/jquery.js" type="text/javascript"></script>

@@ -1,14 +1,15 @@
 <! DOCTYPE html>
 <html lang="es">
 	<head>
+		<title>FanMusic</title>
 		<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/jquery.js" type="text/javascript"></script>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/mainFanApp.css" rel="stylesheet">
-	<link href="css/animate.css" rel="stylesheet">	
-	<link href="css/responsive.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/mainFanApp.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">	
+		<link href="css/responsive.css" rel="stylesheet">
 		<script src="js/jquery.js" type="text/javascript"></script>
 		<script src="js/bootstrap.js" type="text/javascript"></script>
 		<script src="js/funciones.js" type="text/javascript"></script>
