@@ -24,6 +24,13 @@
 		if(logged()){
 			location.href= '/FanMusic/bienvenidaNuevo.php';
 		}
+		$(document).ready(function(){
+	cargar_paises();
+	$("#pais").change(function(){dependencia_estado();});
+	$("#region").change(function(){dependencia_ciudad();});
+	$("#region").attr("disabled",true);
+	$("#ciudad").attr("disabled",true);
+});
 	</script>
 	<header id="header" role="banner">		
 		<div class="main-nav">
@@ -37,7 +44,7 @@
 		                    <span class="icon-bar"></span>
 		                    <span class="icon-bar"></span>
 		                </button>
-		                <a class="navbar-brand" href="index.html">
+		                <a class="navbar-brand" href="indexNuevo.php">
 		                	<img class="img-responsive" src="images/logo2.png" alt="logo">
 		                </a>                    
 		            </div>
@@ -88,27 +95,27 @@
 								</script>
 							</div>
 							<br>
-							<div class="input-group ">
-								<span class="input-group-addon" id="basic-addon3">País:</span>
-								<input type="text" class="form-control" id="pais" placeholder="¿De dondé eres?" aria-describedby="basic-addon3">
+							<div class="row">
+								<div class="col-lg-4" style="color:black;">
+									<select id="pais" name="pais" style="color:black;"><option value="0">Selecciona País</option></select>
+								</div>
+								
+								<div class="col-lg-4" style="color:black;">
+									<select id="region" name="region"style="color:black;"><option value="0">Selecciona Región</option></select>
+								</div>
+								
+								<div class="col-lg-4" style="color:black;">
+									<select id="ciudad" name="ciudad"style="color:black;"><option value="0">Selecciona Ciudad</option></select>
+								</div>
 							</div>
-							<br>
-							<div class="input-group ">
-								<span class="input-group-addon" id="basic-addon3">Región:</span>
-								<input type="text" class="form-control" id="region" placeholder="¿De dondé eres?" aria-describedby="basic-addon3">
-							</div>
-							<br>
-							<div class="input-group ">
-								<span class="input-group-addon" id="basic-addon3">Ciudad:</span>
-								<input type="text" class="form-control" id="ciudad" placeholder="¿De dondé eres?" aria-describedby="basic-addon3">
-							</div>
+													
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-6 col-sm-12">
 					<div id="redes" class="panel panel-default">				
 						<div class="panel-heading">
-							<h2 class="panel-title">Redes Sociales</h2>
+							<h2 class="panel-title">Completa tus Redes Sociales[Opcional]</h2>
 						</div>
 						<div class="panel-body" style="text-align:center;">
 							<div class="input-group">
@@ -143,9 +150,9 @@
 				<div class="col-lg-12 col-sm-12" style="text-align:center;">
 					<br><br>
 					<input type="submit"  onclick="enviarRegistro('#foto');" class="btn btn-success"  value="Continuar" id="botonContinuar" /><br><br>
-					<script type="text/javascript">
+					<!--<script type="text/javascript">
 						$('#botonContinuar').tooltip({'trigger':'focus', 'title': 'Al presionar se podra ingresar tu Foto de Perfil'});
-					</script>
+					</script>-->
 					<br>
 				</div>
 			</div>

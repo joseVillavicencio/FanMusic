@@ -15,16 +15,90 @@
 		
 	</head>
 	<body>
-		<div class="row" style=" text-align:center;">
-			<div class="col-lg-1 col-sm-1">
+		<header id="header" role="banner">		
+			<div class="main-nav">
+				<div class="container-fluid">
+					<div class="row">	        		
+						<div class="navbar-header">
+							<a class="navbar-brand" href="indexNuevo.php">
+								<img class="img-responsive" src="images/logo2.png" alt="logo">
+							</a>                    
+						</div>
+						<div class="collapse navbar-collapse">
+							<ul class="nav navbar-nav navbar-right">                 
+								<li><a  href="bienvenidaNuevo.php" >Inicio</a></li>
+								<li><a  href="bienvenida.php" >Novedades</a></li>
+								<li><a href='perfilNuevo.php'><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
+								<li><a href="indexNuevo.php" onclick="logOut();"><span class="glyphicon glyphicon-log-out"></span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>                    
+		</header>
+		<section id="perfilClub">
+			<div class="container">
+				<div class="row">
+					<div class="watch">
+						<!--<img class="img-responsive" src="images/watch.png" alt="">-->
+					</div>				
+					<div id="portada perfil" align="center">
+						<div id="botonEditar">
+								<script type="text/javascript">
+									editarPerfilClub("#botonEditar"); 
+								</script>
+						</div>
+						<div id="botonDejarSeguir">
+								<script type="text/javascript">
+									dejarSeguirClub("#botonDejarSeguir");
+								</script>
+						</div>	
+						
+						<div id="fotoPerfil" >
+							<script type="text/javascript">
+								fotoPerfilClub("#fotoPerfil"); 
+							</script>
+						</div>
+						
+						<div id="presentacion" class="panel panel-info">
+								<script type="text/javascript">
+								presentacionClub("#presentacion"); 
+							</script>
+						</div>
+						<div id="desc_g" >
+							<script type="text/javascript">
+								desc_Club("#desc_g"); 
+							</script>
+						</div><br>
+						<div id="vol" >
+							<button type="button" onclick="volver();" class="btn btn-primary" >Volver</button><br>
+						</div>
+					</div>
+				</div>	
 			</div>
-			<div id="muroClub"  class="col-lg-6 col-sm-6">
-				<script type="text/javascript">
-					muroDelClub("#muroClub");
-				</script>
+			<hr>
+			<div class="row" >
+				<div id="muroClub" class="col-lg-5 col-lg-offset-1 col-sm-8 " style="text-align:center;">
+					<script type="text/javascript">
+						muroDelClub("#muroClub");
+					</script>
+				</div>
+				<div id="listasCover" class="col-lg-5 col-sm-8 " style="text-align:center;">
+					<script type="text/javascript">
+						mostrarCovers("#listasCover");
+					</script>
+				</div>
 			</div>
-		</div>
+		</section>
+		
 	</body>
+	 <footer id="footer">
+        <div class="container">
+            <div class="text-center">
+                <p> Sitio desarrollado por Dania Delgado - Tania Pizarro - Jose Villavicencio &copy;2016<br>
+		    </div>
+        </div>
+    </footer>
 	 <script type="text/javascript" src="js/smoothscroll.js"></script>
     <script type="text/javascript" src="js/jquery.parallax.js"></script>
     <script type="text/javascript" src="js/coundown-timer.js"></script>

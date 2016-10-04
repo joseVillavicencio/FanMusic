@@ -60,34 +60,17 @@
 							obtenerNombreClub("#rescatarNombreC"); 
 						</script>
 					</div> 
-					<br>
+					<div id="vol" >
+						<button type="button" onclick="volver();" class="btn btn-primary" >Volver</button><br>
+					</div>
 					<div id="datos" >
-						<div class="panel-heading">
-							<h3>Datos Club</h3>
-						</div>
 						<div class="panel-body">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">Descripción: </span>
+								<span class="input-group-addon" id="basic-addon3">Descripción</span> 
 								<input type="text" class="form-control" id="descripcion" aria-describedby="basic-addon3">
 							</div>
 							<br>
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">País: </span>
-								<input type="text" class="form-control" id="pais" aria-describedby="basic-addon3">
-							</div>
-							<br>
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">Región: </span>
-								<input type="text" class="form-control" id="region" aria-describedby="basic-addon3">
-							</div>
-							<br>
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">Ciudad: </span>
-								<input type="text" class="form-control" id="ciudad" aria-describedby="basic-addon3">
-							</div>
-							<br>
-							<hr>
-							<button type="button" onclick="cargarCambiosPerfilClub();" class="btn btn-primary">Editar Información</button>
+							<button type="button" onclick="cargarCambiosPerfilClub();" class="btn btn-success">Editar Información</button>
 						</div>
 					</div>
 				</div>

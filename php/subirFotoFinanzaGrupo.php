@@ -2,7 +2,7 @@
 
 	include('funcionesI.php');
 	$conexion = conectar();
-	mysqli_set_charset($conexion,"utf8");
+	
 	$idF=$_POST["idF"]; 
 	$titulo=$_POST["titulo"]; 
 	$target_path= "C:/xampp/htdocs/FanMusic/img/finanzas";
@@ -12,7 +12,7 @@
 	$tipocorrect = true;
 	$nombreFinal= $idF."_".$titulo;
 	
-	echo $nombreFinal;
+
 	if($tipo!="jpeg"){
 		if($tipo!="jpg"){
 			if($tipo!="gif"){

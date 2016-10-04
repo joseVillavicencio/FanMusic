@@ -18,9 +18,19 @@
 		<div id="solicitar">		
 			<div id="solicitarP" class="panel panel-default">
 				<div class="panel-heading" align="center" >Solicitar</div>
-				<div class="panel-body" align="center">Título : <input type="text"  id="tit" name="tit"><br><br>
-					Subtitulo : <input type="text"  id="sub" name="sub"><br><br>
-					Contenido: <input type="text"  id="cont" name="cont"><br><br>
+				<div class="panel-body" align="center">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon3">Título</span> 
+						<input type="text" class="form-control" id="tit" aria-describedby="basic-addon5">
+					</div><br>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon3">Subtítulo</span> 
+						<input type="text" class="form-control" id="sub" aria-describedby="basic-addon5">
+					</div><br>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon3">Contenido</span> 
+					</div><br>
+					<textarea rows="5" cols="30" id="cont"></textarea><br>
 					<button  type="button" onclick="solic();" class="btn btn-success"  >Solicitar</button><br>
 				</div>
 			</div>

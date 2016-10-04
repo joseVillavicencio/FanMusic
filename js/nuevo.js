@@ -90,7 +90,7 @@ function logOut(){
 function tablaGrupos(div){
 	var parametros = {
 		"id" :  getIDActual(),
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/listagrupo.php",
@@ -108,37 +108,53 @@ function crearGrupo(div){
 	var parametros={
 		'id':getIDActual(),
 		'nombreG':""
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "queUsuario.php",
 		type: "POST",	
 		success: function(response){			
 			if(response==1){
-				$(div).append('<a  onclick ="actualizar('+"'"+'#ponerBoton'+"'"+','+"'"+'crearGrupito.php'+"'"+');"   class="btn btn-info" role="button" align="right">Crear un Nuevo Grupo</a>');
+				var parametros={
+					'id':getIDActual(),
+					'nombreG':""
+				};
+				$.ajax({
+					data: parametros,
+					url: "crearGrupito.php",
+					type: "POST",	
+					success: function(response){	
+						$(div).append(response);
+					}
+				});
 			}
 		}
 	});
 }
+
 function crearGrupo2(){ 
-	var pais=document.getElementById("pa").value;
-	var region=document.getElementById("reg").value;
-	var ciudad= document.getElementById("ci").value;
-	if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
+	var pais=($("#pais option:selected").text());
+	var region=($("#region option:selected").text());
+	var ciudad= ($("#ciudad option:selected").text());
+	var d=document.getElementById("descripcion").value;
+	var nombreG=document.getElementById("nombreG").value;
+	var al=document.getElementById("al").value;
+	if((d!="")&&(nombreG!="")&&(al!="")&&(pais!="Selecciona País")&&(region!="Selecciona Región")&&(ciudad!="Selecciona Ciudad")){
 		var parametros={
-			'nombre':getNombre(),
-			'al': document.getElementById("al").value,
-			'pa': document.getElementById("pa").value,
-			'reg': document.getElementById("reg").value,
-			'ci': document.getElementById("ci").value,
+			'nombre':nombreG,
+			'al': al,
+			'pa': pais,
+			'reg': region,
+			'ci': ciudad,
 			'id':getIDActual(), 
-			'descripcion':getDescripcion(),
-		}
+			'descripcion':d
+		};
 		$.ajax({
 			data: parametros,
 			url: "php/crear.php",
 			type: "POST",	
 			success: function(response){			
+			
 				if(response=="success"){
 					location.href='bienvenidaNuevo.php';
 				}else{
@@ -151,19 +167,20 @@ function crearGrupo2(){
 				}
 			}
 		});
+	}else{
+		alert("Debe completar todos los campos");
 	}
 }
 function buscar(div){
 	var parametros ={
 		"palabraBusqueda" : localStorage.getItem("aBuscar")
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/buscar.php",
 		type: "post",	//Defino la forma en que llegarán los parámetros al php
 		
-		success: function(response){			
-			//alert(response);	//Response rescata EL PRIMER ECHO que encuentre en el php
+		success: function(response){				//Response rescata EL PRIMER ECHO que encuentre en el php
 			$(div).append(response);
 			localStorage.setItem("aBuscar","");
 		}
@@ -176,7 +193,7 @@ function buscare(div){
 function tablaClubs(div){
 	var parametros = {
 		"id" :  getIDActual()
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/listarClub.php",
@@ -206,7 +223,7 @@ function carrusel1(div){
 	});
 }
 function listPublClu(div){
-	var parametros={"idUser":getIDActual()}
+	var parametros={"idUser":getIDActual()};
 	$.ajax({
 		data: parametros,
 		url:	"php/obtPublClu.php",
@@ -218,7 +235,7 @@ function listPublClu(div){
 	});
 }
 function listPublGru(div){
-	var parametros={"idUser":getIDActual()}
+	var parametros={"idUser":getIDActual()};
 	$.ajax({
 		data: parametros,
 		url:	"php/obtPublGru.php",
@@ -235,7 +252,7 @@ function actualizar(div,dir){
 function asistenciaEvento(div){
 	var parametros = {
 		'idM' :  getIDActual()//Nombre que llego desde el formulario	
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/asistenciaEvento.php",
@@ -257,35 +274,39 @@ function informarAsistencia(id, nombreEvento,name){
 		"id" :  id,//Nombre que llego desde el formulario	
 		"nombreEvento" : nombreEvento,
 		"fechaEscogida": seleccion,
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/informarAsistenciaEvento.php",
 		type: "POST",	//Defino la forma en que llegarán los parámetros al php
 		
 		success: function(response){	
-			
+			alert(response);
 			if(response==1){
 				location.href='bienvenidaNuevo.php';
 			}else{
-				alert("No se ha podidido guardar su respuesta");
+				if(response==2){
+					alert("Usted ya ha votado");
+				}else{
+					alert("No se ha podidido guardar su respuesta");
+				}
 			}
 		}
 	});
 }
 function botonesEvento(div){
 	var parametros = {
-		"id" :  getIDActual(),//Nombre que llego desde el formulario	
+		"id" :  getIDActual(),	
 		"nombreG" :  ""
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "queUsuario.php", 
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
+		type: "POST",	
 		
 		success: function(response){			
 			if(response==2 || response==1){ // va a mostrar para el moderador del grupo o el admi
-				$(div).append('<div id="panelE" class="panel panel-default" style="margin-right:5%;margin-left:5%;"><div class="panel-heading" >Eventos </div><div class="panel-body" ><a href='+"'"+'listaEventosNueva.php'+"'"+'  class="btn btn-primary" role="button" align="right">Gestionar Eventos </a><br><br><a href='+"'"+'miseventosEXITONUEVO.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver resultados</a></div></div></div>');
+				$(div).append('<a href='+"'"+'listaEventosNueva.php'+"'"+'  class="btn btn-primary" role="button" align="right">Gestionar Eventos </a><br><br><a href='+"'"+'miseventosEXITONUEVO.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver resultados</a>');
 			}	
 		}
 	});
@@ -293,7 +314,7 @@ function botonesEvento(div){
 function tablaEventos(div){
 	var parametros = {
 		"id" :  getIDActual()//Nombre que llego desde el formulario	
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/listaevent.php",
@@ -308,7 +329,7 @@ function crearEventos(div){
 	var parametros = {
 		"id" :  getIDActual(),//Nombre que llego desde el formulario
 		"nombreG" :  ""
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "queUsuario.php", //Falta Hacer ijij
@@ -321,14 +342,10 @@ function crearEventos(div){
 		}
 	});
 }
-function editarEventos(div){ //POR EL MOMENTO, AL PARECER NADIE ESTÁ LLAMANDO A ESTA FUNCIÓN
-	$(div).append('<div id="hacerEdicion"> <a href="https://calendar.google.com/calendar/render?pli=1" class="btn btn-info btn-md" role="button" align="right">Agregar Evento al Calendario</a></div><br>');
-}
+
 function mostrarLideresCorreo(div){
-	
 	var parametros = {
-		
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/mostrarLideresCorreo.php",
@@ -340,88 +357,63 @@ function mostrarLideresCorreo(div){
 		}
 	});
 }
-function mostrarResultados(div){
-	var parametros = {
-		'id' :  getIDActual(),//Nombre que llego desde el formulario	
-		"nombreG" :  ""
-	}
-	$.ajax({
-		data: parametros,
-		url: "queUsuario.php",
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
-		
-		success: function(response){
-			//alert(response);
-			if(response==1){ //Es un Administrador	
-				resultadosClub(div);
-			}else{
-				if(response==2){ //Es un Moderador
-					resultadosGrupo(div);
-				}
-			}
-		}
-	});
-}
-function resultadosClub(div){
-	var parametros = {
-		"idM" :  getIDActual()
-	}
-	$.ajax({
-		data: parametros,
-		url: "php/resultadosFechasClub.php",
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
-		
-		success: function(response){
-			//alert(response);
-			$(div).append(response);
-		}
-	});
-}
+
 function crearClub(div,dov){
 	var parametros={
 	'id':getIDActual(),
 	"nombreG":""
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "queUsuario.php",
 		type: "POST",	
 		success: function(response){
 			if(response=="0"){// es decir si no es admin o moderador, porque solo puede ser admi de 1 club 
-				$(div).append('<a  onclick ="actualizar('+"'"+dov+"'"+','+"'"+'crearClubNuevo.php'+"'"+')"   class="btn btn-primary" role="button" align="right">Crear un Nuevo Club</a>');
+				$.ajax({
+					data: parametros,
+					url: "crearClubNuevo.php",
+					type: "POST",	
+					success: function(response){
+						$(div).append(response);
+					}
+				});
 			}
 		}
 	});
 }
 function clubCrear(){ 
-	var pais=document.getElementById("pais").value;
-	var region=document.getElementById("region").value;
-	var ciudad= document.getElementById("ciudad").value;
-	if((validarTexto(pais,20,"Pais")==1)&&(validarTexto(region,20,"Region")==1)&&(validarTexto(ciudad,20,"Ciudad")==1)){
+	var pais   =($("#pais option:selected").text());
+	var region =($("#region option:selected").text());
+	var ciudad =($("#ciudad option:selected").text());
+	var d=document.getElementById("descripcion").value;
+	var nombreC=document.getElementById("nombreC").value;
+	var al=document.getElementById("alias").value;
+	if((d!="")&&(nombreC!="")&&(al!="")&&(pais!="Selecciona País")&&(region!="Selecciona Región")&&(ciudad!="Selecciona Ciudad")){
 		var parametros={
 			'id':getIDActual(),
-			'nombre':document.getElementById("nombreC").value,
-			'descripcion':document.getElementById("descripcion").value,
-			'pais':document.getElementById("pais").value,
-			'region':document.getElementById("region").value,
-			'ciudad':document.getElementById("ciudad").value,
-			'alias':document.getElementById("alias").value,
-		}
+			'nombre':nombreC,
+			'descripcion':d,
+			'pais':pais,
+			'region':region,
+			'ciudad':ciudad,
+			'alias':al,
+		};
 		$.ajax({
 			data: parametros,
 			url: "php/crearClub.php",
 			type: "POST",	
 			success: function(response){
-				alert(response);
 				location.href='/FanMusic/bienvenidaNuevo.php';
 			}
 		});
+	}else{
+		alert("Debe completar todos los campos");
 	}
 }
 function eliminarC(idi){
 	var parametros = {
 		"id" : idi
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/eliminarClub.php",
@@ -438,14 +430,13 @@ function eliminarC(idi){
 function eliminarG(idG){ 
 	var parametros = {
 		"idG":idG,
-	}
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/eliminar.php",
 		type: "POST",	
 		success: function(response){			
 			if(response=="success"){
-				alert("El grupo ha sido Eliminado");
 				location.href='bienvenidaNuevo.php';
 			}else{
 				alert("No se ha podido eliminar el Grupo");
@@ -463,34 +454,46 @@ function obtenerOpcionFechas(name){
 	
 }
 
+
 /*==========================================================================
 NUEVA FUNCION PARA CALENDARIO
 ============================================================================*/
 
 function calendario(div){
-	$(div).eCalendar({url: 'loadCalendar'});
-	
+	$(div).eCalendar({});
+	var events= new Array();
 	var parametros ={
-		"idMiembro" : getIDActual(),
-	}
+		"idMiembro" : getIDActual()
+	};
 	$.ajax({
 		data: parametros,
 		url: "php/mostrarEventos.php",
-		type: "post",	
-		
-		success: function(response){		//Recibo de vuelta el nombre, descripcion y hora del evento, ademas del club o grupo donde se hace ese evento. :)
-			alert(response);
-			/*if(response){
-				var datos=response.value.split("/"); 
-				nombreE : datos[0], descripE : datos[1], fechaE : datos[2], perteneceE : datos[3],
-				/*var fechita=fechaE.value.split("-");
-				anio : fechita[0], mes : fechita[1], dia : fechita[2], hora : fechita[3],
-				$(div).eCalendar({
-					events: [
-						{title: perteneceE" - "nombreE, description: descripE, datetime: new Date(anio, mes, dia, hora)}
-					]
-				});
-			}*/
+		type: "POST",
+		dataType:"JSON",
+		cache:	false,
+		success: function(response){
+			if(response.status=="success"){
+				var respuesta=response.message.toString();
+				var i=0;
+				var casilla=(respuesta).split("@");
+				while(i<(casilla.length-1)){
+					var datos=casilla[i].split("/"); 
+					var nombreE=datos[0],descripE=datos[1],perteneceE=datos[3];
+					if(datos[2]!=""){
+						var fechita=datos[2].split("-");
+						var anio =fechita[0], mes = fechita[1];
+						var dihora= fechita[2].split(" ");
+						var dias=dihora[0], hora=dihora[1];
+						var horario = hora.split(":");
+						events.push({title: nombreE, description: descripE, datetime: new Date(anio, mes-1, dias, horario[0])});
+						
+					}
+					i++;
+				}
+				$(div).eCalendar({events});
+			}
 		}
 	});	
 }
+
+

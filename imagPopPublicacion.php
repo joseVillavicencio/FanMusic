@@ -11,14 +11,14 @@
 	<body>
 		<div class="panel panel-success">
 			<div class="panel panel-heading">
-				<h3>Agregar fotos</h3>
+				<h3>¿Deseas adjuntar una foto a tu publicación?</h3>
 			</div>
 			<div class="panel panel-body">
-			<div id="adjuntarFoto" >
-				<script type="text/javascript">
+				<div id="adjuntarFoto" >
+					<script type="text/javascript">
 					publImagNueva("#adjuntarFoto"); 
-				</script>
-			</div>
+					</script>
+				</div>
 			</div>
 		</div>
 	</body>	

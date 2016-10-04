@@ -21,21 +21,27 @@
 				location.href= '/FanMusic/indexNuevo.php';
 			}
 	</script>
+	<script>
+		function cargarPerfil(div, desde){
+			$(div).load(desde);
+		}
+	</script>
 	<header id="header" role="banner">		
 		<div class="main-nav">
-			<div class="container">
-				   
-		        <div class="row">	        		
+			<div class="container-fluid">
+				<div class="row">	        		
 		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                    <span class="sr-only">Toggle navigation</span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
 		                <a class="navbar-brand" href="indexNuevo.php">
 		                	<img class="img-responsive" src="images/logo2.png" alt="logo">
 		                </a>                    
+		            </div>
+		            <div class="collapse navbar-collapse">
+		                <ul class="nav navbar-nav navbar-right">                 
+							<li><a  href="bienvenidaNuevo.php" >Inicio</a></li>
+							<li><a  href="bienvenida.php" >Novedades</a></li>
+							<li><a href="indexNuevo.php" onclick="logOut();"><span class="glyphicon glyphicon-log-out"></span></a></li>
+							
+					    </ul>
 		            </div>
 		        </div>
 	        </div>
@@ -47,7 +53,7 @@
 				<div class="miembro">
 					<img class="img-responsive" src="images/miembro.png" alt="">
 				</div>	
-				<a href="editar_perfilNuevo.php" class="btn btn-info btn-md" role="button" align="right">Editar Perfil</a>
+				<a href="editar_perfilNuevo.php" class="btn btn-primary btn-md" role="button" align="right">Editar Perfil</a>
 				<br>
 				<div id="foto">
 					<script>
@@ -68,10 +74,20 @@
 					</div>
 				</div>
 				<br>
-				<div id="comentarios" class="row">
-					<script type="text/javascript">
-						mostrarComentarios("#comentarios");
-					</script>
+				<div id="anecdota" align="center" class="row">
+						<script type="text/javascript">
+							secciones("#anecdota");
+						</script>
+				</div>
+				<hr>
+				<div class="row">
+					<div id="comentarios"  class="col-lg-4 col-lg-offset-1 col-sm-4 col-sm-offset-1">
+						<script type="text/javascript">
+							mostrarComentarios("#comentarios");
+						</script>
+					</div>
+					<div id="opcionesPerfil" class="col-lg-7 col-sm-7">
+					</div> 
 				</div>
 			</div>	
 		</div>	

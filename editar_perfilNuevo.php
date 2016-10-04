@@ -24,19 +24,20 @@
 	</script>
 	<header id="header" role="banner">		
 		<div class="main-nav">
-			<div class="container">
-				   
-		        <div class="row">	        		
+			<div class="container-fluid">
+				<div class="row">	        		
 		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                    <span class="sr-only">Toggle navigation</span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
 		                <a class="navbar-brand" href="indexNuevo.php">
 		                	<img class="img-responsive" src="images/logo2.png" alt="logo">
 		                </a>                    
+		            </div>
+		            <div class="collapse navbar-collapse">
+		                <ul class="nav navbar-nav navbar-right">                 
+							<li><a  href="bienvenidaNuevo.php" >Inicio</a></li>
+							<li><a  href="bienvenida.php" >Novedades</a></li>
+							<li><a href='perfilNuevo.php'><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
+							<li><a href="indexNuevo.php" onclick="logOut();"><span class="glyphicon glyphicon-log-out"></span></a></li>
+						</ul>
 		            </div>
 		        </div>
 	        </div>
@@ -61,9 +62,13 @@
 				<div class="col-lg-6 col-sm-12">
 					<div id="presentacion" class="panel panel-info" style="margin-left:5%;margin-right:5%;">
 						<div class="panel-heading">
+							<h3>¿Qué deseas editar?</h3>
 							<div class="input-group">
 									<span class="input-group-addon" id="basic-addon3">Apodo: </span>
 									<input type="text" class="form-control" id="APODO" aria-describedby="basic-addon3">
+									<script type="text/javascript">
+										$('#APODO').tooltip({'trigger':'focus', 'title': 'El apodo debe ser escrito solo en minúsculas'});
+									</script>
 							</div>
 							<br>
 							<div class="input-group">
@@ -92,13 +97,13 @@
 							</div>
 							<br>
 							<br>
-							<button type="button" onclick="veriCambioContra();" class="btn btn-primary">Guardar Cambios</button>
+							<button type="button" onclick="revisarApodo();" class="btn btn-primary">Guardar Cambios</button>
 						</div>
 					</div>
 				</div>
 				<div class="panel panel-default col-lg-6 col-sm-12">
 					<div id="redes sociales" style="margin-left:5%;margin-right:5%; tex-align:center; color:black;" >
-						<div class="alert alert-warning" role="alert">Recuerda escribir toda la dirección :) </div><br>
+						<h3> Editar Redes Sociales</h3><br>
 						<div id="twitter2">
 							<script type="text/javascript">
 								cambiarTwitter("#twitter2"); 

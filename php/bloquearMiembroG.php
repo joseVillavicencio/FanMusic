@@ -26,36 +26,44 @@
 									$idGrupo=$fila1[0] ;
 								}
 								$conexion=conectar();
-								$sql3 = "call esMiembroGrupo('".$idGrupo."','".$idMiembro."');"; //Me aseguro que sea miembro del grupo
-								if($registro3 =$conexion->query($sql3)){
-									if($registro3->num_rows >0){
+								$sql6 = "call esModerador2('".$idMiembro."','".$idGrupo."');"; //Me aseguro que sea miembro del grupo
+								if($registro6 =$conexion->query($sql6)){
+									if($registro6->num_rows >0){
+										echo 5;
+									}else{
 										$conexion=conectar();
-										$bloq = "call estaBloqueadoEnGrupo('".$idMiembro."','".$idGrupo."');"; //Aseguramos que no se encuentre bloqueado desde antes
-										if($registro4 =$conexion->query($bloq)){
-											if($registro4->num_rows >0){
-												echo 0; //ya esta bloqueado
-											}else{
+										$sql3 = "call esMiembroGrupo('".$idGrupo."','".$idMiembro."');"; //Me aseguro que sea miembro del grupo
+										if($registro3 =$conexion->query($sql3)){
+											if($registro3->num_rows >0){
 												$conexion=conectar();
-												$eliminar2 = "call dejarSeguir('".$idMiembro."','".$idGrupo."');"; //Lo eliminamos del grupo
-												if($registro4 =$conexion->query($eliminar2)){
-													$conexion=conectar();
-													$bloc = "call bloquear2('".$idMiembro."','".$idGrupo."');";
-													if($result_bloc =$conexion->query($bloc)){
-														echo 1; //Eliminamos y bloqueamos correctamente ;)
+												$bloq = "call estaBloqueadoEnGrupo('".$idMiembro."','".$idGrupo."');"; //Aseguramos que no se encuentre bloqueado desde antes
+												if($registro4 =$conexion->query($bloq)){
+													if($registro4->num_rows >0){
+														echo 4; //ya esta bloqueado
+													}else{
+														$conexion=conectar();
+														$eliminar2 = "call dejarSeguir('".$idMiembro."','".$idGrupo."');"; //Lo eliminamos del grupo
+														if($registro4 =$conexion->query($eliminar2)){
+															$conexion=conectar();
+															$bloc = "call bloquear2('".$idMiembro."','".$idGrupo."');";
+															if($result_bloc =$conexion->query($bloc)){
+																echo 1; //Eliminamos y bloqueamos correctamente ;)
+															}
+														}
 													}
 												}
+											}else{
+												echo 3; //No es miembro del grupo
 											}
 										}
-									}else{
-										echo 0; //No es miembro del grupo
-									}
+									}	
 								}
 							}else{
 								echo 0; //Error al rescatar ID del grupo enviado
 							}
 						}
 					}else{
-						echo 0; //No puede bloquear al Admin del grupo
+						echo 2; //No puede bloquear al Admin del grupo
 					}
 				}
 			}else{

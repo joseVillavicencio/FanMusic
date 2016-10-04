@@ -16,7 +16,7 @@
 	
 	//Consultas
 	$conexion=conectar();
-	if($fecha1!=NULL ){
+	if($invitar!=NULL){
 		$consulta = 'CALL esAdmin("'.$id.'");' ;
 		if($registro3 =$conexion->query($consulta)){
 			if($registro3->num_rows>0){
@@ -58,14 +58,14 @@
 																	$ag_c1 = "call agregarParticipantes('".$id_part."','".$id_e."');";
 																	if($resp_ag_c1=$conexion->query($ag_c1)){
 																		if($resp_ag_c1){ //existe (TRUE al crear)
-																			//echo "El evento ".$nombreE." en ".$paE." se ha creado exitosamente";
+																			
 																		}
 																	}
 																}
 															}
-															echo "El evento ".$nombreE." en ".$paE." se ha creado exitosamente";
+															echo 1;
 														}else{
-															echo "No existen participantes que residan en ".$paE;
+															echo 2;
 														}
 													}
 												}else{
@@ -81,14 +81,14 @@
 																		$ag_c2 = "call agregarParticipantes('".$id_part."','".$id_e."');";
 																		if($resp_ag_c2=$conexion->query($ag_c2)){
 																			if($resp_ag_c2){ //existe (TRUE al crear)
-																				//echo "El evento ".$nombreE." en ".$regE." se ha creado exitosamente";
+																				
 																			}
 																		}
 																	}
 																}
-																echo "El evento ".$nombreE." en ".$regE." se ha creado exitosamente";
+																echo 1;
 															}else{
-																echo "No existen participantes que residan en ".$regE;
+																echo 3;
 															}
 														}
 														
@@ -110,9 +110,9 @@
 																			}
 																		}
 																	}
-																	echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
+																	echo 1;
 																}else{
-																	echo "No existen participantes que residan en ".$ciE;
+																	echo 4;
 																}
 															}
 														}else{
@@ -126,12 +126,14 @@
 																		if($resp_ag_c4=$conexion->query($ag_c4)){
 																			if($resp_ag_c4){ //existe (TRUE al crear)
 																				//echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
+																			}else{
+																				echo 0;
 																			}
 																		}
 																	}
-																	echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
+																	echo 1;
 																}else{
-																	echo "No existen participantes para este evento";
+																	echo 5;
 																}
 															}	
 														}
@@ -140,13 +142,13 @@
 											}
 										}	
 									}else{
-										echo "No fue posible crear el evento, revisa los campos";
+										echo 0;
 									}
 								}
 							}
 						}
 					}else{
-						echo "No fue posible crear el evento, revisa los campos";
+						echo 0;
 					}	
 				}
 			}else{
@@ -197,9 +199,9 @@
 																			}
 																		}
 																	}
-																	echo "El evento ".$nombreE." en ".$paE." se ha creado exitosamente";
+																	echo 1;
 																}else{
-																	echo "No existen participantes que residan en ".$paE;
+																	echo 2;
 																}
 															}
 														}else{
@@ -220,9 +222,9 @@
 																				}
 																			}
 																		}
-																		echo "El evento ".$nombreE." en ".$regE." se ha creado exitosamente";
+																		echo 1;
 																	}else{
-																		echo "No existen participantes que residan en ".$regE;
+																		echo 3;
 																	}
 																}
 															}else{	
@@ -243,9 +245,9 @@
 																					}
 																				}
 																			}
-																			echo "El evento ".$nombreE." en ".$ciE." se ha creado exitosamente";
+																			echo 1;
 																		}else{
-																			echo "No existen participantes que residan en ".$ciE;
+																			echo 4;
 																		}
 																	}
 																}else{
@@ -262,9 +264,9 @@
 																					}
 																				}
 																			}
-																			echo "Se ha invitado a todos los miembros del club para el evento ".$nombreE;
+																			echo 1;
 																		}else{
-																			echo "No existen participantes para este evento";
+																			echo 5;
 																		}
 																	}
 																}
@@ -273,19 +275,22 @@
 													}
 												}
 											}else{
-												echo "No fue posible crear el evento, revisa los campos";
+												echo 0;
 											}
 										}
 									}
 								}
 							}
 						}else{
-							echo "No fue posible crear el evento, revisa los campos";
+							echo 0;
 						}	
 					}
 				}
 			}
 		}
-		mysqli_close($conexion);
+		
+	}else{
+		echo 0;
 	}
+	mysqli_close($conexion);
 ?>

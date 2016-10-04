@@ -1,128 +1,119 @@
-<!DOCTYPE html>
-<html lang="es" >
-	<head>
-		<title>Eventos</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="js/jquery.js" type="text/javascript"></script>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/font-awesome.min.css" rel="stylesheet">
-		<link href="css/main.css" rel="stylesheet">
-		<link href="css/animate.css" rel="stylesheet">	
-		<link href="css/responsive.css" rel="stylesheet">
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css">	<!--Para el datetimepicker-->	
-		<script src="js/jquery.js" type="text/javascript"></script>
-		<script src="js/bootstrap.js" type="text/javascript"></script>
-		<script src="js/funcionesEvento.js" type="text/javascript"></script>
-		<script src="js/jquery.datetimepicker.full.min.js" type="text/javascript"></script>		<!--Para el datetimepicker-->
-		<script src="js/location.js" type="text/javascript"></script> <!--Funcion nueva para seleccionar lugar-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   <!--Funcion nueva para seleccionar lugar-->
-		<meta charset="utf-8"/>
-	</head>
-	<body>
-		<section id="explore">
-			<div id="derecha">
-				<div id="crear" class="panel panel-default">
-					<div class="panel-heading">Crear Evento</div>
-					<div class="panel-body">
-						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">Nombre:</span>
-								<input type="text" class="form-control" placeholder="Ingrese Nombre" id="nombreE" aria-describedby="basic-addon3">
-								<script type="text/javascript">
-									$('#nombreE').tooltip({'trigger':'focus', 'title': 'Titulo del Evento'});
-								</script>
-						</div>
-						<br>
-						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">Motivo:</span>
-								<input type="text" class="form-control" placeholder="Ingrese Motivo" id="motivoE" aria-describedby="basic-addon3">
-								<script type="text/javascript">
-										$('#motivoE').tooltip({'trigger':'focus', 'title': 'A que se deberá el evento'});
+		<script type="text/javascript">
+			$(document).ready(function(){
+				cargar_paises();
+				$("#pais").change(function(){dependencia_estado();});
+				$("#region").change(function(){dependencia_ciudad();});
+				$("#region").attr("disabled",true);
+				$("#ciudad").attr("disabled",true);
+			});
+		</script>
+		<section>
+			<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">Crear Evento</button>
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content" align="center">
+							  <div class="modal-header"  style="color:black;">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Crear Evento</h4>
+							  </div>
+						<div class="modal-body">
+							<div class="input-group">
+									<span class="input-group-addon" id="basic-addon3">Nombre:</span>
+									<input type="text" class="form-control" placeholder="Ingrese Nombre" id="nombreE" aria-describedby="basic-addon3">
+									<script type="text/javascript">
+										$('#nombreE').tooltip({'trigger':'focus', 'title': 'Titulo del Evento'});
 									</script>
-						</div>
-						<br>
-						<div class="input-group">
-								<span class="input-group-addon" id="basic-addon3">Descripcion:</span>
-								<input type="text" class="form-control" placeholder="Ingrese Descripción"  id="desE" aria-describedby="basic-addon3">
-								<script type="text/javascript">
-										$('#desE').tooltip({'trigger':'focus', 'title': 'En que consiste el evento'});
-									</script>
-						</div>
-						<br>
-						<div class="input-group" style="color:black;"> <!--PROBLEMAS CON LA ALINEACIÓN DEL PICKER-->
-							<span class="input-group-addon" id="basic-addon3">País:</span>
-							<select name="country" class="countries" id="countryId"><option value=""></option></select>
-						</div>
-						<br>
-						<div class="input-group" style="color:black;">
-							<span class="input-group-addon" id="basic-addon3">Región:</span>
-							<select name="state" class="states" id="stateId" ><option value=""></option></select>
-						</div>
-						<br>
-						<div class="input-group" style="color:black;">
-							<span class="input-group-addon" id="basic-addon3">Ciudad:</span>
-							<select name="city" class="cities" id="cityId" ><option value=""></option></select>
-						</div>
-						<br>
-						<div class="row" style="color:black;">
-							<div class="col-lg-9 col-sm-7">
-								<p><big>A continuación, ingrese tres propuestas de fechas, indicando la hora para realizar su  evento: </big></p>
-								<br>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon3">Opción 1:</span>
-									<input id="datetimepicker" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
-									<script>jQuery('#datetimepicker').datetimepicker({minDate:'-1970/01/02'});</script>
-								</div>
-								<br>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon3">Opción 2:</span>
-									<input id="datetimepicker1" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
-									<script>jQuery('#datetimepicker1').datetimepicker({minDate:'-1970/01/02'});</script>
-								</div>
-								<br>
-								<div class="input-group">
-									<span class="input-group-addon" id="basic-addon3">Opción 3:</span>
-									<input id="datetimepicker2" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
-									<script>jQuery('#datetimepicker2').datetimepicker({minDate:'-1970/01/02'});</script>
-								</div>
-								<br>
 							</div>
-							<div class="col-lg-3 col-sm-5" style="text-align:center;">
-								<p><em> Seleccione el tipo de evento que desea realizar, FanMusic notificará a todos los miembros del: </em></p>
-								<div class="input-group">
-									<span class="input-group-addon">
-										<input type="radio" id="invitar" value="Pais"  name="invitar" >
-										&nbsp;&nbsp;País
-									</span>
+							<br>
+							<div class="input-group">
+									<span class="input-group-addon" id="basic-addon3">Motivo:</span>
+									<input type="text" class="form-control" placeholder="Ingrese Motivo" id="motivoE" aria-describedby="basic-addon3">
+									<script type="text/javascript">
+											$('#motivoE').tooltip({'trigger':'focus', 'title': 'A que se deberá el evento'});
+										</script>
+							</div>
+							<br>
+							<div class="input-group">
+									<span class="input-group-addon" id="basic-addon3">Descripcion:</span>
+									<input type="text" class="form-control" placeholder="Ingrese Descripción"  id="desE" aria-describedby="basic-addon3">
+									<script type="text/javascript">
+											$('#desE').tooltip({'trigger':'focus', 'title': 'En que consiste el evento'});
+										</script>
+							</div>
+							<br>
+							<div class="input-group" >
+									<select id="pais" name="pais" style="color:black;"><option value="0">Selecciona País</option></select>
 								</div>
-								&nbsp;
-								<div class="input-group">
-									<span class="input-group-addon">
-										<input type="radio" id="invitar" value="Region"  name="invitar" >
-										&nbsp;&nbsp;Región
-									</span>
+								<br>
+								<div class="input-group ">
+									<select id="region" name="region"style="color:black;"><option value="0">Selecciona Región</option></select>
 								</div>
-								&nbsp;
-								<div class="input-group">
-									<span class="input-group-addon">
-										<input type="radio" value="Ciudad"   id="invitar" name="invitar" >
-										&nbsp;&nbsp;Ciudad
-									</span>
+								<br>
+								<div class="input-group ">
+									<select id="ciudad" name="ciudad"style="color:black;"><option value="0">Selecciona Ciudad</option></select>
 								</div>
-								&nbsp;
-								<div class="input-group">
-									<span class="input-group-addon">
-										<input type="radio" value="Todos"   id="invitar" name="invitar" >
-										&nbsp;&nbsp;Todos
-									</span>
+							<br>
+							<div class="row" style="color:black;">
+								<div class="col-lg-9 col-sm-7">
+									<p><big>A continuación, ingrese tres propuestas de fechas, indicando la hora para realizar su  evento: </big></p>
+									<br>
+									<div class="input-group">
+										<span class="input-group-addon" id="basic-addon3">Opción 1:</span>
+										<input id="datetimepicker" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
+										<script>jQuery('#datetimepicker').datetimepicker({minDate:'-1970/01/02'});</script>
+									</div>
+									<br>
+									<div class="input-group">
+										<span class="input-group-addon" id="basic-addon3">Opción 2:</span>
+										<input id="datetimepicker1" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
+										<script>jQuery('#datetimepicker1').datetimepicker({minDate:'-1970/01/02'});</script>
+									</div>
+									<br>
+									<div class="input-group">
+										<span class="input-group-addon" id="basic-addon3">Opción 3:</span>
+										<input id="datetimepicker2" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
+										<script>jQuery('#datetimepicker2').datetimepicker({minDate:'-1970/01/02'});</script>
+									</div>
+									<br>
+								</div>
+								<div class="col-lg-3 col-sm-5" style="text-align:center;">
+									<p><em> Seleccione el tipo de evento que desea realizar, FanMusic notificará a todos los miembros del: </em></p>
+									<div class="input-group">
+										<span class="input-group-addon">
+											<input type="radio" id="invitar" value="Pais"  name="invitar" >
+											&nbsp;&nbsp;País
+										</span>
+									</div>
+									&nbsp;
+									<div class="input-group">
+										<span class="input-group-addon">
+											<input type="radio" id="invitar" value="Region"  name="invitar" >
+											&nbsp;&nbsp;Región
+										</span>
+									</div>
+									&nbsp;
+									<div class="input-group">
+										<span class="input-group-addon">
+											<input type="radio" value="Ciudad"   id="invitar" name="invitar" >
+											&nbsp;&nbsp;Ciudad
+										</span>
+									</div>
+									&nbsp;
+									<div class="input-group">
+										<span class="input-group-addon">
+											<input type="radio" value="Todos"   id="invitar" name="invitar" >
+											&nbsp;&nbsp;Todos
+										</span>
+									</div>
 								</div>
 							</div>
+							 <div class="modal-footer">
+								<button type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Cerrar</button>
+								<button  type="button" onclick="crearEvento2();" class="btn btn-info">Crear Evento</button><br>
+							</div>
 						</div>
-						<br>
-						<button  type="button" onclick="crearEvento2();" class="btn btn-primary">Crear Evento</button><br>
 					</div>
 				</div>
 			</div>
 		</section>
-	</body>
-</html>
+	

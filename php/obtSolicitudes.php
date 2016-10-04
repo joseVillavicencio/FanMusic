@@ -21,10 +21,8 @@
 					if($result->num_rows >0){
 						while($row = $result->fetch_array()){
 							echo '<div class="panel panel-default"><div class="panel-heading"><h1>'.$row["titulo"].'</h1><sup>'.$row["fecha"].'</sup></div><div class="panel-body"><h4>'.$row["subtitulo"].'</h4><hr/><h5>'.$row["contenido"].'</h5></div><div class="panel-footer">';
-							
-							echo '<input  id="'.$row["id_Publicacion"].'" type="hidden"><button type="button" class="btn btn-info btn-xs" onclick="aceptarP('.$row["id_Publicacion"].');">Aceptar</button>';
-							
-							echo '<input  id="'.$row["id_Publicacion"].'" type="hidden"><button type="button" class="btn btn-info btn-xs" onclick="rechazarP('.$row["id_Publicacion"].');">Rechazar</button></div></div>';
+							echo '<input  id="'.$row["id_Publicacion"].'" type="hidden"><button type="button" class="btn btn-success btn-xs" onclick="aceptarP('.$row["id_Publicacion"].');"><span class="glyphicon glyphicon-ok"></span></button>&ensp;';
+							echo '<input  id="'.$row["id_Publicacion"].'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="rechazarP('.$row["id_Publicacion"].');"><span class="glyphicon glyphicon-remove"></span></button></div></div>';
 						}
 					}
 				}

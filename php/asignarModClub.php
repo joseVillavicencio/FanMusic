@@ -31,13 +31,13 @@
 										$idBloqGr=$fila4[0] ;
 									}
 									if($idBloqGr>0){
-										echo 0; //echo "El miembro se encuentra en la lista de bloqueados en uno de los grupos del club"; //echo "0";
+										echo 3; //echo "El miembro se encuentra en la lista de bloqueados en uno de los grupos del club"; //echo "0";
 									}else{
 										$conexion=conectar();
 										$sql4 = "call  esModerador('".$idMiembro."');"; // Revisamos que no sea moderador de algo mas
 										if($registro4 =$conexion->query($sql4)){
 											if($registro4->num_rows >0){
-												echo 0;//echo "Ya es moderador de otro grupo";
+												echo 5;//echo "Ya es moderador de otro grupo";
 												$flag=1;
 											}
 										}
@@ -45,7 +45,7 @@
 										$sql4 = "call  esAdmin('".$idMiembro."');"; // Revisamos que no sea admin de algo mas
 										if($registro4 =$conexion->query($sql4)){
 											if($registro4->num_rows >0){
-												echo 0; //echo "Este usuario ya posee un cargo";
+												echo 4; //echo "Este usuario ya posee un cargo";
 												$flag=1;
 											}
 										}
@@ -62,7 +62,7 @@
 								}
 							}
 						}else{
-							echo 0;//echo "El usuario no es miembro del club"; //echo "0";
+							echo 2;//echo "El usuario no es miembro del club"; //echo "0";
 						}
 					}
 				}

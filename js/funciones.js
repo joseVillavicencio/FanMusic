@@ -35,13 +35,13 @@ function getDescrip(){
 	return document.getElementById("descrip").value;
 }
 function getPais(){
-	return document.getElementById("pais").value;
+	return $("#pais option:selected").text();
 }
 function getRegion(){
-	return document.getElementById("region").value;
+	return $("#region option:selected").text();
 }
 function getCiudad(){
-	return document.getElementById("ciudad").value;
+	return $("#ciudad option:selected").text();
 }
 function getFacebook(){
 	return document.getElementById("facebook").value;
@@ -396,7 +396,7 @@ function comentar(idPublic){
 				cache:	false,
 				success:	function(response){
 							if(response=="success"){
-								location.href="/FanMusic/bienvenidaNuevo.php";
+								location.href="/FanMusic/bienvenida.php";
 							}else {
 								alert("Favor de intentarlo mas tarde, existen problemas de conexión al servidor");
 							}
@@ -483,47 +483,51 @@ function enviarRegistro(div){
 		tumb=getTumblr();
 	}
 
-	if((validarEmail(getMailSign2())==1)&&(validarPass(getPassSign2())==1)&&(soloNumeros(getAge())==0)&&(validarTexto(getPais(),20,"País")==1)&&(validarTexto(getRegion(),20,"Región")==1)&&(validarTexto(getCiudad(),20,"Ciudad")==1)){
+	if((validarEmail(getMailSign2())==1)&&(validarPass(getPassSign2())==1)&&(soloNumeros(getAge())==0)){
 		if(localStorage.getItem("correoSign")==getMailSign2()){
 			if(localStorage.getItem("contraSign")==getPassSign2()){
-				var parametros={
-					"nombre":localStorage.getItem("nombreSign"),
-					"apellido":localStorage.getItem("apellidoSign"),
-					"apodo":localStorage.getItem("apodoSign"),
-					"correo":localStorage.getItem("correoSign"),
-					"contra":localStorage.getItem("contraSign"),
-					"edad":getAge(),
-					"gustos":getGustos(),
-					"descripcion":getDescrip(),
-					"pais":getPais(),
-					"region":getRegion(),
-					"ciudad":getCiudad(),
-					"face":face,
-					"twit":twit,
-					"inst":inst,
-					"yout":yout,
-					"tumb":tumb
-				}
-				$.ajax({
-					data: parametros,
-					url:	"php/signIn.php",
-					type:	"POST",
-					dataType: "JSON",
-					cache:	false,
-					
-					success:	function(response){
-						if(response.status=="success"){
-							var resp = (response.message).split(",");
-							var id=resp[0];
-							enviarMailSign(resp[1],resp[2],resp[3]);
-							alert("Se ha Creado Correctamente");
-							$(div).append('<form enctype="multipart/form-data" action="php/foto.php" method="POST"><div class= "form-group"><label class="fg-label">Foto de Perfil</label><div class="input-group"><div><input type="hidden" id="idUser" name="idUser" value="'+id+'"><input name="uploadedfile" id="uploadedfile" type="file"/></div></div></div><button class="btn btn-primary" class="btn bgm-blue"> Subir Foto </button></form>');
-							
-						}else{
-							alert(response.message);
-						}
+				if(getCiudad() != "Selecciona Ciudad"){
+					var parametros={
+						"nombre":localStorage.getItem("nombreSign"),
+						"apellido":localStorage.getItem("apellidoSign"),
+						"apodo":localStorage.getItem("apodoSign"),
+						"correo":localStorage.getItem("correoSign"),
+						"contra":localStorage.getItem("contraSign"),
+						"edad":getAge(),
+						"gustos":getGustos(),
+						"descripcion":getDescrip(),
+						"pais":getPais(),
+						"region":getRegion(),
+						"ciudad":getCiudad(),
+						"face":face,
+						"twit":twit,
+						"inst":inst,
+						"yout":yout,
+						"tumb":tumb
 					}
-				});
+					$.ajax({
+						data: parametros,
+						url:	"php/signIn.php",
+						type:	"POST",
+						dataType: "JSON",
+						cache:	false,
+						
+						success:	function(response){
+							if(response.status=="success"){
+								var resp = (response.message).split(",");
+								var id=resp[0];
+								enviarMailSign(resp[1],resp[2],resp[3]);
+								alert("Se ha Creado Correctamente, favor revisar el correo electrónico anteriormente ingresado para confirmar el registro");
+								//$(div).append('<form enctype="multipart/form-data" action="php/foto.php" method="POST"><div class= "form-group"><label class="fg-label">Foto de Perfil</label><div class="input-group"><div><input type="hidden" id="idUser" name="idUser" value="'+id+'"><input name="uploadedfile" id="uploadedfile" type="file"/></div></div></div><button class="btn btn-primary" class="btn bgm-blue"> Subir Foto </button></form>');
+								location.href="indexNuevo.php";
+							}else{
+								alert(response.message);
+							}
+						}
+					});
+				}else{
+					alert("Debe escoger Ciudad");
+				}
 			}else{
 				alert("Las contraseñas no coinciden");
 			}
@@ -689,7 +693,145 @@ function unirseGrupo(idC,idG){
 	});
 }
 //=================================================================================
-
+function revisarApodo(){
+	var parametros={
+		"apodo":getApodSign(),
+	}
+	$.ajax({
+		data: parametros,
+		url: "php/validarApodo.php",
+		type: "post",	//Defino la forma en que llegarán los parámetros al php
+		
+		success: function(response){			
+			if(response==1){
+				registrar();
+			}else{
+				alert("Este apodo ya esta siendo usado por otro usuario, favor de ingresar otro.")
+			}
+		}
+	});
+	
+}
+//=================================================================================
 function actualizar(div,dir){
 	$(div).load(dir);
+}
+
+
+//=================================================================================Este deberia ir en los js donde se realicen cambios
+function confirmarProceso(){
+	var pass = prompt("Ingrese su contraseña para comfirmar la operación");
+	if(pass!=null){
+		var parametros={
+			"id":getIDActual(),
+			"pass":pass
+			};
+		$.ajax({
+			data:parametros,
+			url:"php/validarContraseña.php",
+			type:"POST",
+			success: function(response){
+				return response;
+			}
+		});
+	}else{
+		alert("No se podrá llevar a cabo la petición");
+	}
+}
+//=======================================================================================
+//paises
+//====================================+
+function cargar_paises()
+{
+	$.get("php/cargar-paises.php", function(resultado){
+		if(resultado == false)
+		{
+			alert("Error");
+		}
+		else
+		{
+			$('#pais').append(resultado);			
+		}
+	});	
+}
+function dependencia_estado()
+{
+	var code = $("#pais").val();
+	$.get("php/dependencia-estado.php", { code: code },
+		function(resultado)
+		{
+			if(resultado == false)
+			{
+				alert("Error");
+			}
+			else
+			{
+				$("#region").attr("disabled",false);
+				document.getElementById("region").options.length=1;
+				$('#region').append(resultado);			
+			}
+		}
+
+	);
+}
+
+function dependencia_ciudad()
+{
+	var code = $("#region").val();
+	$.get("php/dependencia-ciudades.php?", { code: code }, function(resultado){
+		if(resultado == false)
+		{
+			alert("Error");
+		}
+		else
+		{
+			$("#ciudad").attr("disabled",false);
+			document.getElementById("ciudad").options.length=1;
+			$('#ciudad').append(resultado);			
+		}
+	});	
+}
+	//======================Apoyar===========================
+function apoyarGrupo(idi){ 
+	var parametros={
+		'idP':idi,
+		'idM': getIDActual(),
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/darApoyo.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			if(response==1){
+				location.href='/FanMusic/bienvenida.php';
+			}else{
+				if(response==0){
+					location.href="/FanMusic/bienvenida.php";
+				}
+			}
+		}
+	});
+}
+function apoyar(idi){ 
+	var parametros={
+		'idP':idi,
+		'idM': getIDActual(),
+	}
+	$.ajax({
+		data:parametros,
+		url: "php/darApoyo.php",
+		type: "post",
+		cache:	false,
+		success: function(response){			
+			if(response==1){
+				location.href='/FanMusic/bienvenida.php';
+			}else{
+				if(response==0){
+					location.href='/FanMusic/bienvenida.php';
+				}
+			}
+
+		}
+	});
 }
