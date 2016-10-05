@@ -499,7 +499,7 @@ function eliminarFClub(idF){
 }
 function imagenFinanza(cont){
 	localStorage.setItem("cont",cont);
-	$('<div><td><img src="'+getCont()+'" alt="Open picture" title="Finanzas" /></a></td></div>').dialog({modal:false});
+	$('<div><td><img src="'+getCont()+'" alt="Open picture"  title="Finanzas" /></a></td></div>').dialog({modal:false});
 }
 
 // SOLICITUD DE PUBLICACIONES

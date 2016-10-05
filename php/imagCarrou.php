@@ -13,10 +13,10 @@
 				while($fila = $result->fetch_array()){
 					$imag=$fila[0];
 					if($cont==1){
-						echo '<div class="active item"><img class="img-responsive" src="'.$imag.'" alt="slider" style="width:2000px;height:610px;"/></div>';
+						echo '<div class="active item"><img class="img-responsive" src="'.$imag.'" alt="slider" style="width:100%;;height:674px;"/></div>';
 						$cont++;
 					}else{
-						echo '<div class="item"><img class="img-responsive" src="'.$imag.'" alt="slider" style="width:2000px;height:610px;" /></div>';
+						echo '<div class="item"><img class="img-responsive" src="'.$imag.'" alt="slider" style="width:100%;height:674px;" /></div>';
 						$cont++;
 					}
 				}

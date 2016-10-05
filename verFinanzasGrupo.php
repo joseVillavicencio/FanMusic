@@ -108,7 +108,9 @@
 					<th>Descripcion</th>
 					<th>Monto</th>
 					<th>Fecha</th>
-					<th>Imágenes</th>
+					<th>Opciones</th>
+					<th></th>
+					<th></th>
 				</tr>
 				</thead>
 				<tbody id="tablaF">
