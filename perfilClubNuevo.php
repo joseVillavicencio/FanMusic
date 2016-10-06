@@ -30,21 +30,6 @@
 			location.href="perfilClubNuevo.php?pag=<?php echo $_GET["pag"];?>"+div;
 		}
 	</script>
-	<script>
-		$(document).ready(function(){
-			function actualizando(){ 
-				actualizar("#publicaciones","php/ListPubClub.php");
-			}
-			setInterval(actualizando,45000);
-		});
-			
-	</script>
-	
-	<!--<script>
-		jQuery(document).ready(function(){
-			jQuery.goup();
-		});
-	</script>-->
 </head>
 <body>
 	<script type="text/javascript">
@@ -143,7 +128,7 @@
 							</script>
 						</div> 
 						<div id="opcionesClub">
-						</div> 
+						</div>
 					</div>
 				</div>
 			
@@ -168,6 +153,7 @@
 					$('body,html').animate({
 						scrollTop: 0
 					}, 800);
+					actualizar("#publicaciones","php/ListPubClub.php"); // AL TOCAR AHORA TAMBIEN RECARGARÁ LAS NOTICIAS :)
 					return false;
 				});
 				
