@@ -25,7 +25,7 @@
 						if($result2->num_rows >0){
 							while($fila2=mysqli_fetch_row($result2)){ 
 								$id_ev=$fila2[0] ;
-								echo '<div><td><input  id="'.$id_ev.'" type="hidden"><button type="button" class="btn btn-info btn-xs" onclick="eliminarEventos('.$id_ev.');">Eliminar</button></tr></td></div>';
+								echo '<div><td><input  id="'.$id_ev.'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="eliminarEventos('.$id_ev.');"><span class="glyphicon glyphicon-remove"></span></button></tr></td></div>';
 							}
 						}
 					}
@@ -51,7 +51,7 @@
 						if($result2->num_rows >0){
 							while($fila2=mysqli_fetch_row($result2)){ 
 								$id_ev=$fila2[0] ;
-								echo '<div><td><input  id="'.$id_ev.'" type="hidden"><button type="button" class="btn btn-info btn-xs" onclick="eliminarEventos('.$id_ev.');">Eliminar</button></tr></td></div>';
+								echo '<div><td><input  id="'.$id_ev.'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="eliminarEventos('.$id_ev.');"><span class="glyphicon glyphicon-remove"></span></button></tr></td></div>';
 							}
 						}
 					}

@@ -118,7 +118,7 @@
 							</div>
 							<br>
 							<br>
-							<button type="button" onclick="revisarApodo();" class="btn btn-primary">Guardar Cambios</button>
+							<button type="button" onclick="revisarApodo();" class="btn btn-primary"><span class="glyphicon glyphicon-ok" ></span> Guardar</button>
 						</div>
 					</div>
 				</div>

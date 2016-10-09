@@ -91,7 +91,7 @@
 								<input type="text" class="form-control" id="descripcion" aria-describedby="basic-addon3">
 							</div>
 							<br>
-							<button type="button" onclick="cargarCambiosPerfilClub();" class="btn btn-success">Editar Información</button>
+							<button type="button" onclick="cargarCambiosPerfilClub();" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
 						</div>
 					</div>
 				</div>

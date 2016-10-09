@@ -11,6 +11,7 @@
 		<link href="css/animate.css" rel="stylesheet">	
 		<link href="css/responsive.css" rel="stylesheet">
 		<script src="js/funcionesGrupo.js" type="text/javascript"></script>
+		<script src="js/bootstrap.js" type="text/javascript"></script>
 		<style type="text/css">
 			.back-to-top {
 				cursor: pointer;

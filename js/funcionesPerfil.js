@@ -127,7 +127,7 @@ function getTMActual(){
 FUNCIONES PARA LAS REDES SOCIALES
 --------------------------------------------------------------------------*/
 function cambiarTwitter(div){
-	$(div).append('<img src="img/help/twitter.png" alt="Twitter"/>&nbsp;Twitter:&nbsp;&nbsp;&nbsp;&nbsp;   <input id="TWITTER" type="text" name="twitter" value="'+getTWActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTwitter(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTwitter(1);" class="btn btn-danger">Eliminar</button><br><br>');			
+	$(div).append('<img src="img/help/twitter.png" alt="Twitter"/>&nbsp;Twitter:&nbsp;&nbsp;&nbsp;&nbsp;   <input id="TWITTER" type="text" name="twitter" value="'+getTWActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTwitter(0);" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTwitter(1);" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button><br><br>');			
 		
 }
 
@@ -158,7 +158,7 @@ function actTwitter(opcion){
 	});
 }
 function cambiarFacebook(div){
-	$(div).append('<img src="img/help/facebook.png" alt="Facebook"/>&nbsp;Facebook:&nbsp;&nbsp;<input id="FACEBOOK" type="text" name="facebook" value="'+getFBActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actFacebook(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actFacebook(1);" class="btn btn-danger">Eliminar</button><br><br>');			
+	$(div).append('<img src="img/help/facebook.png" alt="Facebook"/>&nbsp;Facebook:&nbsp;&nbsp;<input id="FACEBOOK" type="text" name="facebook" value="'+getFBActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actFacebook(0);" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actFacebook(1);" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button><br><br>');			
 }
 
 function actFacebook(opcion){
@@ -190,7 +190,7 @@ function actFacebook(opcion){
 }
 
 function cambiarYoutube(div){
-	$(div).append('<img src="img/help/youtube.png" alt="Youtube"/>&nbsp;Youtube:&nbsp;&nbsp;&nbsp;<input id="YOUTUBE" type="text" name="youtube" value="'+getYTActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actYoutube(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actYoutube(1);" class="btn btn-danger">Eliminar</button><br><br>');			
+	$(div).append('<img src="img/help/youtube.png" alt="Youtube"/>&nbsp;Youtube:&nbsp;&nbsp;&nbsp;<input id="YOUTUBE" type="text" name="youtube" value="'+getYTActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actYoutube(0);" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actYoutube(1);" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button><br><br>');			
 }
 
 function actYoutube(opcion){ 
@@ -222,7 +222,7 @@ function actYoutube(opcion){
 }
 
 function cambiarTumblr(div){
-	$(div).append('<img src="img/help/tumblr.png" alt="Tumblr"/>&nbsp;&nbsp;&nbsp;Tumblr:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <input id="TUMBLR" type="text" name="tumblr" value="'+getTMActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTumblr(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTumblr(1);" class="btn btn-danger">Eliminar</button><br><br>');			
+	$(div).append('<img src="img/help/tumblr.png" alt="Tumblr"/>&nbsp;&nbsp;&nbsp;Tumblr:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <input id="TUMBLR" type="text" name="tumblr" value="'+getTMActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTumblr(0);" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actTumblr(1);" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button><br><br>');			
 }
 function actTumblr(opcion){
 	var t=document.getElementById("TUMBLR").value;
@@ -254,7 +254,7 @@ function actTumblr(opcion){
 
 function cambiarInstagram(div){
 	
-	$(div).append('<img src="img/help/instagram.png" alt="Instagram"/>&nbsp&nbsp;&nbsp;Instagram:&nbsp;&nbsp;<input id="INSTAGRAM" type="text" name="instagram" value="'+getIGActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actInstagram(0);" class="btn btn-info">Cambiar</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actInstagram(1);" class="btn btn-danger">Eliminar</button><br><br>');			
+	$(div).append('<img src="img/help/instagram.png" alt="Instagram"/>&nbsp&nbsp;&nbsp;Instagram:&nbsp;&nbsp;<input id="INSTAGRAM" type="text" name="instagram" value="'+getIGActual()+'">&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="actInstagram(0);" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="actInstagram(1);" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button><br><br>');			
 }
 function actInstagram(opcion){ 
 	var i=document.getElementById("INSTAGRAM").value;
@@ -537,6 +537,42 @@ function eliminarAnecdota(idi){
 		}
 	});
 	
+}
+function compartirAnecdota(id){
+	var parametros={
+		"id":id
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/compAnecdota.php",
+		type:"POST",
+		success:	function(response){
+			if(response==1){
+				alert("Desde ahora tu anécdota será visible en el Club");
+				location.href='/FanMusic/perfilNuevo.php';
+			}else{
+				alert("No se ha podido compartir tu anécdota");
+			}
+		}
+	});
+}
+function dejarCompartirAnecdota(id){
+	var parametros={
+		"id":id
+	}
+	$.ajax({
+		data:parametros,
+		url:"php/noCompAnecdota.php",
+		type:"POST",
+		success:	function(response){
+			if(response==1){
+				alert("Desde ahora tu anécdota ya no será visible en el Club");
+				location.href='/FanMusic/perfilNuevo.php';
+			}else{
+				alert("No se ha podido dejar de compartir");
+			}
+		}
+	});
 }
 /* PARA MOSTRAR LA SECCION DE ANECDOTAS SEPARADA DE LOS COMENTARIOS */
 function secciones(div){

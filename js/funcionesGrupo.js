@@ -404,7 +404,7 @@ function aceptarP(idPublic){
 			cache:	false,
 			success:	function(response){
 				if(response==1){
-					location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+					location.href='/FanMusic/gestionarPublic.php';
 				}
 			}
 		});
@@ -423,7 +423,7 @@ function rechazarP(idPublic){
 			cache:	false,
 			success:	function(response){
 				if(response==1){
-					location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+					location.href='/FanMusic/gestionarPublic.php';
 				}
 			}
 		});

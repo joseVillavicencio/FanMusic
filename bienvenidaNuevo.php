@@ -192,7 +192,7 @@
 		<div class="row">
 			<div id="busqueda" align="center" class="col-lg-6 col-sm-6">
 				<h2>Ingresa algo para comenzar la búsqueda</h2>
-				<input style="color:black;" type="text"  id="buscando" name="buscando"><button  type="button" onclick='buscare("#respuesta");'  class="btn btn-info" >Buscar</button><br>
+				<input style="color:black;" type="text"  id="buscando" name="buscando"><button  type="button" onclick='buscare("#respuesta");'  class="btn btn-info" ><span class="glyphicon glyphicon-search"></span></button><br>
 			</div>
 			<div id="respuesta" align="center" class="col-lg-6 col-sm-6">
 			
