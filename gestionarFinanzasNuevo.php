@@ -141,9 +141,9 @@
 							<th>Descripcion</th>
 							<th>Monto</th>
 							<th>Fecha</th>
-							<th>Eliminar</th>
-							<th>Adjuntar</th>
-							<th>Imágenes</th>
+							<th>Opciones</th>
+							<th></th>
+							<th></th>
 						</thead>
 						<tbody id="tablaF">
 							<script type="text/javascript">
