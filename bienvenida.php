@@ -27,21 +27,6 @@
 				color: #fff;
 			}
 		</style>
-		<script type="text/javascript">
-		
-			$(document).ready(function(){
-				function actualizando(){ 
-					actualizar("#izquierda","listPuClu.php");
-					actualizar("#derecha","listPuGru.php");
-				}
-				setInterval(actualizando,45000);
-			});
-		</script>
-		<!--<script>
-			jQuery(document).ready(function(){
-				jQuery.goup();
-			});
-		</script>-->
 	</head>
 	<body>
 		<script type="text/javascript">
@@ -115,6 +100,8 @@
 					$('body,html').animate({
 						scrollTop: 0
 					}, 800);
+					actualizar("#izquierda","listPuClu.php");
+					actualizar("#derecha","listPuGru.php");
 					return false;
 				});
 				

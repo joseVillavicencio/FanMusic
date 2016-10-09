@@ -104,6 +104,7 @@
 				<hr>
 				<div class="row">
 					<div id="comentarios"  class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+						<h1>Comentarios</h1>
 						<script type="text/javascript">
 							mostrarComentarios("#comentarios");
 						</script>

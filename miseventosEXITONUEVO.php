@@ -64,12 +64,12 @@
 			</div>
 		</div>
 	</header>
-		<section id="explore">
-			<div class="row">
+		<section id="explore" >
+			<div class="row"  style="postion: absolute ; Height:100%" >
 				<div class="watch">
 						<img class="img-responsive" src="images/watch.png" alt="">
 				</div>				
-				<div class="col-md-7 col-md-offset-3 col-sm-11">
+				<div class="col-md-7 col-md-offset-3 col-sm-11" >
 					<div id="eventos general" class="table-responsive" align="center">
 						<table class="table" >
 							<thead>
@@ -122,7 +122,7 @@
 			});
 		</script>
 		</body>
-		 <footer id="footer" style="postion: absolute ;bottom:0;">
+		 <footer id="footer">
 			<div class="container">
 				<div class="text-center">
 					<p> Sitio desarrollado por Dania Delgado - Tania Pizarro - Jose Villavicencio &copy;2016<br>

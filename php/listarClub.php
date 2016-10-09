@@ -23,7 +23,7 @@
 						if($result2->num_rows >0){
 							while($fila2=mysqli_fetch_row($result2)){ 
 								$id_c=$fila2[0] ;
-								echo '<div><td><button type="button" class="btn btn-danger btn-xs" onclick="eliminarC('.$id_c.');">Eliminar</button></td></tr></div>';
+								echo '<div><td><button type="button" class="btn btn-danger btn-xs" onclick="eliminarC('.$id_c.');"><span class="glyphicon glyphicon-remove"></span></button></td></tr></div>';
 							}
 						}
 					}else{

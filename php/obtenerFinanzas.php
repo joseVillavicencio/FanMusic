@@ -28,7 +28,7 @@
 						$sql3 = "call  esModerador2('".$id_Miembro."','".$id_g."');"; //Pregunto si es moderador de ese grupo (para que pueda ver las siguientes opciones)
 						if($result3 = $conexion->query($sql3)){
 							if($result3->num_rows >0){ //Si es moderador del grupo, puede eliminar las finanzas
-								echo '<div><td><input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="eliminarF('.$id.');">Eliminar</button></td></div>';
+								echo '<div><td><input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="eliminarF('.$id.');"><span class="glyphicon glyphicon-remove"></span></button></td></div>';
 								echo '<div><td><input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-info btn-xs" onclick="subirFotoFinanza('.$id.');">Adjuntar Foto</button></td></div>';
 							}
 						}
