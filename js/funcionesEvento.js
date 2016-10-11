@@ -191,20 +191,20 @@ function eliminarEventos(idi){
 }
 function crearEventos(div){
 	var parametros = {
-		"id" :  getIDActual(),//Nombre que llego desde el formulario
+		"id" :  getIDActual(),
 		"nombreG" :  ""
 	}
 	$.ajax({
 		data: parametros,
-		url: "queUsuario.php", //Falta Hacer ijij
-		type: "POST",	//Defino la forma en que llegarán los parámetros al php
+		url: "queUsuario.php", 
+		type: "POST",	
 		
 		success: function(response){	
 			if(response==1 || response ==2){
 				$.ajax({
 					data: parametros,
-					url: "crearEvento.php", //Falta Hacer ijij
-					type: "POST",	//Defino la forma en que llegarán los parámetros al php
+					url: "crearEvento.php", 
+					type: "POST",	
 					success: function(response){	
 						$(div).append(response);
 					}
@@ -258,54 +258,58 @@ function crearEvento2(){
 	var fec2=fechas[1].value.split("/"); 
 	var fec3=fechas[2].value.split("/"); 
 		if((pais!="Selecciona País")&&(region!="Selecciona Región")&&(ciudad!="Selecciona Ciudad")&&(nombre!="")&&(motivo!="")&&(des!="")&&(fec1!="")){
-			var parametros = {
-				"idUser":getIDActual(),
-				"nombreE": nombre,
-				"motivoE": motivo,
-				"desE": des,
-				"paisN": pais,
-				"regionN": region,
-				"ciudadN": ciudad,
-				"anio1" : fec1[0], "mes1" : fec1[1], "dia1" : fec1[2], 
-				"anio2" : fec2[0], "mes2" : fec2[1], "dia2" : fec2[2], 
-				"anio3" : fec3[0], "mes3" : fec3[1], "dia3" : fec3[2], 
-				"invitar": seleccion,
-			}
-			$.ajax({
-				data: parametros,
-				url: "php/crearEv.php", //Falta Hacer ijij
-				type: "POST",	//Defino la forma en que llegarán los parámetros al php
-				
-				success: function(response){
+			if((nombre<=30)&&(motivo<=140)){
+				var parametros = {
+					"idUser":getIDActual(),
+					"nombreE": nombre,
+					"motivoE": motivo,
+					"desE": des,
+					"paisN": pais,
+					"regionN": region,
+					"ciudadN": ciudad,
+					"anio1" : fec1[0], "mes1" : fec1[1], "dia1" : fec1[2], 
+					"anio2" : fec2[0], "mes2" : fec2[1], "dia2" : fec2[2], 
+					"anio3" : fec3[0], "mes3" : fec3[1], "dia3" : fec3[2], 
+					"invitar": seleccion,
+				}
+				$.ajax({
+					data: parametros,
+					url: "php/crearEv.php", //Falta Hacer ijij
+					type: "POST",	//Defino la forma en que llegarán los parámetros al php
 					
-					if(response==1){
-						location.href='/FanMusic/listaEventosNueva.php';
-					}else{
-						if(response==2){
-							alert("No existen participantes que residan en el país seleccionado");
+					success: function(response){
+						
+						if(response==1){
 							location.href='/FanMusic/listaEventosNueva.php';
 						}else{
-							if(response==3){
-								alert("No existen participantes que residan en la region seleccionada");
+							if(response==2){
+								alert("No existen participantes que residan en el país seleccionado");
 								location.href='/FanMusic/listaEventosNueva.php';
 							}else{
-								if(response==4){
-									alert("No existen participantes que residan en la ciudad seleccionada");
+								if(response==3){
+									alert("No existen participantes que residan en la region seleccionada");
 									location.href='/FanMusic/listaEventosNueva.php';
 								}else{
-									if(response==5){
-										alert("No existen participantes para invitar a su evento");
+									if(response==4){
+										alert("No existen participantes que residan en la ciudad seleccionada");
 										location.href='/FanMusic/listaEventosNueva.php';
 									}else{
-										alert("No fue posible crear su evento");
-										location.href='/FanMusic/listaEventosNueva.php';
+										if(response==5){
+											alert("No existen participantes para invitar a su evento");
+											location.href='/FanMusic/listaEventosNueva.php';
+										}else{
+											alert("No fue posible crear su evento");
+											location.href='/FanMusic/listaEventosNueva.php';
+										}
 									}
 								}
 							}
 						}
 					}
-				}
-			});
+				});
+			}else{
+				alert("Ha ingresado algún campo que excede el largo de caracteres permitido");
+			}
 		}else{
 			alert("Debe responder todos los campos");
 		}

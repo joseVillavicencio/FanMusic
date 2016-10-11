@@ -489,18 +489,22 @@ function publicarAnecdota(){
 		"compartir": compartir,
 	}
 	if((titulo!="")&&(contenido!="")){
-		$.ajax({
-			data:parametros,
-			url:"php/publicarAnecdota.php",
-			type:"POST",
-			success:	function(response){
-				if(response==1){
-					location.href='/FanMusic/perfilNuevo.php';
-				}else{
-					alert("No se ha podido eliminar su anécdota");
+		if( ((tit.length)<80)&& (cont.length<800)){		
+			$.ajax({
+				data:parametros,
+				url:"php/publicarAnecdota.php",
+				type:"POST",
+				success:	function(response){
+					if(response==1){
+						location.href='/FanMusic/perfilNuevo.php';
+					}else{
+						alert("No se ha podido eliminar su anécdota");
+					}
 				}
-			}
-		});
+			});
+		}else{
+			alert("Alguno de los carácteres ingresados supera el largo permitido");
+		}	
 	}else{
 		alert("Debe completar el título y contenido de su anécdota");
 	}
@@ -630,28 +634,31 @@ function publicarCover(){
 	}
 	
 	if((titulo!="")&&(album!="")&&(link!="")){
+		if( ((tit.length)<50)&& (album.length<50)&&(link.length<16)){
+			$.ajax({
+				data:parametros,
+				url:"php/publicarCover.php",
+				type:"POST",
+				success:	function(response){
 
-		$.ajax({
-			data:parametros,
-			url:"php/publicarCover.php",
-			type:"POST",
-			success:	function(response){
-
-				if(response==1){
-					location.href='perfilNuevo.php';
-				}else{
-					if(response==2){
-						alert("Error al reconocer la URL del video");
-					}
-					if(response==3){
-						alert("Error al encontrar el Artista");
-					}
-					if(response==0){
-						alert("Este video ya se encuentra dentro de nuestra base de datos");
+					if(response==1){
+						location.href='perfilNuevo.php';
+					}else{
+						if(response==2){
+							alert("Error al reconocer la URL del video");
+						}
+						if(response==3){
+							alert("Error al encontrar el Artista");
+						}
+						if(response==0){
+							alert("Este video ya se encuentra dentro de nuestra base de datos");
+						}
 					}
 				}
-			}
-		});
+			});
+		}else{
+			alert("Alguno de los carácteres ingresados supera el largo permitido");
+		}
 	}else{
 		alert("Existen campos sin completar");
 	}

@@ -12,7 +12,7 @@
 	<!-- Esta parte es de nuestro codigo- -->
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script src="js/funcionesClub.js" type="text/javascript"></script>
-	
+	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<style type="text/css">
 		.back-to-top {
 			cursor: pointer;
@@ -89,6 +89,9 @@
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon3">Descripción</span> 
 								<input type="text" class="form-control" id="descripcion" aria-describedby="basic-addon3">
+								<script type="text/javascript">
+									$('#descripcion').tooltip({'trigger':'focus', 'title': 'Ingrese una nueva descripción (150 caracteres máx)'});
+								</script>
 							</div>
 							<br>
 							<button type="button" onclick="cargarCambiosPerfilClub();" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
