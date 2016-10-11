@@ -18,18 +18,18 @@
 							  </div>
 						<div class="modal-body">
 							<div class="input-group">
-									<span class="input-group-addon" id="basic-addon3">Nombre:</span>
-									<input type="text" class="form-control" placeholder="Ingrese Nombre" id="nombreE" aria-describedby="basic-addon3">
-									<script type="text/javascript">
-										$('#nombreE').tooltip({'trigger':'focus', 'title': 'Titulo del Evento'});
-									</script>
+								<span class="input-group-addon" id="basic-addon3">Nombre:</span>
+								<input type="text" class="form-control" placeholder="Ingrese Nombre" id="nombreE" aria-describedby="basic-addon3">
+								<script type="text/javascript">
+									$('#nombreE').tooltip({'trigger':'focus', 'title': 'Ingrese un titulo del Evento(máx 30 caracteres)'});
+								</script>
 							</div>
 							<br>
 							<div class="input-group">
 									<span class="input-group-addon" id="basic-addon3">Motivo:</span>
 									<input type="text" class="form-control" placeholder="Ingrese Motivo" id="motivoE" aria-describedby="basic-addon3">
 									<script type="text/javascript">
-											$('#motivoE').tooltip({'trigger':'focus', 'title': 'A que se deberá el evento'});
+											$('#motivoE').tooltip({'trigger':'focus', 'title': 'A que se deberá el evento(máx 140 caracteres)'});
 										</script>
 							</div>
 							<br>
