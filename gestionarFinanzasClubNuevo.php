@@ -141,9 +141,9 @@
 						<th>Descripción</th>
 						<th>Monto</th>
 						<th>Fecha</th>
-						<th>Eliminar</th>
-						<th>Adjuntar</th>
-						<th>Imágenes</th>
+						<th>Opciones</th>
+						<th></th>
+						<th></th>
 					</tr>
 					</thead>
 					<tbody id="tablaFC">

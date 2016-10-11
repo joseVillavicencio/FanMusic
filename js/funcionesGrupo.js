@@ -578,8 +578,9 @@ function finanzaNueva(div){
 }
 function imagenFinanza(cont){
 	localStorage.setItem("cont",cont);
-	$('<div><td><img src="'+getCont()+'" alt="Open picture" title="Finanzas" /></a></td></div>').dialog({modal:false});
+	$('<div style=""><td><img src="'+getCont()+'" alt="Open picture"  title="Finanzas" /></a></td></div>').dialog({modal:false});
 }
+//style="width:640px;height:480px;"
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 FUNCIONES PARA EL PERFIL 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

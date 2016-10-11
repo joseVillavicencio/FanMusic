@@ -106,7 +106,9 @@
 						<th>Descripcion</th>
 						<th>Monto</th>
 						<th>Fecha</th>
-						<th>Imágenes</th>
+						<th>Opciones</th>
+						<th></th>
+						<th></th>
 					</thead>
 					<tbody id="tablaFC">
 						<script type="text/javascript">
