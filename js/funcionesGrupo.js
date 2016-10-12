@@ -227,44 +227,48 @@ function grupSaludo(div){
 function designarModerador(){ 
 	var correo=getN2();
 	if(correo!=""){
-		var parametros = {
-			"nombreG": localStorage.getItem("nombreG"),
-			"correo" : getN2(),
-		}
-		$.ajax({
-			data: parametros,
-			url: "php/designar.php",
-			type: "POST",	
-			success: function(response){			
-				if(response==1){
-					alert("Se ha designado correctamente");
-					location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
-				}else{
-					if(response==2){
-						alert("El miembro que desea designar no pertenece a la lista de miembros del grupo");
+		if(correo.length<=50){
+			var parametros = {
+				"nombreG": localStorage.getItem("nombreG"),
+				"correo" : getN2(),
+			}
+			$.ajax({
+				data: parametros,
+				url: "php/designar.php",
+				type: "POST",	
+				success: function(response){			
+					if(response==1){
+						alert("Se ha designado correctamente");
 						location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
 					}else{
-						if(response==3){
-							alert("El miembro que desea designar se encuentra bloqueado");
+						if(response==2){
+							alert("El miembro que desea designar no pertenece a la lista de miembros del grupo");
 							location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
 						}else{
-							if(response==4){
-								alert("El miembro que desea designar ya tiene un cargo de administrador");
+							if(response==3){
+								alert("El miembro que desea designar se encuentra bloqueado");
 								location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
 							}else{
-								if(response==5){
-									alert("El miembro que desea designar ya tiene un cargo de moderador");
+								if(response==4){
+									alert("El miembro que desea designar ya tiene un cargo de administrador");
 									location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
 								}else{
-									alert("No se ha podido designar moderador");
-									location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+									if(response==5){
+										alert("El miembro que desea designar ya tiene un cargo de moderador");
+										location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+									}else{
+										alert("No se ha podido designar moderador");
+										location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+									}
 								}
 							}
 						}
 					}
 				}
-			}
-		});
+			});
+		}else{
+			alert("El correo ingresado ha superado los caracteres permitidos");
+		}
 	}else{
 		alert("Debe ingresar el correo de algún miembro");
 	}
@@ -272,45 +276,49 @@ function designarModerador(){
 function bloquearMiembro(){ 
 	var correo=document.getElementById("correoMB").value;
 	if((correo!="")){
-		var parametros = {
-			"correoMB" : document.getElementById("correoMB").value, //Correo miembro bloqueado
-			"nombreGM":  localStorage.getItem("nombreG"), //Nombre del grupo
-		}
-		$.ajax({
-			data: parametros,
-			url: "php/bloquearMiembroG.php",
-			type: "POST",	
-				
-			success: function(response){
-				if(response==1){
-					alert("Se ha bloqueado correctamente");
-					location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
-				}else{
-					if(response==2){
-						alert("No se puede bloquear al administrador");
+		if(correo.length<=50){
+			var parametros = {
+				"correoMB" : document.getElementById("correoMB").value, //Correo miembro bloqueado
+				"nombreGM":  localStorage.getItem("nombreG"), //Nombre del grupo
+			}
+			$.ajax({
+				data: parametros,
+				url: "php/bloquearMiembroG.php",
+				type: "POST",	
+					
+				success: function(response){
+					if(response==1){
+						alert("Se ha bloqueado correctamente");
 						location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
 					}else{
-						if(response==3){
-							alert("El miembro a bloquear no pertenece al grupo");
+						if(response==2){
+							alert("No se puede bloquear al administrador");
 							location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
 						}else{
-							if(response==4){
-								alert("El miembro a bloquear ya se encuentra bloqueado");
+							if(response==3){
+								alert("El miembro a bloquear no pertenece al grupo");
 								location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
 							}else{
-								if(response==5){
-									alert("No es posible bloquear moderadores");
+								if(response==4){
+									alert("El miembro a bloquear ya se encuentra bloqueado");
 									location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
 								}else{
-									alert("No es posible bloquear a este usuario");
-									location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+									if(response==5){
+										alert("No es posible bloquear moderadores");
+										location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+									}else{
+										alert("No es posible bloquear a este usuario");
+										location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+									}
 								}
 							}
 						}
-					}
-				} 
-			}
-		});
+					} 
+				}
+			});
+		}else{
+			alert("El correo ingresado ha superado el largo de caracteres permitidos");
+		}
 	}else{
 		alert("Debe ingresar el correo de algún miembro");
 	}
@@ -351,27 +359,31 @@ function solic(){
 	var sub=document.getElementById("sub").value;
 	var cont=document.getElementById("cont").value;
 	if((tit!="")&&(sub!="")&&(cont!="")){
-		var parametros={
-			'nombreG': localStorage.getItem("nombreG"),
-			'tit': document.getElementById("tit").value,
-			'sub': document.getElementById("sub").value,
-			'cont': document.getElementById("cont").value,
-		}
-		$.ajax({
-			data: parametros,
-			url: "php/solicitarPb.php",
-			type: "POST",	
-			success: function(response){			
-				if(response==1) {
-					alert("Su publicación ha sido solicitada");
-					location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
-				}else{
-					alert("No se ha podido solicitar su publicación");
-					location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
-				}
-				
+		if((tit.length<=50)&&(sub.length<=50)&&(cont.length<=800)){
+			var parametros={
+				'nombreG': localStorage.getItem("nombreG"),
+				'tit': document.getElementById("tit").value,
+				'sub': document.getElementById("sub").value,
+				'cont': document.getElementById("cont").value,
 			}
-		});
+			$.ajax({
+				data: parametros,
+				url: "php/solicitarPb.php",
+				type: "POST",	
+				success: function(response){			
+					if(response==1) {
+						alert("Su publicación ha sido solicitada");
+						location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+					}else{
+						alert("No se ha podido solicitar su publicación");
+						location.href='/FanMusic/p_gruposNuevo.php?pag='+localStorage.getItem("nombreG")+'';
+					}
+					
+				}
+			});
+		}else{
+			alert("Alguno de los campos ingresados supera el máximo de caracteres permitidos");
+		}
 	}else{
 		alert("Debe completar todos los campos");
 	}
@@ -466,27 +478,31 @@ function eliminarPG(idi){
 function comentarP(idPublic){
 	var content=document.getElementById(idPublic).value;
 	if(content!=""){
-		if(getIDActual()!=""){
-			var parametros={
-				"idPubl":idPublic,
-				"contenido":content,
-				"idUser":getIDActual(),
-				"apodo":getApoActual()
-			}
-			
-			$.ajax({
-				data: parametros,
-				url:	"php/coment.php",
-				type:	"POST",
-				cache:	false,
-				success:	function(response){
-							if(response=="success"){
-								actualizar("#publicaciones","php/grupListPub.php");
-							}else {
-								alert("Favor de intentarlo mas tarde, existen problemas de conexión al servidor");
-							}
+		if(content.length<=255){
+			if(getIDActual()!=""){
+				var parametros={
+					"idPubl":idPublic,
+					"contenido":content,
+					"idUser":getIDActual(),
+					"apodo":getApoActual()
 				}
-			});
+				
+				$.ajax({
+					data: parametros,
+					url:	"php/coment.php",
+					type:	"POST",
+					cache:	false,
+					success:	function(response){
+						if(response=="success"){
+							actualizar("#publicaciones","php/grupListPub.php");
+						}else {
+							alert("Favor de intentarlo mas tarde, existen problemas de conexión al servidor");
+						}
+					}
+				});
+			}
+		}else{
+			alert("Ha superado el largo de caracteres permitidos");
 		}
 	}else{
 		alert("Debe ingresar algún contenido");
@@ -589,7 +605,7 @@ function imagenFinanza(cont){
 FUNCIONES PARA EL PERFIL 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 function opcionCeder(div){
-/*Debemos mejorar las opciones que se muestran a continuacion,y realizar las verificaciones internas con el id del usuario y si coincide con lo almacenado con el nombre ingresado*/
+
 	var parametros={
 		'id':getIDActual(),
 		'nombreG': localStorage.getItem("nombreG"),
@@ -664,19 +680,23 @@ function cargarCambiosPerfilGrupo(){
 		"descripcion": des
 	}
 	if(des!=""){
-		$.ajax({
-			data: parametros,
-			url:	"php/cambiarPerfilGrupo.php",
-			type:	"POST",
-			cache:	false,
-			success:	function(response){
-				if(response=="error"){
-					alert("Ha ocurrido un problema");
-				}else{
-					location.href='\p_gruposNuevo.php?pag='+localStorage.getItem("nombreG");
+		if(des.length<=150){
+			$.ajax({
+				data: parametros,
+				url:	"php/cambiarPerfilGrupo.php",
+				type:	"POST",
+				cache:	false,
+				success:	function(response){
+					if(response=="error"){
+						alert("Ha ocurrido un problema");
+					}else{
+						location.href='\p_gruposNuevo.php?pag='+localStorage.getItem("nombreG");
+					}
 				}
-			}
-		});
+			});
+		}else{
+			alert("Ha superado el largo de caracteres permitidos");
+		}
 	}else{
 		alert("Debe completar el campo descripción");
 	}

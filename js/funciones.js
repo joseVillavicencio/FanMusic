@@ -393,26 +393,30 @@ function listPublGru(div){
 function comentar(idPublic){
 	var content=document.getElementById(idPublic).value;
 	if(content!=""){
-		if(getIDActual()!=""){
-			var parametros={
-				"idPubl":idPublic,
-				"contenido":content,
-				"idUser":getIDActual(),
-				"apodo":getApoActual()
-			}
-			$.ajax({
-				data: parametros,
-				url:	"php/coment.php",
-				type:	"POST",
-				cache:	false,
-				success:	function(response){
-							if(response=="success"){
-								location.href="/FanMusic/bienvenida.php";
-							}else {
-								alert("Favor de intentarlo mas tarde, existen problemas de conexión al servidor");
-							}
+		if(content.length<=255){
+			if(getIDActual()!=""){
+				var parametros={
+					"idPubl":idPublic,
+					"contenido":content,
+					"idUser":getIDActual(),
+					"apodo":getApoActual()
 				}
-			});
+				$.ajax({
+					data: parametros,
+					url:	"php/coment.php",
+					type:	"POST",
+					cache:	false,
+					success:	function(response){
+								if(response=="success"){
+									location.href="/FanMusic/bienvenida.php";
+								}else {
+									alert("Favor de intentarlo mas tarde, existen problemas de conexión al servidor");
+								}
+					}
+				});
+			}
+		}else{
+			alert("Su comentario ha superado el largo de caracteres permitidos");
 		}
 	}else{
 		alert("Debe ingresar algún comentario");
