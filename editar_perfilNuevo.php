@@ -10,9 +10,6 @@
 	<link href="css/animate.css" rel="stylesheet">	
 	<script src="js/jquery.js" type="text/javascript"></script>
 	<link href="css/responsive.css" rel="stylesheet">
-	
-	<!-- Esta parte es de nuestro codigo- -->
-	
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<script src="js/funcionesPerfil.js" type="text/javascript"></script>
 	<style type="text/css">
@@ -83,27 +80,38 @@
 				<div class="col-lg-6 col-sm-12">
 					<div id="presentacion" class="panel panel-info" style="margin-left:5%;margin-right:5%;">
 						<div class="panel-heading">
-							<h3>¿Qué deseas editar?</h3>
+							<h3>Editar información personal</h3>
 							<div class="input-group">
 									<span class="input-group-addon" id="basic-addon3">Apodo: </span>
 									<input type="text" class="form-control" id="APODO" aria-describedby="basic-addon3">
 									<script type="text/javascript">
-										$('#APODO').tooltip({'trigger':'focus', 'title': 'El apodo debe ser escrito solo en minúsculas'});
+										$('#APODO').tooltip({'trigger':'focus', 'title': 'El apodo debe ser escrito solo en minúsculas (máx 25 caracteres)'});
 									</script>
 							</div>
 							<br>
 							<div class="input-group">
 									<span class="input-group-addon" id="basic-addon3">Gustos: </span>
 									<input type="text" class="form-control" id="GUSTOS" aria-describedby="basic-addon3">
+									<script type="text/javascript">
+										$('#GUSTOS').tooltip({'trigger':'focus', 'title': 'Cuéntanos que estilo musical prefieres (máx 140 caracteres)'});
+									</script>
 							</div>
 							<br>
 							<div class="input-group">
 									<span class="input-group-addon" id="basic-addon3">Descripción: </span>
 									<input type="text" class="form-control" id="DESCRIP" aria-describedby="basic-addon3">
+									<script type="text/javascript">
+										$('#DESCRIP').tooltip({'trigger':'focus', 'title': 'Cuéntanos algo de ti (máx 144 caracteres)'});
+									</script>
 							</div>
 							<br>
+							<button type="button" onclick="revisarApodo();" class="btn btn-primary"><span class="glyphicon glyphicon-ok" ></span> Editar</button>
 						</div>
-						<div class="panel panel-body">
+						
+					</div>
+					<div id="presentacion2" class="panel panel-info" style="margin-left:5%;margin-right:5%;">
+						<div class="panel-heading">
+							<h3>Editar contraseña</h3>
 							<div class="input-group">
 									<span class="input-group-addon" id="basic-addon3">Nueva Contraseña: </span>
 									<input type="password" class="form-control" id="PASSnue" aria-describedby="basic-addon3">
@@ -118,7 +126,7 @@
 							</div>
 							<br>
 							<br>
-							<button type="button" onclick="revisarApodo();" class="btn btn-primary">Guardar Cambios</button>
+							<button type="button" onclick=" veriCambioContra();" class="btn btn-primary"><span class="glyphicon glyphicon-ok" ></span> Editar</button>
 						</div>
 					</div>
 				</div>

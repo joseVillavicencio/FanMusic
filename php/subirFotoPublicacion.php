@@ -7,7 +7,8 @@
 	$titulo=$_POST["titulo"]; 
 	$target_path= "C:/xampp/htdocs/FanMusic/img/publicaciones";
 	$target_path2="img/publicaciones/";
-		
+		echo "el titulo es :";
+		echo $titulo;
 	$tipo = basename ($_FILES['uploadedfile']['type']);
 	$tipocorrect = true;
 	$nombreFinal= $idF."_".$titulo;
