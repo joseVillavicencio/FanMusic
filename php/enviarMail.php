@@ -18,14 +18,14 @@ $mail->Username = 'team.fanapp.2016@gmail.com';
 $mail->Password = 'tFanApp016'; 
 
 $mail->From = "team.fanapp.2016@gmail.com";   
-$mail->FromName = "FanApp";   
+$mail->FromName = "FanMusic";   
 $mail->Subject = "Activa tu Cuenta";   
 $mail->AddAddress($correo);  
    
 //$mail->WordWrap = 50;   
 //   $body = "Hola ".$nombre.", Bienvenido a FanApp y para activar tu cuenta necesitas ingresar en la siguiente url: http://158.251.97.1:80/FanApp/php/validarUser.php?email=".$correo."&key=".$cod;   
   
-$body = "Hola ".$nombre.", Bienvenido a FanMusic y para activar tu cuenta necesitas ingresar en la siguiente url: http://localhost/FanMusic/php/validarUser.php?email=".$correo."&key=".$cod;   
+$body = "Hola ".$nombre.", Bienvenido a FanMusic y para activar tu cuenta necesitas ingresar en la siguiente url: http://192.168.0.14:80/FanMusic/php/validarUser.php?email=".$correo."&key=".$cod;   
    
 $mail->Body = $body;   
    

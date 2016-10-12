@@ -14,11 +14,11 @@
 				$sql="CALL activarMiembro('".$user."','".$cod2."');";
 				if($result2 = $conexion->query($sql)){
 					//header('Location: http://158.251.97.0:80/FanApp/indexNuevo.php');
-					header('Location: http://localhost/FanMusic/indexNuevo.php');
+					header('Location: http://192.168.0.14:80/FanMusic/indexNuevo.php');
 				}
 			}else{
 				//echo "<div class='panel' style='text-align:center;'>Tu cuenta se encuentra activada<br><a href='http://158.251.97.0:80/FanMusic/indexNuevo.php'>Continuar</a></div>";
-				echo "<div class='panel' style='text-align:center;'>Tu cuenta se encuentra activada<br><a href='http://localhost/FanMusic/indexNuevo.php'>Continuar</a></div>";
+				echo "<div class='panel' style='text-align:center;'>Tu cuenta se encuentra activada<br><a href='http://192.168.0.14:80/FanMusic/indexNuevo.php'>Continuar</a></div>";
 			}	
 		}else{
 			echo 'Error 300: entre el escritorio y el asiento';
