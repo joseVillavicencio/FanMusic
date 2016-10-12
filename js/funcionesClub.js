@@ -136,7 +136,7 @@ function tablaClubs(div){
 		url: "php/listarClub.php",
 		type: "POST",	
 		
-		success: function(response){			
+		success: function(response){	
 			$(div).append(response);	
 		}
 	});
