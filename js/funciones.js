@@ -62,14 +62,21 @@ function getTumblr(){
 
 function tiene_mayus(valor){
 	var may="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-	var cont=0;
-	for(i=0;i<valor.length;i++){
+	var cont=0,flag=0;
+	if(may.indexOf(valor.charAt(0),0)!=-1){
+		cont++;
+	}
+	for(i=1;i<valor.length;i++){
 		if(may.indexOf(valor.charAt(i),0)!=-1){
 			cont++;
+			flag=1;
 		}
 	}
 	return cont;	
 }
+
+
+	
 
 function tiene_num(valor){
 	var num="0123456789";
@@ -112,7 +119,7 @@ function validarNombre(valor){
 				if(tiene_mayus(valor)==1){
 					return 1;
 				}else{
-					alert("El nombre debe tener una Mayúscula.");
+					alert("El nombre debe tener una Mayúscula en la primera posición.");
 				}
 			}else{
 				alert("El nombre debe contener solo Texto, no signos.");
@@ -152,7 +159,7 @@ function validarApellido(valor){
 				if(tiene_mayus(valor)==1){
 					return 1;
 				}else{
-					alert("El apellido debe tener una Mayúscula.");
+					alert("El apellido debe tener una Mayúscula en la primera posición.");
 				}
 			}else{
 				alert("El apellido debe contener solo Texto, no signos.");
@@ -213,6 +220,8 @@ function validarPass(valor){
 	return 0;
 }
 
+
+
 function verify(){
 	if((validarEmail(getMailLog())==1)&&(validarPass(getPassLog())==1)){
 		logIn(getMailLog(),getPassLog(),'/FanMusic/bienvenidaNuevo.php');
@@ -259,7 +268,7 @@ function logIn(mail,pass,dire){
 }
 
 function notLogged(){
-	if(localStorage.getItem("id_M")==""){
+	if((localStorage.getItem("id_M")=="")){
 		return true;
 	}
 	return false;
@@ -283,8 +292,10 @@ function logOut(){
 
 
 function logged(){
-	if(localStorage.getItem("apodo")!=""){
-		return true;
+	if((localStorage.getItem("id_M")!="")){
+		if(localStorage.getItem("id_M")!=null){
+			return true;
+		}
 	}
 	return false;
 }
