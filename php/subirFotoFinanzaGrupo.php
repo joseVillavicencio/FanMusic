@@ -5,7 +5,7 @@
 	
 	$idF=$_POST["idF"]; 
 	$titulo=$_POST["titulo"]; 
-	$target_path= "C:/xampp/htdocs/FanMusic/img/finanzas";
+	$target_path= "C://xampp/htdocs/FanMusic/img/finanzas";
 	$target_path2="img/finanzas/";
 		
 	$tipo = basename ($_FILES['uploadedfile']['type']);
@@ -25,7 +25,7 @@
 	if($tipocorrect){
 		$target_path=$target_path."/".$nombreFinal.".".$tipo;
 		$target_path2=$target_path2.$nombreFinal.".".$tipo;
-		echo $target_path2;
+		
 		if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'],$target_path )){
 			$sql = "call agregarFotoFinanza('".$nombreFinal."','".$target_path2."','".$idF."');";
 			if($conexion->query($sql)==TRUE){
