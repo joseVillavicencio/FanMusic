@@ -40,15 +40,11 @@
 												if($registro4 =$conexion->query($bloq)){
 													if($registro4->num_rows >0){
 														echo 4; //ya esta bloqueado
-													}else{
+													}else{														
 														$conexion=conectar();
-														$eliminar2 = "call dejarSeguir('".$idMiembro."','".$idGrupo."');"; //Lo eliminamos del grupo
-														if($registro4 =$conexion->query($eliminar2)){
-															$conexion=conectar();
-															$bloc = "call bloquear2('".$idMiembro."','".$idGrupo."');";
-															if($result_bloc =$conexion->query($bloc)){
-																echo 1; //Eliminamos y bloqueamos correctamente ;)
-															}
+														$bloc = "call bloquear2('".$idMiembro."','".$idGrupo."');";
+														if($result_bloc =$conexion->query($bloc)){
+															echo 1; //Bloqueamos correctamente ;)
 														}
 													}
 												}
