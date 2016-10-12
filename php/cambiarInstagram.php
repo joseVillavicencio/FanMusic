@@ -12,12 +12,16 @@
 	}else{
 		if($instagram!=null){
 			if($opcion == 0){//Actualizar
+				if(strlen($instagram)<=125){				
 				$sql2 =  "call actualizarInstagram('".$instagram."','".$id_User."');"; 
-				if($result2 = $conexion->query($sql2)){
-					echo true;
+					if($result2 = $conexion->query($sql2)){
+						echo true;
+					}else{
+						echo false;
+					}
 				}else{
-					echo false;
-				}
+					echo 2;
+				}	
 			}else{
 				$conexion=conectar();
 				$sql3 =  "call eliminarInstagram('".$id_User."');"; 
