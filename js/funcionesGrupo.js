@@ -526,28 +526,32 @@ function crearF(){
 			flag=1;
 		}
 	}
-	if((flag==0)&&(motivo!="")&&(mont!="")&&(descrip!="")){
-		var parametros={
-			"idUser":getIDActual(),
-			"motivo": motivo,
-			"monto": mont,
-			"descripcion": descrip,
-		}
-		$.ajax({
-			data: parametros,
-			url:	"php/crearFinanzas.php",
-			type:	"POST",
-			cache:	false,
-			success:	function(response){
-				if(response==1){
-					location.href='/FanMusic/gestionarFinanzasNuevo.php';
-				}else{
-					alert("Hubo un error al crear el documento");
-				}
+	if((motivo.length<=200)&&(mont.length<=50)&&(descrip.length<=200)){
+		if((flag==0)&&(motivo!="")&&(mont!="")&&(descrip!="")){
+			var parametros={
+				"idUser":getIDActual(),
+				"motivo": motivo,
+				"monto": mont,
+				"descripcion": descrip,
 			}
-		});
+			$.ajax({
+				data: parametros,
+				url:	"php/crearFinanzas.php",
+				type:	"POST",
+				cache:	false,
+				success:	function(response){
+					if(response==1){
+						location.href='/FanMusic/gestionarFinanzasNuevo.php';
+					}else{
+						alert("Hubo un error al crear el documento");
+					}
+				}
+			});
+		}else{
+			alert("Necesitas llenar correctamente los campos");
+		}
 	}else{
-		alert("Necesitas llenar correctamente los campos");
+		alert("Alguno de los campos ha excedido el tamaño posible");
 	}
 }
 function eliminarF(idF){
@@ -574,7 +578,7 @@ function subirFotoFinanza(id){ //Para llamar al POP
 	window.open('/FanMusic/ventanaPopFinanzaG.php',"finanza","width=420,height=340,toolbar=no");
 }
 function finanzaNueva(div){
-	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoFinanzaGrupo.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+getIdFina()+'" ><div><input name="uploadedfile" id="uploadedfile" type="file"></div><br><button type="submit" class="btn btn-success"> Adjuntar</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></form></div>');	
+	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoFinanzaGrupo.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" name="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+getIdFina()+'" ><div><input name="uploadedfile" id="uploadedfile" type="file"></div><br><button type="submit" class="btn btn-success"> Adjuntar</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></form></div>');	
 }
 function imagenFinanza(cont){
 	localStorage.setItem("cont",cont);
@@ -727,7 +731,7 @@ function nuevaPubli(div){ //Esta funcion se muestra distinto a la que tiene Dani
 		
 		success: function(response){ //Sólo si trata de un administrador o moderador mostrará la ventana para una nueva publicación
 			if(response==1 || response ==2){
-				$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><h1>Publicar Noticia</h1></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" style="width:100%; resize: none;" id="contenidoNuevo"></textarea></div><button class="btn btn-primary" onclick="publicar();">A&#xF1;adir</button></div></div>');
+				$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><h1>Publicar Noticia</h1></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"><script type="text/javascript">$("#tituloNuevo").tooltip({"trigger":"focus", "title": "Ingrese un título para la nueva noticia(máx. 50 caracteres)"});</script></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"><script type="text/javascript">$("#subtituloNuevo").tooltip({"trigger":"focus", "title": "Explique brevemente la noticia (máx. 50 caracteres)"});</script></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" style="width:100%; resize: none;" id="contenidoNuevo"></textarea><script type="text/javascript">$("#contenidoNuevo").tooltip({"trigger":"focus", "title": "(máx. 800 caracteres)"});</script></div><button class="btn btn-primary" onclick="publicar();">A&#xF1;adir</button></div></div>');
 			}
 		}
 	});
@@ -749,39 +753,43 @@ function publicar(){
 	var tit=getTituloNuevo();
 	var sub=getSubtituloNuevo();
 	var cont=getContenidoNuevo();
-	if((tit!="")&&(sub!="")&&(cont!="")){
-		var parametros={
-			"nombreG":localStorage.getItem("nombreG"),
-			"titulo": getTituloNuevo(),
-			"subtitulo": getSubtituloNuevo(),
-			"contenido": getContenidoNuevo()
-		}
-		$.ajax({
-			data:parametros,
-			url: "php/publicarG.php",
-			type: "post",
-			success: function(response){	
-				if(response=="error"){
-					alert("Tenemos Problemas con nuestros servidores, favor de intentar más tarde");
-				}else{
-					if(response==0){
-						alert("Su publicación no se ha podido crear, favor intentar más tarde");
+	if((cont.length<=800)&&(tit.length<=50)&&(sub.length<=50)){ 
+		if((tit!="")&&(sub!="")&&(cont!="")){
+			var parametros={
+				"nombreG":localStx.getItem("nombreG"),
+				"titulo": getTituloNuevo(),
+				"subtitulo": getSubtituloNuevo(),
+				"contenido": getContenidoNuevo()
+			}
+			$.ajax({
+				data:parametros,
+				url: "php/publicarG.php",
+				type: "post",
+				success: function(response){	
+					if(response=="error"){
+						alert("Tenemos Problemas con nuestros servidores, favor de intentar más tarde");
 					}else{
-						localStorage.setItem("nuevaPubli",response);
-						window.open('imagPopPublicacion.php',"Upload","width=400,height=320,toolbar=no");//abre el PopUp para agregar imagenes a las publicaciones
-						location.href='\p_gruposNuevo.php?pag='+localStorage.getItem("nombreG");// no actualiza
+						if(response==0){
+							alert("Su publicación no se ha podido crear, favor intentar más tarde");
+						}else{
+							localStorage.setItem("nuevaPubli",response);
+							window.open('imagPopPublicacion.php',"Upload","width=400,height=320,toolbar=no");//abre el PopUp para agregar imagenes a las publicaciones
+							location.href='\p_gruposNuevo.php?pag='+localStorage.getItem("nombreG");// no actualiza
+						}
 					}
 				}
-			}
-		});
+			});
+		}else{
+			alert("Debe completar los campos ");
+		}
 	}else{
-		alert("Debe completar los campos ");
+		alert("Algunos de los campos excede el tamaño permitido");
 	}
 }
 
 function publImagNueva(div){
 		
-	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file"><br></div><button type="submit" class="btn btn-success"> Adjuntar Foto</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></div></form>');
+	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" name="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file"><br></div><button type="submit" class="btn btn-success"> Adjuntar Foto</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></div></form>');
 }
 function apoyarGrupo(idi){ 
 	var parametros={
