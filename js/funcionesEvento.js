@@ -258,7 +258,7 @@ function crearEvento2(){
 	var fec2=fechas[1].value.split("/"); 
 	var fec3=fechas[2].value.split("/"); 
 		if((pais!="Selecciona País")&&(region!="Selecciona Región")&&(ciudad!="Selecciona Ciudad")&&(nombre!="")&&(motivo!="")&&(des!="")&&(fec1!="")){
-			if((nombre<=30)&&(motivo<=140)){
+			if((nombre.length<=30)&&(motivo.length<=140)){
 				var parametros = {
 					"idUser":getIDActual(),
 					"nombreE": nombre,
@@ -510,6 +510,7 @@ function mostrarResultados(div){
 		type: "POST",	
 		
 		success: function(response){
+			
 			if(response==1){ //Es un Administrador	
 				resultadosClub(div);
 			}else{

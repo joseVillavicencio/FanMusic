@@ -735,8 +735,8 @@ function actualizar(div,dir){
 
 //=================================================================================Este deberia ir en los js donde se realicen cambios
 function confirmarProceso(){
-	var pass = prompt("Ingrese su contraseña para comfirmar la operación");
-	if(pass!=null){
+	var pass = prompt("Ingrese su contraseña para confirmar la operación");
+	if(pass!=""){
 		var parametros={
 			"id":getIDActual(),
 			"pass":pass

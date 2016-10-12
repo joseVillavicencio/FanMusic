@@ -5,7 +5,7 @@
 	//Datos obtenidos 
 	$nombreClub=$_POST["nombreC"];
 	$idM=$_POST["idM"];
-	$cont=1; // contador para mostrar Imagen 1,2....
+	 // contador para mostrar Imagen 1,2....
 	$conexion=conectar();
 	mysqli_set_charset($conexion,"utf8");
 	$sql1 = "call  nombreClub('".$nombreClub."');"; //Rescato el ID del Club
@@ -19,6 +19,7 @@
 			if($result2 = $conexion->query($sql2)){
 				if($result2->num_rows >0){
 					while($fila2=mysqli_fetch_row($result2)){ 
+						$cont=1;
 						$id=$fila2[0] ;
 						$motivo=$fila2[1] ;
 						$descripcion=$fila2[2] ;

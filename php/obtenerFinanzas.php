@@ -4,7 +4,7 @@
 	//Datos obtenidos 
 	$nombre=$_POST["nombreG"];
 	$id_Miembro=$_POST["id"];
-	$cont=1; // contador para mostrar Imagen 1,2....
+	 // contador para mostrar Imagen 1,2....
 	$conexion=conectar();
 	mysqli_set_charset($conexion,"utf8");
 	$registroquery2 = "call  obtenerIdGrupo('".$nombre."');";
@@ -18,6 +18,7 @@
 			if($result2 = $conexion->query($sql2)){
 				if($result2->num_rows >0){
 					while($fila=mysqli_fetch_row($result2)){ //Datos de la finanza en sí
+						$cont=1;
 						$id=$fila[0] ;
 						$motivo=$fila[1] ;
 						$descripcion=$fila[2] ;

@@ -868,7 +868,7 @@ function eliminarPC(idi){
 function publImagNueva(div){
 	//$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file"><br></div><button type="submit" class="btn btn-success"> Adjuntar Foto</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></div></form>');		
 	
-	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file"><br></div><button type="submit" class="btn btn-success"> Adjuntar Foto</button>&nbsp;&nbsp;<button type="submit"  class="btn btn-danger">Cerrar</button></div></form>');	
+	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" name="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file"><br></div><button type="submit" class="btn btn-success"> Adjuntar Foto</button>&nbsp;&nbsp;<button type="submit"  class="btn btn-danger">Cerrar</button></div></form>');	
 }
 
 /*===================================================================
@@ -915,7 +915,7 @@ function publicarLetra(div){
 	var idioma= ($("#lang option:selected").text());
 	var cont=document.getElementById("contenidoNuevo").value;
 	if((tit!="")&&(idioma!="")&&(cont!="")){
-		if( ((tit.length)<80)&& (cont.length<800)){
+		if( ((tit.length)<80)&& (cont.length<5000)){
 			var parametros={
 				'nombreC': localStorage.getItem("nombreC"),
 				'tit': tit,
@@ -927,7 +927,8 @@ function publicarLetra(div){
 				url: "php/publicarLetra.php",
 				type: "post",
 				cache:	false,
-				success: function(response){			
+				success: function(response){
+					
 					if(response=="1"){
 							location.href='/FanMusic/seccionLetras.php';
 					}else{
@@ -954,7 +955,7 @@ function guardarCambioLetra(cont,idi){
 	var nom="text"+cont;
 	var aer=document.getElementById(nom).value;
 	if((aer!="")){
-		if( (aer.length)<800){	
+		if( (aer.length)<5000){	
 			var parametros={
 				'text': aer,
 				'id':idi

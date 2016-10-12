@@ -11,6 +11,7 @@
 		<link href="css/main.css" rel="stylesheet">
 		<link href="css/animate.css" rel="stylesheet">	
 		<link href="css/responsive.css" rel="stylesheet">
+		<script type="text/javascript" src="js/bootstrap.js"></script>
 		<!-- Esta parte es de nuestro codigo- -->
 		<script src="Highcharts-4.1.5/js/highcharts.js"></script>
 		<!--<link href="css/jquery.dialog.css" rel="stylesheet" type="text/css">NECESARIA PARA EL DIALOG/IMAGEN-->
