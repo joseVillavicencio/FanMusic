@@ -17,12 +17,13 @@
 					$video=$row[3];
 					$compartir=$row[4];
 					if($compartir==0){
-						echo '<div class="panel panel-default" style="color:black;"><div style="color:black;" class="panel-heading"><h1>'.$song.'&nbsp;&nbsp;&nbsp;'.$cd.'</h1><sup>'.$lang.'</sup></div><div class="panel-body"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/'.$video.'"  allowfullscreen></iframe></div><br><button type="button" class="btn btn-danger btn-xs" onclick="eliminarCover('."'".$video."'".');">Eliminar</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-success btn-xs" onclick="compartirCover('."'".$video."'".');">Compartir</button></div></div>';
+						echo '<div class="panel panel-default" style="color:black;"><div style="color:black;" class="panel-heading"><h1>'.$song.'&nbsp;&nbsp;&nbsp;'.$cd.'</h1><sup>'.$lang.'</sup></div><div class="panel-body"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/'.$video.'"  allowfullscreen></iframe></div><br><button type="button" class="btn btn-danger btn-xs" onclick="eliminarCover('."'".$video."'".');"><span class="glyphicon glyphicon-remove"></span></button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-success btn-xs" onclick="compartirCover('."'".$video."'".');">Compartir</button></div></div>';
 					}else{
-						echo '<div class="panel panel-default" style="color:black;"><div style="color:black;" class="panel-heading"><h1>'.$song.'&nbsp;&nbsp;&nbsp;'.$cd.'</h1><sup>'.$lang.'</sup></div><div class="panel-body"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/'.$video.'"  allowfullscreen></iframe></div><br><button type="button" class="btn btn-danger btn-xs" onclick="eliminarCover('."'".$video."'".');">Eliminar</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-warning btn-xs" onclick="dejarCompCover('."'".$video."'".');">Dejar de Compartir</button></div></div>';
+						echo '<div class="panel panel-default" style="color:black;"><div style="color:black;" class="panel-heading"><h1>'.$song.'&nbsp;&nbsp;&nbsp;'.$cd.'</h1><sup>'.$lang.'</sup></div><div class="panel-body"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/'.$video.'"  allowfullscreen></iframe></div><br><button type="button" class="btn btn-danger btn-xs" onclick="eliminarCover('."'".$video."'".');"><span class="glyphicon glyphicon-remove"></span></button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-warning btn-xs" onclick="dejarCompCover('."'".$video."'".');">Dejar de Compartir</button></div></div>';
 					}
 				}
-				
+			}else{
+				echo "El club no posee covers.";
 			}
 		}
 	}

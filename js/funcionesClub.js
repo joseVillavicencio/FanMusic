@@ -223,45 +223,49 @@ function desc_Club(div){
 function confirmarCederClub(){ 
 	var m=document.getElementById("mailAdmi").value;
 	if(m!=""){
-		var parametros={
-			'id':getIDActual(),
-			'nombreC': localStorage.getItem("nombreC"),
-			"mailAdmi" : m
-			
-		}
-		$.ajax({
-			data:parametros,
-			url: "php/cederAdmin.php", 
-			type: "post",
-			success: function(response){			
-				if(response==1){
-					location.href='/FanMusic/bienvenidaNuevo.php';
-				}else{
-					if(response==2){
-						alert("El usuario no es miembro del club");
-						location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+		if(m.length<=50){
+			var parametros={
+				'id':getIDActual(),
+				'nombreC': localStorage.getItem("nombreC"),
+				"mailAdmi" : m
+				
+			}
+			$.ajax({
+				data:parametros,
+				url: "php/cederAdmin.php", 
+				type: "post",
+				success: function(response){			
+					if(response==1){
+						location.href='/FanMusic/bienvenidaNuevo.php';
 					}else{
-						if(response==3){
-							alert("El miembro que desea asignar está bloqueado");
+						if(response==2){
+							alert("El usuario no es miembro del club");
 							location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 						}else{
-							if(response==4){
-								alert("El miembro que desea asignar ya tiene un cargo de administrador");
+							if(response==3){
+								alert("El miembro que desea asignar está bloqueado");
 								location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 							}else{
-								if(response==5){
-									alert("El miembro que desea asignar ya tiene un cargo de moderador");
+								if(response==4){
+									alert("El miembro que desea asignar ya tiene un cargo de administrador");
 									location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 								}else{
-									alert("No se pudo asignar moderador");
-									location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+									if(response==5){
+										alert("El miembro que desea asignar ya tiene un cargo de moderador");
+										location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+									}else{
+										alert("No se pudo asignar moderador");
+										location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+									}
 								}
 							}
 						}
 					}
 				}
-			}
-		});
+			});
+		}else{
+			alert("El correo ha superado el largo de caracteres");
+		}
 	}else{
 		alert("Debe ingresar todos los campos");
 	}
@@ -337,12 +341,12 @@ function GestionClub(div){
 		type: "post",
 		success: function(response){			
 			if(response=="1"){ // es Admin 
-				$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'asignarModerClubNuevo.php'+"'"+')"  class="btn btn-primary" role="button" align="right">Asignar Moderador</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'cederAdministracion.php'+"'"+')"  class="btn btn-warning" role="button" align="right">Ceder Administracion</a><a href='+"'"+'bloquearMiembroClub.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Miembro</a><a href='+"'"+'gestionarFinanzasClubNuevo.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'gestionarPublicacionesClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a>');
+				$(div).append('<a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'asignarModerClubNuevo.php'+"'"+')"  class="btn btn-primary" role="button" align="right">Asignar Moderador</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'cederAdministracion.php'+"'"+')"  class="btn btn-warning" role="button" align="right">Ceder Administracion</a><a href='+"'"+'bloquearMiembroClub.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Miembro</a><a href='+"'"+'gestionarFinanzasClubNuevo.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Finanzas</a><a href="gestionarPublicacionesClub.php" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a>');
 			}else{
 				if(response=="2"){// es moder
-					$(div).append('<a href='+"'"+'bloquearMiembroClub.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Miembro</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'gestionarPublicacionesClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a><a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a>');
+					$(div).append('<a href='+"'"+'bloquearMiembroClub.php'+"'"+'  class="btn btn-danger" role="button" align="right">Bloquear Miembro</a><a href="gestionarPublicacionesClub.php" class="btn btn-success"  role="button" align="right">Administrar Publicaciones</a><a href="verFinanzasClub.php"   class="btn btn-info" role="button" align="right">Ver Finanzas</a>');
 				}else{
-					$(div).append('<a onclick ="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'verFinanzasClub.php'+"'"+')"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'solicitarPublicacionClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Solicitar Publicacion</a>');
+					$(div).append('<a href="verFinanzasClub.php"   class="btn btn-info" role="button" align="right">Ver Finanzas</a><a onclick="cargarClub('+"'"+'#opcionesClub'+"'"+','+"'"+'solicitarPublicacionClub.php'+"'"+')" class="btn btn-success"  role="button" align="right">Solicitar Publicacion</a>');
 				} 
 			}
 			$(div).append('<a href='+"'"+'muroAnecdotas.php'+"'"+' class="btn btn-primary"  role="button" align="right">Ver Aportes</a><a href='+"'"+'seccionLetras.php'+"'"+'  class="btn btn-info" role="button" align="right">Ver Letras</a>');
@@ -354,45 +358,49 @@ function GestionClub(div){
 function asignarModerador(){ 
 	var m= document.getElementById("mailMod").value;
 	if(m!=""){
-		var parametros = {
-			'nombreC': localStorage.getItem("nombreC"),
-			"mailMod" :m
-		}
-		$.ajax({
-			data: parametros,
-			url: "php/asignarModClub.php",
-			type: "POST",	
-			success: function(response){			
-				if(response==1){
-					alert("Se asignó correctamente moderador");
-					location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
-				}else{
-					if(response==2){
-						alert("El usuario no es miembro del club");
+		if(m.length<=50){
+			var parametros = {
+				'nombreC': localStorage.getItem("nombreC"),
+				"mailMod" :m
+			}
+			$.ajax({
+				data: parametros,
+				url: "php/asignarModClub.php",
+				type: "POST",	
+				success: function(response){			
+					if(response==1){
+						alert("Se asignó correctamente moderador");
 						location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 					}else{
-						if(response==3){
-							alert("El miembro que desea asignar está bloqueado");
+						if(response==2){
+							alert("El usuario no es miembro del club");
 							location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 						}else{
-							if(response==4){
-								alert("El miembro que desea asignar ya tiene un cargo de administrador");
+							if(response==3){
+								alert("El miembro que desea asignar está bloqueado");
 								location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 							}else{
-								if(response==5){
-									alert("El miembro que desea asignar ya tiene un cargo de moderador");
+								if(response==4){
+									alert("El miembro que desea asignar ya tiene un cargo de administrador");
 									location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 								}else{
-									alert("No se pudo asignar moderador");
-									location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+									if(response==5){
+										alert("El miembro que desea asignar ya tiene un cargo de moderador");
+										location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+									}else{
+										alert("No se pudo asignar moderador");
+										location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+									}
 								}
 							}
 						}
+						
 					}
-					
 				}
-			}
-		});
+			});
+		}else{
+			alert("Ha superado el largo permitido de caracteres");
+		}
 	}else{
 		alert("Debe completar los campos");
 	}
@@ -409,24 +417,33 @@ function bloquearMiembroClub(){
 	}
 }
 function bloquearMiembroClub2(){ 
+	var correoMC = document.getElementById("correoMC").value;
 	var parametros = {
-		"correoMC" : document.getElementById("correoMC").value, 
+		"correoMC" :correoMC,
 		"nombreC":  localStorage.getItem("nombreC")
 	}
-	$.ajax({
-		data: parametros,
-		url: "php/bloquearMiembroC.php",
-		type: "POST",
-			
-		success: function(response){			
-			if(response==1){
-				alert("Se bloqueo correctamente el miembro");
-				location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
-			}else{
-				alert("No se puede bloquear el miembro");
-			}
+	if(correoMC!=""){
+		if(correoMC.length<=50){
+			$.ajax({
+				data: parametros,
+				url: "php/bloquearMiembroC.php",
+				type: "POST",
+					
+				success: function(response){			
+					if(response==1){
+						alert("Se bloqueo correctamente el miembro");
+						location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+					}else{
+						alert("No se puede bloquear el miembro");
+					}
+				}
+			});
+		}else{
+			alert("El correo ingresado supera el largo de caracteres permitidos");
 		}
-	});
+	}else{
+		alert("Debe ingresar algún correo.");
+	}
 }
 /* --------------------------------------------------------
 						FINANZAS
@@ -458,25 +475,29 @@ function crearFinanzasClub(){
 		}
 	}
 	if((flag==0)&&(motivo!="")&&(mont!="")&&(descrip!="")){
-		var parametros={
-			"idUser":getIDActual(),
-			"motivo": document.getElementById("motivo").value,
-			"monto": document.getElementById("monto").value,
-			"descripcion": document.getElementById("descripcion").value,
-		}
-		$.ajax({
-			data: parametros,
-			url:	"php/crearFinanzasClub.php",
-			type:	"POST",
-			cache:	false,
-			success:	function(response){
-				if(response==1){
-					location.href='/FanMusic/gestionarFinanzasClubNuevo.php';
-				}else{
-					alert("No se pudo crear la finanza");
-				}
+		if( ((descrip.length)<250)&& (motivo.length<140)){
+			var parametros={
+				"idUser":getIDActual(),
+				"motivo": document.getElementById("motivo").value,
+				"monto": document.getElementById("monto").value,
+				"descripcion": document.getElementById("descripcion").value,
 			}
-		});
+			$.ajax({
+				data: parametros,
+				url:	"php/crearFinanzasClub.php",
+				type:	"POST",
+				cache:	false,
+				success:	function(response){
+					if(response==1){
+						location.href='/FanMusic/gestionarFinanzasClubNuevo.php';
+					}else{
+						alert("No se pudo crear la finanza");
+					}
+				}
+			});
+		}else{
+			alert("Ha superado la cantidad de carácteres en alguno de los campos ingresados");
+		}
 	}else{
 		alert("Necesitas llenar correctamente los campos");
 	}
@@ -499,7 +520,7 @@ function eliminarFClub(idF){
 }
 function imagenFinanza(cont){
 	localStorage.setItem("cont",cont);
-	$('<div><td><img src="'+getCont()+'" alt="Open picture" title="Finanzas" /></a></td></div>').dialog({modal:false});
+	$('<div><td><img src="'+getCont()+'" alt="Open picture"  title="Finanzas" /></a></td></div>').dialog({modal:false});
 }
 
 // SOLICITUD DE PUBLICACIONES
@@ -550,7 +571,7 @@ function subirFotoFinanza(id){
 	window.open('/FanMusic/ventanaPopFinanza.php',"finanza","width=420,height=340,toolbar=no");
 }
 function finanzaNueva(div){
-		$(div).append('<form enctype="multipart/form-data" action="php/subirFotoFinanzaClub.php"  method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo2" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+getIdFina()+'" ><div><input name="uploadedfile" id="uploadedfile" type="file"></div><br><button type="submit" class="btn btn-success"> Adjuntar</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></div></form>');	
+		$(div).append('<form enctype="multipart/form-data" action="php/subirFotoFinanzaClub.php"  method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo2" name="titulo2" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+getIdFina()+'" ><div><input name="uploadedfile" id="uploadedfile" type="file"></div><br><button type="submit" class="btn btn-success"> Adjuntar</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></div></form>');	
 }																								
 //--------------------------------------------------------------
 function obtenerNombreClub(div){
@@ -565,40 +586,44 @@ function cargarCambiosPerfilClub(){
 			"nombreC":  localStorage.getItem("nombreC")
 		}
 		if(des!=""){
-			$.ajax({
-				data: parametros,
-				url:	"php/editarPClub.php",
-				type:	"POST",
-				cache:	false,
-				success:	function(response){
-					if(response==1){
-						location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
-					}else{
-						if(response==2){
-							alert("El miembro que desea designar no pertenece a la lista de miembros del club");
+			if( (des.length)<150){			
+				$.ajax({
+					data: parametros,
+					url:	"php/editarPClub.php",
+					type:	"POST",
+					cache:	false,
+					success:	function(response){
+						if(response==1){
 							location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 						}else{
-							if(response==3){
-								alert("El miembro que desea designar se encuentra bloqueado");
+							if(response==2){
+								alert("El miembro que desea designar no pertenece a la lista de miembros del club");
 								location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 							}else{
-								if(response==4){
-									alert("El miembro que desea designar ya tiene un cargo de administrador");
+								if(response==3){
+									alert("El miembro que desea designar se encuentra bloqueado");
 									location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 								}else{
-									if(response==5){
-										alert("El miembro que desea designar ya tiene un cargo de moderador");
+									if(response==4){
+										alert("El miembro que desea designar ya tiene un cargo de administrador");
 										location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
 									}else{
-										alert("No se ha podido designar moderador");
-										location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+										if(response==5){
+											alert("El miembro que desea designar ya tiene un cargo de moderador");
+											location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+										}else{
+											alert("No se ha podido designar moderador");
+											location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+'';
+										}
 									}
 								}
 							}
 						}
 					}
-				}
-			});
+				});
+			}else{
+				alert("La descripción excede el tamaño permitido");
+			}
 		}else{
 			alert("Debe completar el campo descripción");
 		}
@@ -719,26 +744,30 @@ function solicitudes(div){
 function comentarP(idPublic){
 	var content=document.getElementById(idPublic).value;
 	if(content!=""){
-		if(getIDActual()!=""){
-			var parametros={
-				"idPubl":idPublic,
-				"contenido":content,
-				"idUser":getIDActual(),
-				"apodo":getApoActual()
-			}
-			$.ajax({
-				data: parametros,
-				url:	"php/coment.php",
-				type:	"POST",
-				cache:	false,
-				success:	function(response){
-							if(response=="success"){
-								actualizar("#publicaciones","php/ListPubClub.php");
-							}else {
-								alert("Favor de intentarlo mas tarde, existen problemas de conexión al servidor");
-							}
+		if(content.length<=255){
+			if(getIDActual()!=""){
+				var parametros={
+					"idPubl":idPublic,
+					"contenido":content,
+					"idUser":getIDActual(),
+					"apodo":getApoActual()
 				}
-			});
+				$.ajax({
+					data: parametros,
+					url:	"php/coment.php",
+					type:	"POST",
+					cache:	false,
+					success:	function(response){
+								if(response=="success"){
+									actualizar("#publicaciones","php/ListPubClub.php");
+								}else {
+									alert("Favor de intentarlo mas tarde, existen problemas de conexión al servidor");
+								}
+					}
+				});
+			}
+		}else{
+			alert("Su comentario ha superado el largo de caracteres permitidos");
 		}
 	}else{
 		alert("Debe ingresar algún contenido");
@@ -762,7 +791,7 @@ function publicarClub(div){
 			cache:	false,
 			success:	function(response){
 				if(response=="1" || response=="2"){
-					//$(div).append('<div class="panel panel-default" style="text-align:center;"><div class="panel panel-heading"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3"></div></div><div class="panel panel-body"><div class="input-group"><span class="input-group-addon" id="basic-addon3">Subtitulo</span> <input type="text" class="form-control" id="subtituloNuevo" aria-describedby="basic-addon3"></div><br><div class="input-group"><span class="input-group-addon" id="basic-addon3">Contenido</span></div><br><div><textarea rows="5" cols="30" id="contenidoNuevo"></textarea><div><button class="btn btn-primary" onclick="publicarClub2();">A&#xF1;adir</button></div></div>');
+					
 					var parametros={
 						"id":getIDActual(),
 						"nombreC": localStorage.getItem("nombreC")
@@ -787,30 +816,35 @@ function publicarClub2(){
 	var cont=document.getElementById("contenidoNuevo").value;
 	
 	if((tit!="")&&(sub!="")&&(cont!="")){
-		var parametros={
-			'nombre':localStorage.getItem("nombreC"),
-			'tit': tit,
-			'sub': sub,
-			'cont': cont
-		}
-		$.ajax({
-			data: parametros,
-			url: "php/publicarEnClub.php",
-			type: "POST",	
-			success: function(response){			
-				if(response=="error"){
-					alert("Tenemos Problemas con nuestros servidores, favor de intentar más tarde");
-				}else{
-					if(response=="0"){
-						alert("Su publicación no se ha podido crear, favor intentar más tarde");
+		if( ((tit.length)<50)&& (sub.length<50)&&(cont.length<800)){
+			var parametros={
+				'nombre':localStorage.getItem("nombreC"),
+				'tit': tit,
+				'sub': sub,
+				'cont': cont
+			}
+			$.ajax({
+				data: parametros,
+				url: "php/publicarEnClub.php",
+				type: "POST",	
+				success: function(response){			
+					if(response=="error"){
+						alert("Tenemos Problemas con nuestros servidores, favor de intentar más tarde");
 					}else{
-						localStorage.setItem("nuevaPubli",response);
-						window.open('/FanMusic/imagPopPublicacionClub.php',"Upload","width=400,height=320,toolbar=no");//abre el PopUp para agregar imagenes a las publicaciones
-						location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+''; // no actualiza
+						if(response=="0"){
+							alert("Su publicación no se ha podido crear, favor intentar más tarde");
+						}else{
+							localStorage.setItem("nuevaPubli",response);
+							window.open('/FanMusic/imagPopPublicacionClub.php',"Upload","width=400,height=320,toolbar=no");//abre el PopUp para agregar imagenes a las publicaciones
+							location.href='/FanMusic/perfilClubNuevo.php?pag='+localStorage.getItem("nombreC")+''; // no actualiza
+						}
 					}
 				}
-			}
-		});
+			});
+			
+		}else{
+			alert("Ha superado la cantidad de carácteres en alguno de los campos");
+		}	
 	}else{
 		alert("Debe completar los campos de la nueva publicación");
 	}
@@ -832,7 +866,9 @@ function eliminarPC(idi){
 	});
 }
 function publImagNueva(div){
-	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file"><br></div><button type="submit" class="btn btn-success"> Adjuntar Foto</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></div></form>');		
+	//$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file"><br></div><button type="submit" class="btn btn-success"> Adjuntar Foto</button>&nbsp;&nbsp;<button type="submit" onclick="window.close();" class="btn btn-danger">Cerrar</button></div></form>');		
+	
+	$(div).append('<form enctype="multipart/form-data" action="php/subirFotoPublicacion.php" method="POST"><div class= "form-group"><div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span><input type="text" class="form-control" id="titulo" aria-describedby="basic-addon3"></div><br><input type="hidden" id="idF" name="idF" value="'+localStorage.getItem("nuevaPubli")+'"><div><input name="uploadedfile" id="uploadedfile" type="file"><br></div><button type="submit" class="btn btn-success"> Adjuntar Foto</button>&nbsp;&nbsp;<button type="submit"  class="btn btn-danger">Cerrar</button></div></form>');	
 }
 
 /*===================================================================
@@ -873,51 +909,41 @@ function verLetras(div){
 		}
 	});
 }
-/*function verContenidoLetras(div){ 
-	var parametros={
-		'nombreC': localStorage.getItem("nombreC")
-	}
-	$.ajax({
-		data:parametros,
-		url: "php/obtenerContenidoLetras.php",
-		type: "post",
-		cache:	false,
-		success: function(response){			
-			//alert(response);
-			$(div).append(response); 
-		}
-	});
-}*/
+
 function publicarLetra(div){ 
 	var tit=document.getElementById("tituloNuevo").value;
 	var idioma= ($("#lang option:selected").text());
 	var cont=document.getElementById("contenidoNuevo").value;
 	if((tit!="")&&(idioma!="")&&(cont!="")){
-		var parametros={
-			'nombreC': localStorage.getItem("nombreC"),
-			'tit': tit,
-			'idioma': idioma,
-			'cont': cont,
-		}
-		$.ajax({
-			data:parametros,
-			url: "php/publicarLetra.php",
-			type: "post",
-			cache:	false,
-			success: function(response){			
-				if(response=="1"){
-						location.href='/FanMusic/seccionLetras.php';
-				}else{
-					if(response=='2'){
-						alert("La letra de la canción ya existe");
-						location.href='/FanMusic/seccionLetras.php';
+		if( ((tit.length)<80)&& (cont.length<800)){
+			var parametros={
+				'nombreC': localStorage.getItem("nombreC"),
+				'tit': tit,
+				'idioma': idioma,
+				'cont': cont,
+			}
+			$.ajax({
+				data:parametros,
+				url: "php/publicarLetra.php",
+				type: "post",
+				cache:	false,
+				success: function(response){			
+					if(response=="1"){
+							location.href='/FanMusic/seccionLetras.php';
 					}else{
-						alert("No se ha podido crear la Letra");
-						location.href='/FanMusic/seccionLetras.php';
+						if(response=='2'){
+							alert("La letra de la canción ya existe");
+							location.href='/FanMusic/seccionLetras.php';
+						}else{
+							alert("No se ha podido crear la Letra");
+							location.href='/FanMusic/seccionLetras.php';
+						}
 					}
 				}
-			}
-		});
+			});
+		}else{
+			alert("Ha ingresado algún carácter que supera el largo establecido");
+		}
 	}else{
 		alert("Debe ingresar los campos necesarios para añadir una Letra");
 	}
@@ -928,25 +954,29 @@ function guardarCambioLetra(cont,idi){
 	var nom="text"+cont;
 	var aer=document.getElementById(nom).value;
 	if((aer!="")){
-		var parametros={
-			'text': aer,
-			'id':idi
-		}
-		$.ajax({
-			data:parametros,
-			url: "php/editarLetras.php",
-			type: "post",
-			cache:	false,
-			success: function(response){			
-				if(response==1){
-					alert("La letra ha sido editada");
-					location.href='/FanMusic/seccionLetras.php';
-				}else{
-					alert("No se pudo editar la letra");
-					location.href='/FanMusic/seccionLetras.php';
-				}
+		if( (aer.length)<800){	
+			var parametros={
+				'text': aer,
+				'id':idi
 			}
-		});
+			$.ajax({
+				data:parametros,
+				url: "php/editarLetras.php",
+				type: "post",
+				cache:	false,
+				success: function(response){			
+					if(response==1){
+						alert("La letra ha sido editada");
+						location.href='/FanMusic/seccionLetras.php';
+					}else{
+						alert("No se pudo editar la letra");
+						location.href='/FanMusic/seccionLetras.php';
+					}
+				}
+			});
+		}else{
+			alert("El cambio ingresado supera los carácteres permitidos");
+		}	
 	}else{
 		alert("Ingrese algun cambio");
 	}	

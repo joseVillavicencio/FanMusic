@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <title>FanMusic</title>
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/jquery.js" type="text/javascript"></script>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,27 +43,26 @@
 		<div class="main-nav">
 			<div class="container-fluid">
 				<div class="row">
-					
-						<div class="navbar-header" style="background-color: #1B7B98;">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-								<span class="sr-only">Desplegar navegación</span>
-							</button>
-							<a class="navbar-brand" href="indexNuevo.php">
-								<img class="img-responsive" src="images/logo2.png" alt="logo">
-							</a> 
-						</div>
-						<div class="collapse navbar-collapse navbar-ex1-collapse" style="background-color: #1B7B98;">
-							<ul class="nav navbar-nav"></ul>
-							<ul class="nav navbar-nav navbar-right">                 
-								<li><a  href="bienvenida.php" >Novedades</a></li>
-								<li class="scroll "><a href="bienvenidaNuevo.php#contact">Clubs</a></li>
-								<li class="scroll"><a href="bienvenidaNuevo.php#event">Grupos</a></li>                         
-								<li class="scroll"><a href="bienvenidaNuevo.php#explore">Eventos</a></li>
-								<li class="scroll"><a href="bienvenidaNuevo.php#about">Búsqueda</a></li>
-								<li><a href='perfilNuevo.php'><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
-								<li><a href="indexNuevo.php" onclick="logOut();"><span class="glyphicon glyphicon-log-out"></span></a></li>								
-							</ul>
-						</div>
+					<div class="navbar-header" style="background-color: #1B7B98;">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+							<span class="sr-only">Desplegar navegación</span>
+						</button>
+						<a class="navbar-brand" href="indexNuevo.php">
+							<img class="img-responsive" src="images/logo2.png" alt="logo">
+						</a> 
+					</div>
+					<div class="collapse navbar-collapse navbar-ex1-collapse" style="background-color: #1B7B98;">
+						<ul class="nav navbar-nav"></ul>
+						<ul class="nav navbar-nav navbar-right">                 
+							<li><a  href="bienvenida.php" >Novedades</a></li>
+							<li class="scroll "><a href="bienvenidaNuevo.php#contact">Clubs</a></li>
+							<li class="scroll"><a href="bienvenidaNuevo.php#event">Grupos</a></li>                         
+							<li class="scroll"><a href="bienvenidaNuevo.php#explore">Eventos</a></li>
+							<li class="scroll"><a href="bienvenidaNuevo.php#about">Búsqueda</a></li>
+							<li><a href='perfilNuevo.php'><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
+							<li><a href="indexNuevo.php" onclick="logOut();"><span class="glyphicon glyphicon-log-out"></span></a></li>								
+						</ul>
+					</div>
 					
 				</div>
 			</div>
@@ -103,6 +103,7 @@
 				<hr>
 				<div class="row">
 					<div id="comentarios"  class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+						<h1>Comentarios</h1>
 						<script type="text/javascript">
 							mostrarComentarios("#comentarios");
 						</script>

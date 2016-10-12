@@ -1,50 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <title>Clubs</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="css/font-awesome.min.css" rel="stylesheet">
-		<link href="css/mainFanApp.css" rel="stylesheet">
-		<link href="css/animate.css" rel="stylesheet">	
-		<link href="css/responsive.css" rel="stylesheet">
-		<script src="js/jquery.js" type="text/javascript"></script>
-		<script src="js/funcionesClub.js" type="text/javascript"></script>
-		<meta charset="utf-8"/>
-		<script src="js/bootstrap.js" type="text/javascript"></script>
-		<!--<script src="js/jquery.goup.min.js" type="text/javascript"></script>NUEVO-->
-		<style type="text/css">
-			.back-to-top {
-				cursor: pointer;
-				position: fixed;
-				bottom: 0;
-				right: 20px;
-				display:none;
-				background-color: #1B7B98;
-				color: #fff;
-			}
-		</style>	
-		<script>
-			function cargarClub(div, desde){
-				$(div).load(desde);
-				location.href="perfilClubNuevo.php?pag=<?php echo $_GET["pag"];?>"+div;
-			}
-		</script>
-		<script>
-			$(document).ready(function(){
-				function actualizando(){ 
-					actualizar("#publicaciones","php/ListPubClub.php");
-				}
-				setInterval(actualizando,45000);
-			});
-				
-		</script>
-		
-		<!--<script>
-			jQuery(document).ready(function(){
-				jQuery.goup();
-			});
-		</script>-->
+	<title>FanMusic</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/mainFanApp.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">	
+	<link href="css/responsive.css" rel="stylesheet">
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/funcionesClub.js" type="text/javascript"></script>
+	<meta charset="utf-8"/>
+	<script src="js/bootstrap.js" type="text/javascript"></script>
+	<!--<script src="js/jquery.goup.min.js" type="text/javascript"></script>NUEVO-->
+	<style type="text/css">
+		.back-to-top {
+			cursor: pointer;
+			position: fixed;
+			bottom: 0;
+			right: 20px;
+			display:none;
+			background-color: #1B7B98;
+			color: #fff;
+		}
+	</style>	
+	<script>
+		function cargarClub(div, desde){
+			$(div).load(desde);
+			location.href="perfilClubNuevo.php?pag=<?php echo $_GET["pag"];?>"+div;
+		}
+	</script>
 </head>
 <body>
 	<script type="text/javascript">
@@ -143,7 +128,7 @@
 							</script>
 						</div> 
 						<div id="opcionesClub">
-						</div> 
+						</div>
 					</div>
 				</div>
 			
@@ -168,6 +153,7 @@
 					$('body,html').animate({
 						scrollTop: 0
 					}, 800);
+					actualizar("#publicaciones","php/ListPubClub.php"); // AL TOCAR AHORA TAMBIEN RECARGARÁ LAS NOTICIAS :)
 					return false;
 				});
 				

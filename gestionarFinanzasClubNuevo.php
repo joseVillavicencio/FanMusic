@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="utf-8">
+	<title>FanMusic</title>  
+  <meta charset="utf-8">
 	<script type="text/javascript" src="js/jquery.js"></script>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -96,31 +97,9 @@
 				</div>
 				
 			</div>
-			
+			<br>
 		</div>
-		<div id="superior" class="row">
-			<div class="col-lg-6 col-sm-12"  id="listaFinanzas" style="margin-right:5%; margin-left:5%;">		
-				<h2>Finanzas Del Club</h2><br>
-				<table class="table table-striped" >
-				  <thead>
-					<tr>
-						<th>Motivo</th>
-						<th>Descripción</th>
-						<th>Monto</th>
-						<th>Fecha</th>
-						<th>Eliminar</th>
-						<th>Adjuntar</th>
-						<th>Imágenes</th>
-					</tr>
-					</thead>
-					<tbody id="tablaFC">
-						<script type="text/javascript">
-							tablaFinanzasClub("#tablaFC");
-						</script>
-					</tbody>
-				</table>
-			</div>
-			<div id="derecha" class="col-lg-4 col-sm-12" style="margin-left: 4%">
+		<div id="derecha" class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" >
 				<div id="crearFinanzas" align="center" class="panel panel-default">
 					<div class="panel-heading" align="center" >Crear Finanzas </div>
 						<div class="panel-body" aling="center" >
@@ -152,6 +131,29 @@
 						</div>
 				</div>
 			</div>
+		<div id="superior" class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12"  id="listaFinanzas" >		
+				<h2>Finanzas Del Club</h2><br>
+				<table class="table table-striped" >
+				  <thead>
+					<tr>
+						<th>Motivo</th>
+						<th>Descripción</th>
+						<th>Monto</th>
+						<th>Fecha</th>
+						<th>Opciones</th>
+						<th></th>
+						<th></th>
+					</tr>
+					</thead>
+					<tbody id="tablaFC">
+						<script type="text/javascript">
+							tablaFinanzasClub("#tablaFC");
+						</script>
+					</tbody>
+				</table>
+			</div>
+			
 
 			
 		</div>

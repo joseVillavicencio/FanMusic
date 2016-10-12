@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Grupos</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>FanMusic</title>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 		<link href="css/mainFanApp.css" rel="stylesheet">
 		<link href="css/animate.css" rel="stylesheet">	
 		<link href="css/responsive.css" rel="stylesheet">
-		<script src="js/jquery.js" type="text/javascript"></script>
+		
 		<script src="js/funcionesGrupo.js" type="text/javascript"></script>
 		<meta charset="utf-8"/>
 		<script src="js/bootstrap.js" type="text/javascript"></script>
-		<!--<script src="js/jquery.goup.min.js" type="text/javascript"></script>NUEVO-->
-	
+		
 	<script>
 		function cargar(div, desde){
 			$(div).load(desde);
 			location.href="p_gruposNuevo.php?pag=<?php echo $_GET["pag"];?>"+div;
 		}
 	</script>
-	<script>
-		$(document).ready(function(){
-			function actualizando(){ 
-				actualizar("#publicaciones","php/grupListPub.php");
-			}
-			setInterval(actualizando,45000);
-		});
-	</script>
+	
 	<style type="text/css">
 		.back-to-top {
 			cursor: pointer;
@@ -39,11 +32,7 @@
 			color: #fff;
 		}
 	</style>
-	<!--<script>
-		jQuery(document).ready(function(){
-			jQuery.goup();
-		});
-	</script>-->
+	
 </head>
 <body>
 	<script type="text/javascript">
@@ -164,6 +153,7 @@
 				$('body,html').animate({
 					scrollTop: 0
 				}, 800);
+				actualizar("#publicaciones","php/grupListPub.php");
 				return false;
 			});
 			

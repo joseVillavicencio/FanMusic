@@ -17,7 +17,7 @@
 					$nombre=$fila[1];
 					$descrip=$fila[2];
 					$club=$fila[3];
-					
+
 					$conexion = conectar(); //Desde aquí comienza un filtrado, para no mostrar los clubs en los que está bloqueado
 					$consulta="call nombreClub('".$club."');";
 					if($resultado = $conexion->query($consulta)){

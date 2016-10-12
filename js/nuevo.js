@@ -140,33 +140,37 @@ function crearGrupo2(){
 	var nombreG=document.getElementById("nombreG").value;
 	var al=document.getElementById("al").value;
 	if((d!="")&&(nombreG!="")&&(al!="")&&(pais!="Selecciona País")&&(region!="Selecciona Región")&&(ciudad!="Selecciona Ciudad")){
-		var parametros={
-			'nombre':nombreG,
-			'al': al,
-			'pa': pais,
-			'reg': region,
-			'ci': ciudad,
-			'id':getIDActual(), 
-			'descripcion':d
-		};
-		$.ajax({
-			data: parametros,
-			url: "php/crear.php",
-			type: "POST",	
-			success: function(response){			
-			
-				if(response=="success"){
-					location.href='bienvenidaNuevo.php';
-				}else{
-					if(response=="error 1"){
-						alert("El grupo ya existe");
+		if((d.length<=150)&&(al.length<=20)&&(nombreG<50)){
+			var parametros={
+				'nombre':nombreG,
+				'al': al,
+				'pa': pais,
+				'reg': region,
+				'ci': ciudad,
+				'id':getIDActual(), 
+				'descripcion':d
+			};
+			$.ajax({
+				data: parametros,
+				url: "php/crear.php",
+				type: "POST",	
+				success: function(response){			
+				
+					if(response=="success"){
 						location.href='bienvenidaNuevo.php';
 					}else{
-						alert("No se ha podido crear el grupo");
+						if(response=="error 1"){
+							alert("El grupo ya existe");
+							location.href='bienvenidaNuevo.php';
+						}else{
+							alert("No se ha podido crear el grupo");
+						}
 					}
 				}
-			}
-		});
+			});
+		}else{
+			alert("Alguno de los campos ingresados excede el tamaño permitido");
+		}	
 	}else{
 		alert("Debe completar todos los campos");
 	}
@@ -281,7 +285,7 @@ function informarAsistencia(id, nombreEvento,name){
 		type: "POST",	//Defino la forma en que llegarán los parámetros al php
 		
 		success: function(response){	
-			alert(response);
+			
 			if(response==1){
 				location.href='bienvenidaNuevo.php';
 			}else{
@@ -389,23 +393,27 @@ function clubCrear(){
 	var nombreC=document.getElementById("nombreC").value;
 	var al=document.getElementById("alias").value;
 	if((d!="")&&(nombreC!="")&&(al!="")&&(pais!="Selecciona País")&&(region!="Selecciona Región")&&(ciudad!="Selecciona Ciudad")){
-		var parametros={
-			'id':getIDActual(),
-			'nombre':nombreC,
-			'descripcion':d,
-			'pais':pais,
-			'region':region,
-			'ciudad':ciudad,
-			'alias':al,
-		};
-		$.ajax({
-			data: parametros,
-			url: "php/crearClub.php",
-			type: "POST",	
-			success: function(response){
-				location.href='/FanMusic/bienvenidaNuevo.php';
-			}
-		});
+		if((d.length<=150)&&(al.length<=20)&&(nombreC<=50)){
+			var parametros={
+				'id':getIDActual(),
+				'nombre':nombreC,
+				'descripcion':d,
+				'pais':pais,
+				'region':region,
+				'ciudad':ciudad,
+				'alias':al,
+			};
+			$.ajax({
+				data: parametros,
+				url: "php/crearClub.php",
+				type: "POST",	
+				success: function(response){
+					location.href='/FanMusic/bienvenidaNuevo.php';
+				}
+			});
+		}else{
+			alert("Alguno de lo campos ingresados supera el largo permitido");
+		}
 	}else{
 		alert("Debe completar todos los campos");
 	}

@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <title>FanMusic</title>
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/funcionesGrupo.js" type="text/javascript"></script>
+	<script src="js/bootstrap.js" type="text/javascript"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/mainFanApp.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">	
 	<link href="css/responsive.css" rel="stylesheet">
-	<!-- Esta parte es de nuestro codigo- -->
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script src="js/funcionesGrupo.js" type="text/javascript"></script>
-		<style type="text/css">
-			.back-to-top {
-				cursor: pointer;
-				position: fixed;
-				bottom: 0;
-				right: 20px;
-				display:none;
-				background-color: #1B7B98;
-				color: #fff;
-			}
-		</style>
+		
+	<style type="text/css">
+		.back-to-top {
+			cursor: pointer;
+			position: fixed;
+			bottom: 0;
+			right: 20px;
+			display:none;
+			background-color: #1B7B98;
+			color: #fff;
+		}
+	</style>
 </head>
 <body>
 	<script type="text/javascript">
@@ -84,13 +86,15 @@
 				</div>
 				<br>
 				<div id="datos" >
-					
 					<div class="panel-body">
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon3">Descripción</span> 
 							<input type="text" class="form-control" id="descripcion" aria-describedby="basic-addon3">
+							<script type="text/javascript">
+									$('#descripcion').tooltip({'trigger':'focus', 'title': 'Ingrese una nueva descripción (150 caracteres máx)'});
+							</script>
 						</div><br>
-						<button type="button" onclick="cargarCambiosPerfilGrupo();" class="btn btn-success">Editar Información</button>
+						<button type="button" onclick="cargarCambiosPerfilGrupo();" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
 					</div>
 				</div>
 			</div>

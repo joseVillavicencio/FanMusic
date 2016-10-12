@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <title>FanMusic</title>
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -11,7 +12,7 @@
 	<!-- Esta parte es de nuestro codigo- -->
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script src="js/funcionesClub.js" type="text/javascript"></script>
-	
+	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<style type="text/css">
 		.back-to-top {
 			cursor: pointer;
@@ -88,9 +89,12 @@
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon3">Descripción</span> 
 								<input type="text" class="form-control" id="descripcion" aria-describedby="basic-addon3">
+								<script type="text/javascript">
+									$('#descripcion').tooltip({'trigger':'focus', 'title': 'Ingrese una nueva descripción (150 caracteres máx)'});
+								</script>
 							</div>
 							<br>
-							<button type="button" onclick="cargarCambiosPerfilClub();" class="btn btn-success">Editar Información</button>
+							<button type="button" onclick="cargarCambiosPerfilClub();" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Editar</button>
 						</div>
 					</div>
 				</div>

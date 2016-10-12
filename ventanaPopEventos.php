@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<title>FanMusic</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script type="text/javascript" src="js/jquery.js"></script>
@@ -11,7 +12,6 @@
 		<link href="css/animate.css" rel="stylesheet">	
 		<link href="css/responsive.css" rel="stylesheet">
 		<!-- Esta parte es de nuestro codigo- -->
-		
 		<script src="Highcharts-4.1.5/js/highcharts.js"></script>
 	</head>
 

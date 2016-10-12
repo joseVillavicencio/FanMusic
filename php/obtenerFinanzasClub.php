@@ -29,7 +29,7 @@
 						$sql4 = "call esAdmin3('".$idM."','".$idClub."');";
 						if($result4 = $conexion->query($sql4)){
 							if($result4->num_rows >0){
-								echo '<div><td><input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="eliminarFClub('.$id.');">Eliminar</button></td></div>';
+								echo '<div><td><input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-danger btn-xs" onclick="eliminarFClub('.$id.');"><span class="glyphicon glyphicon-remove"></span></button></td></div>';
 								echo '<div><td><input  id="'.$id.'" type="hidden"><button type="button" class="btn btn-info btn-xs" onclick="subirFotoFinanza('.$id.');">Adjuntar Foto</button></td></div>';
 							}
 						}

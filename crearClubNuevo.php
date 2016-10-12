@@ -61,7 +61,7 @@
 										</div>
 										<br>
 										<div class="input-group">
-											<span class="input-group-addon" id="basic-addon3">Alias: </span>
+											<span class="input-group-addon" id="basic-addon3">Artista: </span>
 											<input type="text" class="form-control" id="alias" aria-describedby="basic-addon3">
 											<script type="text/javascript">
 													$('#alias').tooltip({'trigger':'focus', 'title': '¿A qué Artista o Banda seguirán? (No más de 20 caracteres)'});

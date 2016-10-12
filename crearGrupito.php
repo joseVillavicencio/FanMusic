@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" >
 	<head>
+		<title>FanMusic</title>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<script src="js/jquery.js" type="text/javascript"></script>
 		<script src="js/bootstrap.js" type="text/javascript"></script>
@@ -36,13 +37,13 @@
 							<div id="crear" class="panel panel-default" style="">
 								
 								<div class="panel-body"  align="center">
-									<!-- Falta subir la foto, pero nose si lo hace jose o yo ....-->
+									
 									<div class="input-group">
 										<span class="input-group-addon" id="basic-addon3">Nombre del Grupo: </span>
 										<input type="text" class="form-control" id="nombreG" aria-describedby="basic-addon3">
 										<script type="text/javascript">
-											$('#nombre').tooltip({'trigger':'focus', 'title': 'No debe superar los 50 caracteres'});
-									</script>
+											$('#nombreG').tooltip({'trigger':'focus', 'title': 'No debe superar los 50 caracteres'});
+										</script>
 									</div>
 									<br>
 									<div class="input-group">

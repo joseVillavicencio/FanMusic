@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+		<title>FanMusic</title>
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script src="js/funcionesEvento.js" type="text/javascript"></script>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -64,12 +64,12 @@
 			</div>
 		</div>
 	</header>
-		<section id="explore">
-			<div class="row">
+		<section id="explore" >
+			<div class="row"  style="Height:100%" >
 				<div class="watch">
 						<img class="img-responsive" src="images/watch.png" alt="">
 				</div>				
-				<div class="col-md-7 col-md-offset-3 col-sm-11">
+				<div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-11 col-sm-offset-1" >
 					<div id="eventos general" class="table-responsive" align="center">
 						<table class="table" >
 							<thead>
@@ -122,7 +122,7 @@
 			});
 		</script>
 		</body>
-		 <footer id="footer" style="postion: absolute ;bottom:0;">
+		 <footer id="footer" style="position: relative;bottom: 0;">
 			<div class="container">
 				<div class="text-center">
 					<p> Sitio desarrollado por Dania Delgado - Tania Pizarro - Jose Villavicencio &copy;2016<br>

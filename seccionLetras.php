@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>FanMusic</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/mainFanApp.css" rel="stylesheet">
 	<script src="js/jquery.js" type="text/javascript"></script>
@@ -121,6 +122,9 @@
 					<div class="panel panel-body"><div class="input-group"></div>
 						<div class="input-group"><span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span>
 							<input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3">
+							<script type="text/javascript">
+								$('#tituloNuevo').tooltip({'trigger':'focus', 'title': 'Ingrese un título para su anécdota (80 caracteres máx)'});
+							</script>
 						</div>
 						<center><h3>Ingrese el idioma</h3></center>
 						
@@ -176,9 +180,12 @@
 						</script>
 						<br>
 						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon3">Contenido</span> 
+							<span class="input-group-addon" id="basic-addon3">Contenido</span>
 						</div><br>
 						<textarea rows="10" id="contenidoNuevo" style="width:100%; resize: none;"></textarea>
+						<script type="text/javascript">
+							$('#contenidoNuevo').tooltip({'trigger':'focus', 'title': 'Ingresa algo que quieras comentarnos (800 caracteres máx)'});
+						</script>
 						<div ><button class="btn btn-primary" onclick="publicarLetra();">Añadir</button></div>
 					</div>
 				</div>

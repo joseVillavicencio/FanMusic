@@ -23,6 +23,8 @@
 								$video=$row[3];
 								echo '<div class="panel panel-default" style="color:black;"><div style="color:black;" class="panel-heading"><h1>'.$song.'&nbsp;&nbsp;&nbsp;'.$cd.'</h1><sup>'.$lang.'</sup></div><div class="panel-body"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/'.$video.'"  allowfullscreen></iframe></div><br></div></div>';
 							}
+						}else{
+							echo "El club no posee covers.";
 						}
 					}
 				}

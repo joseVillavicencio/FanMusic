@@ -16,6 +16,7 @@
 					$imag=$fila[2] ;
 					$nombre=$fila[0];
 					$descrip=$fila[1];
+
 					
 					$conexion = conectar(); //Desde aquí comienza un filtrado, para no mostrar los clubs en los que está bloqueado
 					$consulta="call nombreClub('".$nombre."');";

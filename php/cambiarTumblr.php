@@ -12,11 +12,15 @@
 	}else{
 		if($tumblr!=NULL){
 			if($opcion == 0){//Actualizar
-				$sql2 =  "call actualizarTumblr('".$tumblr."','".$id_User."');"; 
-				if($result2 = $conexion->query($sql2)){
-					echo true;
+				if(strlen($tumblr)<=125){
+					$sql2 =  "call actualizarTumblr('".$tumblr."','".$id_User."');"; 
+					if($result2 = $conexion->query($sql2)){
+						echo true;
+					}else{
+						echo false;
+					}
 				}else{
-					echo false;
+					echo 2;
 				}
 			}else{
 				$conexion=conectar();
