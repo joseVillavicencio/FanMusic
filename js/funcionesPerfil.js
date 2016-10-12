@@ -151,8 +151,12 @@ function actTwitter(opcion){
 					localStorage.setItem("ctaTW","");
 					location.href='/FanMusic/perfilNuevo.php';
 				}else{
+					if(response==2){
+						alert("El largo de los caracteres ha superado el límite permitido");
+					}else{
 						alert("Hubo un problema con tu petición");
 					}
+				}
 			}
 		}		
 	});
@@ -182,7 +186,11 @@ function actFacebook(opcion){
 					localStorage.setItem("ctaFB","");
 					location.href='/FanMusic/perfilNuevo.php';
 				}else{
-					alert("Hubo un problema con tu petición");
+					if(response==2){
+						alert("El largo de los caracteres ha superado el límite permitido");
+					}else{
+						alert("Hubo un problema con tu petición");
+					}
 				}
 			}
 		}
@@ -214,7 +222,11 @@ function actYoutube(opcion){
 					localStorage.setItem("ctaYT","");
 					location.href='/FanMusic/perfilNuevo.php';
 				}else{
-					alert("Hubo un problema con tu petición");
+					if(response==2){
+						alert("El largo de los caracteres ha superado el límite permitido");
+					}else{
+						alert("Hubo un problema con tu petición");
+					}
 				}
 			}
 		}
@@ -245,7 +257,11 @@ function actTumblr(opcion){
 					localStorage.setItem("ctaTM","");
 					location.href='/FanMusic/perfilNuevo.php';
 				}else{
-					alert("Hubo un problema con tu petición");
+					if(response==2){
+						alert("El largo de los caracteres ha superado el límite permitido");
+					}else{
+						alert("Hubo un problema con tu petición");
+					}
 				}
 			}
 		}
@@ -277,7 +293,11 @@ function actInstagram(opcion){
 					localStorage.setItem("ctaIG","");
 					location.href='/FanMusic/perfilNuevo.php';
 				}else{
-					alert("Hubo un problema con tu petición");
+					if(response==2){
+						alert("El largo de los caracteres ha superado el límite permitido");
+					}else{
+						alert("Hubo un problema con tu petición");
+					}
 				}
 			}
 		}
@@ -289,63 +309,117 @@ function actualizarVariables(ap,gu){
 }
 
 function revisarApodo(){
-	var parametros={
-		"apodo" : document.getElementById("APODO").value,
+	var ap=document.getElementById("APODO").value;
+	var parametros = {
+		"apodo": ap
 	}
-	$.ajax({
-		data: parametros,
-		url: "php/validarApodo.php",
-		type: "post",	//Defino la forma en que llegarán los parámetros al php
-		
-		success: function(response){			
-			if(response==1){
-				veriCambioContra();
-			}else{
-				alert("Este apodo ya esta siendo usado por otro usuario, favor de ingresar otro.")
+	if((ap=="")){
+		cargarCambiosPerfil("");
+	}else{
+		$.ajax({
+			data: parametros,
+			url: "php/validarApodo.php",
+			type: "post",	//Defino la forma en que llegarán los parámetros al php
+			
+			success: function(response){			
+				if(response==1){
+					veriCambioContra();
+				}else{
+					if(response==3){
+						alert("El apodo debe ser menor a 25 caracteres");
+					}else{
+						alert("Este apodo ya esta siendo usado por otro usuario, favor de ingresar otro.")
+					}
+				}
 			}
-		}
-	});
-	
+		});
+	}
 }
 
 function veriCambioContra(){
 	var nueva=document.getElementById("PASSnue").value;
 	if(nueva!=""){
-		var parametros={
-			"idUser": getIDActual(),
-			"ant": document.getElementById("PASSant").value,
-		}
-		$.ajax({
-			data: parametros,
-			url: "php/veriCambioContra.php",
-			type: "post",	//Defino la forma en que llegarán los parámetros al php
-			success: function(response){
-				if(response=="success"){
-					if(validarPass(nueva)==1){
-						cargarCambiosPerfil(nueva);
-					}
-				}else{
-					if(response=="error 2"){
-						alert("El campo Antigua Contraseña se encuentra Vacio, debe completar este campo");
-						location.href='/FanMusic/editar_perfilNuevo.php';
+		if(nueva.length<=15){
+			var parametros={
+				"idUser": getIDActual(),
+				"ant": document.getElementById("PASSant").value,
+			}
+			$.ajax({
+				data: parametros,
+				url: "php/veriCambioContra.php",
+				type: "post",	//Defino la forma en que llegarán los parámetros al php
+				success: function(response){
+					if(response=="success"){
+						if(validarPass(nueva)==1){
+							actualizarContra(nueva);
+						}
 					}else{
-						alert("La contraseña antigua que ha ingresado no concuerda con nuestra base de datos");
-						location.href='/FanMusic/editar_perfilNuevo.php';
+						if(response=="error 2"){
+							alert("El campo Antigua Contraseña se encuentra Vacio, debe completar este campo");
+							location.href='/FanMusic/editar_perfilNuevo.php';
+						}else{
+							alert("La contraseña antigua que ha ingresado no concuerda con nuestra base de datos");
+							location.href='/FanMusic/editar_perfilNuevo.php';
+						}
 					}
 				}
-			}
-		});
+			});
+		}else{
+			alert("El largo ingresado de la contraseña ha sido superado");
+		}
 	}else{
 		cargarCambiosPerfil("");
 	}
 }
 
 function cargarCambiosPerfil(pass){ //Para comunicarse con PHP
+	var ap=document.getElementById("APODO").value;
+	var des=document.getElementById("DESCRIP").value;
+	var gustos=document.getElementById("GUSTOS").value;
+	var flagAp=0;
 	var parametros = {
 		"idUser": getIDActual(),
-		"APODO" : document.getElementById("APODO").value,
-		"DESCRIP" : document.getElementById("DESCRIP").value,
-		"GUSTOS" : document.getElementById("GUSTOS").value,
+		"APODO" : ap,
+		"DESCRIP" : des,
+		"GUSTOS" : gustos,
+		"PASS" : pass,
+	}
+	if((ap=="")&&(des=="")&&(gustos=="")){
+		alert("Debe completar algun campo");
+	}else{
+		
+		$.ajax({
+			data: parametros,
+			url: "php/cambiarPerfil.php",
+			type: "post",	//Defino la forma en que llegarán los parámetros al php
+			success: function(response){
+				if((parametros["APODO"]!="")&&(response=="success")){
+					actualizarVariables(parametros["APODO"]);
+					location.href='/FanMusic/perfilNuevo.php';
+				}else{
+					if(response=="success"){
+						alert("Su información ha sido actualizada");
+						location.href='/FanMusic/perfilNuevo.php';
+					}else{
+						if(response==2){
+							alert("Ha excedido el largo de caracteres en alguno de los campos");
+						}else{
+							alert("Ha ocurrido una error al conectarse con el servidor, favor de intentar más tarde");
+							location.href='/FanMusic/editar_perfilNuevo.php';
+						}
+					}
+				}
+			}
+		});
+		
+	}
+}
+function actualizarContra(pass){ //Para comunicarse con PHP
+	var parametros = {
+		"idUser": getIDActual(),
+		"APODO" : "",
+		"DESCRIP" : "",
+		"GUSTOS" : "",
 		"PASS" : pass,
 	}
 	$.ajax({
@@ -353,21 +427,23 @@ function cargarCambiosPerfil(pass){ //Para comunicarse con PHP
 		url: "php/cambiarPerfil.php",
 		type: "post",	//Defino la forma en que llegarán los parámetros al php
 		success: function(response){
-			if((parametros["APODO"]!="")&&(response=="success")){
-				actualizarVariables(parametros["APODO"]);
+			if(response=="success"){
+				alert("Su contraseña ha sido actualizada");
 				location.href='/FanMusic/perfilNuevo.php';
 			}else{
-				if(response=="success"){
-					location.href='/FanMusic/perfilNuevo.php';
+				if(response==2){
+					alert("Ha excedido el largo de caracteres en alguno de los campos");
 				}else{
 					alert("Ha ocurrido una error al conectarse con el servidor, favor de intentar más tarde");
 					location.href='/FanMusic/editar_perfilNuevo.php';
 				}
 			}
+			
 		}
 	});
+		
+	
 }
-
 function redesSoc(div){ //Para comunicarse con PHP
 	var parametros = {
 		"idUser": getIDActual(),
@@ -634,7 +710,7 @@ function publicarCover(){
 	}
 	
 	if((titulo!="")&&(album!="")&&(link!="")){
-		if( ((tit.length)<50)&& (album.length<50)&&(link.length<16)){
+		if( ((tit.length)<=50)&& (album.length<=50)&&(link.length<=16)){
 			$.ajax({
 				data:parametros,
 				url:"php/publicarCover.php",

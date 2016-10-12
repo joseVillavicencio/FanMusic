@@ -6,14 +6,14 @@
 				<span class="input-group-addon" id="basic-addon3">T&iacute;tulo</span>
 				<input type="text" class="form-control" id="tituloNuevo" aria-describedby="basic-addon3">
 				<script type="text/javascript">
-					$('#tituloNuevo').tooltip({'trigger':'focus', 'title': 'Ingrese un título adecuado para tu anécdota'});
+					$('#tituloNuevo').tooltip({'trigger':'focus', 'title': 'Ingrese un título adecuado para tu anécdota(máx 80 caracteres)'});
 				</script>
 			</div><br>
 			<div  style="color:black;"> <textarea rows="5" style="width:100%; resize: none;" id="contenidoNuevo" ></textarea></div>
 			<div class="input-group" align="center">
 				
 				<script type="text/javascript">
-					$('#contenidoNuevo').tooltip({'trigger':'focus', 'title': 'Cuéntanos tu anécdota'});
+					$('#contenidoNuevo').tooltip({'trigger':'focus', 'title': 'Cuéntanos tu anécdota(máx 800 caracteres)'});
 				</script>
 			</div><br>
 			<span class="input-group-addon" id="basic-addon3">¿Deseas Compartirlo con alguno de tus Clubs?</span><br>

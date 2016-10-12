@@ -13,11 +13,15 @@
 		
 		if($twitter!=null){
 			if($opcion == 0){//Actualizar
-				$sql2 =  "call actualizarTwitter('".$twitter."','".$id_User."');"; 
-				if($result2 = $conexion->query($sql2)){
-					echo true;
+				if(strlen($twitter)<=125){
+					$sql2 =  "call actualizarTwitter('".$twitter."','".$id_User."');"; 
+					if($result2 = $conexion->query($sql2)){
+						echo true;
+					}else{
+						echo false;
+					}
 				}else{
-					echo false;
+					echo 2;
 				}
 			}else{
 				$conexion=conectar();
