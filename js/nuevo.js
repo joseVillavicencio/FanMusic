@@ -273,11 +273,12 @@ function asistenciaEvento(div){
 }
 function informarAsistencia(id, nombreEvento,name){
 	var seleccion=obtenerOpcionFechas(name);
-
+	
 	var parametros = {
-		"id" :  id,//Nombre que llego desde el formulario	
+		"idE" :  id,//Nombre que llego desde el formulario	
 		"nombreEvento" : nombreEvento,
 		"fechaEscogida": seleccion,
+		'id' :  getIDActual()
 	};
 	$.ajax({
 		data: parametros,

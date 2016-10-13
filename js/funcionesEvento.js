@@ -334,7 +334,7 @@ function fechaFinal(idEv,fUno,fDos,fTres,cUno,cDos,cTres){
 		type: "POST",	//Defino la forma en que llegarán los parámetros al php
 		
 		success: function(response){
-			//alert(response);
+			alert(response);
 			location.href='miseventosEXITONUEVO.php';
 		}
 	});
