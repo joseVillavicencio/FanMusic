@@ -29,7 +29,7 @@
 											$cantUno=$fila3[3] ;
 											$cantDos=$fila3[4] ;
 											$cantTres=$fila3[5] ;
-											echo json_encode(array('status'=>'success','message'=>''.$cantUno.';'.$cantDos.';'.$cantTres.';'.$fechaUno.';'.$fechaDos.';'.$fechaTres));
+											echo json_encode(array('status'=>'success','message'=>''.$cantUno.';'.$cantDos.';'.$cantTres.';'.$fechaUno.';'.$fechaDos.';'.$fechaTres.''));
 										}
 									}
 								}

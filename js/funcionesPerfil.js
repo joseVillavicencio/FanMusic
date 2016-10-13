@@ -507,24 +507,29 @@ function presentacion(div){
 } 
 function eliminarCuenta(){
     var contra= prompt("Favor ingrese su constraseña para confirmar:");
-    var parametros={
-   	 "idM":getIDActual(),
-   	 "correo" : getCorrActual(),
-   	 "contra" : contra
-    }
-    $.ajax({
-   	 data:parametros,
-   	 url:"php/eliminarCuenta.php",
-   	 type:"POST",
-   	 success:    function(response){
-   		if(response==1){
-   			 alert("Su cuenta ha sido eliminada");
-   			 logOut();
-   		 }else{
-   			 alert("Ocurrió un problema al eliminar su cuenta");
-   		 }
-   	 }
-    });
+	if(contra!=""){
+		var parametros={
+		 "idM":getIDActual(),
+		 "correo" : getCorrActual(),
+		 "contra" : contra
+		}
+		
+		$.ajax({
+		 data:parametros,
+		 url:"php/eliminarCuenta.php",
+		 type:"POST",
+		 success:    function(response){
+			if(response==1){
+				 alert("Su cuenta ha sido eliminada");
+				 logOut();
+			 }else{
+				 alert("Ocurrió un problema al eliminar su cuenta");
+			 }
+		 }
+		});
+	}else{
+		alert("No ingresó los datos solicitados");
+	}
 }
 //*----------seccion nueva--------------------- *
 function anecdota(div){
@@ -565,7 +570,7 @@ function publicarAnecdota(){
 		"compartir": compartir,
 	}
 	if((titulo!="")&&(contenido!="")){
-		if( ((tit.length)<80)&& (cont.length<800)){		
+		if( ((titulo.length)<80)&& (contenido.length<800)){		
 			$.ajax({
 				data:parametros,
 				url:"php/publicarAnecdota.php",
@@ -710,7 +715,7 @@ function publicarCover(){
 	}
 	
 	if((titulo!="")&&(album!="")&&(link!="")){
-		if( ((tit.length)<=50)&& (album.length<=50)&&(link.length<=16)){
+		if( ((titulo.length)<=50)&& (album.length<=50)){
 			$.ajax({
 				data:parametros,
 				url:"php/publicarCover.php",

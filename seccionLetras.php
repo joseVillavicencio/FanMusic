@@ -184,7 +184,7 @@
 						</div><br>
 						<textarea rows="10" id="contenidoNuevo" style="width:100%; resize: none;"></textarea>
 						<script type="text/javascript">
-							$('#contenidoNuevo').tooltip({'trigger':'focus', 'title': 'Ingresa algo que quieras comentarnos (800 caracteres máx)'});
+							$('#contenidoNuevo').tooltip({'trigger':'focus', 'title': 'Ingresa algo que quieras comentarnos (5000 caracteres máx)'});
 						</script>
 						<div ><button class="btn btn-primary" onclick="publicarLetra();">Añadir</button></div>
 					</div>

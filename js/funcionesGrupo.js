@@ -776,7 +776,7 @@ function publicar(){
 	if((cont.length<=800)&&(tit.length<=50)&&(sub.length<=50)){ 
 		if((tit!="")&&(sub!="")&&(cont!="")){
 			var parametros={
-				"nombreG":localStx.getItem("nombreG"),
+				"nombreG":localStorage.getItem("nombreG"),
 				"titulo": getTituloNuevo(),
 				"subtitulo": getSubtituloNuevo(),
 				"contenido": getContenidoNuevo()
