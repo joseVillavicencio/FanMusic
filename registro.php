@@ -84,7 +84,7 @@
 							<br>
 							<div class="input-group">
   								<span class="input-group-addon" id="basic-addon3">Gustos:</span>
-								<input type="text" class="form-control" id="gustos" placeholder="¿Qué te gusta Hacer?" aria-describedby="basic-addon3">
+								<input type="text" class="form-control" id="gustos" placeholder="¿Qué estilo(s) musical(es) prefieres?" aria-describedby="basic-addon3">
 								<script type="text/javascript">
 										$('#gustos').tooltip({'trigger':'focus', 'title': 'No debe superar los 140 caracteres'});
 								</script>

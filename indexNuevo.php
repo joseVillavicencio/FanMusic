@@ -79,7 +79,7 @@
 								<span class="input-group-addon" id="basic-addon3">Nombre:</span>
 								<input type="text" class="form-control" id="nomSign" placeholder="Nombre" aria-describedby="basic-addon3">
 								<script type="text/javascript">
-										$('#nomSign').tooltip({'trigger':'focus', 'title': 'El nombre debe ser escrito con la inicial en Mayúscula'});
+										$('#nomSign').tooltip({'trigger':'focus', 'title': 'El nombre debe ser escrito con la inicial en Mayúscula (tamaño máximo 25 caracteres)'});
 									</script>
 							</div>
 							<br>
@@ -87,7 +87,7 @@
 								<span class="input-group-addon" id="basic-addon3">Apellido:</span>
 								<input type="text" class="form-control" id="apeSign" placeholder="Apellido" aria-describedby="basic-addon3">
 								<script type="text/javascript">
-										$('#apeSign').tooltip({'trigger':'focus', 'title': 'El apellido debe ser escrito con la inicial en Mayúscula'});
+										$('#apeSign').tooltip({'trigger':'focus', 'title': 'El apellido debe ser escrito con la inicial en Mayúscula (tamaño máximo 25 caracteres)'});
 									</script>
 							</div>
 							<br>
@@ -100,7 +100,7 @@
 								<span class="input-group-addon" id="basic-addon3">Apodo:</span>
 								<input type="text" class="form-control" id="apodSign" placeholder="Todos te conocerán por ... " aria-describedby="basic-addon3">
 								<script type="text/javascript">
-										$('#apodSign').tooltip({'trigger':'focus', 'title': 'El apodo debe ser escrito solo con letras minúsculas'});
+										$('#apodSign').tooltip({'trigger':'focus', 'title': 'El apodo debe ser escrito solo con letras minúsculas (tamaño máximo 25 caracteres)'});
 								</script>
 							</div>
 							<br>
@@ -108,7 +108,7 @@
 								<span class="input-group-addon" id="basic-addon3">Contraseña:</span>
 								<input type="password" class="form-control" id="passSign" placeholder="No utilice contraseñas de otros sitios" aria-describedby="basic-addon3">
 								<script type="text/javascript">
-										$('#passSign').tooltip({'trigger':'focus', 'title': 'La Contraseña debe tener al menos una Mayúscula, tres números y un largo superior a 6 caracteres.'});
+										$('#passSign').tooltip({'trigger':'focus', 'title': 'La Contraseña debe tener al menos una Mayúscula, tres números y un largo entre 6-15 caracteres.'});
 								</script>
 							</div>
 							<br>
