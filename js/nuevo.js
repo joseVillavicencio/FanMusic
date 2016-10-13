@@ -480,6 +480,7 @@ function calendario(div){
 		dataType:"JSON",
 		cache:	false,
 		success: function(response){
+			
 			if(response.status=="success"){
 				var respuesta=response.message.toString();
 				var i=0;
@@ -487,15 +488,12 @@ function calendario(div){
 				while(i<(casilla.length-1)){
 					var datos=casilla[i].split("/"); 
 					var nombreE=datos[0],descripE=datos[1],perteneceE=datos[3];
-					if(datos[2]!=""){
-						var fechita=datos[2].split("-");
-						var anio =fechita[0], mes = fechita[1];
-						var dihora= fechita[2].split(" ");
-						var dias=dihora[0], hora=dihora[1];
-						var horario = hora.split(":");
-						events.push({title: nombreE, description: descripE, datetime: new Date(anio, mes-1, dias, horario[0])});
-						
-					}
+					var fechita=datos[2].split("-");
+					var anio =fechita[0], mes = fechita[1];
+					var dihora= fechita[2].split(" ");
+					var dias=dihora[0], hora=dihora[1];
+					var horario = hora.split(":");
+					events.push({title: nombreE, description: descripE, datetime: new Date(anio, mes-1, dias, horario[0])});
 					i++;
 				}
 				$(div).eCalendar({events});

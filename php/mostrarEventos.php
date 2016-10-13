@@ -16,26 +16,28 @@
 					$fecha_f=$fila[2];
 					$idClubE=$fila[3];
 					$idGrupoE=$fila[4];
-					if($idClubE!=null){
-						$conexion2=conectar();	
-						$sql2 = "call nombreDelClub('".$idClubE."');"; //Busco el nombre del club para mostrarlo
-						if($result2 = $conexion2->query($sql2)){
-							if($result2->num_rows >0){
-								while($fila2=mysqli_fetch_row($result2)){ 
-									$nombreClub=$fila2[0] ;
+					if($fecha_f!=""){
+						if($idClubE!=""){
+							$conexion2=conectar();	
+							$sql2 = "call nombreDelClub('".$idClubE."');"; //Busco el nombre del club para mostrarlo
+							if($result2 = $conexion2->query($sql2)){
+								if($result2->num_rows >0){
+									while($fila2=mysqli_fetch_row($result2)){ 
+										$nombreClub=$fila2[0] ;
+									}
+									$arraylist=$arraylist."".$nombreE."/".$descripE."/".$fecha_f."/".$nombreClub."@";
 								}
-								$arraylist=$arraylist."".$nombreE."/".$descripE."/".$fecha_f."/".$nombreClub."@";
 							}
-						}
-					}else{
-						$conexion2=conectar();
-						$sql2 = "call nombreDelGrupo('".$idGrupoE."');"; //Busco el nombre del club para mostrarlo
-						if($result2 = $conexion2->query($sql2)){
-							if($result2->num_rows >0){
-								while($fila2=mysqli_fetch_row($result2)){ 
-									$nombreGrupo=$fila2[0] ;
+						}else{
+							$conexion3=conectar();
+							$sql3 = "call nombreDelGrupo('".$idGrupoE."');"; //Busco el nombre del club para mostrarlo
+							if($result3 = $conexion3->query($sql3)){
+								if($result3->num_rows >0){
+									while($fila3=mysqli_fetch_row($result3)){ 
+										$nombreGrupo=$fila3[0] ;
+									}
+									$arraylist=$arraylist."".$nombreE."/".$descripE."/".$fecha_f."/".$nombreGrupo."@";
 								}
-								$arraylist=$arraylist."".$nombreE."/".$descripE."/".$fecha_f."/".$nombreGrupo."@";
 							}
 						}
 					}
