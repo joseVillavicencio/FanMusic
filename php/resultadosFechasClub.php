@@ -86,7 +86,7 @@
 												echo '<td> '.$contarT.'</td>' ;
 												echo '<td> <button type="button" id="botonConfirmar" class="btn btn-primary btn-xs" onclick="fechaFinal('."'".$idEvento."'".','."'".$fechaUno."'".','."'".$fechaDos."'".','."'".$fechaTres."'".','."'".$cantUno."'".','."'".$cantDos."'".','."'".$cantTres."'".');" >Confirmar Fecha</button></td>';
 												if($contarT>0){
-													echo '<td> <button type="button" id="botonConfirmar" class="btn btn-primary btn-xs" onclick="ventanaPopEventos();" >Ver asistencia</button></td></tr>';
+													echo '<td> <button type="button" id="botonConfirmar" class="btn btn-primary btn-xs" onclick="ventanaPopEventos('."'".$idEvento."'".','."'".$fechaUno."'".','."'".$fechaDos."'".','."'".$fechaTres."'".','."'".$cantUno."'".','."'".$cantDos."'".','."'".$cantTres."'".');" >Ver asistencia</button></td></tr>';
 												}
 											}
 										}
