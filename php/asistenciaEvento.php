@@ -49,7 +49,7 @@
 					echo '&nbsp;<td> <input type="radio" name="opcion'.$idE.'" value="'.$fechaDos.'" > '.$fechaDos.' </td>' ;
 					echo '&nbsp;<td> <input type="radio" name="opcion'.$idE.'" value="'.$fechaTres.'" > '.$fechaTres.' </td>' ;
 					echo '&nbsp;<td> <input type="radio" name="opcion'.$idE.'" value="No">No asistiré</td>' ;
-					echo '&nbsp;<td> <button type="button" id="botonFecha" class="btn btn-info btn-xs" onclick="informarAsistencia('.$id.','."'".$nombreEvento."'".','."'".'opcion'.$idE."'".');" >Elegir</button></div><br>';
+					echo '&nbsp;<td> <button type="button" id="botonFecha" class="btn btn-info btn-xs" onclick="informarAsistencia('.$idE.','."'".$nombreEvento."'".','."'".'opcion'.$idE."'".');" >Elegir</button></div><br>';
 					
 					}
 				}

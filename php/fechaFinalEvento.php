@@ -7,11 +7,20 @@
 	$cantUno= $_POST["cantUno"];
 	$cantDos= $_POST["cantDos"];
 	$cantTres= $_POST["cantTres"];
+	$fechaFinal=null;
 	
 	if($cantUno >= $cantDos){
 		if($cantUno >= $cantTres){
 			$cantFinal = $cantUno;
 			$fechaFinal = $fechaUno;
+		}else{
+			if($cantDos >= $cantTres){
+				$cantFinal = $cantDos;
+				$fechaFinal = $fechaDos;
+			}else{
+				$cantFinal = $cantTres;
+				$fechaFinal = $fechaTres;
+			}
 		}
 	}else{
 		if($cantDos >= $cantTres){
