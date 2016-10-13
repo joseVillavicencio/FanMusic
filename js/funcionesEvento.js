@@ -258,7 +258,7 @@ function crearEvento2(){
 	var fec2=fechas[1].value.split("/"); 
 	var fec3=fechas[2].value.split("/"); 
 		if((pais!="Selecciona País")&&(region!="Selecciona Región")&&(ciudad!="Selecciona Ciudad")&&(nombre!="")&&(motivo!="")&&(des!="")&&(fec1!="")){
-			if((nombre<=30)&&(motivo<=140)){
+			if((nombre.length<=30)&&(motivo.length<=140)){
 				var parametros = {
 					"idUser":getIDActual(),
 					"nombreE": nombre,
@@ -403,7 +403,7 @@ function resultadosClub(div){
 		success: function(response){
 			//alert(response);
 			$(div).append(response);
-			datosGrafico();
+			//datosGrafico();
 		}
 	});
 }
@@ -412,10 +412,25 @@ function resultadosClub(div){
 function actualizar(div,dir){
 	$(div).load(dir);
 }
-function ventanaPopEventos(){
+function ventanaPopEventos(idE,fec1,fec2,fec3,can1,can2,can3){
+	datosGraf(fec1,fec2,fec3,can1,can2,can3);
 	window.open('/FanMusic/ventanaPopEventos.php',"Eventos","width=420,height=340,toolbar=no");
 }
-function datosGraficoGrupo(){
+function datosGraf(fec1,fec2,fec3,can1,can2,can3){
+	localStorage.setItem("cant1",can1);
+	localStorage.setItem("cant2",can2);
+	localStorage.setItem("cant3",can3);
+	var time = fec1.split(" ");
+	var opc ="Fecha: "+time[0]+"<br>Hora: "+time[1]+"<br>";
+	localStorage.setItem("fecha1",opc);
+	var time2 = fec2.split(" ");
+	var opc2 ="Fecha: "+time2[0]+"<br>Hora: "+time2[1]+"<br>";
+	localStorage.setItem("fecha2",opc2);
+	var time3 = fec3.split(" ");
+	var opc3 ="Fecha: "+time3[0]+"<br>Hora: "+time3[1]+"<br>";
+	localStorage.setItem("fecha3",opc3);
+}
+/*function datosGraficoGrupo(){
 	
 	var parametros = {
 		"idM" :  getIDActual()
@@ -460,7 +475,6 @@ function datosGrafico(){
 		cache:	false,
 		
 		success:	function(response){
-			
 			if(response.status=="success"){
 				var resp = (response.message).split(";");
 				localStorage.setItem("cant1",resp[0]);
@@ -480,7 +494,7 @@ function datosGrafico(){
 		}
 	});
 }
-
+*/
 function contarFechaUno(){
 	return localStorage.getItem("cant1");
 }
@@ -510,6 +524,7 @@ function mostrarResultados(div){
 		type: "POST",	
 		
 		success: function(response){
+			
 			if(response==1){ //Es un Administrador	
 				resultadosClub(div);
 			}else{
@@ -533,7 +548,7 @@ function resultadosGrupo(div){
 		success: function(response){
 			
 			$(div).append(response);
-			datosGraficoGrupo();
+			//datosGraficoGrupo();
 		}
 	});
 }

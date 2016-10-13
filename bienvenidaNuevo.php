@@ -190,7 +190,7 @@
 		</div>
 				
 		<div class="row col-sm-12 col-xs-12">
-			<div id="busqueda" align="center" class="col-lg-6 col-md-5 col-sm-5 col-sm-offset-1 col-xs-5 col-xs-offset-1">
+			<div id="busqueda" align="center" class="col-lg-5 col-md-5 col-sm-5 col-sm-offset-1 col-xs-5 col-xs-offset-1">
 				<h2>Ingresa algo para comenzar la búsqueda</h2>
 				<input style="color:black;" type="text"  id="buscando" name="buscando"><button  type="button" onclick='buscare("#respuesta");'  class="btn btn-info" ><span class="glyphicon glyphicon-search"></span></button><br>
 

@@ -10,7 +10,7 @@
 	/*----------------------------------------------------------------------*/	
 	//Consultas
 	$conexion=conectar();
-	mysqli_set_charset($conexion,"utf8");
+	
 	$sql= "call obtenerIDGrupoMod('".$id."');"; //Busco el id del grupo que modera
 
 	if($registro1 =$conexion->query($sql)){

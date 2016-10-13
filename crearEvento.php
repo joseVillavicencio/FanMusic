@@ -62,7 +62,7 @@
 										<input id="datetimepicker" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
 										<script>
 										jQuery.datetimepicker.setLocale('es');
-										jQuery('#datetimepicker').datetimepicker({minDate:0,minTime:0});
+										jQuery('#datetimepicker').datetimepicker({minDate:0});
 										</script>
 									</div>
 									<br>
@@ -71,7 +71,7 @@
 										<input id="datetimepicker1" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
 										<script>
 										jQuery.datetimepicker.setLocale('es');
-										jQuery('#datetimepicker1').datetimepicker({minDate:0,minTime:0});
+										jQuery('#datetimepicker1').datetimepicker({minDate:0});
 										</script>
 									</div>
 									<br>
@@ -79,7 +79,7 @@
 										<span class="input-group-addon" id="basic-addon3">Opción 3:</span>
 										<input id="datetimepicker2" type="text" name="fecha" class="form-control" aria-describedby="basic-addon3">
 										<script>jQuery.datetimepicker.setLocale('es');
-										jQuery('#datetimepicker2').datetimepicker({minDate:0,minTime:0});
+										jQuery('#datetimepicker2').datetimepicker({minDate:0});
 										</script>
 									</div>
 									<br>
