@@ -25,7 +25,7 @@ $mail->AddAddress($correo);
 //$mail->WordWrap = 50;   
 //$body = "Hola ".$nombre.", para restaurar tu password necesitas ingresar en la siguiente url: http://158.251.97.0:80/FanApp/cambioContra.php?email=".$correo."&key=".$cod."";   
  
-$body = "Hola ".$nombre.", para restaurar tu password necesitas ingresar en la siguiente url: http://192.168.0.14:80/FanMusic/cambioContra.php?email=".$correo."&key=".$cod."";   
+$body = "Hola ".$nombre.", para restaurar tu password necesitas ingresar en la siguiente url: http://158.251.194.16:80/FanMusic/cambioContra.php?email=".$correo."&key=".$cod."";   
    
 $mail->Body = $body;   
    

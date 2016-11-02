@@ -25,7 +25,7 @@ $mail->AddAddress($correo);
 //$mail->WordWrap = 50;   
 //   $body = "Hola ".$nombre.", Bienvenido a FanApp y para activar tu cuenta necesitas ingresar en la siguiente url: http://158.251.97.1:80/FanApp/php/validarUser.php?email=".$correo."&key=".$cod;   
   
-$body = "Hola ".$nombre.", Bienvenido a FanMusic y para activar tu cuenta necesitas ingresar en la siguiente url: http://192.168.0.14:80/FanMusic/php/validarUser.php?email=".$correo."&key=".$cod;   
+$body = "Hola ".$nombre.", Bienvenido a FanMusic y para activar tu cuenta necesitas ingresar en la siguiente url: http://158.251.194.16:80/FanMusic/php/validarUser.php?email=".$correo."&key=".$cod;   
    
 $mail->Body = $body;   
    
